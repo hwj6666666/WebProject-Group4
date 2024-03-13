@@ -1,43 +1,51 @@
-import logo from './logo.svg';
-import './App.css';
+import Topic from "@/components/topic"
+import Header from "@/pages/header";
+import { MySider } from "./components/sider";
 
 function App() {
+
+const topics = [
+    {
+      title: '交大哪个餐饮大楼你去得最多？',
+      hotComments: ["第一食堂", "第二食堂","第三食堂"],
+      heat: 100,
+    },
+    {
+      title: '疯狂星期四你最喜欢点哪个？',
+      hotComments: ["蛋挞","蜜汁全鸡","汉堡"],
+      heat: 200,
+    },
+    // 更多话题...
+  ];
+
+  const handleTopicClick = (topic) => {
+    console.log(`Topic clicked: ${topic.title}`);
+  };
+
+
   return (
     <div className="App">
-      <header className="App-header">
+      <Header />
 
-        <h1 className='text-center'>
-          交大哪个食堂最好吃
-        </h1>
+      {topics.map((topic, index) => (
+        <Topic key={index} topic={topic} onTopicClick={() => handleTopicClick(topic)} />
+      ))}
 
-        <button className='float-right'>
-          上传评价对象
-        </button>
-
-        <div className='justify-center items-center flex h-200px w-150px'>
-          <div className='h-50px w-100px'>
-            <img src="../pictures/3000.png" alt="image" width="40" height="40" className='float-left'></img>
-            <h2>一餐：5.0</h2>
-            <h3>user: comment1</h3>
-          </div>
-
-          <div className='h-50px w-100px'>
-            <img src="../pictures/3003.png" alt="image" width="40" height="40" className='float-left'></img>
-            <h2>二餐：5.0</h2>
-            <h3>user: comment2</h3>
-          </div>
-        </div>
-
-        <div className='border-1'>
-          <h2>
-            热门话题
-          </h2>
-          <a href=''>
-            <img src="../pictures/3000.png" alt="image" width="40" height={40} className='float-left'></img>
-          </a>
-        </div>
-
-      </header>
+      <MySider/>
+      {/* <header className="App-header">
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <h1 className="text-3xl font-bold underline">Hello world!</h1>
+          Learn React
+        </a>
+      </header> */}
     </div>
   );
 }
