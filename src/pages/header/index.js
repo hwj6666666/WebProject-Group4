@@ -3,6 +3,7 @@ import logo from "@/assets/logo.jpg";
 import { Helmet } from "react-helmet";
 
 import { Input, Space } from "antd";
+import { Link } from "react-router-dom";
 
 const { Search } = Input;
 const onSearch = (value, _e, info) => console.log(info?.source, value);
@@ -38,8 +39,8 @@ const Header = () => {
         }}
         size="large"
       />
-      <span class="material-symbols-outlined">account_circle</span>
-    </div>
+      <Link to={'./user'}><span class="material-symbols-outlined">account_circle</span>
+    </Link></div>
   );
 };
 
