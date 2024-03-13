@@ -1,11 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+// import Header  from "@/pages/header";
+import Header from "@/pages/header"
+import Topic from "@/components/topic"
 
 function App() {
+
+const topics = [
+    {
+      title: '交大哪个餐饮大楼你去得最多？',
+      hotComments: ["第一食堂", "第二食堂","第三食堂"],
+      heat: 100,
+    },
+    {
+      title: '疯狂星期四你最喜欢点哪个？',
+      hotComments: ["蛋挞","蜜汁全鸡","汉堡"],
+      heat: 200,
+    },
+    // 更多话题...
+  ];
+
+  const handleTopicClick = (topic) => {
+    console.log(`Topic clicked: ${topic.title}`);
+  };
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+      <Header />
+
+      {topics.map((topic, index) => (
+        <Topic key={index} topic={topic} onTopicClick={() => handleTopicClick(topic)} />
+      ))}
+      {/* <header className="App-header">
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -18,7 +43,7 @@ function App() {
           <h1 className="text-3xl font-bold underline">Hello world!</h1>
           Learn React
         </a>
-      </header>
+      </header> */}
     </div>
   );
 }
