@@ -1,12 +1,14 @@
+//这个组件是话题页面的每一个话题，包含话题名称，最热打分，以及实时热度
+
 import React from "react";
-import { Card  } from "antd";
+import { Card } from "antd";
 
 const Topic = ({ topic, onTopicClick }) => {
   const { title, hotComments, heat } = topic;
 
   return (
     <Card
-      className="border border-black w-1/4"
+      className="border border-black w-full"
       onClick={onTopicClick}
       title={title}
     >
