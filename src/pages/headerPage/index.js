@@ -8,8 +8,12 @@ const { Search } = Input;
 const onSearch = (value, _e, info) => console.log(info?.source, value);
 
 const Header = () => {
-  const handleClick=()=>{
+  const goToUser=()=>{
     const absoluteURL = window.location.origin + '/user';
+    window.location.href = absoluteURL;
+  }
+  const goToMain=()=>{
+    const absoluteURL = window.location.origin + '/';
     window.location.href = absoluteURL;
   }
   return (
@@ -30,7 +34,7 @@ const Header = () => {
            }
         `}</style>
       </Helmet>
-      <div className="flex items-center">
+      <div className="flex items-center cursor-pointer" onClick={goToMain} >
         <img src={logo} alt="logo" className="h-20 rounded-2xl" />
         <span className="ml-4 text-4xl">交∩集</span>
       </div>
@@ -42,7 +46,7 @@ const Header = () => {
         }}
         size="large"
       />
-      <div onClick={handleClick}  className="cursor-pointer"
+      <div onClick={goToUser}  className="cursor-pointer"
       ><span class="material-symbols-outlined">account_circle</span>
     </div></div>
   );
