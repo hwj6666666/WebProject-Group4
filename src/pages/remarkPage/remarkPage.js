@@ -36,7 +36,7 @@ export const RemarkPage = () => {
             time: "2024-3-15",
             likes: 7,
             id: 2
-        },
+        }
         //更多评价
     ];
 
@@ -70,7 +70,7 @@ export const RemarkPage = () => {
     _4_pencentage = _4_pencentage.toFixed(0);
     _5_pencentage = _5_pencentage.toFixed(0);
 
-    return (<div className=" bg-yellow-400">
+    return (<div className=" bg-yellow-50">
         <Header />
         <div className="flex flex-row">
             <MyRemarkSider />
