@@ -1,11 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import { RouterProvider } from 'react-router';
+import router from './router';
+import { UserPage } from './pages/userpage/userPage';
+import { RemarkPage } from './pages/remarkPage/remarkPage';
+import BasicPage from './pages/topicPage/topicPage';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router}/>
   </React.StrictMode>
 );
