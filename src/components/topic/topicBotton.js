@@ -38,10 +38,9 @@ export const HeadButton = () => {
         display: "flex",
         justifyContent: "space-between",
         margin: "40px",
-        border: "1px solid black",
       }}
     >
-      <div>
+      <div className="border border-black">
         <Button
           type="text"
           ghost
