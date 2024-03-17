@@ -45,23 +45,46 @@ export const UserPage = () => {
 
 	return (
 		<div className="bg-yellow-50">
-			{/* <Header /> */}
+			{/* 导航栏 */}
+			<Header />
+			{/* 页面主体 */}
 			<div className="flex flex-col px-40 py-6">
-				{/* <div className="flex flex-row items-center h-40 bg-slate-400 rounded-lg px-20"> */}
-				<div className="flex items-center h-40 bg-slate-400 rounded-lg px-20">
-					<span className="mr-4">
-						<UserAvatar />
-					</span>
+				{/* 个人信息 */}
+				<div className="flex items-center h-40 bg-sky-200 rounded-lg px-20 min-w-[600px]">
+					{/* 头像 */}
+					<span className="mr-4"><UserAvatar /></span>
 					<span className="flex flex-col">
-						<div className="">
-							<span className="text-4xl mr-4">用户名</span>
-							<span className="text-2xl relative bottom-0">等级</span>
+						<div className="flex flex-row items-end mb-1">
+							<span className="text-4xl mr-4">交小集</span>
+							<span className="text-2xl relative bottom-0">Lv.6</span>
 						</div>
 						<div className="text-2xl">个性签名:</div>
 					</span>
-
+					<span className="ml-auto">
+						<SettingOutlined className="text-4xl" />
+					</span>
 				</div>
-
+				{/* 菜单栏及对应显示 */}
+				<div className="flex flex-row mt-6">
+					{/* 菜单栏 */}
+					<div>
+						<MySider />
+					</div>
+					{/* 显示 */}
+					<div className="w-full">
+						<div className="mx-5 mt-3 p-5 w-11/12 min-w-fit bg-sky-200 rounded-lg">
+							<div className="">
+								{topics.map((topic, index) => (
+									<Link href="#">
+										<div style={{ marginBottom: "30px" }} key={index}>
+											<Topic topic={topic} onTopicClick={() => handleTopicClick(topic)} />
+										</div>
+									</Link>
+								))}
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	);
