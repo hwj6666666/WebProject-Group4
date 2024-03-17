@@ -30,7 +30,7 @@ function BasicPage() {
     console.log(`Topic clicked: ${topic.title}`);
   };
   return (
-    <div>
+    <div className="bg-yellow-50 h-screen">
       <Header />
       <div className="flex ">
         <MySider />
