@@ -20,10 +20,10 @@ export const MySider = () => {
 
   return (
     <Sider
-      style={{ marginTop: "7%", marginLeft: "3%" }}
+      style={{ marginTop: "7%", marginLeft: "3%", borderRadius: "14px" }}
     >
       <Menu
-        theme="dark"
+        className="bg-green-100"
         mode="vertical"
         key={sort.id}
         style={{ borderRadius: "14px" }}

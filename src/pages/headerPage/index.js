@@ -2,13 +2,15 @@ import React from "react";
 import logo from "@/assets/logo.jpg";
 import { Helmet } from "react-helmet";
 
-import { Input, Space } from "antd";
-import { Link } from "react-router-dom";
+import {Input} from "antd";
 
 const { Search } = Input;
 const onSearch = (value, _e, info) => console.log(info?.source, value);
 
 const Header = () => {
+  const handleClick=()=>{
+    window.location.href = 'http://localhost:3000/user';
+  }
   return (
     <div className="flex justify-between items-center bg-blue-600 text-white h-20 rounded-2xl ">
       <Helmet>
@@ -39,8 +41,9 @@ const Header = () => {
         }}
         size="large"
       />
-      <Link to={'./user'}><span class="material-symbols-outlined">account_circle</span>
-    </Link></div>
+      <div onClick={handleClick}  className="cursor-pointer"
+      ><span class="material-symbols-outlined">account_circle</span>
+    </div></div>
   );
 };
 

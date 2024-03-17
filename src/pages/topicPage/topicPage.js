@@ -27,10 +27,10 @@ function BasicPage() {
   ];
 
   const handleTopicClick = (topic) => {
-    console.log(`Topic clicked: ${topic.title}`);
+    window.location.href = 'http://localhost:3000/remark';
   };
   return (
-    <div>
+    <div className="bg-yellow-50 h-screen">
       <Header />
       <div className="flex ">
         <MySider />

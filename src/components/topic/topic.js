@@ -7,7 +7,7 @@ const Topic = ({ topic, onTopicClick }) => {
   const { title, hotComments, heat } = topic;
 
   return (
-    <Card
+    <Card hoverable
       className="border border-black w-full"
       onClick={onTopicClick}
       title={title}

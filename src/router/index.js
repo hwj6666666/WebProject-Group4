@@ -2,6 +2,7 @@
 import { createBrowserRouter } from 'react-router-dom'
 import { UserPage } from '@/pages/userpage/userPage'
 import BasicPage from "@/pages/topicPage/topicPage";
+import { RemarkPage } from '@/pages/remarkPage/remarkPage';
 
 const router=createBrowserRouter([
     {
@@ -11,6 +12,10 @@ const router=createBrowserRouter([
     {
         path:"/user",
         element:<UserPage />
+    },
+    {
+        path:"/remark",
+        element:<RemarkPage />
     }
 ])
 

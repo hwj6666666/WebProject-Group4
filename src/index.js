@@ -4,7 +4,8 @@ import './index.css';
 import { RouterProvider } from 'react-router';
 import router from './router';
 import { UserPage } from './pages/userpage/userPage';
-import { RemarkPage } from "./pages/remarkPage";
+import { RemarkPage } from './pages/remarkPage/remarkPage';
+import BasicPage from './pages/topicPage/topicPage';
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
