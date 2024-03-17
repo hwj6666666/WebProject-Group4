@@ -11,25 +11,31 @@ import { Flex, Progress } from 'antd';
 export const RemarkPage = () => {
     const remarks = [
         {
-            username: "用户hwj",
+            username: "用户114514",
             photo: "",
-            comment: "一餐好吃",
+            comment: "还可以吧，虽然不算最好吃的",
             score: "4.0",
-            time: "2024-3-9"
+            time: "2024-3-9",
+            likes: 50,
+            id: 0
         },
         {
             username: "用户666",
             photo: "",
-            comment: "二餐好吃",
+            comment: "一餐很好啊，选择也挺多的",
             score: "5.0",
-            time: "2024-3-9"
+            time: "2024-3-11",
+            likes: 13,
+            id: 1
         },
         {
-            username: "用户chy",
+            username: "用户1919810",
             photo: "",
-            comment: "三餐好吃",
-            score: "3.0",
-            time: "2024-3-9"
+            comment: "感觉不如二餐，就算排队也要去二餐",
+            score: "2.0",
+            time: "2024-3-15",
+            likes: 7,
+            id: 2
         },
         //更多评价
     ];
@@ -108,7 +114,7 @@ export const RemarkPage = () => {
                                     </div>
                                     <div className="flex flex-col items-center">
                                         <div className="border border-black rounded-lg w-16 h-10 flex justify-center items-center mb-4">{remark.score}</div>
-                                        <LikeButton />
+                                        <LikeButton likes={remark.likes} />
                                     </div>
                                 </div>
                             </Card>
