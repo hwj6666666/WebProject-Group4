@@ -12,14 +12,4 @@ export const UserAvatar = () => {
 };
 
 
-{/* <Avatar size="large" icon={<UserOutlined />} />
-<Avatar icon={<UserOutlined />} />
-<Avatar size="small" icon={<UserOutlined />} />
-<Avatar size={14} icon={<UserOutlined />} />
-</Space>
-<Space wrap size={16}>
-<Avatar shape="square" size={64} icon={<UserOutlined />} />
-<Avatar shape="square" size="large" icon={<UserOutlined />} />
-<Avatar shape="square" icon={<UserOutlined />} />
-<Avatar shape="square" size="small" icon={<UserOutlined />} />
-<Avatar shape="square" size={14} icon={<UserOutlined />} /> */}
+

@@ -37,13 +37,14 @@ const Header = () => {
         placeholder="请输入感兴趣的话题或帖子"
         onSearch={onSearch}
         style={{
-          width: 200,
+          width: 400,
         }}
         size="large"
       />
-      <div onClick={handleClick}  className="cursor-pointer"
-      ><span class="material-symbols-outlined">account_circle</span>
-    </div></div>
+      <div onClick={handleClick} className="cursor-pointer">
+        <span class="material-symbols-outlined">account_circle</span>
+      </div>
+    </div>
   );
 };
 
