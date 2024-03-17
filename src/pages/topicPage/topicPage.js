@@ -27,7 +27,8 @@ function BasicPage() {
   ];
 
   const handleTopicClick = (topic) => {
-    window.location.href = 'http://localhost:3000/remark';
+    const absoluteURL = window.location.origin + '/remark';
+    window.location.href = absoluteURL;
   };
   return (
     <div className="bg-yellow-50 h-screen">

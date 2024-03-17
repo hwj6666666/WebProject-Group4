@@ -9,7 +9,8 @@ const onSearch = (value, _e, info) => console.log(info?.source, value);
 
 const Header = () => {
   const handleClick=()=>{
-    window.location.href = 'http://localhost:3000/user';
+    const absoluteURL = window.location.origin + '/user';
+    window.location.href = absoluteURL;
   }
   return (
     <div className="flex justify-between items-center bg-blue-600 text-white h-20 rounded-2xl ">
