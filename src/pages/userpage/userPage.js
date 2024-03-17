@@ -53,51 +53,15 @@ export const UserPage = () => {
 						<UserAvatar />
 					</span>
 					<span className="flex flex-col">
-						{/* <div className="flex flex-row items-end mb-1"> */}
 						<div className="">
 							<span className="text-4xl mr-4">用户名</span>
 							<span className="text-2xl relative bottom-0">等级</span>
 						</div>
 						<div className="text-2xl">个性签名:</div>
 					</span>
-					{/* <div className="ml-auto">
-						<SettingOutlined className="text-4xl" />
-					</div> */}
+
 				</div>
-				{/* <div className="flex flex-row items-center h-40 bg-slate-400 rounded-lg px-20"
-					style={{ width: "1400px" }}>
-					<div className="mr-4">
-						<UserAvatar />
-					</div>
-					<div className="flex flex-col">
-						<div className="flex flex-row items-end mb-1">
-							<div className="text-4xl mr-4">用户名</div>
-							<div className="text-2xl relative bottom-0">等级</div>
-						</div>
-						<div className="text-2xl">个性签名:</div>
-					</div>
-					<div className="ml-auto">
-						<SettingOutlined className="text-4xl" />
-					</div>
-				</div> */}
-				{/* <div className="flex flex-row mt-6">
-					<div>
-						<MySider />
-					</div>
-					<div className="flex flex-col">
-						<div className="flex flex-row mx-5">
-							<div style={{ marginLeft: "30px", width: "1000px" }}>
-								{topics.map((topic, index) => (
-									<Link href="#">
-										<div style={{ marginBottom: "30px" }} key={index}>
-											<Topic topic={topic} onTopicClick={() => handleTopicClick(topic)} />
-										</div>
-									</Link>
-								))}
-							</div>
-						</div>
-					</div>
-				</div> */}
+
 			</div>
 		</div>
 	);

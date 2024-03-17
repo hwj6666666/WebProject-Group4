@@ -10,8 +10,6 @@ import BasicPage from './pages/topicPage/topicPage';
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
 	<React.StrictMode >
-		{/* <RouterProvider router={router} className="h-screen bg-yellow-50 bg-cover" /> */}
-		<UserPage />
-		{/* <RemarkPage /> */}
+		<RouterProvider router={router} className="h-screen bg-yellow-50 bg-cover" />
 	</React.StrictMode>
 );
