@@ -70,7 +70,9 @@ export const RemarkPage = () => {
     _4_pencentage = _4_pencentage.toFixed(0);
     _5_pencentage = _5_pencentage.toFixed(0);
 
-    return (<div className=" bg-yellow-50">
+   
+
+    return (<div className=" bg-yellow-50" >
         <Header />
         <div className="flex flex-row">
             <MyRemarkSider />
@@ -98,7 +100,7 @@ export const RemarkPage = () => {
                 <div className="mt-6 ml-24 w-5/6">
                     <div>
                         {remarks.map((remark, index) => (
-                            <Card key={index} title={<div className="flex items-center">
+                            <Card key={index} title={<div className="flex items-center" >
                                 <img src={profile_photo} alt="图片描述" className="w-10 h-10 mt-3 mr-4" />
                                 <div className="mt-2">{remark.username}</div>
                             </div>
