@@ -39,7 +39,7 @@ const Header = () => {
         }}
         size="large"
       />
-      <Link to={'./user'}><span class="material-symbols-outlined">account_circle</span>
+      <Link to={'./user'}><span class="material-symbols-outlined"></span>
     </Link></div>
   );
 };
