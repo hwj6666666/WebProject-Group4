@@ -9,8 +9,8 @@ import { RemarkPage } from "./pages/remarkPage";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
 	<React.StrictMode >
-		<RouterProvider router={router} className="h-screen bg-yellow-50 bg-cover" />
-		{/* <UserPage /> */}
+		{/* <RouterProvider router={router} className="h-screen bg-yellow-50 bg-cover" /> */}
+		<UserPage />
 		{/* <RemarkPage /> */}
 	</React.StrictMode>
 );

@@ -45,9 +45,26 @@ export const UserPage = () => {
 
 	return (
 		<div className="bg-yellow-50">
-			<Header />
+			{/* <Header /> */}
 			<div className="flex flex-col px-40 py-6">
-				<div className="flex flex-row items-center h-40 bg-slate-400 rounded-lg px-20"
+				{/* <div className="flex flex-row items-center h-40 bg-slate-400 rounded-lg px-20"> */}
+				<div className="flex items-center h-40 bg-slate-400 rounded-lg px-20">
+					<span className="mr-4">
+						<UserAvatar />
+					</span>
+					<span className="flex flex-col">
+						{/* <div className="flex flex-row items-end mb-1"> */}
+						<div className="">
+							<span className="text-4xl mr-4">用户名</span>
+							<span className="text-2xl relative bottom-0">等级</span>
+						</div>
+						<div className="text-2xl">个性签名:</div>
+					</span>
+					{/* <div className="ml-auto">
+						<SettingOutlined className="text-4xl" />
+					</div> */}
+				</div>
+				{/* <div className="flex flex-row items-center h-40 bg-slate-400 rounded-lg px-20"
 					style={{ width: "1400px" }}>
 					<div className="mr-4">
 						<UserAvatar />
@@ -62,15 +79,13 @@ export const UserPage = () => {
 					<div className="ml-auto">
 						<SettingOutlined className="text-4xl" />
 					</div>
-				</div>
-				<div className="flex flex-row mt-6">
+				</div> */}
+				{/* <div className="flex flex-row mt-6">
 					<div>
 						<MySider />
 					</div>
 					<div className="flex flex-col">
-						{/* <HeadButton className="border border-black" /> */}
 						<div className="flex flex-row mx-5">
-
 							<div style={{ marginLeft: "30px", width: "1000px" }}>
 								{topics.map((topic, index) => (
 									<Link href="#">
@@ -80,10 +95,9 @@ export const UserPage = () => {
 									</Link>
 								))}
 							</div>
-
 						</div>
 					</div>
-				</div>
+				</div> */}
 			</div>
 		</div>
 	);
