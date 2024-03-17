@@ -9,8 +9,7 @@ import { RemarkPage } from "./pages/remarkPage";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    {/* <RouterProvider router={router}/> */}
-    {/* <UserPage/> */}
-    <RemarkPage />
+    <RouterProvider router={router}/>
+
   </React.StrictMode>
 );
