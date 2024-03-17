@@ -47,7 +47,7 @@ export const UserPage = () => {
 		<div className="bg-yellow-50">
 			<Header />
 			<div className="flex flex-col px-40 py-6">
-				<div className="flex flex-row items-center h-40 bg-slate-400 rounded-lg px-20"
+				<div className="flex flex-row items-center h-40 bg-slate-300 rounded-lg px-20"
 					style={{ width: "1400px" }}>
 					<div className="mr-4">
 						<UserAvatar />
