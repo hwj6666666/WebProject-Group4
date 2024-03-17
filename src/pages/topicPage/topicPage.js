@@ -30,7 +30,7 @@ function BasicPage() {
     window.location.href = 'http://localhost:3000/remark';
   };
   return (
-    <div>
+    <div className="bg-yellow-50 h-screen">
       <Header />
       <div className="flex ">
         <MySider />

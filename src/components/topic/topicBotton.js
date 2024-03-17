@@ -96,7 +96,7 @@ export const HeadButton = () => {
             />
           </Form.Item>
           <Form.Item>
-            <Button type="primary" htmlType="submit">
+            <Button className="bg-blue-600" type="primary" htmlType="submit">
               提交
             </Button>
           </Form.Item>
