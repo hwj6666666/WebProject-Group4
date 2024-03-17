@@ -14,6 +14,7 @@ export const MySider = () => {
 	return (
 		<Sider
 			style={{ marginTop: "7%", marginLeft: "3%" }}
+			className="drop-shadow-md"
 		>
 			<Menu className="bg-sky-200"
 				// theme="dark"

@@ -2,6 +2,7 @@
 
 import React from "react";
 import { Card } from "antd";
+import ClcButton from "@/components/user/clcButton";
 
 const Topic = ({ topic, onTopicClick }) => {
 	const { title, hotComments, heat } = topic;
@@ -10,15 +11,23 @@ const Topic = ({ topic, onTopicClick }) => {
 		<Card hoverable
 			className="border border-black w-full"
 			onClick={onTopicClick}
-			title={title}
-		>
-			<div className="flex justify-between ">
+			title={
+				<div className="flex items-center">
+					<span>{title}</span>
+				</div>
+			}>
+			<div className="flex justify-between">
 				<ul>
 					{hotComments.map((comment, index) => (
 						<li key={index}>{comment}</li>
 					))}
 				</ul>
-				<div>实时热度：{heat}</div>
+				<div>
+					<div>实时热度：{heat}</div>
+					<div className=" mt-3 ml-4">
+						<ClcButton />
+					</div>
+				</div>
 			</div>
 		</Card>
 	);
