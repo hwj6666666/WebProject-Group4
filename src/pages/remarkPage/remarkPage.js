@@ -70,7 +70,7 @@ export const RemarkPage = () => {
     _4_pencentage = _4_pencentage.toFixed(0);
     _5_pencentage = _5_pencentage.toFixed(0);
 
-    return (<div>
+    return (<div className=" bg-yellow-400">
         <Header />
         <div className="flex flex-row">
             <MyRemarkSider />
