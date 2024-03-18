@@ -80,7 +80,7 @@ export const UserPage = () => {
 					<div className="w-full">
 						<div className="mx-5 mt-3 p-5 w-11/12 min-w-fit bg-sky-200 rounded-lg drop-shadow-md">
 							{topics.map((topic, index) => (
-								<Link href="#">
+								<Link Link to={{ pathname: '/remark' }}>
 									<div style={{ marginBottom: "30px" }} key={index}>
 										<Topic topic={topic} onTopicClick={() => handleTopicClick(topic)} />
 									</div>

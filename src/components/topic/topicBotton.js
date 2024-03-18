@@ -1,8 +1,10 @@
 //这个组件是话题页面其他相关的按钮，包括最新和最热的切换按钮，以及上传话题的按钮
 
+import { addTopic } from "@/store/modules/topic";
 import { Button, Divider, Form, Input, Modal, message } from "antd";
 import { Content } from "antd/es/layout/layout";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 export const HeadButton = () => {
   const [focus, setFocus] = useState(true);
@@ -25,10 +27,20 @@ export const HeadButton = () => {
     setIsModalOpen(false);
   };
   const [form] = Form.useForm();
+  const topics=useSelector(state=>state.topic).topic
+      const dispatch=useDispatch()
+  const id=useSelector(state=>state.topic).len+1
   const onFinish = ({ topic, introduce }) => {
     if (!topic) message.error("请输入话题");
     else {
       message.success("提交成功");
+      const mytopic={
+        title: topic,
+        hotComments: [],
+        heat: 0,
+        id: id,
+      }
+      dispatch(addTopic(mytopic))
       setIsModalOpen(false);
     }
   };
@@ -38,10 +50,9 @@ export const HeadButton = () => {
         display: "flex",
         justifyContent: "space-between",
         margin: "40px",
-        border: "1px solid black",
       }}
     >
-      <div>
+      <div className="border border-black">
         <Button
           type="text"
           ghost

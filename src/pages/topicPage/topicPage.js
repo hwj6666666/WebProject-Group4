@@ -4,33 +4,16 @@ import { HeadButton } from "@/components/topic/topicBotton";
 import { MySider } from "@/components/topic/topicSider";
 import Layout from "antd/es/layout/layout";
 import Header from "../headerPage";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function BasicPage() {
-  const topics = [
-    {
-      title: "交大哪个餐饮大楼你去得最多？",
-      hotComments: ["第一食堂", "第二食堂", "第三食堂"],
-      heat: 100,
-      id: 1,
-    },
-    {
-      title: "疯狂星期四你最喜欢点哪个？",
-      hotComments: ["蛋挞", "蜜汁全鸡", "汉堡"],
-      heat: 200,
-    },
-    {
-      title: "最喜欢点？",
-      hotComments: ["蛋", "鸡", "堡"],
-      heat: 200,
-    },
-    // 更多话题...
-  ];
+  
+  const {topic} =useSelector(state=>state.topic) ;
+  console.log(topic)
 
-  const handleTopicClick = (topic) => {
-    window.location.href = 'http://localhost:3000/remark';
-  };
   return (
-    <div className="bg-yellow-50 h-screen">
+    <div>
       <Header />
       <div className="flex ">
         <MySider />
@@ -39,13 +22,12 @@ function BasicPage() {
 
           <div style={{ marginLeft: "30px", width: "1000px" }}>
             {" "}
-            {topics.map((topic, index) => (
+            {topic.map((topic, index) => (
               <div style={{ marginBottom: "30px" }}>
-                <Topic
+                <Link  to={{ pathname: '/remark'}}><Topic
                   key={index}
                   topic={topic}
-                  onTopicClick={() => handleTopicClick(topic)}
-                />{" "}
+                /></Link>{" "}
               </div>
             ))}
           </div>

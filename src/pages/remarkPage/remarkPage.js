@@ -7,38 +7,11 @@ import profile_photo from "@/assets/3000.png";
 import { MakeRemark } from "@/components/remark/makeRemark";
 import LikeButton from "@/components/remark/remarkLike";
 import { Flex, Progress } from 'antd';
+import { useSelector } from "react-redux";
 
 export const RemarkPage = () => {
-	const remarks = [
-		{
-			username: "用户114514",
-			photo: "",
-			comment: "还可以吧，虽然不算最好吃的",
-			score: "4.0",
-			time: "2024-3-9",
-			likes: 50,
-			id: 0
-		},
-		{
-			username: "用户666",
-			photo: "",
-			comment: "一餐很好啊，选择也挺多的",
-			score: "5.0",
-			time: "2024-3-11",
-			likes: 13,
-			id: 1
-		},
-		{
-			username: "用户1919810",
-			photo: "",
-			comment: "感觉不如二餐，就算排队也要去二餐",
-			score: "2.0",
-			time: "2024-3-15",
-			likes: 7,
-			id: 2
-		}
-		//更多评价
-	];
+	const remarks = useSelector(state => state.remark).remark
+	console.log(remarks)
 
 	//进行统计
 	let freq = remarks.reduce((total, item) => {

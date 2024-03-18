@@ -14,7 +14,7 @@ const Topic = ({ topic, onTopicClick }) => {
 		>
 			<div className="flex justify-between ">
 				<ul>
-					{hotComments.map((comment, index) => (
+					{hotComments && hotComments.map((comment, index) => (
 						<li key={index}>{comment}</li>
 					))}
 				</ul>
