@@ -15,7 +15,7 @@ function BasicPage() {
   return (
     <div>
       <Header />
-      <div className="flex ">
+      <div className="flex bg-yellow-50">
         <MySider />
         <div>
           <HeadButton className="border border-black" />
