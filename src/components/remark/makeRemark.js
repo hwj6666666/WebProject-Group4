@@ -3,8 +3,6 @@ import { Content } from "antd/es/layout/layout";
 import React, { useState } from 'react';
 
 export const MakeRemark = () => {
-    const desc = ['terrible', 'bad', 'normal', 'good', 'wonderful'];
-    const [value, setValue] = useState(3);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const showModal = () => {
         setIsModalOpen(true);

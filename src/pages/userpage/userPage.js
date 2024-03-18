@@ -4,7 +4,6 @@ import { MySider } from "@/components/user/userSider";
 import { UserAvatar } from "@/components/user/userAvatar";
 import { SettingOutlined } from "@ant-design/icons";
 import Topic from "@/components/topic/topic";
-import { HeadButton } from "@/components/topic/topicBotton";
 // import Layout from "antd/es/layout/layout";
 import Header from "../headerPage";
 import { Link } from "react-router-dom";

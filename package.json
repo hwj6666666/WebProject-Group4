@@ -22,6 +22,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "mock": "json-server ./public/db.json --port 8080",
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",

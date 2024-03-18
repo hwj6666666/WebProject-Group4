@@ -27,7 +27,6 @@ export const HeadButton = () => {
     setIsModalOpen(false);
   };
   const [form] = Form.useForm();
-  const topics=useSelector(state=>state.topic).topic
       const dispatch=useDispatch()
   const id=useSelector(state=>state.topic).len+1
   const onFinish = ({ topic, introduce }) => {

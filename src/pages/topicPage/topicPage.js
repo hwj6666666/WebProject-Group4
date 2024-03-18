@@ -2,7 +2,6 @@ import React from "react";
 import Topic from "@/components/topic/topic";
 import { HeadButton } from "@/components/topic/topicBotton";
 import { MySider } from "@/components/topic/topicSider";
-import Layout from "antd/es/layout/layout";
 import Header from "../headerPage";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";

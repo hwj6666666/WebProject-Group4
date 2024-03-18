@@ -3,7 +3,6 @@ import logo from "@/assets/logo.jpg";
 import { Helmet } from "react-helmet";
 import { Input } from "antd/es";
 import { Login } from "@/components/login";
-import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const { Search } = Input;
@@ -11,7 +10,6 @@ const onSearch = (value, _e, info) => console.log(info?.source, value);
 
 const Header = () => {
 
-  const {login}=useSelector(state=>state.login)
  
   return (
     <div className="flex justify-between items-center bg-blue-600 text-white h-20 rounded-2xl ">
