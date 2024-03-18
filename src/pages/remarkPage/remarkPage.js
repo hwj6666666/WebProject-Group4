@@ -45,7 +45,7 @@ export const RemarkPage = () => {
 
 
 
-	return (<div className=" bg-yellow-50" >
+	return (<div className="min-h-screen bg-yellow-50" >
 		<Header />
 		<div className="flex flex-row">
 			<MyRemarkSider />
