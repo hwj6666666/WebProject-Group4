@@ -1,7 +1,7 @@
 import { setLogin } from "@/store/modules/loginInfo";
 import { Avatar, Button, Form, Input, Modal, message } from "antd";
 import { useEffect, useState } from "react";
-import avator from '../assets/rabit.jpg'
+import avator from "../assets/3000.png";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { addUser } from "@/store/modules/user";

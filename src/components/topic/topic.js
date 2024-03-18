@@ -4,7 +4,7 @@ import React from "react";
 import { Card } from "antd";
 
 const Topic = ({ topic, onTopicClick }) => {
-  const { title, hotComments, heat } = topic;
+	const { title, hotComments, heat } = topic;
 
   return (
     <Card hoverable
