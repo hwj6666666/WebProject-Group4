@@ -73,7 +73,7 @@ export const UserPage = () => {
 
 							<div style={{ marginLeft: "30px", width: "1000px" }}>
 								{topics.map((topic, index) => (
-									<Link href="#">
+									<Link Link  to={{ pathname: '/remark'}}>
 										<div style={{ marginBottom: "30px" }} key={index}>
 											<Topic topic={topic} onTopicClick={() => handleTopicClick(topic)} />
 										</div>

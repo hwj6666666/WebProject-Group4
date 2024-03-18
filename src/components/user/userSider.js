@@ -5,24 +5,25 @@ import Sider from "antd/es/layout/Sider";
 
 export const MySider = () => {
   const sort = [
-    { name: "我关注的话题", id: 0, key: 1 },
-    { name: "我创建的话题", id: 1, key: 2 },
-    { name: "我创建的对象", id: 2, key: 3 },
-    { name: "我的评论", id: 3, key: 4 },
+    { name: "我关注的话题", id: 0, key: '1' },
+    { name: "我创建的话题", id: 1, key: '2' },
+    { name: "我创建的对象", id: 2, key: '3' },
+    { name: "我的评论", id: 3, key: '4' },
   ];
 
   return (
     <Sider
       style={{ marginTop: "7%", marginLeft: "3%" }}
     >
-      <Menu className="bg-green-100"
-        // theme="dark"
+      <Menu
+        className="bg-green-100"
         mode="vertical"
-        key={sort.id}
+        defaultSelectedKeys={['1']} // 设置默认选中第一个菜单项
+        
         style={{ borderRadius: "14px", textAlign: "center" }}
       >
         {sort.map((item) => (
-          <Menu.Item key={item.id}> {item.name}</Menu.Item>
+          <Menu.Item key={item.key}> {item.name}</Menu.Item>
         ))}
       </Menu>
     </Sider>

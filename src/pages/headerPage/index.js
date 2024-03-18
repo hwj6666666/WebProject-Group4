@@ -1,21 +1,18 @@
 import React from "react";
 import logo from "@/assets/logo.jpg";
 import { Helmet } from "react-helmet";
-
-import {Input} from "antd";
+import { Input } from "antd/es";
+import { Login } from "@/components/login";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const { Search } = Input;
 const onSearch = (value, _e, info) => console.log(info?.source, value);
 
 const Header = () => {
-  const goToUser=()=>{
-    const absoluteURL = window.location.origin + '/user';
-    window.location.href = absoluteURL;
-  }
-  const goToMain=()=>{
-    const absoluteURL = window.location.origin + '/';
-    window.location.href = absoluteURL;
-  }
+
+  const {login}=useSelector(state=>state.login)
+ 
   return (
     <div className="flex justify-between items-center bg-blue-600 text-white h-20 rounded-2xl ">
       <Helmet>
@@ -34,10 +31,10 @@ const Header = () => {
            }
         `}</style>
       </Helmet>
-      <div className="flex items-center cursor-pointer" onClick={goToMain} >
+      <Link  to={{ pathname: '/'}}><div className="flex items-center cursor-pointer"  >
         <img src={logo} alt="logo" className="h-20 rounded-2xl" />
         <span className="ml-4 text-4xl">交∩集</span>
-      </div>
+      </div></Link>
       <Search
         placeholder="请输入感兴趣的话题或帖子"
         onSearch={onSearch}
@@ -46,9 +43,8 @@ const Header = () => {
         }}
         size="large"
       />
-      <div onClick={goToUser}  className="cursor-pointer"
-      ><span class="material-symbols-outlined">account_circle</span>
-    </div></div>
+      <Login/>
+    </div>
   );
 };
 

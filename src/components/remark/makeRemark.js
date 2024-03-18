@@ -1,4 +1,4 @@
-import { Button, Divider, Form, Input, Modal, message, Flex, Rate } from "antd";
+import { Button, Form, Input, Modal, message, Rate } from "antd/es";
 import { Content } from "antd/es/layout/layout";
 import React, { useState } from 'react';
 
