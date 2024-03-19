@@ -1,18 +1,23 @@
 //这个组件是话题页面其他相关的按钮，包括最新和最热的切换按钮，以及上传话题的按钮
 
-import { addTopic } from "@/store/modules/topic";
+import { addTopic, changeTopic } from "@/store/modules/topic";
 import { Button, Divider, Form, Input, Modal, message } from "antd";
 import { Content } from "antd/es/layout/layout";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
+import _ from 'lodash'
 export const HeadButton = () => {
   const [focus, setFocus] = useState(true);
+  
+  const topic=useSelector(state=>state.topic).topic
+  console.log(topic)
+  const dispatch=useDispatch()
   const setNew = () => {
+    dispatch(changeTopic(_.orderBy(topic,'time','desc')))
     setFocus(true);
   };
-
   const setHot = () => {
+    dispatch(changeTopic(_.orderBy(topic,'heat','desc')))
     setFocus(false);
   };
 
@@ -27,7 +32,6 @@ export const HeadButton = () => {
     setIsModalOpen(false);
   };
   const [form] = Form.useForm();
-      const dispatch=useDispatch()
   const id=useSelector(state=>state.topic).len+1
   const onFinish = ({ topic, introduce }) => {
     if (!topic) message.error("请输入话题");
@@ -43,6 +47,13 @@ export const HeadButton = () => {
       setIsModalOpen(false);
     }
   };
+
+  const handleTopic=()=>{
+    if(localStorage.getItem('isuser'))
+      showModal()
+    else
+      message.error('请登录',0.5)
+  }
   return (
     <Content
       style={{
@@ -54,8 +65,6 @@ export const HeadButton = () => {
       <div className="border border-black">
         <Button
           type="text"
-          ghost
-          motion={false}
           style={focus && { color: "#1E90FF" }}
           onClick={() => {
             setNew();
@@ -66,8 +75,6 @@ export const HeadButton = () => {
         <Divider type="vertical" style={{ backgroundColor: "gray" }}></Divider>
         <Button
           type="text"
-          ghost
-          motion={false}
           style={!focus && { color: "#1E90FF" }}
           onClick={() => {
             setHot();
@@ -78,7 +85,7 @@ export const HeadButton = () => {
       </div>
       <Button
         style={{ backgroundColor: "#1E90FF", color: "#FFFFFF" }}
-        onClick={showModal}
+        onClick={handleTopic}
       >
         上传话题
       </Button>

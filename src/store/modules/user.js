@@ -1,3 +1,4 @@
+
 import { createSlice } from "@reduxjs/toolkit";
 const userStore = createSlice({
   name: "user",
@@ -9,13 +10,19 @@ const userStore = createSlice({
   },
   reducers: {
     setUser(state, action) {
-      state.user = action.payload;
+      state.user=state.user.filter((element) => element.name !== action.payload.name);
+      console.log(state.user)
+      state.user.push({username:action.payload.user,password:action.payload.pw})
+        console.log(state.user)
     },
     addUser(state, action) {
       state.user.push(action.payload)
     },
   },
 });
+
+
+
 
 const { setUser, addUser } = userStore.actions;
 

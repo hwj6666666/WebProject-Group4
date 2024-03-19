@@ -12,7 +12,7 @@ const Header = () => {
 
  
   return (
-    <div className="flex justify-between items-center bg-blue-600 text-white h-20 rounded-2xl ">
+    <div className="min-w-[700px] flex justify-between items-center bg-blue-600 text-white h-20 rounded-2xl ">
       <Helmet>
         <link
           rel="stylesheet"
@@ -29,10 +29,12 @@ const Header = () => {
            }
         `}</style>
       </Helmet>
-      <Link  to={{ pathname: '/'}}><div className="flex items-center cursor-pointer"  >
-        <img src={logo} alt="logo" className="h-20 rounded-2xl" />
-        <span className="ml-4 text-4xl">交∩集</span>
-      </div></Link>
+      <Link to={{ pathname: "/" }}>
+        <div className="flex items-center cursor-pointer">
+          <img src={logo} alt="logo" className="h-20 rounded-2xl" />
+          <span className="ml-4 text-4xl">交∩集</span>
+        </div>
+      </Link>
       <Search
         placeholder="请输入感兴趣的话题或帖子"
         onSearch={onSearch}
@@ -41,7 +43,7 @@ const Header = () => {
         }}
         size="large"
       />
-      <Login/>
+      <div className="mr-5"><Login></Login></div>
     </div>
   );
 };

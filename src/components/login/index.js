@@ -1,6 +1,6 @@
 import { setLogin } from "@/store/modules/loginInfo";
 import { Avatar, Button,Modal} from "antd";
-import { useEffect, useState } from "react";
+import {useState } from "react";
 import avator from '../../assets/rabit.jpg'
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -29,8 +29,6 @@ export const Login=()=>{
   
      
     
-  
-  useEffect(()=>{},[user])
 
    
 

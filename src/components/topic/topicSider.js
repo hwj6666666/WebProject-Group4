@@ -16,6 +16,8 @@ export const MySider = () => {
     { name: "时尚", id: 8, key: '9' },
     { name: "音乐", id: 9, key: '10' },
     { name: "运动", id: 10, key: '11' },
+    { name: "人文", id: 11, key: '12' },
+    { name: "其他", id: 12, key: '13' },
   ];
 
   return (

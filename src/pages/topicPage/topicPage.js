@@ -9,12 +9,11 @@ import { useSelector } from "react-redux";
 function BasicPage() {
   
   const {topic} =useSelector(state=>state.topic) ;
-  console.log(topic)
 
   return (
-    <div>
+    <div className="min-h-screen bg-yellow-50">
       <Header />
-      <div className="flex ">
+      <div className="min--h-screen flex justify-center ">
         <MySider />
         <div>
           <HeadButton className="border border-black" />
