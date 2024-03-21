@@ -9,7 +9,7 @@ const remarkStore = createSlice({
           comment: "还可以吧，虽然不算最好吃的",
           score: "4.0",
           time: "2024-03-15  04:25",
-          likes: 50,
+          likes: 1,
           id: 0
       },
       {

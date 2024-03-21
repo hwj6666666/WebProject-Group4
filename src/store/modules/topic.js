@@ -12,7 +12,7 @@ const topicStore = createSlice({
           id: 1,
         },
         {
-          title: "交大建筑",
+          title: "你最喜欢哪一座交大建筑？",
           hotComments: ["庙门", "包玉刚图书馆", "致远游泳馆"],
           heat: 300,
           tag:['人文'],
@@ -20,8 +20,8 @@ const topicStore = createSlice({
           id: 2,
         },
         {
-          title: "最喜欢点？",
-          hotComments: ["蛋", "鸡", "堡"],
+          title: "你最喜欢哪家快餐店？",
+          hotComments: ["肯德基", "麦当劳", "汉堡王"],
           tag:['美食'],
           heat: 200,
           time:'2024-03-05',
