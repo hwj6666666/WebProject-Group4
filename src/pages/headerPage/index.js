@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "@/assets/logo.jpg";
+import logo from "@/assets/logo2.png";
 import { Helmet } from "react-helmet";
 import { Input } from "antd/es";
 import { Login } from "@/components/login";
@@ -9,10 +9,8 @@ const { Search } = Input;
 const onSearch = (value, _e, info) => console.log(info?.source, value);
 
 const Header = () => {
-
- 
   return (
-    <div className="min-w-[700px] flex justify-between items-center bg-blue-600 text-white h-20 rounded-2xl ">
+    <div className="shadow-lg min-w-[700px] flex justify-between items-center bg-white text-white h-20 rounded-2xl ">
       <Helmet>
         <link
           rel="stylesheet"
@@ -32,7 +30,7 @@ const Header = () => {
       <Link to={{ pathname: "/" }}>
         <div className="flex items-center cursor-pointer">
           <img src={logo} alt="logo" className="h-20 rounded-2xl" />
-          <span className="ml-4 text-4xl">交∩集</span>
+          {/* <span className="text-black ml-4 text-4xl">交∩集</span> */}
         </div>
       </Link>
       <Search
@@ -43,7 +41,9 @@ const Header = () => {
         }}
         size="large"
       />
-      <div className="mr-5"><Login></Login></div>
+      <div className="mr-5">
+        <Login></Login>
+      </div>
     </div>
   );
 };

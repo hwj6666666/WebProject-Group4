@@ -14,12 +14,12 @@ export const MySider = () => {
   return (
     <Sider
       style={{ marginTop: "7%", marginLeft: "3%" }}
-	  className="drop-shadow-md"
+      className="drop-shadow-md"
     >
-      <Menu className="bg-sky-200"
+      <Menu
+        className="bg-white"
         mode="vertical"
-		defaultSelectedKeys={['1']}//设置默认选中第一个菜单栏
-
+        defaultSelectedKeys={["1"]} //设置默认选中第一个菜单栏
         style={{ borderRadius: "14px", textAlign: "center" }}
       >
         {sort.map((item) => (
