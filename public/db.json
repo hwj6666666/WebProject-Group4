@@ -1,0 +1,140 @@
+{
+    "usernum":4,
+    "users": [
+      {
+        "id": 1,
+        "username": "jack",
+        "password":"123456"
+      },
+      {
+        "id": 2,
+        "username": "tom",
+        "password":"202403"
+      },
+      {
+        "id": 3,
+        "username": "jerry",
+        "password":"654321"
+      }
+    ],
+
+
+
+    "remarknum":3,
+    "remark":[
+      
+        {
+        "topicid":1,
+        "objectid":1,
+        "userid":1,
+        "username": "tom",
+        "comment":{
+            "username": "jack",
+            "photo": "",
+            "comment": "还可以吧，虽然不算最好吃的",
+            "score": "4.0",
+            "time": "2024-3-9",
+            "likes": 50,
+            "id": 0
+      }
+    },
+      {
+        "topicid":1,
+        "objectid":1,
+        "userid":1,
+        "username": "jack",
+        "comment":{
+          "username": "tom",
+          "photo": "",
+          "comment": "一餐很好啊，选择也挺多的",
+          "score": "5.0",
+          "time": "2024-3-11",
+          "likes": 13,
+          "id": 1
+      }
+    },
+      {
+        "topicid":1,
+        "objectid":1,
+        "userid":1,
+        "username": "tom",
+        "comment":{
+          "username": "jerry",
+          "photo": "",
+          "comment": "感觉不如二餐，就算排队也要去二餐",
+          "score": "2.0",
+          "time": "2024-3-15",
+          "likes": 7,
+          "id": 2
+      }
+    }
+  ],
+
+
+
+
+  "topicnum":3,
+  "topic":[
+    
+    {
+    "userid":1,
+    "username": "jack",
+    "comment":{
+      "title": "交大哪个餐饮大楼你去得最多？",
+      "hotComments": ["第一食堂", "第二食堂", "第三食堂"],
+      "heat": 100,
+      "id": 1
+    }
+   },
+    {
+    "userid":1,
+    "username": "jerry",
+    "comment":{
+      "title": "交大建筑",
+      "hotComments": ["庙门", "包玉刚图书馆", "致远游泳馆"],
+      "heat": 200,
+      "id": 2
+    }
+   },
+   {
+    "userid":1,
+    "username": "jack",
+    "comment":{
+      "title": "最喜欢点的餐？",
+      "hotComments": ["煎蛋", "炸鸡", "汉堡"],
+      "heat": 200,
+      "id": 3
+    }
+}
+  ],
+
+
+
+
+
+  "objectnum":3,
+  "object":[
+    
+    {
+        "userid":1,
+        "username": "jack",
+        "id":1,
+        "topicid":1,
+        "name":"第一食堂"
+    },
+    {
+        "userid":1,
+        "username": "jack",
+        "id":2,
+        "topicid":1,
+        "name":"第二食堂"
+    },
+    {
+        "userid":1,
+        "username": "jack",
+        "id":3,
+        "topicid":1,
+        "name":"第三食堂"
+    }
+  ]
+}

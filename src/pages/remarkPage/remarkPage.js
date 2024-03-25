@@ -8,12 +8,13 @@ import { MakeRemark } from "@/components/remark/makeRemark";
 import LikeButton from "@/components/remark/remarkLike";
 import { Flex, Progress } from 'antd';
 import { useSelector } from "react-redux";
+import UploadObject from "@/components/remark/uploadObject";
 
 export const RemarkPage = () => {
 	const remarks = useSelector(state => state.remark).remark
-	console.log(remarks)
 
 	//进行统计
+
 	let freq = remarks.reduce((total, item) => {
 		if (total[item.score]) total[item.score]++;
 		else total[item.score] = 1;
@@ -45,7 +46,7 @@ export const RemarkPage = () => {
 
 
 
-	return (<div className=" bg-yellow-50" >
+	return (<div className="min-h-screen bg-yellow-50" >
 		<Header />
 		<div className="flex flex-row">
 			<MyRemarkSider />
@@ -63,7 +64,8 @@ export const RemarkPage = () => {
 						<div className="flex items-center">2 <Progress percent={_2_pencentage} className="ml-3" /></div>
 						<div className="flex items-center">1 <Progress percent={_1_pencentage} className="ml-3" /></div>
 					</Flex>
-					<div className="flex flex-col w-1/4">
+
+					<div className="flex flex-col w-1/4"><UploadObject></UploadObject>
 						<div className="flex items-center justify-center w-24 h-12 bg-red-300 mt-10 text-3xl ml-auto border border-black rounded-lg">
 							{average}
 						</div>
@@ -72,8 +74,8 @@ export const RemarkPage = () => {
 				</div>
 				<div className="mt-6 ml-24 w-5/6">
 					<div>
-						{remarks.map((remark, index) => (
-							<Card key={index} hoverable
+						{remarks.map((remark, index) =>
+							remark.comment && <Card key={index} hoverable
 								title={
 									<div className="flex items-center" >
 										<img src={profile_photo} alt="图片描述" className="w-10 h-10 mt-3 mr-4" />
@@ -97,7 +99,7 @@ export const RemarkPage = () => {
 									</div>
 								</div>
 							</Card>
-						))}
+						)}
 					</div>
 				</div>
 			</div>

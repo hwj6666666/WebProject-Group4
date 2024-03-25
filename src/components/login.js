@@ -1,10 +1,10 @@
 import { setLogin } from "@/store/modules/loginInfo";
 import { Avatar, Button, Form, Input, Modal, message } from "antd";
-import { useEffect, useState } from "react";
+import {useState } from "react";
 import avator from "../assets/3000.png";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { addUser } from "@/store/modules/user";
+import { addUser} from "@/store/modules/user";
 export const Login=()=>{
     const [isModalOpen, setIsModalOpen] = useState(false);              //控制Modal是否弹出
     const showModal = () => {
@@ -26,26 +26,32 @@ export const Login=()=>{
   if(isuser)
     dispatch(setLogin(true))
       const {user}=useSelector(state=>state.user)
-  const onFinish = ({ username, password }) => {
+  const onFinish =async ({ username, password }) => {  
     if (!username) message.error("请输入用户名");
    else if (!password) message.error("请输入密码");
     else {
         let found=false
+        console.log(user)
       user.forEach(element => {
-        
+        console.log(element.username,username,element.password,password)
         if(element.username===username&&element.password===password){
             message.success('登录成功')
             localStorage.setItem('isuser',true)
+            localStorage.setItem('user',username)
+            localStorage.setItem('psw',password)
             found=true
+            setIsModalOpen(false);
          }
         })
           if(!found)
           message.error('用户名或密码错误')
-        setIsModalOpen(false);} 
+        } 
       };
      
     
-  const onFinishReg=({ username, password })=>{
+  const onFinishReg=async({ username, password })=>{
+
+
     if (!username) message.error("请输入用户名");
     else if (!password) message.error("请输入密码");
      else {
@@ -62,7 +68,6 @@ export const Login=()=>{
       
      }
   }
-  useEffect(()=>{},[user])
 
   const [loginBox,setLoginBox]=useState(true)
   const [regBox,setRegBox]=useState(false)

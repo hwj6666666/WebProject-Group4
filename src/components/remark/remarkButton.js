@@ -1,14 +1,21 @@
 import { Button, Divider } from "antd/es";
 import { Content } from "antd/es/layout/layout";
 import { useState } from "react";
-
+import { useDispatch, useSelector } from "react-redux";
+import _ from 'lodash'
+import { changeRemark } from "@/store/modules/remark";
 export const RemarkButton = () => {
+  const {remark}=useSelector(state=>state.remark)
+  const dispatch=useDispatch()
   const [focus, setFocus] = useState(true);
   const setNew = () => {
     setFocus(true);
+    dispatch(changeRemark(_.orderBy(remark,'time','desc')))
+    
   };
   const setHot = () => {
     setFocus(false);
+    dispatch(changeRemark(_.orderBy(remark,'likes','desc')))
   };
 
   return (
@@ -26,8 +33,6 @@ export const RemarkButton = () => {
         <Button
           className="text-base"
           type="text"
-          ghost
-          motion={false}
           style={focus && { color: "#1E90FF" }}
           onClick={() => {
             setNew();
@@ -39,8 +44,6 @@ export const RemarkButton = () => {
         <Button
           className="text-base"
           type="text"
-          ghost
-          motion={false}
           style={!focus && { color: "#1E90FF" }}
           onClick={() => {
             setHot();

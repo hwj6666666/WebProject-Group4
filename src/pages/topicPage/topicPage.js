@@ -2,7 +2,6 @@ import React from "react";
 import Topic from "@/components/topic/topic";
 import { HeadButton } from "@/components/topic/topicBotton";
 import { MySider } from "@/components/topic/topicSider";
-import Layout from "antd/es/layout/layout";
 import Header from "../headerPage";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -10,12 +9,11 @@ import { useSelector } from "react-redux";
 function BasicPage() {
   
   const {topic} =useSelector(state=>state.topic) ;
-  console.log(topic)
 
   return (
-    <div>
+    <div className="min-h-screen bg-yellow-50">
       <Header />
-      <div className="flex bg-yellow-50">
+      <div className="min--h-screen flex justify-center ">
         <MySider />
         <div>
           <HeadButton className="border border-black" />
