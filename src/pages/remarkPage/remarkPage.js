@@ -53,10 +53,12 @@ export const RemarkPage = () => {
 	_5_pencentage = _5_pencentage.toFixed(0);
 
 	return (<div className="min-h-screen bg-biligrey" >
-		<Header />
+		<div className="fixed w-full z-50"><Header/></div>
+		<div className="h-16"></div>
 		<div className="flex flex-row ml-28 mr-48">
-			<ObjectProfile object={objects.find(r => r.id === 0)} />
-			<div className="w-3/4 mt-8">
+			<div className="fixed"><ObjectProfile object={objects.find(r => r.id === 0)} /></div>
+			<div className="w-1/3"></div>
+			<div className="w-3/4 mt-12">
 				<h1 className="text-center text-4xl mb-8 font-bold">交大哪个餐厅最好吃</h1>
 				<div className="flex flex-row bg-white rounded-lg drop-shadow-lg ml-16 pl-8 py-4 my-4">
 					<div className="flex flex-col">
