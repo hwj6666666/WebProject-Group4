@@ -16,28 +16,28 @@ export const MakeRemark = () => {
     const handleCancel = () => {
         setIsModalOpen(false);
     };
-    const judge=()=>{
-        if (localStorage.getItem("isuser"))showModal()
+    const judge = () => {
+        if (localStorage.getItem("isuser")) showModal()
         else
-            message.error('请登录',0.5)
+            message.error('请登录', 0.5)
 
     }
     const [form] = Form.useForm();
-    const remarkid=useSelector(state=>state.remark).remarkLen
-    const dispatch=useDispatch()
-    const onFinish = async({ score, remark }) => {
+    const remarkid = useSelector(state => state.remark).remarkLen
+    const dispatch = useDispatch()
+    const onFinish = async ({ score, remark }) => {
         if (!score) message.error("请给出评价分数");
         else {
-            const tmp=dayjs().format()
-            const date=tmp.substring(0,10)+"  "+tmp.substring(11,16)
-            const mark={
-                username:localStorage.getItem('user'),
+            const tmp = dayjs().format()
+            const date = tmp.substring(0, 10) + "  " + tmp.substring(11, 16)
+            const mark = {
+                username: localStorage.getItem('user'),
                 photo: "",
-                comment:remark||"",
-                score:`${score}.0`,
-                time:date,
-                likes:0,
-                id:remarkid,
+                comment: remark || "",
+                score: score * 2,
+                time: date,
+                likes: 0,
+                id: remarkid,
             }
             await dispatch(addRemark(mark))
             message.success("提交成功");
@@ -45,9 +45,9 @@ export const MakeRemark = () => {
         }
     };
     return (
-        <Content className="ml-auto mt-6">
+        <Content className="ml-auto mt-3">
             <Button
-                style={{ backgroundColor: "#1E90FF", color: "#FFFFFF" }}
+                style={{ backgroundColor: "#1E90FF", color: "#FFFFFF", width: 150, height: 35 }}
                 onClick={judge}
             >
                 立即评分

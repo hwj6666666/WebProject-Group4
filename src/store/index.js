@@ -5,12 +5,15 @@ import userReducer from "./modules/user";
 import loginReducer from "./modules/loginInfo";
 import remarkReducer from "./modules/remark";
 import topicReducer from "./modules/topic";
+import ObjectReducer from "./modules/object";
+
 export default configureStore({
     reducer:{
         user:userReducer,
         login:loginReducer,
         remark:remarkReducer,
         topic:topicReducer,
+        object:ObjectReducer,
     }
 })
 

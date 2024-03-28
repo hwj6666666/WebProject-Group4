@@ -8,6 +8,7 @@ module.exports = {
     extend: {
       colors: {
         biligrey: "#F4F5F7",
+        scoreblue: "#4D8095",
       },
     },
   },
