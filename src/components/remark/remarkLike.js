@@ -1,18 +1,21 @@
 import React, { useState } from 'react';
 import { Button } from 'antd';
 import { HeartOutlined, HeartFilled } from '@ant-design/icons';
+import { useDispatch, useSelector } from 'react-redux';
+import { changeLike } from '@/store/modules/remark';
 
-const LikeButton = ({ likes }) => {
-  const [liked, setLiked] = useState(false);
+const LikeButton = ({ remarkId }) => {
+  const dispatch = useDispatch();
+  const remark = useSelector(state => state.remark).remark.find(r => r.id === remarkId);
 
   const toggleLike = () => {
-    setLiked(!liked);
+    dispatch(changeLike(remark.id));
   };
 
   return (
     <Button onClick={toggleLike} className="like-button flex items-center">
-      {liked ? <HeartFilled className='text-red-500 mr-1' /> : <HeartOutlined className='mr-1' />}
-      {likes + liked}
+      {remark.liked ? <HeartFilled className='text-red-500 mr-1' /> : <HeartOutlined className='mr-1' />}
+      {remark.likes}
     </Button>
   );
 };

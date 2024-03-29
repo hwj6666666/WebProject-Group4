@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "@/assets/logo2.png";
+import logo from "@/assets/logo3.png";
 import { Helmet } from "react-helmet";
 import { Input } from "antd/es";
 import { Login } from "@/components/login";
