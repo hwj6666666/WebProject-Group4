@@ -24,13 +24,13 @@ export const UserPage = () => {
 	};
 
 	return (
-		<div className="min-h-screen bg-yellow-50">
+		<div className="min-h-screen bg-biligrey">
 			{/* 导航栏 */}
 			<Header />
 			{/* 页面主体 */}
 			<div className="flex flex-col px-40 py-6">
 				{/* 个人信息 */}
-				<div className="flex items-center h-40 min-w-[600px] px-20 bg-sky-200 rounded-lg drop-shadow-md">
+				<div className="border-2 flex items-center h-40 min-w-[600px] px-20 bg-white rounded-lg drop-shadow-md">
 					{/* 头像 */}
 					<span className="mr-4">
 						<UserAvatar />
@@ -56,7 +56,7 @@ export const UserPage = () => {
 					</div>
 					{/* 显示 */}
 					<div className="w-full">
-						<div className="mx-5 mt-3 p-5 w-11/12 min-w-fit bg-sky-200 rounded-lg drop-shadow-md">
+						<div className="mx-5 mt-3 p-5 w-11/12 min-w-fit bg-white rounded-lg drop-shadow-md">
 							{topics.map((topic, index) => (
 								<Link Link to={{ pathname: "/remark" }} key={index}>
 									<div style={{ marginBottom: "30px" }} key={index}>

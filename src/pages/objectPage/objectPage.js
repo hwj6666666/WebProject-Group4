@@ -22,7 +22,7 @@ function BasicPage() {
             {" "}
             {topic.map((topic, index) => (
               <div style={{ marginBottom: "30px" }}>
-                <Link  to={{ pathname: '/object'}}><Topic
+                <Link  to={{ pathname: '/remark'}}><Topic
                   key={index}
                   topic={topic}
                 /></Link>{" "}

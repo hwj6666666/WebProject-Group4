@@ -16,10 +16,10 @@ export const MySider = () => {
 			style={{ marginTop: "7%", marginLeft: "3%" }}
 			className="drop-shadow-md"
 		>
-			<Menu className="bg-sky-200"
-				// theme="dark"
+			<Menu
+				className="bg-white"
 				mode="vertical"
-				defaultSelectedKeys={['1']} // 设置默认选中第一个菜单项
+				defaultSelectedKeys={["1"]} //设置默认选中第一个菜单栏
 				style={{ borderRadius: "14px", textAlign: "center" }}
 			>
 				{sort.map((item) => (
