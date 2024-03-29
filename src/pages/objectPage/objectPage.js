@@ -6,7 +6,7 @@ import Header from "../headerPage";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-function BasicPage() {
+export const ObjectPage = () => {
   
   const {topic} =useSelector(state=>state.topic) ;
 
@@ -34,5 +34,3 @@ function BasicPage() {
     </div>
   );
 }
-
-export default BasicPage;
