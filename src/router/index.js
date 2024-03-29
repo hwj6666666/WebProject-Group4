@@ -1,4 +1,3 @@
-
 import { createBrowserRouter } from 'react-router-dom'
 import { UserPage } from '@/pages/userpage/userPage'
 import BasicPage from "@/pages/topicPage/topicPage";
