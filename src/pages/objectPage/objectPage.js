@@ -1,38 +1,17 @@
 import React from "react";
-import Topic from "@/components/topic/topic";
-import { HeadButton } from "@/components/topic/topicBotton";
-import { MySider } from "@/components/topic/topicSider";
 import Header from "../headerPage";
-import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import hotTopic from "@/components/object/hotTopic";
+import Object from "@/components/object/object";
 
-function BasicPage() {
-  
-  const {topic} =useSelector(state=>state.topic) ;
 
-  return (
-    <div className="min-h-screen bg-yellow-50">
-      <Header />
-      <div className="min--h-screen flex justify-center ">
-        <MySider />
-        <div>
-          <HeadButton className="border border-black" />
+export const ObjectPage = () => {
 
-          <div style={{ marginLeft: "30px", width: "1000px" }}>
-            {" "}
-            {topic.map((topic, index) => (
-              <div style={{ marginBottom: "30px" }}>
-                <Link  to={{ pathname: '/remark'}}><Topic
-                  key={index}
-                  topic={topic}
-                /></Link>{" "}
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+	return (
+    <div className="min-h-screen bg-biligrey" >
+		<div className="fixed w-full z-50"><Header/></div>
+		<div className="fixed top-100 right-100"><hotTopic/></div>
+		<div className=""><Object/></div>
+	</div>
+	);
 }
-
-export default BasicPage;
