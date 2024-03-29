@@ -11,14 +11,17 @@ function BasicPage() {
   const {topic} =useSelector(state=>state.topic) ;
 
   return (
-    <div className="min-h-screen bg-yellow-50">
+    <div className="min-h-screen bg-biligrey">
       <Header />
       <div className="min--h-screen flex justify-center ">
         <MySider />
-        <div>
-          <HeadButton className="border border-black" />
+        <div className="">
+          <div className="">
 
-          <div style={{ marginLeft: "30px", width: "1000px" }}>
+          <HeadButton  />
+          </div>
+
+          <div className="bg-white" style={{ marginLeft: "30px", width: "800px" }}>
             {" "}
             {topic.map((topic, index) => (
               <div style={{ marginBottom: "30px" }}>

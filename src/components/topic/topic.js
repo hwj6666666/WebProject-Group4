@@ -2,22 +2,36 @@
 
 import React from "react";
 import { Card } from "antd";
+import { Button } from "antd/es/radio";
 
 const Topic = ({ topic, onTopicClick }) => {
 	const { title, hotComments, heat } = topic;
 
 	return (
-		<Card hoverable
-			className="border border-black w-full"
-			onClick={onTopicClick}
-			title={title}
+		<Card
+			className="shadow-md w-full"
+			// onClick={onTopicClick}
+			title={
+				<button
+					onClick={(event) => {
+						event.stopPropagation();
+						onTopicClick();
+					}}
+					className="hover:underline"
+				>
+					{title}
+				</button>
+			}
 		>
 			<div className="flex justify-between ">
-				<ul>
-					{hotComments && hotComments.map((comment, index) => (
-						<li key={index}>{comment}</li>
-					))}
-				</ul>
+				<span>
+					{hotComments &&
+						hotComments.map((comment, index) => (
+							<Button className="rounded-lg mr-20" key={index}>
+								{comment}
+							</Button>
+						))}
+				</span>
 				<div>实时热度：{heat}</div>
 			</div>
 		</Card>

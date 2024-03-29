@@ -2,6 +2,7 @@
 
 import { Menu } from "antd";
 import Sider from "antd/es/layout/Sider";
+import { useState } from "react";
 
 export const MySider = () => {
   const sort = [
@@ -20,23 +21,29 @@ export const MySider = () => {
     { name: "其他", id: 12, key: '13' },
   ];
 
+  const [selectedKey, setSelectedKey] = useState('1');
+
   return (
     <Sider
       style={{ marginTop: "7%", marginLeft: "3%", borderRadius: "14px" }}
     >
       <Menu
-        className="bg-green-100"
+        className="bg-white"
         mode="vertical"
-        key={sort.key}
-        defaultSelectedKeys={['1']} 
+        defaultSelectedKeys={['1']}
+        selectedKeys={[selectedKey]}
+        onSelect={({ key }) => setSelectedKey(key)}
         style={{ borderRadius: "14px" }}
       >
         {sort.map((item) => (
-          <Menu.Item key={item.key}> {item.name}</Menu.Item>
+          <Menu.Item
+            key={item.key}
+            style={item.key === selectedKey ? { backgroundColor: '#F4F5F7' } : {}}
+          >
+            {item.name}
+          </Menu.Item>
         ))}
       </Menu>
     </Sider>
   );
-};
-
-//
+}

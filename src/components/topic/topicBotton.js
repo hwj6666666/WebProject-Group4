@@ -62,7 +62,7 @@ export const HeadButton = () => {
         margin: "40px",
       }}
     >
-      <div className="border border-black">
+      <div>
         <Button
           type="text"
           style={focus && { color: "#1E90FF" }}
@@ -84,7 +84,7 @@ export const HeadButton = () => {
         </Button>
       </div>
       <Button
-        style={{ backgroundColor: "#1E90FF", color: "#FFFFFF" }}
+        style={{ backgroundColor: "white", color: "black" }}
         onClick={handleTopic}
       >
         上传话题
