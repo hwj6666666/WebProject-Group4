@@ -5,17 +5,16 @@ import { useDispatch, useSelector } from "react-redux";
 import _ from 'lodash'
 import { changeRemark } from "@/store/modules/remark";
 export const RemarkButton = () => {
-  const {remark}=useSelector(state=>state.remark)
-  const dispatch=useDispatch()
+  const { remark } = useSelector(state => state.remark)
+  const dispatch = useDispatch()
   const [focus, setFocus] = useState(true);
   const setNew = () => {
     setFocus(true);
-    dispatch(changeRemark(_.orderBy(remark,'time','desc')))
-    
+    dispatch(changeRemark(_.orderBy(remark, 'time', 'desc')))
   };
   const setHot = () => {
     setFocus(false);
-    dispatch(changeRemark(_.orderBy(remark,'likes','desc')))
+    dispatch(changeRemark(_.orderBy(remark, 'likes', 'desc')))
   };
 
   return (
@@ -23,7 +22,7 @@ export const RemarkButton = () => {
       style={{
         display: "flex",
         justifyContent: "space-between",
-        marginLeft: "100px",
+        marginLeft: "25px",
         marginTop: "25px",
         border: "1px solid black",
         padding: "4px",

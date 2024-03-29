@@ -6,26 +6,23 @@ import Header from "../headerPage";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-function BasicPage() {
+export const ObjectPage = () => {
   
   const {topic} =useSelector(state=>state.topic) ;
 
   return (
-    <div className="min-h-screen bg-biligrey">
+    <div className="min-h-screen bg-yellow-50">
       <Header />
       <div className="min--h-screen flex justify-center ">
         <MySider />
-        <div className="">
-          <div className="">
+        <div>
+          <HeadButton className="border border-black" />
 
-          <HeadButton  />
-          </div>
-
-          <div className="bg-white" style={{ marginLeft: "30px", width: "800px" }}>
+          <div style={{ marginLeft: "30px", width: "1000px" }}>
             {" "}
             {topic.map((topic, index) => (
               <div style={{ marginBottom: "30px" }}>
-                <Link  to={{ pathname: '/object'}}><Topic
+                <Link  to={{ pathname: '/remark'}}><Topic
                   key={index}
                   topic={topic}
                 /></Link>{" "}
@@ -37,5 +34,3 @@ function BasicPage() {
     </div>
   );
 }
-
-export default BasicPage;
