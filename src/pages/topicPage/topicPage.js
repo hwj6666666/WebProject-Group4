@@ -3,7 +3,6 @@ import Topic from "@/components/topic/topic";
 import { HeadButton } from "@/components/topic/topicBotton";
 import { MySider } from "@/components/topic/topicSider";
 import Header from "../headerPage";
-import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 function BasicPage() {
@@ -22,13 +21,11 @@ function BasicPage() {
           </div>
 
           <div className="bg-white" style={{ marginLeft: "30px", width: "800px" }}>
-            {" "}
             {topic.map((topic, index) => (
-              <div style={{ marginBottom: "30px" }}>
-                <Link  to={{ pathname: '/remark'}}><Topic
+              <div style={{ marginBottom: "30px" }}><Topic
                   key={index}
                   topic={topic}
-                /></Link>{" "}
+                />
               </div>
             ))}
           </div>
