@@ -4,7 +4,7 @@ import React from "react";
 import { Card } from "antd";
 import { Button } from "antd/es/radio";
 
-const Topic = ({ topic, onTopicClick }) => {
+const Topic = ({ topic }) => {
   const { title, hotComments, heat } = topic;
 
   return (
@@ -15,7 +15,6 @@ const Topic = ({ topic, onTopicClick }) => {
         <button
           onClick={(event) => {
             event.stopPropagation();
-            onTopicClick();
           }}
           className="hover:underline"
         >
