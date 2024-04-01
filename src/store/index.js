@@ -6,7 +6,7 @@ import loginReducer from "./modules/loginInfo";
 import remarkReducer from "./modules/remark";
 import topicReducer from "./modules/topic";
 import ObjectReducer from "./modules/object";
-
+import topicKeyReducer from "./modules/topickey";
 export default configureStore({
     reducer:{
         user:userReducer,
@@ -14,6 +14,7 @@ export default configureStore({
         remark:remarkReducer,
         topic:topicReducer,
         object:ObjectReducer,
+        topicKey:topicKeyReducer
     }
 })
 

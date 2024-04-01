@@ -10,7 +10,6 @@ export const HeadButton = () => {
   const [focus, setFocus] = useState(true);
   
   const topic=useSelector(state=>state.topic).topic
-  console.log(topic)
   const dispatch=useDispatch()
   const setNew = () => {
     dispatch(changeTopic(_.orderBy(topic,'time','desc')))

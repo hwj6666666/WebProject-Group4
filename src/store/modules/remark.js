@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { act } from "react-dom/test-utils";
 const remarkStore = createSlice({
   name: "remark",
   initialState: {
@@ -98,7 +97,7 @@ export default remarkReducer;
 //           likes: 7,
 //           id: 2
 //       }
-//       //更多评价
+  //更多评价
 //   ],
 //     remarkLen:3
 //   },
