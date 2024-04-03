@@ -24,13 +24,11 @@ export const MySider = () => {
   const [selectedKey, setSelectedKey] = useState('1');
 
   return (
-    <Sider
-      style={{ marginTop: "7%", marginLeft: "3%", borderRadius: "14px" }}
-    >
+    <Sider className="ml-20 mt-20 mr-20">
       <Menu
         className="bg-white"
         mode="vertical"
-        defaultSelectedKeys={['1']}
+        defaultSelectedKeys={["1"]}
         selectedKeys={[selectedKey]}
         onSelect={({ key }) => setSelectedKey(key)}
         style={{ borderRadius: "14px" }}
@@ -38,7 +36,9 @@ export const MySider = () => {
         {sort.map((item) => (
           <Menu.Item
             key={item.key}
-            style={item.key === selectedKey ? { backgroundColor: '#F4F5F7' } : {}}
+            style={
+              item.key === selectedKey ? { backgroundColor: "#F4F5F7" } : {}
+            }
           >
             {item.name}
           </Menu.Item>
