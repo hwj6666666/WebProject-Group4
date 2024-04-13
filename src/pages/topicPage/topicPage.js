@@ -7,35 +7,35 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 function BasicPage() {
-  
-  const {topic} =useSelector(state=>state.topic) ;
 
-  return (
-    <div className="min-h-screen bg-biligrey">
-      <Header />
-      <div className="min--h-screen flex justify-center ">
-        <MySider />
-        <div className="">
-          <div className="">
+	const { topic } = useSelector(state => state.topic);
 
-          <HeadButton  />
-          </div>
+	return (
+		<div className="min-h-screen bg-biligrey">
+			<Header />
+			<div className="min--h-screen flex justify-center ">
+				<MySider />
+				<div className="">
+					<div className="">
 
-          <div className="bg-white" style={{ marginLeft: "30px", width: "800px" }}>
-            {" "}
-            {topic.map((topic, index) => (
-              <div style={{ marginBottom: "30px" }}>
-                <Link  to={{ pathname: '/object'}}><Topic
-                  key={index}
-                  topic={topic}
-                /></Link>{" "}
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+						<HeadButton />
+					</div>
+
+					<div className="bg-white" style={{ marginLeft: "30px", width: "800px" }}>
+						{" "}
+						{topic.map((topic, index) => (
+							<div style={{ marginBottom: "30px" }}>
+								<Link to={{ pathname: '/remark' }}><Topic
+									key={index}
+									topic={topic}
+								/></Link>{" "}
+							</div>
+						))}
+					</div>
+				</div>
+			</div>
+		</div>
+	);
 }
 
 export default BasicPage;

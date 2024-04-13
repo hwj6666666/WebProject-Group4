@@ -22,12 +22,6 @@ export const MakeRemark = () => {
 			message.error('请登录', 0.5)
 
 	}
-	const judge = () => {
-		if (localStorage.getItem("isuser")) showModal()
-		else
-			message.error('请登录', 0.5)
-
-	}
 	const [form] = Form.useForm();
 	const remarkid = useSelector(state => state.remark).remarkLen
 	const dispatch = useDispatch()
