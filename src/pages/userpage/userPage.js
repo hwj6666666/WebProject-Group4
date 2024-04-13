@@ -19,9 +19,6 @@ export const UserPage = () => {
 		// 更多话题...
 	];
 
-	const handleTopicClick = (topic) => {
-		console.log(`Topic clicked: ${topic.title}`);
-	};
 
 	return (
     <div className="min-h-screen bg-biligrey">
@@ -62,7 +59,7 @@ export const UserPage = () => {
                   <div style={{ marginBottom: "30px" }} key={index}>
                     <Topic
                       topic={topic}
-                      onTopicClick={() => handleTopicClick(topic)}
+                      key={topic.id}
                     />
                   </div>
                 </Link>

@@ -3,11 +3,13 @@
 import React from "react";
 import { Card } from "antd";
 import { Button } from "antd/es/radio";
+import { Link } from "react-router-dom";
 
-const Topic = ({ topic, onTopicClick }) => {
+const Topic = ({ topic }) => {
   const { title, hotComments, heat } = topic;
 
   return (
+    <Link to={{ pathname: '/remark'}}>
     <Card
       className="shadow-md w-full"
       // onClick={onTopicClick}
@@ -15,7 +17,6 @@ const Topic = ({ topic, onTopicClick }) => {
         <button
           onClick={(event) => {
             event.stopPropagation();
-            onTopicClick();
           }}
           className="hover:underline"
         >
@@ -27,14 +28,14 @@ const Topic = ({ topic, onTopicClick }) => {
         <span>
           {hotComments &&
             hotComments.map((comment, index) => (
-              <Button className="rounded-lg mr-20" key={index}>
+              <Link to={{ pathname: '/object'}}><Button className="rounded-lg mr-20" key={index}>
                 {comment}
-              </Button>
+              </Button></Link>
             ))}
         </span>
         <div>实时热度：{heat}</div>
       </div>
-    </Card>
+    </Card></Link>
   );
 };
 

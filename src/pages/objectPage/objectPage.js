@@ -1,7 +1,5 @@
 import React from "react";
 import Header from "../headerPage";
-import { useSelector } from "react-redux";
-import hotTopic from "@/components/object/hotTopic";
 import Object from "@/components/object/object";
 
 

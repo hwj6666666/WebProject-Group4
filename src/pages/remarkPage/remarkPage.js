@@ -63,7 +63,7 @@ export const RemarkPage = () => {
 				<div className="flex flex-row bg-white rounded-lg drop-shadow-lg ml-16 pl-8 py-4 my-4">
 					<div className="flex flex-col">
 						<div className="flex items-center justify-center">
-							<img src={scorePhoto} height={75} width={150} />
+							<img src={scorePhoto} height={75} width={150} alt="nothing" />
 						</div>
 						<div className="flex items-center justify-center">
 							<div className="flex items-center text-scoreblue justify-center w-24 h-12 text-5xl font-serif">

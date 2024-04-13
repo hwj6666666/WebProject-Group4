@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Button } from 'antd';
 import { HeartOutlined, HeartFilled } from '@ant-design/icons';
 import { useDispatch, useSelector } from 'react-redux';
