@@ -4,7 +4,7 @@ import Setting from "@/components/user/dropmenu";
 
 export default function UserDetail() {
 	return (
-		<div className="flex items-center h-40 min-w-[600px] px-20 bg-white rounded-sm drop-shadow-md">
+		<div className="flex items-center h-40 min-w-[600px] px-20 bg-white rounded-sm">
 			{/* 头像 */}
 			<span className="mr-4">
 				<UserAvatar />

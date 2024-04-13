@@ -8,6 +8,16 @@ const topics = [
 		hotComments: ["第一食堂", "第二食堂", "第三食堂"],
 		heat: 100,
 		id: 1,
+	}, {
+		title: "交大哪个餐饮大楼你去得最多？",
+		hotComments: ["第一食堂", "第二食堂", "第三食堂"],
+		heat: 100,
+		id: 1,
+	}, {
+		title: "交大哪个餐饮大楼你去得最多？",
+		hotComments: ["第一食堂", "第二食堂", "第三食堂"],
+		heat: 100,
+		id: 1,
 	}
 ];
 const objects = [
@@ -64,7 +74,7 @@ export default function ShowDetail(props) {
 	}, [props.type])
 
 	return (
-		<div className="mx-5 mt-3 p-5 w-11/12 min-w-fit bg-white rounded-lg drop-shadow-md">
+		<div className=" bg-white ">
 			{selectedType.map((topic, index) => (
 				<Link Link to={{ pathname: "/remark" }} key={index}>
 					<div style={{ marginBottom: "30px" }} key={index}>
@@ -73,6 +83,7 @@ export default function ShowDetail(props) {
 							onTopicClick={() => handleTopicClick(topic)}
 						/>
 					</div>
+					<hr />
 				</Link>
 			))}
 		</div>
