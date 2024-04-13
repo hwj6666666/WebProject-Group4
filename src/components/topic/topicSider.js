@@ -33,7 +33,7 @@ export const MySider = () => {
       <Menu
         className="bg-white"
         mode="vertical"
-        defaultSelectedKeys={["1"]}
+        defaultSelectedKeys={["0"]}
         selectedKeys={[selectedKey]}
         onSelect={handleselect}
         style={{ borderRadius: "14px" }}
