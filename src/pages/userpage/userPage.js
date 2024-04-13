@@ -7,19 +7,7 @@ import UserDetail from "@/components/user/userDetail";
 import ShowDetail from "@/components/user/showDetail";
 
 export const UserPage = () => {
-	const topics = [
-		{
-			title: "交大哪个餐饮大楼你去得最多？",
-			hotComments: ["第一食堂", "第二食堂", "第三食堂"],
-			heat: 100,
-			id: 1,
-		}
-		// 更多话题...
-	];
-
-	const handleTopicClick = (topic) => {
-		console.log(`Topic clicked: ${topic.title}`);
-	};
+	const [showtype, setShowtype] = useState('topics')
 
 	return (
 		<div className="min-h-screen bg-biligrey">
