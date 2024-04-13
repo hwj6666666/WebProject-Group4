@@ -47,10 +47,6 @@ const { addTopic, changeTopic } = topicStore.actions;
 
 const topicReducer = topicStore.reducer;
 
-
-
-
-
 export { addTopic, changeTopic };
 
 export default topicReducer;
