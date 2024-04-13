@@ -53,7 +53,7 @@ export const RemarkPage = () => {
 	_5_pencentage = _5_pencentage.toFixed(0);
 
 	return (<div className="min-h-screen bg-biligrey" >
-		<div className="fixed w-full z-50"><Header/></div>
+		<div className="fixed w-full z-50"><Header /></div>
 		<div className="h-16"></div>
 		<div className="flex flex-row ml-28 mr-48">
 			<div className="fixed"><ObjectProfile object={objects.find(r => r.id === 0)} /></div>

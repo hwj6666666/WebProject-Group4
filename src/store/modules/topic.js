@@ -53,6 +53,6 @@ const topicReducer = topicStore.reducer;
 
 
 
-export {addTopic, changeTopic };
+export { addTopic, changeTopic };
 
 export default topicReducer;
