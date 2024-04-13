@@ -9,6 +9,10 @@ module.exports = {
       colors: {
         biligrey: "#F4F5F7",
         scoreblue: "#4D8095",
+        starcolor: "#a7dee6",
+        scorecolor: "#049198",
+        bgcolor: "#FFF8E8",
+        fontcolor: "#fc3e0e",
       },
     },
   },
