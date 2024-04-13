@@ -5,8 +5,8 @@ import { Card } from "antd";
 import { Button } from "antd/es/radio";
 import { Link } from "react-router-dom";
 
-const Topic = ({ topic }) => {
-  const { title, hotComments, heat } = topic;
+const Topic = ({ topic, onTopicClick }) => {
+	const { title, hotComments, heat } = topic;
 
   return (
     <Link to={{ pathname: '/remark'}}>

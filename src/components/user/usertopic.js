@@ -8,11 +8,10 @@ const Topic = ({ topic, onTopicClick }) => {
 	const { title, hotComments, heat } = topic;
 
 	return (
-		<Card hoverable
-			className="border border-black w-full"
+		<Card
 			onClick={onTopicClick}
 			title={
-				<div className="flex items-center">
+				<div className="flex items-center hover:underline">
 					<span>{title}</span>
 				</div>
 			}>
