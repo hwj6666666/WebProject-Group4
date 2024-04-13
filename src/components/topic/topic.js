@@ -9,7 +9,7 @@ const Topic = ({ topic, onTopicClick }) => {
 	const { title, hotComments, heat } = topic;
 
   return (
-    <Link to={{ pathname: '/remark'}}>
+    <Link to={{ pathname: '/object'}}>
     <Card
       className="shadow-md w-full"
       // onClick={onTopicClick}
@@ -28,7 +28,7 @@ const Topic = ({ topic, onTopicClick }) => {
         <span>
           {hotComments &&
             hotComments.map((comment, index) => (
-              <Link to={{ pathname: '/object'}}><Button className="rounded-lg mr-20" key={index}>
+              <Link to={{ pathname: '/remark'}}><Button className="rounded-lg mr-20" key={index}>
                 {comment}
               </Button></Link>
             ))}
