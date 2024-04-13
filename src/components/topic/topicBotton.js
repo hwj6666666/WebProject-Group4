@@ -62,7 +62,7 @@ export const HeadButton = () => {
         margin: "40px",
       }}
     >
-      <div>
+      <div className="bg-white rounded-lg">
         <Button
           type="text"
           style={focus && { color: "#1E90FF" }}
