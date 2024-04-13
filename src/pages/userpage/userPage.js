@@ -1,73 +1,32 @@
 // //用户主页
-import React from "react";
-import { MySider } from "@/components/user/userSider";
-import { UserAvatar } from "@/components/user/userAvatar";
-import Topic from "@/components/user/usertopic";
+import React, { useState } from "react";
+// import { MySider } from "@/components/user/userSider";
 // import Layout from "antd/es/layout/layout";
 import Header from "../headerPage";
-import { Link } from "react-router-dom";
-import Setting from "@/components/user/dropmenu";
+import UserDetail from "@/components/user/userDetail";
+import ShowDetail from "@/components/user/showDetail";
 
 export const UserPage = () => {
-	const topics = [
-		{
-			title: "交大哪个餐饮大楼你去得最多？",
-			hotComments: ["第一食堂", "第二食堂", "第三食堂"],
-			heat: 100,
-			id: 1,
-		}
-		// 更多话题...
-	];
-
-	const handleTopicClick = (topic) => {
-		console.log(`Topic clicked: ${topic.title}`);
-	};
+	const [showtype, setShowtype] = useState('topics')
 
 	return (
 		<div className="min-h-screen bg-biligrey">
-			{/* 导航栏 */}
 			<Header />
-			{/* 页面主体 */}
 			<div className="flex flex-col px-40 py-6">
-				{/* 个人信息 */}
-				<div className="border-2 flex items-center h-40 min-w-[600px] px-20 bg-white rounded-lg drop-shadow-md">
-					{/* 头像 */}
-					<span className="mr-4">
-						<UserAvatar />
-					</span>
-					<span className="mt-6">
-						<div className="flex flex-row items-end mb-4">
-							<span className="text-4xl mr-4">交小集</span>
-							<span className="text-2xl relative bottom-0">Lv.6</span>
+				<UserDetail />
+				<div className=" w-auto min-w-[600px] h-auto mt-6 bg-pink-600 flex rounded-sm overflow-hidden ">
+					<div className=" flex-[3] w-auto h-auto bg-gray-600 mr-7 ">
+						<div className=" w-full h-10 bg-gray-400 flex ">
+							<button onClick={() => setShowtype('topics')} className=" flex-1 bg-red-600 hover:border-b-2 border-blue-50 ">话题</button>
+							<button onClick={() => setShowtype('objects')} className=" flex-1 bg-red-500 hover:border-b-2 border-blue-50 ">对象</button>
+							<button onClick={() => setShowtype('remarks')} className=" flex-1 bg-red-400 hover:border-b-2 border-blue-50 ">评论</button>
+							<button onClick={() => setShowtype('follows')} className=" flex-1 bg-red-300 hover:border-b-2 border-blue-50 ">关注</button>
 						</div>
-						<div className="text-md">
-							个性签名:由所有属于集合A且属于集合B的元素所组成的集合，叫做集合A与集合B的交集，记作A∩B。
-						</div>
-					</span>
-					<span className="ml-auto">
-						<Setting />
-					</span>
-				</div>
-				{/* 菜单栏及对应显示 */}
-				<div className="flex flex-row mt-6">
-					{/* 菜单栏 */}
-					<div>
-						<MySider />
+						<ShowDetail type={showtype} />
 					</div>
-					{/* 显示 */}
-					<div className="w-full">
-						<div className="mx-5 mt-3 p-5 w-11/12 min-w-fit bg-white rounded-lg drop-shadow-md">
-							{topics.map((topic, index) => (
-								<Link Link to={{ pathname: "/remark" }} key={index}>
-									<div style={{ marginBottom: "30px" }} key={index}>
-										<Topic
-											topic={topic}
-											onTopicClick={() => handleTopicClick(topic)}
-										/>
-									</div>
-								</Link>
-							))}
-						</div>
+
+					<div className=" flex-1 w-auto h-auto bg-gray-200 ">
+						未知领域
 					</div>
 				</div>
 			</div>
