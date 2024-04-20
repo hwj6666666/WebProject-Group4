@@ -18,4 +18,5 @@ public class Topic {
     private String introduction;
     private Integer hot;//热度，将子话题的评论量累加
     private LocalDateTime publicTime;
+    private String base64;
 }

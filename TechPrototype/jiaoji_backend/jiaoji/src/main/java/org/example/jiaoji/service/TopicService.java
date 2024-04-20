@@ -1,3 +1,14 @@
 package org.example.jiaoji.service;
 
-public interface TopicService {}
+import org.example.jiaoji.pojo.RetType;
+import org.example.jiaoji.pojo.Topic;
+import java.util.List;
+
+public interface TopicService {
+
+    public RetType insertTopic(Topic data);
+
+    public List<Topic> SelectAll();
+
+    public  List<Topic> SelectByClassId(Integer id);
+} 

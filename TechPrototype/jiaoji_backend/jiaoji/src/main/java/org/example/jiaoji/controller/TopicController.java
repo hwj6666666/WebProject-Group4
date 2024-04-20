@@ -1,3 +1,41 @@
 package org.example.jiaoji.controller;
 
-public class TopicController {}
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ResponseBody;
+import java.util.List;
+
+import org.example.jiaoji.pojo.RetType;
+import org.example.jiaoji.pojo.Topic;
+import org.example.jiaoji.service.TopicService;
+import org.springframework.web.bind.annotation.RequestBody;
+
+
+@RestController
+public class TopicController {
+    @Autowired
+    private TopicService topicService;
+
+    @CrossOrigin    //解决跨域问题
+    @GetMapping("/topic/{id}")
+    @ResponseBody
+    public ResponseEntity<List<Topic>> getTopic(@PathVariable("id") Integer id) {
+        List<Topic> topic=null;
+        if(id==0){
+        topic = topicService.SelectAll();}
+        else
+        {
+          topic = topicService.SelectByClassId(id);
+        }
+        return ResponseEntity.ok(topic);
+    }
+
+    
+    @CrossOrigin 
+    @PostMapping("/topic")
+    public RetType insert(@RequestBody Topic test) {
+        return topicService.insertTopic(test);
+    }
+}
