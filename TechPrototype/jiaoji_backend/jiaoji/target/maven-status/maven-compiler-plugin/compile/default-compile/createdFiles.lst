@@ -1,0 +1,11 @@
+org\example\jiaoji\JiaojiApplication.class
+org\example\jiaoji\mapper\ObjectMapper.class
+org\example\jiaoji\mapper\UserMapper.class
+org\example\jiaoji\mapper\TopicMapper.class
+org\example\jiaoji\pojo\Comment.class
+org\example\jiaoji\pojo\User.class
+org\example\jiaoji\pojo\Topic.class
+org\example\jiaoji\pojo\Remark.class
+org\example\jiaoji\mapper\RemarkMapper.class
+org\example\jiaoji\pojo\Object.class
+org\example\jiaoji\mapper\CommentMapper.class
