@@ -3,10 +3,11 @@ import { createSlice } from "@reduxjs/toolkit";
 const userStore = createSlice({
   name: "user",
   initialState: {
-    user:[{
+    user:{
+        userid:6,
         username:'jack',
         password:'123456'
-    }],
+    },
   },
   reducers: {
     setUser(state, action) {

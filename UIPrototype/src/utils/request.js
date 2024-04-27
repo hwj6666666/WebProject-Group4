@@ -12,8 +12,7 @@ import router from "@/router";
 //请求拦截器
 //请求发送前做拦截。插入自定义配置
 request.interceptors.request.use((config)=>{
-    
-    console.log(config)
+    console.log(config.data)
     return config
 },(error)=>{
     return Promise.reject(error)

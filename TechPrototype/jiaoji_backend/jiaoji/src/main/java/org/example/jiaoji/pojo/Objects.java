@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Object {
+public class Objects {
     private Integer id;
     private Integer topicId;
     private Integer userId;
