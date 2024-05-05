@@ -1,7 +1,7 @@
 package org.example.jiaoji.pojo;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 //针对对象的直接评论
@@ -20,5 +20,5 @@ public class Objects {
     public Integer getAveScore(){
         return 5;
     }
+    public String getHotestComment(){ return "确实";}
 }
-
