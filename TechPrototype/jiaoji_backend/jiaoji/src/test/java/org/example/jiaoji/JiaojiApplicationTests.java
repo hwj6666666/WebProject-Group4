@@ -1,7 +1,6 @@
 package org.example.jiaoji;
 
 import org.example.jiaoji.mapper.TopicMapper;
-import org.example.jiaoji.pojo.Topic;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
