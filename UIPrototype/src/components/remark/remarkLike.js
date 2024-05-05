@@ -13,7 +13,7 @@ const LikeButton = ({ remarkId }) => {
   };
 
   return (
-    <Button onClick={toggleLike} className="like-button flex items-center">
+    <Button onClick={toggleLike} className="like-button flex items-center text-gray-500">
       {remark.liked ? <HeartFilled className='text-red-500 mr-1' /> : <HeartOutlined className='mr-1' />}
       {remark.likes}
     </Button>

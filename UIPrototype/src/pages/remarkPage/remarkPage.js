@@ -108,25 +108,33 @@ export const RemarkPage = () => {
 								title={
 									<div className="flex items-center" >
 										<img src={profile_photo} alt="图片描述" className="w-10 h-10 mt-3 mr-4" />
-										<div className="mt-2">{remark.username}</div>
-									</div>
-								}
-								bordered={false} className="mb-3 border border-black rounded-lg"
-							>
-								<div className="flex justify-between">
-									<div></div>
-									<div className="flex flex-col items-center ml-12">
-										<p className="text-xl">{remark.comment}</p>
-										<div className="flex flex-row mt-7 items-center">
-											<button className="mr-8 border border-black rounded-lg pt-1 pb-1 pl-3 pr-3 text-base">回复</button>
-											<p className="text-sm">{remark.time}</p>
-										</div>
-									</div>
-									<div className="flex flex-col items-center mr-6">
-										<div id="remarkStarDisplay" className="w-16 h-10 flex justify-center items-center mb-4 mr-2 text-base">
+										<div className="mt-2 text-sm font-bold">{remark.username}</div>
+										<div className="w-16 h-10 flex justify-center items-center text-base ml-10 mt-2">
 											{returnStarsOutlined(remark.score / 2)}
 										</div>
-										<LikeButton remarkId={remark.id} />
+									</div>
+								}
+								className="mb-4 rounded-lg"
+							>
+								<div className="flex justify-between">
+									<div className="flex flex-col ml-14">
+										<p className="text-base">{remark.comment}</p>
+										<div className="flex flex-row mt-4 items-center">
+											<p className="text-sm text-gray-500">{remark.time}</p>
+											<div className="mx-5"><LikeButton remarkId={remark.id} /></div>
+											<button className="ml-2 text-sm hover:text-blue-500 text-gray-500">回复</button>
+										</div>
+										<div className="mt-5">
+											<div className="flex flex-row items-center">
+												<img src={profile_photo} alt="图片描述" className="w-10 h-10 mr-4" />
+												<div className="text-sm font-bold">{remark.username}</div>
+											</div>
+											<p className="text-base mt-4">你说得对</p>
+											<div className="flex flex-row mt-4 items-center">
+												<p className="text-sm text-gray-500">{remark.time}</p>
+												<button className="ml-4 text-sm hover:text-blue-500 text-gray-500">回复</button>
+											</div>
+										</div>
 									</div>
 								</div>
 							</Card>

@@ -15,5 +15,5 @@ public class Comment {
     private Integer userId;
     private Integer remarkId;
     private String content;
-    private LocalDateTime publicTime;
+    private LocalDateTime publishTime;
 }
