@@ -7,11 +7,7 @@ import org.example.jiaoji.pojo.RetType;
 import org.example.jiaoji.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class CommentController {
@@ -19,14 +15,14 @@ public class CommentController {
     private CommentService commentService;
 
     @CrossOrigin
-    @GetMapping("/topic/{id}/remarks")
+    @GetMapping("/comments/{remarkId}")
     @ResponseBody
-    public ResponseEntity<List<Comment>> getComment(Integer remarkId) {
-        List<Comment> comment = commentService.SelectByRemark(remarkId);
+    public ResponseEntity<List<Comment>> getComment(@PathVariable("remarkId") Integer id) {
+        List<Comment> comment = commentService.SelectByRemark(id);
         return ResponseEntity.ok(comment);
     }
 
     @CrossOrigin
-    @PostMapping("/topic/{id}/remarks")
+    @PostMapping("/comments")
     public RetType insert(Comment comment) {return commentService.addComment(comment);}
 }

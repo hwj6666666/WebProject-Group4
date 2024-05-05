@@ -20,14 +20,14 @@ public class RemarkController {
     private RemarkService remarkService;
 
     @CrossOrigin
-    @GetMapping("/topic/{id}/remarks")
+    @GetMapping("/remarks/{objectId}")
     @ResponseBody
-    public ResponseEntity<List<Remark>> getRemark(@PathVariable("id") Integer id) {
+    public ResponseEntity<List<Remark>> getRemark(@PathVariable("objectId") Integer id) {
         List<Remark> remark = remarkService.SelectByObject(id);
         return ResponseEntity.ok(remark);
     }
 
     @CrossOrigin
-    @PostMapping("/topic/{id}/remarks")
+    @PostMapping("/remarks")
     public RetType insert(Remark remark) {return remarkService.addRemark(remark);}
 }
