@@ -1,3 +1,4 @@
+import { addRemarkAPI, getRemarkAPI } from "@/apis/remark";
 import { createSlice } from "@reduxjs/toolkit";
 const remarkStore = createSlice({
 	name: "remark",
@@ -38,12 +39,13 @@ const remarkStore = createSlice({
 		remarkLen: 3
 	},
 	reducers: {
-		addRemark(state, action) {
+		addMyRemark(state, action) {
 			state.remark.unshift(action.payload);
 			state.len++
 		},
 		changeRemark(state, action) {
 			state.remark = action.payload;
+			state.remarkLen = action.payload.length;
 		},
 		changeLike(state, action) {
 			let this_remark = state.remark.find(r => r.id === action.payload);
@@ -59,10 +61,30 @@ const remarkStore = createSlice({
 	},
 });
 
-const { addRemark, changeRemark, changeLike } = remarkStore.actions;
+const fetchRemark = (id) => {
+	return async (dispatch) => {
+		const res = await getRemarkAPI(id);
+		console.log(res);
+		dispatch(changeRemark(res));
+	}
+}
+
+const addRemark = (remark) => {
+	console.log(remark);
+	return async (dispatch) => {
+		await addRemarkAPI(remark);
+		dispatch(addMyRemark(remark));
+	}
+}
+
+const changeLikeBack = (isIncrease) => {
+	
+}
+
+const { addMyRemark, changeRemark, changeLike } = remarkStore.actions;
 
 const remarkReducer = remarkStore.reducer;
 
-export { addRemark, changeRemark, changeLike };
+export { addMyRemark, changeRemark, changeLike, fetchRemark, addRemark };
 
 export default remarkReducer;
