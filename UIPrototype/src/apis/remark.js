@@ -20,7 +20,7 @@ const addRemarkAPI = (remark) => {
 
 const changeLikeAPI = (isIncrease) => {
     return request({
-        url: `/remarks/like/${id}`,
+        url: `/remarks/like`,
         method: 'post',
     })
 }

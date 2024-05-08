@@ -135,17 +135,17 @@ const [imageUrl, setImageUrl] = useState('');
       defaultValue={11}
       style={{ width: 120 }}
       options={[
-        { value: 1,label: '美食'},
-        { value: 2  ,label: '知识'  },
-        { value: 3  ,label: '娱乐'  },
-        { value: 4  ,label: '汽车'  },
-        { value: 5  ,label: '影视'  },
-        { value: 6  ,label: '人文'  },
-        { value: 7  ,label: '体育'  },
-        { value: 8  ,label: '动植物'  },
-        { value: 9  ,label: '游戏'  },
-        { value: 10  ,label: '科技'  },
-        { value: 11  ,label: '其他'  },
+        { value: 2,label: '美食'},
+        { value: 3  ,label: '知识'  },
+        { value: 4  ,label: '娱乐'  },
+        { value: 5  ,label: '汽车'  },
+        { value: 6  ,label: '影视'  },
+        { value: 7  ,label: '人文'  },
+        { value: 8  ,label: '体育'  },
+        { value: 9  ,label: '动植物'  },
+        { value: 10  ,label: '游戏'  },
+        { value: 11  ,label: '科技'  },
+        { value: 12  ,label: '其他'  },
       ]}
     />
           </Form.Item>
