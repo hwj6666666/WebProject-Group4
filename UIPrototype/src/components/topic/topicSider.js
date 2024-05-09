@@ -10,18 +10,23 @@ import { useDispatch, useSelector} from "react-redux";
 export const MySider = () => {
   
   const dispatch = useDispatch();
+
   const [selectedKey, setSelectedKey] = useState("0");
+
   const handleselect =({key})=>{
     setSelectedKey(key)
     console.log(typeof(key))
     dispatch(fetchTopic(key));
   }
+
   const sort=useSelector(state=>state.class).class
+
   useEffect(() => {
     console.log(sort);
     dispatch(fetchTopic("0"));
     dispatch(fetchClass());
   },[dispatch]);
+
   return (
     <Sider className="ml-20 mt-20 mr-20">
       <Menu

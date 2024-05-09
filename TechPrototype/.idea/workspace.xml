@@ -4,32 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96454bf4-0244-4b31-b13a-cbad8c93082a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/TechPrototype.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/google-java-format.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/databaseSQL/class.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/databaseSQL/comments.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/databaseSQL/object.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/databaseSQL/remarks.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/databaseSQL/topic.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/databaseSQL/user.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/databaseSQL/微信图片_20240505195404.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/databaseSQL/微信图片_20240505195411.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jiaoji_backend/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jiaoji_backend/.idea/google-java-format.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jiaoji_backend/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/resources/application.properties" afterDir="false" />
-    </list>
+    <list default="true" id="96454bf4-0244-4b31-b13a-cbad8c93082a" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,23 +13,23 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "hwj6666666"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;hwj6666666&quot;
   }
-}]]></component>
-  <component name="GitHubPullRequestState"><![CDATA[{
-  "prStates": []
-}]]></component>
-  <component name="GitLabMergeRequestsSettings"><![CDATA[{}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/hwj6666666/WebProject-Group4.git",
-    "accountId": "93f4f167-e224-4065-9c6f-824e59bac412"
+}</component>
+  <component name="GitHubPullRequestState">{
+  &quot;prStates&quot;: []
+}</component>
+  <component name="GitLabMergeRequestsSettings">{}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/hwj6666666/WebProject-Group4.git&quot;,
+    &quot;accountId&quot;: &quot;93f4f167-e224-4065-9c6f-824e59bac412&quot;
   }
-}]]></component>
-  <component name="KubernetesApiProvider"><![CDATA[{}]]></component>
+}</component>
+  <component name="KubernetesApiProvider">{}</component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -68,39 +43,50 @@
   <component name="MavenRunner">
     <option name="jreName" value="18" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 6
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="2g2v7nzRCYRIrW5jX4lMa0lbZBc" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.JiaojiApplication.executor": "Run",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/CodeWebProject/WebProject-Group4/TechPrototype/databaseSQL/object.sql",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "File.Encoding",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.JiaojiApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Hu&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/CodeWebProject/WebProject-Group4/TechPrototype/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/Mail&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;File.Encoding&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql_aurora_aws",
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql_aurora_aws&quot;,
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\CodeWebProject\WebProject-Group4\TechPrototype\jiaoji_backend\jiaoji\src\main\java\org\example\jiaoji\Mail" />
+      <recent name="D:\CodeWebProject\WebProject-Group4\TechPrototype\jiaoji_backend\jiaoji\src\main\java\org\example\jiaoji\Mail\Modal" />
+      <recent name="D:\CodeWebProject\WebProject-Group4\TechPrototype\jiaoji_backend\jiaoji\libs" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="JiaojiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
@@ -128,10 +114,24 @@
       <option name="presentableId" value="Default" />
       <updated>1714908321783</updated>
       <workItem from="1714908322878" duration="1815000" />
+      <workItem from="1714917026652" duration="12000" />
+      <workItem from="1715089524330" duration="2510000" />
+      <workItem from="1715163301350" duration="4436000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

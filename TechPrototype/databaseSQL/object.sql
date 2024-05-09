@@ -9,13 +9,14 @@ create table object
     description varchar(3000) default '作者太懒了，并没有写简介' null,
     constraint id
         unique (id),
-    constraint title
-        unique (title),
     constraint object_topic
         foreign key (topic_id) references topic (id),
     constraint object_user
         foreign key (user_id) references user (id)
 );
+
+create index title
+    on object (title);
 
 INSERT INTO jiaoji.object (id, title, topic_id, user_id, picture, description) VALUES (1, '一餐', 1, 1, '0', '一餐位于学生公寓西一区北面，距离包玉刚图书馆、上中下院教学楼较近。由于靠近教学楼，一餐在工作日饭点人流量很大，早餐种类丰富，正餐时段一楼包含川味窗口、陕西美食、养生锅（推荐!飘香鸡锅不错）、五芳斋、糖水粥铺等窗口，还开设了低脂、低糖、少油、无碘盐等特殊窗口。二楼则是教工餐厅和自选餐厅。在一餐附近有清真餐厅、麦当劳、Timo咖啡、思源面包、蔬果每日水果店等，十分便利。');
 INSERT INTO jiaoji.object (id, title, topic_id, user_id, picture, description) VALUES (2, '二餐', 1, 2, '0', '位于东一区与东二区宿舍楼之间，距离东上中下院较近，和四餐并列为校内最受欢迎的餐厅。一楼分为小吃广场和西餐厅，小吃广场有吉祥馄饨、石锅菜、辛拉面、糖水粥铺、麻辣烫、酸菜鱼等档口，西餐厅有奶茶店、烤盘饭、木桶饭、韩式拌饭等西式点心。二楼有教工食堂和大众餐厅，大众餐厅往里走是新疆餐厅，出售烤羊肉串、牛奶饭等人气食品，可以点菜，秋冬还有羊蝎子汤，爱吃新疆菜的同学不要错过。三楼的绿园餐厅人气很旺，自选麻辣香锅在饭点要等上半个小时，除此之外，绿园也有铁板烧和小碗菜档口，消费会比二楼的稍高一些。');
@@ -44,3 +45,4 @@ INSERT INTO jiaoji.object (id, title, topic_id, user_id, picture, description) V
 INSERT INTO jiaoji.object (id, title, topic_id, user_id, picture, description) VALUES (25, 'b站', 9, 1, '0', '哔哩哔哩（Bilibili）是中国一家知名的在线视频平台，以ACG（动画、漫画、游戏）文化为主打，同时涵盖了各种领域的视频内容，如生活、科技、娱乐等。该平台由徐逸凡等人于2009年创建，旨在为用户提供优质的视频内容和交流分享的平台。');
 INSERT INTO jiaoji.object (id, title, topic_id, user_id, picture, description) VALUES (26, 'Youtube', 9, 2, '0', 'YouTube是全球最大的在线视频平台之一，于2005年由三名前PayPal员工创立，隶属于美国科技巨头谷歌旗下。作为一个开放的视频分享平台，YouTube为用户提供了一个广阔的视频内容世界，涵盖了几乎所有领域的视频内容，包括但不限于音乐、娱乐、教育、新闻、时事、科技、美食、生活等。');
 INSERT INTO jiaoji.object (id, title, topic_id, user_id, picture, description) VALUES (27, '抖音', 9, 3, '0', '抖音是一款由中国字节跳动公司开发的短视频分享应用，于2016年9月正式上线，迅速在全球范围内获得了巨大成功和普及。作为一款移动应用，抖音以其简单易用的界面和丰富多样的视频内容吸引了亿万用户，尤其受到年轻人的喜爱。');
+INSERT INTO jiaoji.object (id, title, topic_id, user_id, picture, description) VALUES (28, '一餐', 2, 3, '28', '?');
