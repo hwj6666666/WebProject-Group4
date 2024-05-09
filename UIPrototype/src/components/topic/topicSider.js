@@ -13,7 +13,7 @@ export const MySider = () => {
   const [selectedKey, setSelectedKey] = useState("0");
   const handleselect =({key})=>{
     setSelectedKey(key)
-    console.log(typeof(key))
+    console.log(key)
     dispatch(fetchTopic(key));
   }
   const sort=useSelector(state=>state.class).class

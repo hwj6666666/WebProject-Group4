@@ -18,5 +18,5 @@ public class Remark {
     private String content;
     private Integer like;
     private Integer score;
-    private LocalDateTime publicTime;
+    private LocalDateTime publishTime;
 }

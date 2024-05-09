@@ -21,7 +21,6 @@ const classStore = createSlice({
 const fetchClass =()=>{ //异步方法获取class
   return async(dispatch)=>{
     const res=await ClassAPI();
-    console.log(res);
     dispatch(changeClass(res));
   }
 }
