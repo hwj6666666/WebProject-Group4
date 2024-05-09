@@ -23,7 +23,6 @@ const topicStore = createSlice({
 const fetchTopic =(id)=>{ //异步方法获取topic
   return async(dispatch)=>{
     const res=await mainTopicAPI(id);
-    console.log(res);
     dispatch(changeTopic(res));
   }
 }

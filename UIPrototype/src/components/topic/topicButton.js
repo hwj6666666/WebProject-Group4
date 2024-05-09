@@ -125,14 +125,14 @@ const [imageUrl, setImageUrl] = useState('');
           onFinish={onFinish}
           layout="vertical"
           preserve={false}
-          initialValues={{ classId: 11 ,introduce:''}}    //默认值
+          initialValues={{ classId: 12 ,introduce:''}}    //默认值
         >
          <> <Form.Item name="topic" label="上传话题" required>
             <Input placeholder="上传您想讨论的话题" />
           </Form.Item>
           <Form.Item name="classId" label="分类">
           <Select
-      defaultValue={11}
+      defaultValue={12}
       style={{ width: 120 }}
       options={[
         { value: 2,label: '美食'},
@@ -142,7 +142,7 @@ const [imageUrl, setImageUrl] = useState('');
         { value: 6  ,label: '影视'  },
         { value: 7  ,label: '人文'  },
         { value: 8  ,label: '体育'  },
-        { value: 9  ,label: '动植物'  },
+        { value: 9  ,label: '动植物' },
         { value: 10  ,label: '游戏'  },
         { value: 11  ,label: '科技'  },
         { value: 12  ,label: '其他'  },

@@ -21,7 +21,6 @@ request.interceptors.request.use((config)=>{
 //响应拦截器
 //响应接受前做拦截。处理返回的数据
 request.interceptors.response.use((response)=>{
-    console.log(response)
     return response.data
 },(error)=>{
     console.log(error)
