@@ -1,8 +1,9 @@
 create table comments
 (
-    id           int          null,
-    user_id      int          null,
-    remark_id    int          null,
+    id           int auto_increment
+        primary key,
+    user_id      int          not null,
+    remark_id    int          not null,
     content      varchar(100) null,
     publish_time datetime     null
 );
