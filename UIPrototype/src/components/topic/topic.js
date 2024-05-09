@@ -12,7 +12,7 @@ const Topic = ({ topic, onTopicClick }) => {
     <Link to={{ pathname: '/object'}}>
     <Card
       className="shadow-md w-full"
-      // onClick={onTopicClick}
+
       title={
         <button
           onClick={(event) => {
