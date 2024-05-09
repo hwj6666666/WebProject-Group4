@@ -13,5 +13,4 @@ public class JiaojiApplication {
     public static void main(String[] args) {
         SpringApplication.run(JiaojiApplication.class, args);
     }
-
 }
