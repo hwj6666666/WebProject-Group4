@@ -45,22 +45,22 @@ public class UserController {
         topics = userService.SelectTopicsById(id);
         return ResponseEntity.ok(topics);
     }
-//
-//    @CrossOrigin
-//    @GetMapping("/user/{id}/objects")
-//    @ResponseBody
-//    public ResponseEntity<List<Integer>> getObjectsIdById(@PathVariable("id") Integer id) {
-//        List<Integer> object = null;
-//        object = userService.SelectObjectsById(id);
-//        return ResponseEntity.ok(object);
-//    }
-//
-//    @CrossOrigin
-//    @GetMapping("/user/{id}/remarks")
-//    @ResponseBody
-//    public ResponseEntity<List<Integer>> getRemarksIdById(@PathVariable("id") Integer id) {
-//        List<Integer> remark = null;
-//        remark = userService.SelectRemarksById(id);
-//        return ResponseEntity.ok(remark);
-//    }
+
+    @CrossOrigin
+    @GetMapping("/user/{id}/objects")
+    @ResponseBody
+    public ResponseEntity<List<Integer>> getObjectsIdById(@PathVariable("id") Integer id) {
+        List<Integer> object = null;
+        object = userService.SelectObjectsById(id);
+        return ResponseEntity.ok(object);
+    }
+
+    @CrossOrigin
+    @GetMapping("/user/{id}/remarks")
+    @ResponseBody
+    public ResponseEntity<List<Integer>> getRemarksIdById(@PathVariable("id") Integer id) {
+        List<Integer> remark = null;
+        remark = userService.SelectRemarksById(id);
+        return ResponseEntity.ok(remark);
+    }
 }
