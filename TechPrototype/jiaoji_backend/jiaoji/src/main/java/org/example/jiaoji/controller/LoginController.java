@@ -15,9 +15,9 @@ public class LoginController {
     @Autowired
     private UserService userService;
 
-    @PostMapping("/user/login")
-    public RetType postMethodName(@RequestBody User user) {
-        return userService.Login(user.getUsername(), user.getPassword());
-    }
+//    @PostMapping("/user/login")
+//    public RetType postMethodName(@RequestBody User user) {
+//        return userService.Login(user.getUsername(), user.getPassword());
+//    }
     
 }
