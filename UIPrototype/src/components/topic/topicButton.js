@@ -48,8 +48,6 @@ const [imageUrl, setImageUrl] = useState('');
       return false; // 阻止自动上传
   };
 
-
-
     //获取用户id
   const userid=useSelector(state=>state.user).user.userid
   //提交话题
