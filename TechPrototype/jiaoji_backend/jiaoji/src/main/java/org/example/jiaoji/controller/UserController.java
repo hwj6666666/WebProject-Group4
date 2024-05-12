@@ -28,13 +28,9 @@ public class UserController {
     @CrossOrigin
     @GetMapping("/user/{id}")
     @ResponseBody
-    public ResponseEntity<List<User>> getUserById(@PathVariable("id") Integer id) {
-        List<User> user = null;
-        if (id == 0) {
-            user = userService.SelectAll();
-        } else {
-            user = userService.SelectByUserId(id);
-        }
+    public ResponseEntity<User> getUserById(@PathVariable("id") Integer id) {
+        User user = null;
+        user = userService.SelectByUserId(id);
         return ResponseEntity.ok(user);
     }
 

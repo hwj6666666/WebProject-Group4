@@ -17,7 +17,7 @@ public interface UserMapper {
     public List<User> selectAll();
 
     @Select("select * from user where id = #{id}")
-    public List<User> selectByUserId(Integer id);
+    public User selectByUserId(Integer id);
 
     @Select("select * from topic where topic.user_id = #{id}")
     public List<Topic> selectTopicsByUserId(Integer id);

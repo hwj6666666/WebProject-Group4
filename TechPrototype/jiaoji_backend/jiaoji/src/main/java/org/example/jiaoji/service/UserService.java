@@ -6,7 +6,7 @@ import java.util.List;
 public interface UserService {
     public List<User> SelectAll();
 
-    public List<User> SelectByUserId(Integer id);
+    public User SelectByUserId(Integer id);
 
     public List<Topic> SelectTopicsById(Integer id);
 

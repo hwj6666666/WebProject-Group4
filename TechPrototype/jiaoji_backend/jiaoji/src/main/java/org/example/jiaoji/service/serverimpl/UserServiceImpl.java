@@ -17,7 +17,7 @@ public class UserServiceImpl implements UserService {
         return userMapper.selectAll();
     }
 
-    public List<User> SelectByUserId(Integer id) {
+    public User SelectByUserId(Integer id) {
         return userMapper.selectByUserId(id);
     }
 
