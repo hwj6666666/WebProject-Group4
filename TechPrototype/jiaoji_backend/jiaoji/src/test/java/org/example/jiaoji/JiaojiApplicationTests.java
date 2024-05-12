@@ -12,6 +12,7 @@ class JiaojiApplicationTests {
     private TopicMapper topicMapper;
     @Test
     void contextLoads() {
-        System.out.println(topicMapper.selectAll());
+        
+        System.out.println();
     }
 }
