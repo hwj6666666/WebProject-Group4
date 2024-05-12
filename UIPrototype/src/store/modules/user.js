@@ -1,18 +1,19 @@
-
 import { createSlice } from "@reduxjs/toolkit";
 import { getTopicsByUserIdAPI, getObjectsByUserIdAPI, getRemarksByUserIdAPI, getUserAPI, getFllowsAPI } from "@/apis/user";
 const userStore = createSlice({
 	name: "user",
 	initialState: {
-		user: [{
+		user: {
 			userid: 6,
 			username: 'jack',
 			password: '123456'
-		},],
+		},
 		topicsbyuser: [],
 		objectsbyuser: [],
 		remarksbyuser: [],
-		fllows: []
+		fllows: [],
+		isLoggedIn: false,
+		id: 0,
 	},
 	reducers: {
 		setTopics(state, action) {
@@ -33,6 +34,12 @@ const userStore = createSlice({
 		addUser(state, action) {
 			state.user.push(action.payload)
 		},
+		setLoggedIn(state, action) {
+			state.isLoggedIn = action.payload;
+		},
+		setId(state, action) {
+			state.id = action.payload;
+		}
 	},
 });
 

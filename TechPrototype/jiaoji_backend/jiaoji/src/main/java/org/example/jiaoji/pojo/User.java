@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 public class User {
     private Integer id;
     private Integer level;
+    private String email;
     private String username;
     private String avatar;
     private String note;

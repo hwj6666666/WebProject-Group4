@@ -4,11 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96454bf4-0244-4b31-b13a-cbad8c93082a" name="Changes" comment="" />
+    <list default="true" id="96454bf4-0244-4b31-b13a-cbad8c93082a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/databaseSQL/user.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/Mail/Controller/MailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/Mail/Controller/MailController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/pojo/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/pojo/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UIPrototype/src/pages/loginPage/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UIPrototype/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../UIPrototype/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UIPrototype/src/store/modules/topic.js" beforeDir="false" afterPath="$PROJECT_DIR$/../UIPrototype/src/store/modules/topic.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UIPrototype/src/store/modules/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/../UIPrototype/src/store/modules/user.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -79,7 +100,7 @@
       "mysql"
     ]
   }
-}]]></component>
+}]]>]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\CodeWebProject\WebProject-Group4\TechPrototype\jiaoji_backend\jiaoji\src\main\java\org\example\jiaoji\Mail" />
@@ -120,6 +141,8 @@
       <workItem from="1715485136624" duration="4776000" />
       <workItem from="1715498824760" duration="3955000" />
       <workItem from="1715509666027" duration="7095000" />
+      <workItem from="1715259168298" duration="1886000" />
+      <workItem from="1715486120467" duration="13033000" />
     </task>
     <servers />
   </component>
