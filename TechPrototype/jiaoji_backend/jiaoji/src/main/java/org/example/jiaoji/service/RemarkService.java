@@ -12,4 +12,8 @@ public interface RemarkService {
     public List<Remark> SelectByObject(Integer objectId);
 
     public List<Remark> SelectById(Integer id);
+
+    public void changeLike(Integer id, Integer change);
+
+    public void deleteRemark(Integer id);
 }

@@ -1,9 +1,13 @@
 import { request } from "../utils/request";
 
-const getCommentAPI = (id) => {
+const getCommentAPI = (remarkIds) => {
     return request({
-        url: `/comments/${id}`,
-        method: 'get',
+        url: `/comments/get`,
+        method: 'post',
+        data: remarkIds,
+        headers: {
+            'Content-Type': 'application/json'
+        }
     });
 }
 
@@ -18,4 +22,4 @@ const addCommentAPI = (comment) => {
     });
 }
 
-export {getCommentAPI, addCommentAPI}
+export { getCommentAPI, addCommentAPI }

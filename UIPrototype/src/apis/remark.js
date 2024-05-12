@@ -18,11 +18,11 @@ const addRemarkAPI = (remark) => {
 	});
 }
 
-// const changeLikeAPI = (isIncrease) => {
-//     return request({
-//         url: `/remarks/like/${id}`,
-//         method: 'post',
-//     })
-// }
+const changeLikeAPI = (change, id) => {
+	return request({
+		url: `/remarks/changeLike/${id}/${change}`,
+		method: 'get',
+	});
+}
 
-export { getRemarkAPI, addRemarkAPI }
+export { getRemarkAPI, addRemarkAPI, changeLikeAPI }

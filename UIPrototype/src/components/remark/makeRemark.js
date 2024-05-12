@@ -2,7 +2,6 @@
 import { addRemark } from "@/store/modules/remark";
 import { Button, Form, Input, Modal, message, Rate } from "antd/es";
 import { Content } from "antd/es/layout/layout";
-import dayjs from "dayjs";
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 export const MakeRemark = () => {
@@ -23,23 +22,22 @@ export const MakeRemark = () => {
 
 	}
 	const [form] = Form.useForm();
-	const remarkid = useSelector(state => state.remark).remarkLen
+	const user = useSelector(state => state.user).user;
 	const dispatch = useDispatch()
 	const onFinish = async ({ score, remark }) => {
 		if (!score) message.error("请给出评价分数");
 		else {
-			const tmp = dayjs().format()
-			const date = tmp.substring(0, 10) + "  " + tmp.substring(11, 16)
+			let date = new Date();
+			let dateString = date.toISOString();
 			const mark = {
-				username: localStorage.getItem('user'),
-				photo: "",
-				comment: remark || "",
+				userId: user.find(user => user.username === localStorage.getItem('user')).userid,
+				objectId: 1,
+				content: remark || "",
+				like: 0,
 				score: score * 2,
-				time: date,
-				likes: 0,
-				id: remarkid,
+				publishTime: dateString
 			}
-			await dispatch(addRemark(mark))
+			dispatch(addRemark(mark))
 			message.success("提交成功");
 			setIsModalOpen(false);
 		}

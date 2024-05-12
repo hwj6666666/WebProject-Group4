@@ -7,12 +7,7 @@ import org.example.jiaoji.pojo.RetType;
 import org.example.jiaoji.service.RemarkService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class RemarkController {
@@ -28,6 +23,20 @@ public class RemarkController {
     }
 
     @CrossOrigin
+    @GetMapping("/remarks/changeLike/{id}/{change}")
+    public void changeLike(@PathVariable("id") Integer id, @PathVariable("change") Integer change) {
+        remarkService.changeLike(id, change);
+    }
+
+    @CrossOrigin
+    @GetMapping("/remarks/delete/{id}")
+    public void delete(@PathVariable("id") Integer id) {
+        remarkService.deleteRemark(id);
+    }
+
+    @CrossOrigin
     @PostMapping("/remarks")
-    public RetType insert(Remark remark) {return remarkService.addRemark(remark);}
+    public RetType insert(@RequestBody Remark remark) {
+        return remarkService.addRemark(remark);
+    }
 }
