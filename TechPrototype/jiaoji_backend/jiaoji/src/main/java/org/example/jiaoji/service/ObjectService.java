@@ -14,4 +14,8 @@ public interface ObjectService {
     public  List<Objects> SelectById(Integer id);
 
     public List<Topic> SelectTopicById(Integer id);
+
+    public double getAveScore(Integer id);
+
+    public String getHottestRemark(Integer id);
 }
