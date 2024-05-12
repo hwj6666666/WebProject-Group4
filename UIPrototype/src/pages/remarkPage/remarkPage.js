@@ -13,6 +13,7 @@ import { StarOutlined, StarFilled } from '@ant-design/icons';
 import { changeRemark } from "@/store/modules/remark";
 import { addComment, fetchComment } from "@/store/modules/comment";
 import { getRemarkAPI, getUsersAPI } from "@/apis/remark";
+import { fetchObject } from "@/store/modules/object";
 
 export const RemarkPage = () => {
 	const remarks = useSelector(state => state.remark).remark;
@@ -24,6 +25,7 @@ export const RemarkPage = () => {
 
 	const fetchData = async () => {
 		user.current = await getUsersAPI();
+		dispatch(fetchObject("1"));
 		return await getRemarkAPI(1);
 	}
 
@@ -111,7 +113,7 @@ export const RemarkPage = () => {
 		<div className="fixed w-full z-50"><Header /></div>
 		<div className="h-16"></div>
 		<div className="flex flex-row ml-28 mr-48">
-			<div className="fixed"><ObjectProfile object={objects.find(r => r.id === 0)} /></div>
+			<div className="fixed"><ObjectProfile object={objects.find(r => r.id === 1)} /></div>
 			<div className="w-1/3"></div>
 			<div className="w-3/4 mt-12">
 				<h1 className="text-center text-4xl mb-8 font-bold">交大哪个餐厅最好吃</h1>

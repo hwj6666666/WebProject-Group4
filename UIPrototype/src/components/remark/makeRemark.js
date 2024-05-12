@@ -1,5 +1,6 @@
 
 import { getUsersAPI } from "@/apis/remark";
+import { fetchObject } from "@/store/modules/object";
 import { addRemark } from "@/store/modules/remark";
 import { Button, Form, Input, Modal, message, Rate } from "antd/es";
 import { Content } from "antd/es/layout/layout";
