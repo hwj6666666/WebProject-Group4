@@ -64,4 +64,13 @@ public class UserController {
         remark = userService.SelectRemarksById(id);
         return ResponseEntity.ok(remark);
     }
+
+    @CrossOrigin
+    @GetMapping("/user/{id}/fllows")
+    @ResponseBody
+    public ResponseEntity<List<Topic>> getFllows(@PathVariable("id") Integer id) {
+        List<Topic> fllow = null;
+        fllow = userService.SelectFlllows(id);
+        return ResponseEntity.ok(fllow);
+    }
 }

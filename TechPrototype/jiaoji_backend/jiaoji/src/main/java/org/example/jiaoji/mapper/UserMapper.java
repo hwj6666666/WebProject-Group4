@@ -27,6 +27,11 @@ public interface UserMapper {
     @Select("select * from remarks where remarks.user_id = #{id}")
     public List<Remark> selectRemarksByUserId(Integer id);
 
+    @Select("select *\n" +
+            "from topic\n" +
+            "where topic.id in (select topic_id from fllow where fllow.user_id = #{id})")
+    public List<Topic> selectFllows(Integer id);
+
     @Select("select id from user where username = #{username}")
     public Integer selectIdByUsername(String username);
 

@@ -35,4 +35,11 @@ const getRemarksByUserIdAPI = (user_id) => {
 	});
 }
 
-export { allUserAPI, getUserAPI, getTopicsByUserIdAPI, getObjectsByUserIdAPI, getRemarksByUserIdAPI }
+const getFllowsAPI = (user_id) => {
+	return request({
+		url: `/user/${user_id}/fllows`,
+		method: 'get',
+	});
+}
+
+export { allUserAPI, getUserAPI, getTopicsByUserIdAPI, getObjectsByUserIdAPI, getRemarksByUserIdAPI, getFllowsAPI }

@@ -33,26 +33,7 @@ public class UserServiceImpl implements UserService {
         return userMapper.selectRemarksByUserId(id);
     }
 
-
-//    public RetType Login(String username, String password) {
-//        Integer id = userMapper.selectIdByUsername(username);
-//        RetType retType = new RetType();
-//        if (id == null) {
-//            retType.setData(null);
-//            retType.setMsg("用户名不存在");
-//            retType.setOk(false);
-//            return retType;
-//        }
-//        id = userMapper.selectIdByUsernameAndPassword(username, password);
-//        if (id == null) {
-//            retType.setData(null);
-//            retType.setMsg("密码错误");
-//            retType.setOk(false);
-//            return retType;
-//        }
-//        retType.setData(id);
-//        retType.setMsg("登录成功");
-//        retType.setOk(true);
-//        return retType;
-//    }
+    public List<Topic> SelectFlllows(Integer id){
+        return userMapper.selectFllows(id);
+    }
 }

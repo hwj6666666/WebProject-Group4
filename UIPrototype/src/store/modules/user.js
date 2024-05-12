@@ -1,6 +1,6 @@
 
 import { createSlice } from "@reduxjs/toolkit";
-import { getTopicsByUserIdAPI, getObjectsByUserIdAPI, getRemarksByUserIdAPI, getUserAPI } from "@/apis/user";
+import { getTopicsByUserIdAPI, getObjectsByUserIdAPI, getRemarksByUserIdAPI, getUserAPI, getFllowsAPI } from "@/apis/user";
 const userStore = createSlice({
 	name: "user",
 	initialState: {
@@ -11,7 +11,8 @@ const userStore = createSlice({
 		},],
 		topicsbyuser: [],
 		objectsbyuser: [],
-		remarksbyuser: []
+		remarksbyuser: [],
+		fllows: []
 	},
 	reducers: {
 		setTopics(state, action) {
@@ -23,12 +24,11 @@ const userStore = createSlice({
 		setRemarks(state, action) {
 			state.remarksbyuser = action.payload
 		},
+		setFllows(state, action) {
+			state.fllows = action.payload
+		},
 		setUser(state, action) {
 			state.user = action.payload
-			// state.user = state.user.filter((element) => element.name !== action.payload.name);
-			// console.log(state.user)
-			// state.user.push({ username: action.payload.user, password: action.payload.pw })
-			// console.log(state.user)
 		},
 		addUser(state, action) {
 			state.user.push(action.payload)
@@ -68,10 +68,18 @@ const fetchRemarksByUserId = (user_id) => {
 	}
 }
 
-const { setUser, setTopics, setObjects, setRemarks, addUser } = userStore.actions;
+const fetchFllows = (user_id) => {
+	return async (dispatch) => {
+		const res = await getFllowsAPI(user_id);
+		// console.log(res)
+		dispatch(setFllows(res));
+	}
+}
+
+const { setUser, setTopics, setObjects, setRemarks, setFllows, addUser } = userStore.actions;
 
 const userReducer = userStore.reducer;
 
-export { fetchUser, fetchTopicsByUserId, fetchRemarksByUserId, fetchObjectsByUserId, setUser, addUser };
+export { fetchUser, fetchTopicsByUserId, fetchRemarksByUserId, fetchObjectsByUserId, fetchFllows, setUser, addUser };
 
 export default userReducer;

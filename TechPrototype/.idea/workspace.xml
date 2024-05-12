@@ -6,6 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="96454bf4-0244-4b31-b13a-cbad8c93082a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/service/serverimpl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/service/serverimpl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UIPrototype/src/store/modules/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/../UIPrototype/src/store/modules/user.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,9 +70,9 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Spring Boot.JiaojiApplication.executor": "Run",
     "database.data.extractors.current.export.id": "SQL Inserts",
-    "git-widget-placeholder": "branch-li",
+    "git-widget-placeholder": "Chen",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/IDE/STUDY/webapp/csv/topic(1).sql",
+    "last_opened_file_path": "D:/IDE/STUDY/webapp/csv/topic(2).sql",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -121,7 +127,7 @@
       <workItem from="1715433048437" duration="4031000" />
       <workItem from="1715485136624" duration="4776000" />
       <workItem from="1715498824760" duration="3955000" />
-      <workItem from="1715509666027" duration="962000" />
+      <workItem from="1715509666027" duration="6296000" />
     </task>
     <servers />
   </component>

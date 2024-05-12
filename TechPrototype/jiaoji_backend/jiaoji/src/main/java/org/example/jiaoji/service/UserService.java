@@ -11,6 +11,5 @@ public interface UserService {
     public List<Topic> SelectTopicsById(Integer id);
     public List<Objects> SelectObjectsById(Integer id);
     public List<Remark> SelectRemarksById(Integer id);
-//    public RetType Login(String username, String password);
-
+    public List<Topic> SelectFlllows(Integer id);
 }

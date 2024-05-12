@@ -7,9 +7,7 @@
     <file url="file://$PROJECT_DIR$/databaseSQL/remarks.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/databaseSQL/topic.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/databaseSQL/user.sql" dialect="MySQL" />
-    <file url="file://$PROJECT_DIR$/../../../webapp/csv/comments(2).sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/../../../webapp/csv/remarks(2).sql" dialect="MySQL" />
-    <file url="file://$PROJECT_DIR$/../../../webapp/csv/topic(1).sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/../../../webapp/csv/user.sql" dialect="MySQL" />
   </component>
 </project>

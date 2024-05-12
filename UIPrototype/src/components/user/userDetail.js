@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { UserAvatar } from "@/components/user/userAvatar";
 import Setting from "@/components/user/dropmenu";
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchObjectsByUserId, fetchRemarksByUserId, fetchTopicsByUserId, fetchUser } from '@/store/modules/user';
+import { fetchFllows, fetchObjectsByUserId, fetchRemarksByUserId, fetchTopicsByUserId, fetchUser } from '@/store/modules/user';
 
 const user_id = 1
 export default function UserDetail() {
@@ -12,6 +12,7 @@ export default function UserDetail() {
 		dispatch(fetchObjectsByUserId(user_id));
 		dispatch(fetchRemarksByUserId(user_id));
 		dispatch(fetchTopicsByUserId(user_id));
+		dispatch(fetchFllows(user_id));
 	}, [dispatch])
 	const curUser = useSelector(state => state.user).user
 	return (
@@ -23,7 +24,7 @@ export default function UserDetail() {
 			<span className="mt-6">
 				<div className="flex flex-row items-end mb-4">
 					<span className="text-4xl mr-4">{curUser[0].username}</span>
-					<span className="text-2xl relative bottom-0">Lv.{curUser[0].level}</span>
+					<span className="text-xl relative bottom-0">Lv.{curUser[0].level}</span>
 				</div>
 				<div className="text-md text-gray-700">
 					{curUser[0].note}
