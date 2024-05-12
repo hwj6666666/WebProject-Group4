@@ -1,6 +1,8 @@
 package org.example.jiaoji.controller;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.example.jiaoji.pojo.Comment;
 import org.example.jiaoji.pojo.RetType;
@@ -15,14 +17,17 @@ public class CommentController {
     private CommentService commentService;
 
     @CrossOrigin
-    @GetMapping("/comments/{remarkId}")
+    @PostMapping("/comments/get")
     @ResponseBody
-    public ResponseEntity<List<Comment>> getComment(@PathVariable("remarkId") Integer id) {
-        List<Comment> comment = commentService.SelectByRemark(id);
+    public ResponseEntity<List<Comment>> getComment(@RequestBody Integer[] ids) {
+        List<Comment> comment = Arrays.stream(ids).map(id->commentService.SelectByRemark(id))
+                .flatMap(List::stream).collect(Collectors.toList());
         return ResponseEntity.ok(comment);
     }
 
     @CrossOrigin
     @PostMapping("/comments")
-    public RetType insert(Comment comment) {return commentService.addComment(comment);}
+    public RetType insert(@RequestBody Comment comment) {
+        return commentService.addComment(comment);
+    }
 }

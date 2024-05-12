@@ -3,18 +3,21 @@ import { Content } from "antd/es/layout/layout";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import _ from 'lodash'
-import { changeRemark } from "@/store/modules/remark";
+import { changePos, setOrderByTime } from "@/store/modules/remark";
+
 export const RemarkButton = () => {
 	const { remark } = useSelector(state => state.remark)
 	const dispatch = useDispatch()
 	const [focus, setFocus] = useState(true);
 	const setNew = () => {
 		setFocus(true);
-		dispatch(changeRemark(_.orderBy(remark, 'time', 'desc')))
+		dispatch(setOrderByTime(true));
+		dispatch(changePos(_.orderBy(remark, 'publishTime', 'desc')))
 	};
 	const setHot = () => {
 		setFocus(false);
-		dispatch(changeRemark(_.orderBy(remark, 'likes', 'desc')))
+		dispatch(setOrderByTime(false));
+		dispatch(changePos(_.orderBy(remark, 'like', 'desc')))
 	};
 
 	return (

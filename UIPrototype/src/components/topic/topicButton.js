@@ -51,7 +51,7 @@ const [imageUrl, setImageUrl] = useState('');
 
 
     //获取用户id
-  const userid=useSelector(state=>state.user).user.userid
+  const userid=useSelector(state=>state.user).user[0].userid
   //提交话题
   const onFinish = ({ topic,classId,introduce }) => {
     console.log(imageUrl)
