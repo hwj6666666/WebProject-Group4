@@ -32,6 +32,14 @@ public class TopicController {
         return ResponseEntity.ok(topic);
     }
 
+    @CrossOrigin    //解决跨域问题
+    @GetMapping("/topic/object/{id}")
+    @ResponseBody
+    public ResponseEntity<Topic> getOneTopic(@PathVariable("id") Integer id) {
+        Topic topic = topicService.SelectById(id);
+        return ResponseEntity.ok(topic);
+    }
+
     
     @CrossOrigin 
     @PostMapping("/topic")

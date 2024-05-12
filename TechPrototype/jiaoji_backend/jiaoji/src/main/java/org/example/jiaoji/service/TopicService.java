@@ -10,5 +10,7 @@ public interface TopicService {
 
     public List<Topic> SelectAll();
 
+    public Topic SelectById(Integer Id);
+
     public  List<Topic> SelectByClassId(Integer id);
 } 

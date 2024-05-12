@@ -49,4 +49,10 @@ public class TopicServiceImpl implements TopicService{
     public  List<Topic> SelectByClassId(Integer id){
         return topicMapper.selectByClassId(id);
     }
+
+
+    @Override
+    public Topic SelectById(Integer Id) {
+        return topicMapper.selectById(Id);
+    }
 }
