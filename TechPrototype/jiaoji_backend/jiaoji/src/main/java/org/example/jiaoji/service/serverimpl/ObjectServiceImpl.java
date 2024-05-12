@@ -1,7 +1,7 @@
 package org.example.jiaoji.service.serverimpl;
 
-import org.example.jiaoji.mapper.TopicMapper;
 import org.example.jiaoji.mapper.ObjectMapper;
+import org.example.jiaoji.pojo.Remark;
 import org.example.jiaoji.pojo.RetType;
 import org.example.jiaoji.pojo.Topic;
 import org.example.jiaoji.pojo.Objects;
@@ -13,8 +13,6 @@ import java.util.List;
 
 @Service
 public class ObjectServiceImpl implements ObjectService {
-    @Autowired
-    private TopicMapper topicMapper;
     @Autowired
     private ObjectMapper objectMapper;
 
@@ -53,6 +51,27 @@ public class ObjectServiceImpl implements ObjectService {
         return objectMapper.selectById(id);
     }
     public List<Topic> SelectTopicById(Integer id){
-        return topicMapper.selectByClassId(id);
+        return objectMapper.selectTopicById(id);
+    }
+    public double getAveScore(Integer id ){
+        List<Remark> remarks = objectMapper.selectAllRemarks(id);
+        Integer length = remarks.size();
+        double scores = 0;
+        for(Remark remark : remarks){
+            scores += remark.getScore();
+        }
+        return scores / length;
+    }
+    public String getHottestRemark(Integer id){
+        List<Remark> remarks = objectMapper.selectAllRemarks(id);
+        Integer likes = 0;
+        String hottestRemark = "";
+        for(Remark remark : remarks){
+            if(remark.getLike() > likes){
+                likes = remark.getLike();
+                hottestRemark = remark.getContent();
+            }
+        }
+        return hottestRemark;
     }
 }

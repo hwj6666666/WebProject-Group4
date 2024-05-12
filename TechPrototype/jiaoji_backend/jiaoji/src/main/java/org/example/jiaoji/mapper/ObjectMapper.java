@@ -2,10 +2,13 @@ package org.example.jiaoji.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.example.jiaoji.pojo.Objects;
+import org.example.jiaoji.pojo.Remark;
+import org.example.jiaoji.pojo.Topic;
 
 @Mapper
 public interface ObjectMapper {
@@ -18,6 +21,15 @@ public interface ObjectMapper {
     @Select("select id from object where title = #{title} and topic_id = #{topic_id}")
     public Integer selectIdByTitle(String title, Integer topic_id);
 
-    @Insert("insert into object(id,title,topics_id,user_id,hot,picture,description) values(#{id},#{title},#{topic_id},#{user_id},#{picture},#{description})")
+    @Select("select * from topic where id = #{id}")
+    public List<Topic> selectTopicById(Integer id);
+
+    @Insert("insert into object(id,title,topic_id,user_id,picture,description) values(#{id},#{title},#{topicId},#{userId},#{picture},#{description})")
     public void insert(Objects object);
+
+    @Select("select * from remarks where object_id = #{object_id}")
+    public List<Remark> selectAllRemarks(Integer object_id);
+
+    @Delete("delete from object where id = #{id}")
+    public void delete(Integer id);
 }

@@ -1,4 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
+import  {addObjectAPI, getObjectAPI}  from "../../apis/object"
+
 const objectStore = createSlice({
     name: "object",
     initialState: {
@@ -18,17 +20,35 @@ const objectStore = createSlice({
         len: 1
     },
     reducers: {
-        addObject(state, action) {
+        addMyObject(state, action) {
             state.object.push(action.payload);
             state.len++
         },
+        changeObject(state, action) {
+            state.object=action.payload;
+            state.len=action.payload.length;
+          },
     },
 });
 
-const { addObject } = objectStore.actions;
+const fetchObject =(id)=>{ //异步方法获取topic
+    return async(dispatch)=>{
+      const res=await getObjectAPI(id);
+      console.log(res);
+      dispatch(changeObject(res));
+    }
+}
+const addObject=(object)=>{
+    return async(dispatch)=>{
+      await addObjectAPI(object);
+      dispatch(addMyObject(object));
+    }
+}
+
+const { addMyObject, changeObject } = objectStore.actions;
 
 const ObjectReducer = objectStore.reducer;
 
-export { addObject };
+export { addMyObject, changeObject, fetchObject, addObject};
 
 export default ObjectReducer;
