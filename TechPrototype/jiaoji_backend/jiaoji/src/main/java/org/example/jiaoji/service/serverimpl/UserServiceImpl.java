@@ -1,10 +1,7 @@
 package org.example.jiaoji.service.serverimpl;
 
 import org.example.jiaoji.mapper.UserMapper;
-import org.example.jiaoji.pojo.Remark;
-import org.example.jiaoji.pojo.RetType;
-import org.example.jiaoji.pojo.Topic;
-import org.example.jiaoji.pojo.User;
+import org.example.jiaoji.pojo.*;
 import org.example.jiaoji.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,15 +21,15 @@ public class UserServiceImpl implements UserService {
         return userMapper.selectByUserId(id);
     }
 
-    public List<Integer> SelectTopicsById(Integer id) {
+    public List<Topic> SelectTopicsById(Integer id) {
         return userMapper.selectTopicsByUserId(id);
     }
 
-    public List<Integer> SelectObjectsById(Integer id) {
+    public List<Objects> SelectObjectsById(Integer id) {
         return userMapper.selectObjectsByUserId(id);
     }
 
-    public List<Integer> SelectRemarksById(Integer id) {
+    public List<Remark> SelectRemarksById(Integer id) {
         return userMapper.selectRemarksByUserId(id);
     }
 

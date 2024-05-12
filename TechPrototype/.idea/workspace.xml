@@ -5,16 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="96454bf4-0244-4b31-b13a-cbad8c93082a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/jiaoji_backend/jiaoji/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jiaoji_backend/jiaoji/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jiaoji_backend/jiaoji/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jiaoji_backend/jiaoji/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/pojo/Object.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../UIPrototype/src/components/topic/topicBotton.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../UIPrototype/src/store/modules/topickey.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jiaoji_backend/jiaoji/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/jiaoji_backend/jiaoji/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UIPrototype/src/store/modules/topic.js" beforeDir="false" afterPath="$PROJECT_DIR$/../UIPrototype/src/store/modules/topic.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/pojo/Object.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/pojo/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/pojo/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/service/serverimpl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/service/serverimpl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UIPrototype/src/apis/remark.js" beforeDir="false" afterPath="$PROJECT_DIR$/../UIPrototype/src/apis/remark.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UIPrototype/src/components/topic/topicSider.js" beforeDir="false" afterPath="$PROJECT_DIR$/../UIPrototype/src/components/topic/topicSider.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UIPrototype/src/components/user/showDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/../UIPrototype/src/components/user/showDetail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UIPrototype/src/components/user/userDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/../UIPrototype/src/components/user/userDetail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UIPrototype/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../UIPrototype/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UIPrototype/src/pages/userpage/userPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../UIPrototype/src/pages/userpage/userPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UIPrototype/src/store/modules/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/../UIPrototype/src/store/modules/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UIPrototype/src/utils/request.js" beforeDir="false" afterPath="$PROJECT_DIR$/../UIPrototype/src/utils/request.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,9 +78,10 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Spring Boot.JiaojiApplication.executor": "Run",
-    "git-widget-placeholder": "Merging branch-li",
+    "database.data.extractors.current.export.id": "SQL Inserts",
+    "git-widget-placeholder": "branch-li",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/CodeWebProject/WebProject-Group4/TechPrototype/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/Mail",
+    "last_opened_file_path": "D:/IDE/STUDY/webapp/csv/comments(2).sql",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -126,7 +133,9 @@
       <workItem from="1714917026652" duration="12000" />
       <workItem from="1715089524330" duration="2510000" />
       <workItem from="1715163301350" duration="4436000" />
-      <workItem from="1715433048437" duration="1768000" />
+      <workItem from="1715433048437" duration="4031000" />
+      <workItem from="1715485136624" duration="4776000" />
+      <workItem from="1715498824760" duration="2958000" />
     </task>
     <servers />
   </component>

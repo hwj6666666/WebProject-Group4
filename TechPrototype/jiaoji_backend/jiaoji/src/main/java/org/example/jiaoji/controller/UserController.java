@@ -1,5 +1,6 @@
 package org.example.jiaoji.controller;
 
+import org.example.jiaoji.pojo.Objects;
 import org.example.jiaoji.pojo.Remark;
 import org.example.jiaoji.pojo.Topic;
 import org.example.jiaoji.pojo.User;
@@ -40,8 +41,8 @@ public class UserController {
     @CrossOrigin
     @GetMapping("/user/{id}/topics")
     @ResponseBody
-    public ResponseEntity<List<Integer>> getTopicsIdById(@PathVariable("id") Integer id) {
-        List<Integer> topics = null;
+    public ResponseEntity<List<Topic>> getTopicsById(@PathVariable("id") Integer id) {
+        List<Topic> topics = null;
         topics = userService.SelectTopicsById(id);
         return ResponseEntity.ok(topics);
     }
@@ -49,8 +50,8 @@ public class UserController {
     @CrossOrigin
     @GetMapping("/user/{id}/objects")
     @ResponseBody
-    public ResponseEntity<List<Integer>> getObjectsIdById(@PathVariable("id") Integer id) {
-        List<Integer> object = null;
+    public ResponseEntity<List<Objects>> getObjectsById(@PathVariable("id") Integer id) {
+        List<Objects> object = null;
         object = userService.SelectObjectsById(id);
         return ResponseEntity.ok(object);
     }
@@ -58,8 +59,8 @@ public class UserController {
     @CrossOrigin
     @GetMapping("/user/{id}/remarks")
     @ResponseBody
-    public ResponseEntity<List<Integer>> getRemarksIdById(@PathVariable("id") Integer id) {
-        List<Integer> remark = null;
+    public ResponseEntity<List<Remark>> getRemarksById(@PathVariable("id") Integer id) {
+        List<Remark> remark = null;
         remark = userService.SelectRemarksById(id);
         return ResponseEntity.ok(remark);
     }

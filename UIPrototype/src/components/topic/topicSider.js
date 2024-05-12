@@ -5,49 +5,49 @@ import { Menu } from "antd";
 import Sider from "antd/es/layout/Sider";
 import { useEffect, useState } from "react";
 import { fetchTopic } from "@/store/modules/topic";
-import { useDispatch, useSelector} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 export const MySider = () => {
-  
-  const dispatch = useDispatch();
 
-  const [selectedKey, setSelectedKey] = useState("0");
+	const dispatch = useDispatch();
 
-  const handleselect =({key})=>{
-    setSelectedKey(key)
-    console.log(typeof(key))
-    dispatch(fetchTopic(key));
-  }
+	const [selectedKey, setSelectedKey] = useState("0");
 
-  const sort=useSelector(state=>state.class).class
+	const handleselect = ({ key }) => {
+		setSelectedKey(key)
+		console.log(typeof (key))
+		dispatch(fetchTopic(key));
+	}
 
-  useEffect(() => {
-    console.log(sort);
-    dispatch(fetchTopic("0"));
-    dispatch(fetchClass());
-  },[dispatch]);
+	const sort = useSelector(state => state.class).class
+	// console.log(sort)
+	useEffect(() => {
+		console.log(sort);
+		dispatch(fetchTopic("0"));
+		dispatch(fetchClass());
+	}, [dispatch]);
 
-  return (
-    <Sider className="ml-20 mt-20 mr-20">
-      <Menu
-        className="bg-white"
-        mode="vertical"
-        defaultSelectedKeys={["0"]}
-        selectedKeys={[selectedKey]}
-        onSelect={handleselect}
-        style={{ borderRadius: "14px" }}
-      >
-        {sort.map((item) => (
-          <Menu.Item
-            key={item.key}
-            style={
-              item.key === selectedKey ? { backgroundColor: "#F4F5F7" } : {}
-            }
-          >
-            {item.name}
-          </Menu.Item>
-        ))}
-      </Menu>
-    </Sider>
-  );
+	return (
+		<Sider className="ml-20 mt-20 mr-20">
+			<Menu
+				className="bg-white"
+				mode="vertical"
+				defaultSelectedKeys={["0"]}
+				selectedKeys={[selectedKey]}
+				onSelect={handleselect}
+				style={{ borderRadius: "14px" }}
+			>
+				{sort.map((item) => (
+					<Menu.Item
+						key={item.key}
+						style={
+							item.key === selectedKey ? { backgroundColor: "#F4F5F7" } : {}
+						}
+					>
+						{item.name}
+					</Menu.Item>
+				))}
+			</Menu>
+		</Sider>
+	);
 }
