@@ -4,7 +4,7 @@ import Setting from "@/components/user/dropmenu";
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchFllows, fetchObjectsByUserId, fetchRemarksByUserId, fetchTopicsByUserId, fetchUser } from '@/store/modules/user';
 
-const user_id = 1
+const user_id = 2
 export default function UserDetail() {
 	const dispatch = useDispatch();
 	useEffect(() => {
@@ -23,11 +23,11 @@ export default function UserDetail() {
 			</span>
 			<span className="mt-6">
 				<div className="flex flex-row items-end mb-4">
-					<span className="text-4xl mr-4">{curUser[0].username}</span>
-					<span className="text-xl relative bottom-0">Lv.{curUser[0].level}</span>
+					<span className="text-4xl mr-4">{curUser.username}</span>
+					<span className="text-xl relative bottom-0">Lv.{curUser.level}</span>
 				</div>
 				<div className="text-md text-gray-700">
-					{curUser[0].note}
+					{curUser.note}
 				</div>
 			</span>
 			<span className="ml-auto">
