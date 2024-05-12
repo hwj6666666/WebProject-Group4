@@ -1,9 +1,10 @@
 
+import { getUsersAPI } from "@/apis/remark";
 import { addRemark } from "@/store/modules/remark";
 import { Button, Form, Input, Modal, message, Rate } from "antd/es";
 import { Content } from "antd/es/layout/layout";
-import React, { useState } from 'react';
-import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect, useRef, useState } from 'react';
+import { useDispatch } from "react-redux";
 export const MakeRemark = () => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const showModal = () => {
@@ -19,10 +20,20 @@ export const MakeRemark = () => {
 		if (localStorage.getItem("isuser")) showModal()
 		else
 			message.error('请登录', 0.5)
-
 	}
+
+	const user = useRef();
+	const fetchUser = async () => {
+		return await getUsersAPI();
+	}
+
+	useEffect(() => {
+		fetchUser().then(data => {
+			user.current = data;
+		})
+	}, [])
+
 	const [form] = Form.useForm();
-	const user = useSelector(state => state.user).user;
 	const dispatch = useDispatch()
 	const onFinish = async ({ score, remark }) => {
 		if (!score) message.error("请给出评价分数");
@@ -30,7 +41,7 @@ export const MakeRemark = () => {
 			let date = new Date();
 			let dateString = date.toISOString();
 			const mark = {
-				userId: user.find(user => user.username === localStorage.getItem('user')).userid,
+				userId: user.current.find(user => user.username === localStorage.getItem('user')).id,
 				objectId: 1,
 				content: remark || "",
 				like: 0,

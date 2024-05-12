@@ -43,10 +43,11 @@ const remarkStore = createSlice({
 });
 
 const addRemark = (remark) => {
-	console.log(remark);
 	return async (dispatch) => {
+		const generatedId = await addRemarkAPI(remark);
+		remark.id = generatedId;
+		console.log(remark);
 		dispatch(addMyRemark(remark));
-		addRemarkAPI(remark);
 	}
 }
 

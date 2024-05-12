@@ -2,6 +2,7 @@ package org.example.jiaoji.service.serverimpl;
 
 import org.example.jiaoji.mapper.RemarkMapper;
 import org.example.jiaoji.pojo.Remark;
+import org.example.jiaoji.pojo.User;
 import org.example.jiaoji.pojo.RetType;
 import org.example.jiaoji.service.RemarkService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,7 @@ public class RemarkServiceImpl implements RemarkService {
     private RemarkMapper remarkMapper;
 
     @Override
-    public RetType addRemark(Remark data) {
+    public Integer addRemark(Remark data) {
         RetType ret = new RetType();
 //        Remark remark = new Remark();
 //        remark.setId(data.getId());
@@ -31,7 +32,7 @@ public class RemarkServiceImpl implements RemarkService {
         ret.setMsg("上传成功");
         ret.setOk(true);
         ret.setData(null);
-        return ret;
+        return data.getId();
     }
 
     @Override
@@ -52,5 +53,10 @@ public class RemarkServiceImpl implements RemarkService {
     @Override
     public void deleteRemark(Integer id) {
         remarkMapper.delete(id);
+    }
+
+    @Override
+    public List<User> getAllUser() {
+        return remarkMapper.getAllUSer();
     }
 }

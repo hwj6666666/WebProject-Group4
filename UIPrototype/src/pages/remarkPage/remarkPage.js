@@ -12,18 +12,18 @@ import scorePhoto from "@/assets/score.png";
 import { StarOutlined, StarFilled } from '@ant-design/icons';
 import { changeRemark } from "@/store/modules/remark";
 import { addComment, fetchComment } from "@/store/modules/comment";
-import { getRemarkAPI } from "@/apis/remark";
+import { getRemarkAPI, getUsersAPI } from "@/apis/remark";
 
 export const RemarkPage = () => {
 	const remarks = useSelector(state => state.remark).remark;
 	const objects = useSelector(state => state.object).object;
-	const users = useSelector(state => state.user).user;
+	const user = useRef();
 	const comments = useSelector(state => state.comment).comment;
-	const user = useSelector(state => state.user).user;
 
 	const dispatch = useDispatch();
 
 	const fetchData = async () => {
+		user.current = await getUsersAPI();
 		return await getRemarkAPI(1);
 	}
 
@@ -62,11 +62,12 @@ export const RemarkPage = () => {
 		let date = new Date();
 		let dateString = date.toISOString();
 		const newComment = {
-			userId: user.find(user => user.username === localStorage.getItem('user')).userid,
+			userId: user.current.find(user => user.username === localStorage.getItem('user')).id,
 			remarkId: Number(replyId.substring(1)),
 			content: replyPrefix,
 			publishTime: dateString
 		}
+		console.log(newComment)
 		dispatch(addComment(newComment));
 
 		setReply(false);
@@ -162,7 +163,7 @@ export const RemarkPage = () => {
 								title={
 									<div className="flex items-center" >
 										<img src={profile_photo} alt="图片描述" className="w-10 h-10 mt-3 mr-4" />
-										<div className="mt-2 text-sm font-bold">{users.find(user => user.userid === remark.userId).username}</div>
+										<div className="mt-2 text-sm font-bold">{user.current.find(user => user.id === remark.userId).username}</div>
 										<div className="w-16 h-10 flex justify-center items-center text-base ml-10 mt-2">
 											{returnStarsOutlined(remark.score / 2)}
 										</div>
@@ -191,7 +192,7 @@ export const RemarkPage = () => {
 											}).map(comment => <div className="space-y-2">
 												<div className="flex flex-row items-center">
 													<img src={profile_photo} alt="图片描述" className="w-10 h-10 mr-4" />
-													<div className="text-sm font-bold">{users.find(user => user.userid === comment.userId).username}</div>
+													<div className="text-sm font-bold">{user.current.find(user => user.id === comment.userId).username}</div>
 												</div>
 												<p className="text-base mt-4">{comment.content}</p>
 												<div className="flex flex-row mt-4 items-center">
@@ -202,7 +203,7 @@ export const RemarkPage = () => {
 															setReply(!reply);
 														setReplyId("c" + remark.id);
 														setReplyRemark(remark.id);
-														setReplyPrefix("回复 @" + users.find(user => user.userid === comment.userId).username + " : ");
+														setReplyPrefix("回复 @" + user.current.find(user => user.id === comment.userId).username + " : ");
 													}}>回复</button>
 												</div>
 											</div>)}
