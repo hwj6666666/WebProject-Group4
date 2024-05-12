@@ -6,17 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="96454bf4-0244-4b31-b13a-cbad8c93082a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/databaseSQL/user.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/Mail/Controller/MailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/Mail/Controller/MailController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/mapper/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/pojo/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/pojo/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UIPrototype/src/pages/loginPage/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UIPrototype/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../UIPrototype/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UIPrototype/src/store/modules/topic.js" beforeDir="false" afterPath="$PROJECT_DIR$/../UIPrototype/src/store/modules/topic.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/service/serverimpl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/service/serverimpl/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../UIPrototype/src/store/modules/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/../UIPrototype/src/store/modules/user.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -28,6 +20,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -83,7 +76,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Spring Boot.JiaojiApplication.executor": "Run",
     "database.data.extractors.current.export.id": "SQL Updates",
-    "git-widget-placeholder": "Chen",
+    "git-widget-placeholder": "Hu",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/IDE/STUDY/webapp/csv/topic(2).sql",
     "node.js.detected.package.eslint": "true",
@@ -100,7 +93,7 @@
       "mysql"
     ]
   }
-}]]>]]></component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\CodeWebProject\WebProject-Group4\TechPrototype\jiaoji_backend\jiaoji\src\main\java\org\example\jiaoji\Mail" />

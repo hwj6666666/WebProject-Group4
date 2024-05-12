@@ -83,10 +83,10 @@ const fetchFllows = (user_id) => {
 	}
 }
 
-const { setUser, setTopics, setObjects, setRemarks, setFllows, addUser } = userStore.actions;
+const { setUser, setTopics, setObjects, setRemarks, setFllows, setLoggedIn, setId, addUser } = userStore.actions;
 
 const userReducer = userStore.reducer;
 
-export { fetchUser, fetchTopicsByUserId, fetchRemarksByUserId, fetchObjectsByUserId, fetchFllows, setUser, addUser };
+export { fetchUser, fetchTopicsByUserId, fetchRemarksByUserId, fetchObjectsByUserId, fetchFllows, setUser, addUser, setLoggedIn, setId };
 
 export default userReducer;
