@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import  {AddTopicAPI, mainTopicAPI}  from "../../apis/topic"
+import  {AddTopicAPI, getOneTopic, mainTopicAPI}  from "../../apis/topic"
+import { add } from "lodash";
 
 
 const topicStore = createSlice({
@@ -24,7 +25,6 @@ const topicStore = createSlice({
 const fetchTopic =(id)=>{ //异步方法获取topic
   return async(dispatch)=>{
     const res=await mainTopicAPI(id);
-    console.log(res);
     dispatch(changeTopic(res));
   }
 }
@@ -35,6 +35,13 @@ const addTopic=(topic)=>{
     dispatch(addMyTopic(topic));
   }
 }
+const fetchOneTopic =(id)=>{ //异步方法获取topic
+  return async()=>{
+    const res=await getOneTopic(id);
+    addMyTopic(res);
+  }
+}
+
 
 const { addMyTopic, changeTopic } = topicStore.actions;
 
@@ -43,6 +50,6 @@ const topicReducer = topicStore.reducer;
 
 
 
-export { addTopic,addMyTopic, changeTopic,fetchTopic };
+export { addTopic,addMyTopic, changeTopic,fetchTopic,fetchOneTopic };
 
 export default topicReducer;
