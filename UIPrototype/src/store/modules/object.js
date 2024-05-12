@@ -29,6 +29,7 @@ const fetchOneObject =(id)=>{ //异步方法获取topic
     return async(dispatch)=>{
       const res=await getOneObjectAPI(id);
       dispatch(changeObject(res));
+      console.log(res);
     }
 }
 
