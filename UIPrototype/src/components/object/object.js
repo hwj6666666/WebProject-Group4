@@ -1,4 +1,3 @@
-import restaurantPhoto from "@/assets/restaurant.jpg";
 import { StarOutlined } from '@ant-design/icons';
 import { useNavigate } from "react-router-dom";
 

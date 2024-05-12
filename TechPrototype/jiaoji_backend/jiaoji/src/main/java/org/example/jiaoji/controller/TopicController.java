@@ -24,16 +24,24 @@ public class TopicController {
     public ResponseEntity<List<Topic>> getTopic(@PathVariable("id") Integer id) {
         List<Topic> topic=null;
         if(id==0){
-        topic = topicService.SelectAll();}
+            topic = topicService.SelectAll();}
         else
         {
-          topic = topicService.SelectByClassId(id);
+            topic = topicService.SelectByClassId(id);
         }
         return ResponseEntity.ok(topic);
     }
 
-    
-    @CrossOrigin 
+    @CrossOrigin    //解决跨域问题
+    @GetMapping("/topic/object/{id}")
+    @ResponseBody
+    public ResponseEntity<Topic> getOneTopic(@PathVariable("id") Integer id) {
+        Topic topic = topicService.SelectById(id);
+        return ResponseEntity.ok(topic);
+    }
+
+
+    @CrossOrigin
     @PostMapping("/topic")
     public RetType insert(@RequestBody Topic test) {
         return topicService.insertTopic(test);

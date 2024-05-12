@@ -15,7 +15,6 @@ const TopicProfile = ({topic}) => {
     if (!topic) {
         return <Spin size="large" />;
     }
-    console.log(topic.base64);
 
     return (
         <div className="flex flex-col bg-white rounded-lg drop-shadow-lg h-60">

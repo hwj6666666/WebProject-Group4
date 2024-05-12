@@ -7,6 +7,13 @@ const getObjectAPI = (id) => {
     });
 }
 
+const getOneObjectAPI = (id) => {
+    return request({
+        url: `/object/remark/${id}`,
+        method: 'get',
+    });
+}
+
 const addObjectAPI = (object) => {
     return request({
         url: `/object`,
@@ -18,4 +25,4 @@ const addObjectAPI = (object) => {
     });
 }
 
-export {getObjectAPI, addObjectAPI}
+export {getObjectAPI, addObjectAPI, getOneObjectAPI}
