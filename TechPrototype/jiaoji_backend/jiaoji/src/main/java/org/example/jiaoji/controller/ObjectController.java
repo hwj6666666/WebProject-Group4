@@ -36,4 +36,17 @@ public class ObjectController {
     public RetType insert(@RequestBody Objects object) {
         return objectService.InsertObject(object);
     }
+
+    @CrossOrigin    //解决跨域问题
+    @GetMapping("/object/remark/{id}")
+    @ResponseBody
+    public ResponseEntity<List<Objects>> getObjectById(@PathVariable("id") Integer id) {
+        List<Objects> objects;
+        objects = objectService.SelectById(id);
+        for (Objects object : objects) {
+            object.setAveScore(objectService.getAveScore(object.getId()));
+            object.setHottestRemark(objectService.getHottestRemark(object.getId()));
+        }
+        return ResponseEntity.ok(objects);
+    }
 }
