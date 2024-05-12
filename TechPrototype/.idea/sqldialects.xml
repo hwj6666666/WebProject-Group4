@@ -6,6 +6,6 @@
     <file url="file://$PROJECT_DIR$/databaseSQL/object.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/databaseSQL/remarks.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/databaseSQL/topic.sql" dialect="MySQL" />
-    <file url="file://$PROJECT_DIR$/databaseSQL/user.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/databaseSQL/user(4).sql" dialect="MySQL" />
   </component>
 </project>

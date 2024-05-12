@@ -11,17 +11,38 @@ public class UserService {
     @Autowired
     private UserMapper userMapper;
 
-    public RetType Login(String username, String password){
-        Integer id= userMapper.selectIdByUsername(username);
+    public RetType Register(String email, String password){
+        Integer id= userMapper.selectIdByEmail(email);
+        RetType retType = new RetType();
+        if(id!=null)
+        {
+            retType.setData(id);
+            retType.setMsg("密码已重置");
+            retType.setOk(false);
+
+            userMapper.resetPassword(id, password);
+            return retType;
+        }
+
+        userMapper.insert(email, password);
+        id= userMapper.selectIdByEmail(email);
+        retType.setData(id);
+        retType.setMsg("注册成功");
+        retType.setOk(true);
+        return retType;
+    }
+
+    public RetType Login(String email, String password){
+        Integer id= userMapper.selectIdByEmail(email);
         RetType retType = new RetType();
         if(id==null)
         {
             retType.setData(null);
-            retType.setMsg("用户名不存在");
+            retType.setMsg("邮箱未注册");
             retType.setOk(false);
             return retType;
         }
-        id= userMapper.selectIdByUsernameAndPassword(username, password);
+        id= userMapper.selectIdByEmailAndPassword(email, password);
         if(id==null)
         {
             retType.setData(null);

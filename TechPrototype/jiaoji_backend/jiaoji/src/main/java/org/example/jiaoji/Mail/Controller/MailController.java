@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/mail")
 public class MailController {
 
@@ -14,6 +15,8 @@ public class MailController {
 
     @PostMapping("/send/{mail}")
     public String sendMail(@PathVariable String mail,@RequestBody MailStructure mailStructure){
+
+        System.out.println("receive something");
     mailService.sendMain(mail,mailStructure);
         System.out.println("Mail Sent Successfully !!");
         return "Mail Sent Successfully !!";

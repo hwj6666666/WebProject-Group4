@@ -1,32 +1,53 @@
-import { createBrowserRouter } from 'react-router-dom'
-import { UserPage } from '@/pages/userpage/userPage'
+import { createBrowserRouter } from "react-router-dom";
+import { UserPage } from "@/pages/userpage/userPage";
 import BasicPage from "@/pages/topicPage/topicPage";
-import { RemarkPage } from '@/pages/remarkPage/remarkPage';
-import { ObjectPage } from '@/pages/objectPage/objectPage';
-import Login from '@/pages/loginPage';
+import { RemarkPage } from "@/pages/remarkPage/remarkPage";
+import { ObjectPage } from "@/pages/objectPage/objectPage";
+import LoginPage from "@/pages/loginPage/login";
+import { AuthRoute } from "@/components/login/AuthRoute";
+import RegisterPage from "@/pages/registerPage/registerPage";
 
-const router=createBrowserRouter([
-    {
-        path:"/",
-        element:<BasicPage />
-    },
-    {
-        path: "/login",
-        element:<Login />
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: (
+      <AuthRoute>
+        <BasicPage />
+      </AuthRoute>
+    ),
+  },
+  {
+    path: "/login",
+    element: <LoginPage />,
+  },
+  {
+    path: "/register",
+    element:<RegisterPage/>,
+  },
+  {
+    path: "/user",
+    element: (
+      <AuthRoute>
+        <UserPage />
+      </AuthRoute>
+    ),
+  },
+  {
+    path: "/remark",
+    element: (
+      <AuthRoute>
+        <RemarkPage />
+      </AuthRoute>
+    ),
+  },
+  {
+    path: "/object",
+    element: (
+      <AuthRoute>
+        <ObjectPage />
+      </AuthRoute>
+    ),
+  },
+]);
 
-    },
-    {
-        path:"/user",
-        element:<UserPage />
-    },
-    {
-        path:"/remark",
-        element:<RemarkPage />
-    },
-    {
-        path:"/object",
-        element:<ObjectPage />
-    }
-])
-
-export default router
+export default router;
