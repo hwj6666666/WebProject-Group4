@@ -17,16 +17,16 @@ public class RemarkServiceImpl implements RemarkService {
     @Override
     public RetType addRemark(Remark data) {
         RetType ret = new RetType();
-        Remark remark = new Remark();
-
-        remark.setId(data.getId());
-        remark.setContent(data.getContent());
-        remark.setLike(data.getLike());
-        remark.setUserId(data.getUserId());
-        remark.setObjectId(data.getObjectId());
-        remark.setPublishTime(data.getPublishTime());
-        remark.setScore(data.getScore());
-        remarkMapper.insert(remark);
+//        Remark remark = new Remark();
+//        remark.setId(data.getId());
+//        remark.setContent(data.getContent());
+//        remark.setLike(data.getLike());
+//        remark.setUserId(data.getUserId());
+//        remark.setObjectId(data.getObjectId());
+//        remark.setPublishTime(data.getPublishTime());
+//        remark.setScore(data.getScore());
+//        remarkMapper.insert(remark);
+        remarkMapper.insert(data);
 
         ret.setMsg("上传成功");
         ret.setOk(true);
@@ -42,5 +42,15 @@ public class RemarkServiceImpl implements RemarkService {
     @Override
     public List<Remark> SelectById(Integer id) {
         return remarkMapper.selectById(id);
+    }
+
+    @Override
+    public void changeLike(Integer id, Integer change) {
+        remarkMapper.update(id,change);
+    }
+
+    @Override
+    public void deleteRemark(Integer id) {
+        remarkMapper.delete(id);
     }
 }
