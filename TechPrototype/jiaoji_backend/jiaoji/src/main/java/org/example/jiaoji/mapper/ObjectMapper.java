@@ -2,10 +2,7 @@ package org.example.jiaoji.mapper;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import org.example.jiaoji.pojo.Objects;
 import org.example.jiaoji.pojo.Remark;
 import org.example.jiaoji.pojo.Topic;
@@ -25,6 +22,7 @@ public interface ObjectMapper {
     public List<Topic> selectTopicById(Integer id);
 
     @Insert("insert into object(id,title,topic_id,user_id,picture,description) values(#{id},#{title},#{topicId},#{userId},#{picture},#{description})")
+    @Options(useGeneratedKeys = true, keyProperty = "id")
     public void insert(Objects object);
 
     @Select("select * from remarks where object_id = #{object_id}")

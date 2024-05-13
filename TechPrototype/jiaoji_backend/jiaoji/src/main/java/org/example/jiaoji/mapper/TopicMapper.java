@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Select;
 import org.example.jiaoji.pojo.Topic;
 
@@ -22,6 +23,7 @@ public interface TopicMapper {
     public Integer selectIdByTitle(String title);
 
     @Insert("insert into topic(class_id,user_id,title,picture,introduction,hot,public_time,base64) values(#{classId},#{userId},#{title},#{picture},#{introduction},#{hot},#{publicTime},#{base64})")
+    @Options(useGeneratedKeys = true, keyProperty = "id")
     public void insert(Topic topic);
 
 

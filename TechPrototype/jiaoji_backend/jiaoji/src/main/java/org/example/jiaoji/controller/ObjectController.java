@@ -33,7 +33,7 @@ public class ObjectController {
 
     @CrossOrigin
     @PostMapping("/object")
-    public RetType insert(@RequestBody Objects object) {
+    public Integer insert(@RequestBody Objects object) {
         return objectService.InsertObject(object);
     }
 
