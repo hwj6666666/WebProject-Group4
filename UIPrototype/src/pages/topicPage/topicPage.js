@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import TopicCarousel from "@/components/topic/topicCarousel";
 
 function BasicPage() {
-  const {topic} =useSelector(state=>state.topic) ;
+  const { topic } = useSelector((state) => state.topic);
   //点击分类显示相应内容
   return (
     <div className="min-h-screen bg-biligrey">
@@ -15,16 +15,16 @@ function BasicPage() {
         <MySider />
         <div className="">
           <div className="">
-
-          <HeadButton  />
+            <HeadButton />
           </div>
 
-          <div className="bg-white" style={{ marginLeft: "30px", width: "800px" }}>
+          <div
+            className="bg-white"
+            style={{ marginLeft: "30px", width: "800px" }}
+          >
             {topic.map((topic, index) => (
-              <div style={{ marginBottom: "30px" }}><Topic
-                  key={index}
-                  topic={topic}
-                />
+              <div style={{ marginBottom: "30px" }}>
+                <Topic key={index} topic={topic} />
               </div>
             ))}
           </div>
