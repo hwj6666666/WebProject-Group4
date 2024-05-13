@@ -22,11 +22,11 @@ export const HeadButton = () => {
   const topic = useSelector((state) => state.topic).topic;
   const dispatch = useDispatch();
   const setNew = () => {
-    dispatch(changeTopic(_.orderBy(topic, "time", "desc")));
+    dispatch(changeTopic(_.orderBy(topic, "publicTime", "desc")));
     setFocus(true);
   };
   const setHot = () => {
-    dispatch(changeTopic(_.orderBy(topic, "heat", "desc")));
+    dispatch(changeTopic(_.orderBy(topic, "hot", "desc")));
     setFocus(false);
   };
 

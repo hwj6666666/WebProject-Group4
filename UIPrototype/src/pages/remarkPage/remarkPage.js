@@ -111,6 +111,11 @@ export const RemarkPage = () => {
   _4_pencentage = _4_pencentage.toFixed(0);
   _5_pencentage = _5_pencentage.toFixed(0);
 
+  if (average === NaN) {
+    average = "暂无评分";
+    _1_pencentage = _2_pencentage = _3_pencentage = _4_pencentage = _5_pencentage = 0;
+  }
+
   //打印五角星
   const returnStars = (starNum) =>
     Array(starNum)
