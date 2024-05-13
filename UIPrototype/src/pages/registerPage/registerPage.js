@@ -11,10 +11,6 @@ function RegisterPage() {
     const code = Math.floor(Math.random() * 1000000);
     setVerificationCode(code);
 
-    // setTimeout(() => {
-    //   setVerificationCode(null);
-    // }, 60000);
-
     const email = document.querySelector('input[name="email"]').value;
 
     // 检查邮箱地址是否有效
