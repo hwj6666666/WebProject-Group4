@@ -9,7 +9,7 @@ const objectStore = createSlice({
     },
     reducers: {
         addMyObject(state, action) {
-            state.object.push(action.payload);
+            state.object.unshift(action.payload);
             state.len++
         },
         changeObject(state, action) {
