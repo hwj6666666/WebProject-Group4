@@ -4,7 +4,40 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96454bf4-0244-4b31-b13a-cbad8c93082a" name="Changes" comment="" />
+    <list default="true" id="96454bf4-0244-4b31-b13a-cbad8c93082a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/resources/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../UIPrototype/src/apis/object.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jiaoji_backend/jiaoji/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/jiaoji_backend/jiaoji/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/JiaojiApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/JiaojiApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/controller/ObjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/controller/ObjectController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/controller/RemarkController.java" beforeDir="false" afterPath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/controller/RemarkController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/controller/TopicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/controller/TopicController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/mapper/ObjectMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/mapper/ObjectMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/mapper/RemarkMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/mapper/RemarkMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/mapper/TopicMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/mapper/TopicMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/pojo/Objects.java" beforeDir="false" afterPath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/pojo/Objects.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/service/ObjectService.java" beforeDir="false" afterPath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/service/ObjectService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/service/RemarkService.java" beforeDir="false" afterPath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/service/RemarkService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/service/TopicService.java" beforeDir="false" afterPath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/service/TopicService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/service/serverimpl/ObjectServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/service/serverimpl/ObjectServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/service/serverimpl/RemarkServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/service/serverimpl/RemarkServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/service/serverimpl/TopicServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/service/serverimpl/TopicServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UIPrototype/src/apis/remark.js" beforeDir="false" afterPath="$PROJECT_DIR$/../UIPrototype/src/apis/remark.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UIPrototype/src/apis/topic.js" beforeDir="false" afterPath="$PROJECT_DIR$/../UIPrototype/src/apis/topic.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UIPrototype/src/components/object/object.js" beforeDir="false" afterPath="$PROJECT_DIR$/../UIPrototype/src/components/object/object.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UIPrototype/src/components/object/object1.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UIPrototype/src/components/object/topicProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/../UIPrototype/src/components/object/topicProfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UIPrototype/src/components/object/uploadObject.js" beforeDir="false" afterPath="$PROJECT_DIR$/../UIPrototype/src/components/object/uploadObject.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UIPrototype/src/components/remark/makeRemark.js" beforeDir="false" afterPath="$PROJECT_DIR$/../UIPrototype/src/components/remark/makeRemark.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UIPrototype/src/components/remark/objectProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/../UIPrototype/src/components/remark/objectProfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UIPrototype/src/pages/objectPage/objectPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../UIPrototype/src/pages/objectPage/objectPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UIPrototype/src/pages/remarkPage/remarkPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../UIPrototype/src/pages/remarkPage/remarkPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UIPrototype/src/store/modules/object.js" beforeDir="false" afterPath="$PROJECT_DIR$/../UIPrototype/src/store/modules/object.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UIPrototype/src/store/modules/remark.js" beforeDir="false" afterPath="$PROJECT_DIR$/../UIPrototype/src/store/modules/remark.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UIPrototype/src/store/modules/topic.js" beforeDir="false" afterPath="$PROJECT_DIR$/../UIPrototype/src/store/modules/topic.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -70,9 +103,9 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Spring Boot.JiaojiApplication.executor": "Run",
     "database.data.extractors.current.export.id": "SQL Updates",
-    "git-widget-placeholder": "branch-li",
+    "git-widget-placeholder": "Merging toMergeMain",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/IDE/STUDY/webapp/csv/topic(2).sql",
+    "last_opened_file_path": "D:/IDE/STUDY/webapp/csv/object(4).sql",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -132,6 +165,7 @@
       <workItem from="1715486120467" duration="13033000" />
       <workItem from="1715525772849" duration="908000" />
       <workItem from="1715530641970" duration="608000" />
+      <workItem from="1715579863614" duration="1031000" />
     </task>
     <servers />
   </component>
