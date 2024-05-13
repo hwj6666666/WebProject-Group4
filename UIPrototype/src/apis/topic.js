@@ -10,6 +10,7 @@ const  mainTopicAPI=(id)=>{
 }
 
 const AddTopicAPI=(topic)=>{
+  console.log(topic)
   return request({
     url: '/topic',
     method: 'post',
@@ -21,13 +22,20 @@ const AddTopicAPI=(topic)=>{
 }
 
 const UserTopicAPI=(user_id)=>{
-    return request({
-    url: `user/topic/${user_id}`,
-    method:'post',
-    data:{
-        user_id:user_id
-    },
-    })
+  return request({
+  url: `user/topic/${user_id}`,
+  method:'post',
+  data:{
+      user_id:user_id
+  },
+  })
 }
 
-export {mainTopicAPI,UserTopicAPI,AddTopicAPI}
+const getOneTopic=(id)=>{
+  return request({
+  url: `topic/object/${id}`,
+  method:'get',
+  })
+}
+
+export {mainTopicAPI,UserTopicAPI,AddTopicAPI,getOneTopic}

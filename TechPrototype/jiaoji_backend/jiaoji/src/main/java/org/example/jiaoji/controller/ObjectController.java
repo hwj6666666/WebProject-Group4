@@ -21,26 +21,32 @@ public class ObjectController {
     @CrossOrigin    //解决跨域问题
     @GetMapping("/object/{id}")
     @ResponseBody
-    public ResponseEntity<ResponseResult> getObject(@PathVariable("id") Integer id) {
+    public ResponseEntity<List<Objects>> getObject(@PathVariable("id") Integer id) {
         List<Objects> objects;
-        List<Topic> topics;
-        ResponseResult result = new ResponseResult();
         objects = objectService.SelectAllInTopic(id);
-        topics = objectService.SelectTopicById(id);
-        result.data = objects;
-        result.data1 = topics;
-        return ResponseEntity.ok(result);
-    }
-
-    public class ResponseResult {
-        /*返回体*/
-        private List<Objects> data;
-        private List<Topic> data1;
+        for (Objects object : objects) {
+            object.setAveScore(objectService.getAveScore(object.getId()));
+            object.setHottestRemark(objectService.getHottestRemark(object.getId()));
+        }
+        return ResponseEntity.ok(objects);
     }
 
     @CrossOrigin
     @PostMapping("/object")
     public RetType insert(@RequestBody Objects object) {
         return objectService.InsertObject(object);
+    }
+
+    @CrossOrigin    //解决跨域问题
+    @GetMapping("/object/remark/{id}")
+    @ResponseBody
+    public ResponseEntity<List<Objects>> getObjectById(@PathVariable("id") Integer id) {
+        List<Objects> objects;
+        objects = objectService.SelectById(id);
+        for (Objects object : objects) {
+            object.setAveScore(objectService.getAveScore(object.getId()));
+            object.setHottestRemark(objectService.getHottestRemark(object.getId()));
+        }
+        return ResponseEntity.ok(objects);
     }
 }

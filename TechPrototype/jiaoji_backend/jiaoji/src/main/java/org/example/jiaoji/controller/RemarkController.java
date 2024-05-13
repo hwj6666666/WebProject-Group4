@@ -3,6 +3,7 @@ package org.example.jiaoji.controller;
 import java.util.List;
 
 import org.example.jiaoji.pojo.Remark;
+import org.example.jiaoji.pojo.User;
 import org.example.jiaoji.pojo.RetType;
 import org.example.jiaoji.service.RemarkService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,8 +36,14 @@ public class RemarkController {
     }
 
     @CrossOrigin
+    @GetMapping("/getAllUser")
+    public ResponseEntity<List<User>> getAllUsers() {
+        return ResponseEntity.ok(remarkService.getAllUser());
+    }
+
+    @CrossOrigin
     @PostMapping("/remarks")
-    public RetType insert(@RequestBody Remark remark) {
+    public Integer insert(@RequestBody Remark remark) {
         return remarkService.addRemark(remark);
     }
 }

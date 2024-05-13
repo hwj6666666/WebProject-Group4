@@ -16,9 +16,6 @@ public class Objects {
     private String title;
     private String description;
     private String picture;
-
-    public Integer getAveScore(){
-        return 5;
-    }
-    public String getHotestComment(){ return "确实";}
+    private String hottestRemark;
+    private double aveScore;
 }

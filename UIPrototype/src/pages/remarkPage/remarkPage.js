@@ -12,18 +12,19 @@ import scorePhoto from "@/assets/score.png";
 import { StarOutlined, StarFilled } from '@ant-design/icons';
 import { changeRemark } from "@/store/modules/remark";
 import { addComment, fetchComment } from "@/store/modules/comment";
-import { getRemarkAPI } from "@/apis/remark";
+import { getRemarkAPI, getUsersAPI } from "@/apis/remark";
+import { fetchOneObject } from "@/store/modules/object";
 
 export const RemarkPage = () => {
 	const remarks = useSelector(state => state.remark).remark;
 	const objects = useSelector(state => state.object).object;
-	const users = useSelector(state => state.user).user;
 	const comments = useSelector(state => state.comment).comment;
-	const user = useSelector(state => state.user).user;
 
 	const dispatch = useDispatch();
+	const [user, setUser] = useState(null);
 
 	const fetchData = async () => {
+		setUser(await getUsersAPI());
 		return await getRemarkAPI(1);
 	}
 
@@ -35,12 +36,9 @@ export const RemarkPage = () => {
 		});
 	}, [])
 
-	const returnStars = (starNum) => Array(starNum).fill().map((_, i) => <StarFilled key={i} className="text-yellow-400 mr-1" />);
-
-	const returnStarsOutlined = (starNum) => Array(5).fill().map((_, i) => {
-		if (i < starNum) return <StarFilled key={i} className="text-yellow-400 mr-1" />;
-		return <StarOutlined key={i} className="text-yellow-400 mr-1" />;
-	})
+	useEffect(() => {
+		dispatch(fetchOneObject(20));
+	}, [dispatch])
 
 	//comments生成
 	let [reply, setReply] = useState(false);
@@ -62,11 +60,12 @@ export const RemarkPage = () => {
 		let date = new Date();
 		let dateString = date.toISOString();
 		const newComment = {
-			userId: user.find(user => user.username === localStorage.getItem('user')).userid,
+			userId: user.find(user => user.username === localStorage.getItem('user')).id,
 			remarkId: Number(replyId.substring(1)),
 			content: replyPrefix,
 			publishTime: dateString
 		}
+		console.log(newComment)
 		dispatch(addComment(newComment));
 
 		setReply(false);
@@ -106,11 +105,19 @@ export const RemarkPage = () => {
 	_4_pencentage = _4_pencentage.toFixed(0);
 	_5_pencentage = _5_pencentage.toFixed(0);
 
+	//打印五角星
+	const returnStars = (starNum) => Array(starNum).fill().map((_, i) => <StarFilled key={i} className="text-yellow-400 mr-1" />);
+
+	const returnStarsOutlined = (starNum) => Array(5).fill().map((_, i) => {
+		if (i < starNum) return <StarFilled key={i} className="text-yellow-400 mr-1" />;
+		return <StarOutlined key={i} className="text-yellow-400 mr-1" />;
+	})
+
 	return (<div className="min-h-screen bg-biligrey" >
 		<div className="fixed w-full z-50"><Header /></div>
 		<div className="h-16"></div>
 		<div className="flex flex-row ml-28 mr-48">
-			<div className="fixed"><ObjectProfile object={objects.find(r => r.id === 0)} /></div>
+			<div className="fixed"><ObjectProfile object={objects[0]} /></div>
 			<div className="w-1/3"></div>
 			<div className="w-3/4 mt-12">
 				<h1 className="text-center text-4xl mb-8 font-bold">交大哪个餐厅最好吃</h1>
@@ -162,7 +169,7 @@ export const RemarkPage = () => {
 								title={
 									<div className="flex items-center" >
 										<img src={profile_photo} alt="图片描述" className="w-10 h-10 mt-3 mr-4" />
-										<div className="mt-2 text-sm font-bold">{users.find(user => user.userid === remark.userId).username}</div>
+										<div className="mt-2 text-sm font-bold">{user && user.find(user => user.id === remark.userId).username}</div>
 										<div className="w-16 h-10 flex justify-center items-center text-base ml-10 mt-2">
 											{returnStarsOutlined(remark.score / 2)}
 										</div>
@@ -191,7 +198,7 @@ export const RemarkPage = () => {
 											}).map(comment => <div className="space-y-2">
 												<div className="flex flex-row items-center">
 													<img src={profile_photo} alt="图片描述" className="w-10 h-10 mr-4" />
-													<div className="text-sm font-bold">{users.find(user => user.userid === comment.userId).username}</div>
+												<div className="text-sm font-bold">{user && user.find(user => user.id === comment.userId).username}</div>
 												</div>
 												<p className="text-base mt-4">{comment.content}</p>
 												<div className="flex flex-row mt-4 items-center">
@@ -202,7 +209,7 @@ export const RemarkPage = () => {
 															setReply(!reply);
 														setReplyId("c" + remark.id);
 														setReplyRemark(remark.id);
-														setReplyPrefix("回复 @" + users.find(user => user.userid === comment.userId).username + " : ");
+														setReplyPrefix("回复 @" + user.find(user => user.id === comment.userId).username + " : ");
 													}}>回复</button>
 												</div>
 											</div>)}

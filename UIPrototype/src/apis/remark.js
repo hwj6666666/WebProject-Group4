@@ -25,4 +25,11 @@ const changeLikeAPI = (change, id) => {
 	});
 }
 
-export { getRemarkAPI, addRemarkAPI, changeLikeAPI }
+const getUsersAPI = () => {
+    return request({
+        url: '/getAllUser',
+        method: 'get'
+    });
+}
+
+export { getRemarkAPI, addRemarkAPI, changeLikeAPI, getUsersAPI }
