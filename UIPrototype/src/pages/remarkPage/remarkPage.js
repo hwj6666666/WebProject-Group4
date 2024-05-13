@@ -111,9 +111,14 @@ export const RemarkPage = () => {
   _4_pencentage = _4_pencentage.toFixed(0);
   _5_pencentage = _5_pencentage.toFixed(0);
 
-  if (average === NaN) {
-    average = "暂无评分";
-    _1_pencentage = _2_pencentage = _3_pencentage = _4_pencentage = _5_pencentage = 0;
+  if (isNaN(average)) {
+    average = "0.0";
+    _1_pencentage =
+      _2_pencentage =
+      _3_pencentage =
+      _4_pencentage =
+      _5_pencentage =
+        0;
   }
 
   //打印五角星
@@ -206,7 +211,8 @@ export const RemarkPage = () => {
                           />
                           <div className="mt-2 text-sm font-bold">
                             {user &&
-                              user.find((user) => user.id == remark.userId)?.username}
+                              user.find((user) => user.id == remark.userId)
+                                ?.username}
                           </div>
                           <div className="w-16 h-10 flex justify-center items-center text-base ml-10 mt-2">
                             {returnStarsOutlined(remark.score / 2)}
@@ -279,10 +285,20 @@ export const RemarkPage = () => {
                                         if (reply === false) {
                                           setReplyId("c" + remark.id);
                                           setReplyRemark(remark.id);
-                                          setReplyPrefix("回复 @" + (user && user.find((user) => user.id === comment.userId)?.username) + " : ");
+                                          setReplyPrefix(
+                                            "回复 @" +
+                                              (user &&
+                                                user.find(
+                                                  (user) =>
+                                                    user.id === comment.userId
+                                                )?.username) +
+                                              " : "
+                                          );
                                           setReply(true);
-                                        }
-                                        else if (reply === true && replyId === "c" + remark.id)
+                                        } else if (
+                                          reply === true &&
+                                          replyId === "c" + remark.id
+                                        )
                                           setReply(!reply);
                                       }}
                                     >
@@ -300,7 +316,12 @@ export const RemarkPage = () => {
                                     className="w-10 h-10 mr-4"
                                   />
                                   <div className="text-sm font-bold">
-                                    {user.find(user => user.id == localStorage.getItem("id"))?.username}
+                                    {
+                                      user.find(
+                                        (user) =>
+                                          user.id == localStorage.getItem("id")
+                                      )?.username
+                                    }
                                   </div>
                                 </div>
                                 <div className="text-base flex flex-row">
