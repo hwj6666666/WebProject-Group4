@@ -33,7 +33,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/remark",
+    path: "/object/:objectId",
     element: (
       <AuthRoute>
         <RemarkPage />
@@ -41,7 +41,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/object",
+    path: "/topic/:topicId",
     element: (
       <AuthRoute>
         <ObjectPage />

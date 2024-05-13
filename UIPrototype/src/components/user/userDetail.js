@@ -4,7 +4,7 @@ import Setting from "@/components/user/dropmenu";
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchFllows, fetchObjectsByUserId, fetchRemarksByUserId, fetchTopicsByUserId, fetchUser } from '@/store/modules/user';
 
-const user_id = 2
+const user_id = localStorage.getItem('id');
 export default function UserDetail() {
 	const dispatch = useDispatch();
 	useEffect(() => {

@@ -14,18 +14,22 @@ import { changeRemark } from "@/store/modules/remark";
 import { addComment, fetchComment } from "@/store/modules/comment";
 import { getRemarkAPI, getUsersAPI } from "@/apis/remark";
 import { fetchOneObject } from "@/store/modules/object";
+import { useParams } from "react-router-dom";
 
 export const RemarkPage = () => {
 	const remarks = useSelector(state => state.remark).remark;
 	const objects = useSelector(state => state.object).object;
 	const comments = useSelector(state => state.comment).comment;
 
+	const { objectId } = useParams();
+	console.log(objectId);
+
 	const dispatch = useDispatch();
 	const [user, setUser] = useState(null);
 
 	const fetchData = async () => {
 		setUser(await getUsersAPI());
-		return await getRemarkAPI(1);
+		return await getRemarkAPI(objectId);
 	}
 
 	useEffect(() => {
@@ -37,7 +41,7 @@ export const RemarkPage = () => {
 	}, [])
 
 	useEffect(() => {
-		dispatch(fetchOneObject(20));
+		dispatch(fetchOneObject(objectId));
 	}, [dispatch])
 
 	//comments生成
@@ -60,7 +64,7 @@ export const RemarkPage = () => {
 		let date = new Date();
 		let dateString = date.toISOString();
 		const newComment = {
-			userId: user.find(user => user.username === localStorage.getItem('user')).id,
+			userId: localStorage.getItem('id'),
 			remarkId: Number(replyId.substring(1)),
 			content: replyPrefix,
 			publishTime: dateString
@@ -120,7 +124,7 @@ export const RemarkPage = () => {
 			<div className="fixed"><ObjectProfile object={objects[0]} /></div>
 			<div className="w-1/3"></div>
 			<div className="w-3/4 mt-12">
-				<h1 className="text-center text-4xl mb-8 font-bold">交大哪个餐厅最好吃</h1>
+				<h1 className="text-center text-4xl mb-8 font-bold">{objects[0] && objects[0].title}</h1>
 				<div className="flex flex-row bg-white rounded-lg drop-shadow-lg ml-16 pl-8 py-4 my-4">
 					<div className="flex flex-col">
 						<div className="flex items-center justify-center">
@@ -217,7 +221,7 @@ export const RemarkPage = () => {
 												<div className="space-y-2">
 													<div className="flex flex-row items-center">
 														<img src={profile_photo} alt="图片描述" className="w-10 h-10 mr-4" />
-														<div className="text-sm font-bold">{localStorage.getItem('user')}</div>
+														<div className="text-sm font-bold">{ user.find(user=>user.id===localStorage.getItem('id')).username}</div>
 													</div>
 													<div className="text-base flex flex-row">
 														<textarea type="text" value={replyPrefix} className="p-2 h-20 reply border-black border rounded" autoFocus onChange={

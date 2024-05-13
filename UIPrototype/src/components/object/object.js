@@ -22,7 +22,7 @@ const Object = ({ object }) => {
     }
   };
   return (
-    <div className="flex flex-col bg-white rounded-lg drop-shadow-lg w-full cursor-pointer" onClick={()=>navigate('/remark')}>
+    <div className="flex flex-col bg-white rounded-lg drop-shadow-lg w-full cursor-pointer" onClick={()=>navigate(`/object/${object.id}`)}>
       <div className="flex flex-row mb-2">
         <img className="w-24 h-24 ml-8 mr-5 mt-10 mb-3 rounded" src={object.picture} alt="restaurantPhoto" />
         <div className="flex-grow">
