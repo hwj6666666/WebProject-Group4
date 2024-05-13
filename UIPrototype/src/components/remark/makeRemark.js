@@ -1,11 +1,11 @@
 import { getUsersAPI } from "@/apis/remark";
-import { fetchObject } from "@/store/modules/object";
 import { addRemark } from "@/store/modules/remark";
 import { Button, Form, Input, Modal, message, Rate } from "antd/es";
 import { Content } from "antd/es/layout/layout";
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
-export const MakeRemark = () => {
+
+export const MakeRemark = ({ objId }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const showModal = () => {
     setIsModalOpen(true);
@@ -41,7 +41,7 @@ export const MakeRemark = () => {
       let dateString = date.toISOString();
       const mark = {
         userId: localStorage.getItem("id"),
-        objectId: 1,
+        objectId: objId,
         content: remark || "",
         like: 0,
         score: score * 2,

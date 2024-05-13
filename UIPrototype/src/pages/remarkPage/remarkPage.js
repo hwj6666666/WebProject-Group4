@@ -28,7 +28,6 @@ export const RemarkPage = () => {
 
   const fetchData = async () => {
     const userRes = await getUsersAPI();
-    console.log(userRes);
     setUser(userRes);
     return await getRemarkAPI(objectId);
   };
@@ -118,7 +117,7 @@ export const RemarkPage = () => {
       _3_pencentage =
       _4_pencentage =
       _5_pencentage =
-        0;
+      0;
   }
 
   //打印五角星
@@ -191,7 +190,7 @@ export const RemarkPage = () => {
                   <Progress percent={_1_pencentage} className="ml-3" />
                 </div>
               </Flex>
-              <MakeRemark />
+              <MakeRemark objId={objectId} />
             </div>
           </div>
           <div className="mt-2 ml-16 w-auto">
@@ -287,12 +286,12 @@ export const RemarkPage = () => {
                                           setReplyRemark(remark.id);
                                           setReplyPrefix(
                                             "回复 @" +
-                                              (user &&
-                                                user.find(
-                                                  (user) =>
-                                                    user.id === comment.userId
-                                                )?.username) +
-                                              " : "
+                                            (user &&
+                                              user.find(
+                                                (user) =>
+                                                  user.id === comment.userId
+                                              )?.username) +
+                                            " : "
                                           );
                                           setReply(true);
                                         } else if (
