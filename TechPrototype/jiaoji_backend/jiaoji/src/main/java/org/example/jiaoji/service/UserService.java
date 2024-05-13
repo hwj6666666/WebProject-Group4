@@ -16,6 +16,10 @@ public interface UserService {
 
     public List<Topic> SelectFlllows(Integer id);
 
+    public double getAveScore(Integer id);
+
+    public String getHottestRemark(Integer id);
+
     public RetType Register(String email, String password);
 
     public RetType Login(String email, String password);

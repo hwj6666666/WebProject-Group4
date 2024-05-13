@@ -5,12 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="96454bf4-0244-4b31-b13a-cbad8c93082a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UIPrototype/src/components/topic/topic.js" beforeDir="false" afterPath="$PROJECT_DIR$/../UIPrototype/src/components/topic/topic.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/controller/ObjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/controller/ObjectController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/service/serverimpl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jiaoji_backend/jiaoji/src/main/java/org/example/jiaoji/service/serverimpl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UIPrototype/src/components/user/ObjectUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/../UIPrototype/src/components/user/ObjectUser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UIPrototype/src/components/user/RemarkUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/../UIPrototype/src/components/user/RemarkUser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UIPrototype/src/components/user/TopicUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/../UIPrototype/src/components/user/TopicUser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UIPrototype/src/components/user/showDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/../UIPrototype/src/components/user/showDetail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UIPrototype/src/components/user/userDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/../UIPrototype/src/components/user/userDetail.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,6 +145,7 @@
       <workItem from="1715525772849" duration="908000" />
       <workItem from="1715530641970" duration="608000" />
       <workItem from="1715579863614" duration="1854000" />
+      <workItem from="1715607743796" duration="1681000" />
     </task>
     <servers />
   </component>

@@ -6,9 +6,9 @@ import { Link } from "react-router-dom";
 
 const TopicUser = ({ topic, onTopicClick }) => {
 	const { title, hot } = topic;
-
+	const id = topic.id;
 	return (
-		<Link to={{ pathname: '/object' }}>
+		<Link to={{ pathname: `/topic/${id}` }}>
 			<Card
 				className="shadow-md w-full"
 				title={
@@ -25,7 +25,8 @@ const TopicUser = ({ topic, onTopicClick }) => {
 				<div className="flex justify-between ">
 					<div>实时热度：{hot}</div>
 				</div>
-			</Card></Link>
+			</Card>
+		</Link>
 	);
 };
 

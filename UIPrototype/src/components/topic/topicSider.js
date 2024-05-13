@@ -15,14 +15,14 @@ export const MySider = () => {
 
 	const handleselect = ({ key }) => {
 		setSelectedKey(key)
-		console.log(typeof (key))
+		// console.log(typeof (key))
 		dispatch(fetchTopic(key));
 	}
 
 	const sort = useSelector(state => state.class).class
 	// console.log(sort)
 	useEffect(() => {
-		console.log(sort);
+		// console.log(sort);
 		dispatch(fetchTopic("0"));
 		dispatch(fetchClass());
 	}, [dispatch]);

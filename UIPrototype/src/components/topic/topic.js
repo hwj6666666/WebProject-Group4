@@ -4,11 +4,9 @@ import { Card } from "antd";
 import { Button } from "antd/es/radio";
 import { Link } from "react-router-dom";
 
-const Topic = ({ topic, onTopicClick }) => {
-	const { title, hotComments, heat } = topic;
-
+const TopicUser = ({ topic, onTopicClick }) => {
+	const { title, hot } = topic;
 	const id = topic.id;
-
 	return (
 		<Link to={{ pathname: `/topic/${id}` }}>
 			<Card
@@ -25,21 +23,11 @@ const Topic = ({ topic, onTopicClick }) => {
 				}
 			>
 				<div className="flex justify-between ">
-					{/* <span>
-            {hotComments &&
-              hotComments.map((comment, index) => (
-                <Link to={{ pathname: "/remark" }}>
-                  <Button className="rounded-lg mr-20" key={index}>
-                    {comment}
-                  </Button>
-                </Link>
-              ))}
-          </span> */}
-					<div>实时热度：{heat}</div>
+					<div>实时热度：{hot}</div>
 				</div>
 			</Card>
 		</Link>
 	);
 };
 
-export default Topic;
+export default TopicUser;
