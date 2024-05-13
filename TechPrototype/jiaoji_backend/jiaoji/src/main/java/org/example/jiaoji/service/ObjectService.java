@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface ObjectService {
 
-    public RetType InsertObject(Objects data);
+    public Integer InsertObject(Objects data);
 
     public List<Objects> SelectAllInTopic(Integer id);
 

@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface TopicService {
 
-    public RetType insertTopic(Topic data);
+    public Integer insertTopic(Topic data);
 
     public List<Topic> SelectAll();
 
