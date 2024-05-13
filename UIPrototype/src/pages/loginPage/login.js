@@ -37,6 +37,8 @@ function LoginPage() {
           dispatch(setLoggedIn(true));
           dispatch(setId(data.data));
           localStorage.setItem("isLoggedIn", true);
+          localStorage.setItem("id", data.data);
+
         } else {
           message.error(data.msg);
         }
