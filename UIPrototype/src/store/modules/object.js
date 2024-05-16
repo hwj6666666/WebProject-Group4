@@ -35,7 +35,8 @@ const fetchOneObject =(id)=>{ //异步方法获取topic
 
 const addObject=(object)=>{
     return async(dispatch)=>{
-      await addObjectAPI(object);
+      const generatedId = await addObjectAPI(object);
+      object.id = generatedId;
       dispatch(addMyObject(object));
     }
 }

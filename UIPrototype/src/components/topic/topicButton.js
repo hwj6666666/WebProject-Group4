@@ -58,7 +58,7 @@ export const HeadButton = () => {
   };
 
   //获取用户id
-  const userid = useSelector((state) => state.user).user.userid;
+  const userid = localStorage.getItem("id");
   //提交话题
   const onFinish = ({ topic, classId, introduce }) => {
     console.log(imageUrl);
