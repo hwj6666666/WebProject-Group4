@@ -4,6 +4,7 @@ import org.example.jiaoji.pojo.Objects;
 import org.example.jiaoji.pojo.Remark;
 import org.example.jiaoji.pojo.Topic;
 import org.example.jiaoji.pojo.User;
+import org.example.jiaoji.service.ObjectService;
 import org.example.jiaoji.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +16,7 @@ import java.util.List;
 public class UserController {
     @Autowired
     private UserService userService;
+    private ObjectService objectService;
 
     @CrossOrigin
     @GetMapping("/user")
@@ -47,9 +49,13 @@ public class UserController {
     @GetMapping("/user/{id}/objects")
     @ResponseBody
     public ResponseEntity<List<Objects>> getObjectsById(@PathVariable("id") Integer id) {
-        List<Objects> object = null;
-        object = userService.SelectObjectsById(id);
-        return ResponseEntity.ok(object);
+        List<Objects> objects = null;
+        objects = userService.SelectObjectsById(id);
+        for (Objects object : objects) {
+            object.setAveScore(userService.getAveScore(object.getId()));
+            object.setHottestRemark(userService.getHottestRemark(object.getId()));
+        }
+        return ResponseEntity.ok(objects);
     }
 
     @CrossOrigin
