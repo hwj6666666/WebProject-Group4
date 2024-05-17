@@ -120,7 +120,10 @@ function RegisterPage() {
   }, [isButtonDisabled, countdown]);
 
   return (
-    <div className="flex items-center justify-center min-h-screen">
+    <div
+      style={{ backgroundImage: "url('background.jpg')" }}
+      className="flex items-center justify-center min-h-screen"
+    >
       <div className="bg-white p-8 rounded shadow-md w-80">
         <form onSubmit={handleRegister}>
           <input
