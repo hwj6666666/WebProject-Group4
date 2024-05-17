@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 public class ObjectServiceImpl implements ObjectService {
   @Autowired private ObjectMapper objectMapper;
 
-  public RetType InsertObject(Objects data) {
+  public Integer InsertObject(Objects data) {
     RetType ret = new RetType();
 
     Integer id = objectMapper.selectIdByTitle(data.getTitle(), data.getTopicId());
@@ -22,7 +22,7 @@ public class ObjectServiceImpl implements ObjectService {
       ret.setMsg("该对象已存在");
       ret.setOk(false);
       ret.setData(null);
-      return ret;
+      return -1;
     }
     System.out.println(data);
     System.out.println("=======this is test=====");
@@ -40,7 +40,7 @@ public class ObjectServiceImpl implements ObjectService {
 
     ret.setOk(true);
     ret.setData(null);
-    return ret;
+    return object.getId();
   }
 
   public List<Objects> SelectAllInTopic(Integer id) {

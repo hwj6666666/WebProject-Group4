@@ -1,20 +1,20 @@
-import React, { useEffect, useRef, useState } from "react";
-import Header from "../headerPage";
-import { RemarkButton } from "@/components/remark/remarkButton";
-import Card from "antd/es/card/Card";
-import profile_photo from "@/assets/3000.png";
-import { MakeRemark } from "@/components/remark/makeRemark";
-import LikeButton from "@/components/remark/remarkLike";
-import { Button, Flex, Progress, message } from "antd";
-import { useDispatch, useSelector } from "react-redux";
-import ObjectProfile from "@/components/remark/objectProfile";
-import scorePhoto from "@/assets/score.png";
-import { StarOutlined, StarFilled } from "@ant-design/icons";
-import { changeRemark } from "@/store/modules/remark";
-import { addComment, fetchComment } from "@/store/modules/comment";
 import { getRemarkAPI, getUsersAPI } from "@/apis/remark";
+import profile_photo from "@/assets/3000.png";
+import scorePhoto from "@/assets/score.png";
+import { MakeRemark } from "@/components/remark/makeRemark";
+import ObjectProfile from "@/components/remark/objectProfile";
+import { RemarkButton } from "@/components/remark/remarkButton";
+import LikeButton from "@/components/remark/remarkLike";
+import { addComment, fetchComment } from "@/store/modules/comment";
 import { fetchOneObject } from "@/store/modules/object";
+import { changeRemark } from "@/store/modules/remark";
+import { StarFilled, StarOutlined } from "@ant-design/icons";
+import { Button, Flex, Progress, message } from "antd";
+import Card from "antd/es/card/Card";
+import { useEffect, useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import Header from "../headerPage";
 
 export const RemarkPage = () => {
   const remarks = useSelector((state) => state.remark).remark;
@@ -28,7 +28,6 @@ export const RemarkPage = () => {
 
   const fetchData = async () => {
     const userRes = await getUsersAPI();
-    console.log(userRes);
     setUser(userRes);
     return await getRemarkAPI(objectId);
   };
@@ -118,7 +117,7 @@ export const RemarkPage = () => {
       _3_pencentage =
       _4_pencentage =
       _5_pencentage =
-        0;
+      0;
   }
 
   //打印五角星
@@ -191,7 +190,7 @@ export const RemarkPage = () => {
                   <Progress percent={_1_pencentage} className="ml-3" />
                 </div>
               </Flex>
-              <MakeRemark />
+              <MakeRemark objId={objectId} />
             </div>
           </div>
           <div className="mt-2 ml-16 w-auto">
@@ -287,12 +286,12 @@ export const RemarkPage = () => {
                                           setReplyRemark(remark.id);
                                           setReplyPrefix(
                                             "回复 @" +
-                                              (user &&
-                                                user.find(
-                                                  (user) =>
-                                                    user.id === comment.userId
-                                                )?.username) +
-                                              " : "
+                                            (user &&
+                                              user.find(
+                                                (user) =>
+                                                  user.id === comment.userId
+                                              )?.username) +
+                                            " : "
                                           );
                                           setReply(true);
                                         } else if (
