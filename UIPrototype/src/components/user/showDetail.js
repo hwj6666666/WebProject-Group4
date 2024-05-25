@@ -1,12 +1,8 @@
 
-import { Link } from "react-router-dom";
 import { useSelector } from 'react-redux';
-import TopicUser from './TopicUser';
 import RemarkUser from "./RemarkUser";
-import Topic from "./usertopic";
 import Object from "../object/object";
-
-
+import Topic from "../topic/topic";
 
 export default function ShowDetail(props) {
 	const topics = useSelector(state => state.user).topicsbyuser
@@ -47,7 +43,7 @@ export default function ShowDetail(props) {
 				<div className="bg-white">
 					{(fllows.length !== 0)
 						? fllows.map((fllowtopic, index) => (
-							<div style={{ marginBottom: "30px" }}><TopicUser
+							<div style={{ marginBottom: "30px" }}><Topic
 								key={fllowtopic.id}
 								topic={fllowtopic}
 							/>
@@ -65,7 +61,7 @@ export default function ShowDetail(props) {
 					{(topics.length !== 0)
 						? topics.map((topic, index) => (
 							<div style={{ marginBottom: "30px" }}>
-								<TopicUser key={topic.id} topic={topic} />
+								<Topic key={topic.id} topic={topic} />
 								{/* ??? */}
 								{/* <Topic key={topic.id} topic={topic} /> */}
 							</div>

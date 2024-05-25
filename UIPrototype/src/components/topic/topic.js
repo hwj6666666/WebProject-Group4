@@ -4,7 +4,7 @@ import { Card } from "antd";
 import { Button } from "antd/es/radio";
 import { Link } from "react-router-dom";
 
-const TopicUser = ({ topic, onTopicClick }) => {
+const Topic = ({ topic, onTopicClick }) => {
 	const { title, hot } = topic;
 	const id = topic.id;
 	return (
@@ -30,4 +30,4 @@ const TopicUser = ({ topic, onTopicClick }) => {
 	);
 };
 
-export default TopicUser;
+export default Topic;

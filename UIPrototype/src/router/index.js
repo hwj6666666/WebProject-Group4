@@ -8,46 +8,46 @@ import { AuthRoute } from "@/components/login/AuthRoute";
 import RegisterPage from "@/pages/registerPage/registerPage";
 
 const router = createBrowserRouter([
-  {
-    path: "/",
-    element: (
-      <AuthRoute>
-        <BasicPage />
-      </AuthRoute>
-    ),
-  },
-  {
-    path: "/login",
-    element: <LoginPage />,
-  },
-  {
-    path: "/register",
-    element:<RegisterPage/>,
-  },
-  {
-    path: "/user",
-    element: (
-      <AuthRoute>
-        <UserPage />
-      </AuthRoute>
-    ),
-  },
-  {
-    path: "/object/:objectId",
-    element: (
-      <AuthRoute>
-        <RemarkPage />
-      </AuthRoute>
-    ),
-  },
-  {
-    path: "/topic/:topicId",
-    element: (
-      <AuthRoute>
-        <ObjectPage />
-      </AuthRoute>
-    ),
-  },
+	{
+		path: "/",
+		element: (
+			<AuthRoute>
+				<BasicPage />
+			</AuthRoute>
+		),
+	},
+	{
+		path: "/login",
+		element: <LoginPage />,
+	},
+	{
+		path: "/register",
+		element: <RegisterPage />,
+	},
+	{
+		path: "/user/:userId",
+		element: (
+			<AuthRoute>
+				<UserPage />
+			</AuthRoute>
+		),
+	},
+	{
+		path: "/object/:objectId",
+		element: (
+			<AuthRoute>
+				<RemarkPage />
+			</AuthRoute>
+		),
+	},
+	{
+		path: "/topic/:topicId",
+		element: (
+			<AuthRoute>
+				<ObjectPage />
+			</AuthRoute>
+		),
+	},
 ]);
 
 export default router;
