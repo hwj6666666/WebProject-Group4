@@ -106,4 +106,9 @@ public class UserServiceImpl implements UserService {
         retType.setOk(true);
         return retType;
     }
+
+    public List<User> search(String keyword){
+        keyword="%"+keyword+"%";
+        return userMapper.search(keyword);
+    }
 }
