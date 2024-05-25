@@ -14,9 +14,11 @@ public interface RemarkService {
 
     public List<Remark> SelectById(Integer id);
 
-    public void changeLike(Integer id, Integer change);
+    public void changeLike(Integer id, Integer change, Integer uid);
 
     public void deleteRemark(Integer id);
 
     public List<User> getAllUser();
+
+    public Boolean isLike(Integer remarkId, Integer uid);
 }
