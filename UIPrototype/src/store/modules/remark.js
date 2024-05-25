@@ -1,5 +1,7 @@
 import { addRemarkAPI, changeLikeAPI } from "@/apis/remark";
 import { createSlice } from "@reduxjs/toolkit";
+import { getLikeAPI } from "@/apis/remark";
+import { message } from "antd";
 
 const remarkStore = createSlice({
 	name: "remark",
@@ -39,6 +41,10 @@ const remarkStore = createSlice({
 				changeLikeBack(1, action.payload);
 			}
 		},
+		setLike(state, action) {
+			let this_remark = state.remark.find(r => r.id === action.payload.id);
+			this_remark.liked = action.payload.liked;
+		},
 	},
 });
 
@@ -47,7 +53,13 @@ const addRemark = (remark) => {
 		const generatedId = await addRemarkAPI(remark);
 		remark.id = generatedId;
 		console.log(remark);
-		dispatch(addMyRemark(remark));
+		if (generatedId !== -1) {
+			dispatch(addMyRemark(remark));
+			message.success("提交成功");
+		}
+		else {
+			message.error("重复提交评分");
+		}
 	}
 }
 
@@ -56,10 +68,19 @@ const changeLikeBack = (change, id) => {
 	changeLikeAPI(change, id);
 }
 
-const { addMyRemark, changeRemark, changeLike, changePos, setOrderByTime } = remarkStore.actions;
+const fetchLike = (id) => {
+	return async (dispatch) => {
+		const res = await getLikeAPI(id);
+		const para = { id: id, liked: res };
+		console.log(para);
+		dispatch(setLike(para));
+	}
+}
+
+const { addMyRemark, changeRemark, changeLike, changePos, setOrderByTime, setLike } = remarkStore.actions;
 
 const remarkReducer = remarkStore.reducer;
 
-export { addMyRemark, changeRemark, changeLike, changePos, setOrderByTime, addRemark, changeLikeBack };
+export { addMyRemark, changeRemark, changeLike, changePos, setOrderByTime, setLike, addRemark, changeLikeBack, fetchLike };
 
 export default remarkReducer;
