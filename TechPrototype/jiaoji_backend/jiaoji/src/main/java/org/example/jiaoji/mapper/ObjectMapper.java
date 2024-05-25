@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.*;
 import org.example.jiaoji.pojo.Objects;
 import org.example.jiaoji.pojo.Remark;
 import org.example.jiaoji.pojo.Topic;
+import org.example.jiaoji.pojo.top3Object;
 
 @Mapper
 public interface ObjectMapper {
@@ -30,4 +31,10 @@ public interface ObjectMapper {
 
     @Delete("delete from object where id = #{id}")
     public void delete(Integer id);
+
+    @Select("select * from object where title like #{keyword} or description like #{keyword}")
+    public List<Objects> search(String keyword);
+
+    @Select("select id,title from object where topic_id = #{topicId} order by id desc limit 3")
+    public List<top3Object> selectTop3(Integer topicId);
 }

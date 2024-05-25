@@ -25,4 +25,18 @@ const addObjectAPI = (object) => {
     });
 }
 
-export {getObjectAPI, addObjectAPI, getOneObjectAPI}
+const searchObject=(keyword)=>{
+  return request({
+  url: `object/search/${keyword}`,
+  method:'get',
+  })
+}
+
+const getTop3=(TopicId)=>{
+  return request({
+  url: `object/top3/${TopicId}`,
+  method:'get',
+  })
+}
+
+export {getObjectAPI,getTop3, addObjectAPI, getOneObjectAPI, searchObject}

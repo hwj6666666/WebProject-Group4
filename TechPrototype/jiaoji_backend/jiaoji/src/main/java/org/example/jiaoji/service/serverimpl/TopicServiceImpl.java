@@ -55,4 +55,11 @@ public class TopicServiceImpl implements TopicService{
     public Topic SelectById(Integer Id) {
         return topicMapper.selectById(Id);
     }
+
+    @Override
+    public List<Topic> search(String keyword) {
+        keyword="%"+keyword+"%";
+        return topicMapper.search(keyword);
+    }
+    
 }

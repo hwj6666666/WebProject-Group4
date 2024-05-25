@@ -4,19 +4,20 @@ import org.example.jiaoji.pojo.Objects;
 import org.example.jiaoji.pojo.Remark;
 import org.example.jiaoji.pojo.Topic;
 import org.example.jiaoji.pojo.User;
-import org.example.jiaoji.service.ObjectService;
 import org.example.jiaoji.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @RestController
 public class UserController {
     @Autowired
     private UserService userService;
-    private ObjectService objectService;
 
     @CrossOrigin
     @GetMapping("/user")
@@ -75,4 +76,11 @@ public class UserController {
         fllow = userService.SelectFlllows(id);
         return ResponseEntity.ok(fllow);
     }
+
+    @CrossOrigin
+    @GetMapping("user/search/{keyword}")
+    public List<User> getMethodName(@PathVariable("keyword") String keyword) {
+        return userService.search(keyword);
+    }
+    
 }

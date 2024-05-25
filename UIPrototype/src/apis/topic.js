@@ -38,4 +38,11 @@ const getOneTopic=(id)=>{
   })
 }
 
-export {mainTopicAPI,UserTopicAPI,AddTopicAPI,getOneTopic}
+const searchTopic=(keyword)=>{
+  return request({
+  url: `topic/search/${keyword}`,
+  method:'get',
+  })
+}
+
+export {mainTopicAPI,UserTopicAPI,AddTopicAPI,getOneTopic,searchTopic}

@@ -1,9 +1,9 @@
 import Topic from "@/components/topic/topic";
 import { HeadButton } from "@/components/topic/topicButton";
 import { MySider } from "@/components/topic/topicSider";
-import Header from "../headerPage";
 import { useSelector } from "react-redux";
 import TopicCarousel from "@/components/topic/topicCarousel";
+import { Affix } from "antd";
 
 function BasicPage() {
 	const { topic } = useSelector((state) => state.topic);
@@ -11,9 +11,8 @@ function BasicPage() {
 	//点击分类显示相应内容
 	return (
 		<div className="min-h-screen bg-biligrey">
-			<Header />
 			<div className="min--h-screen flex justify-center ">
-				<MySider />
+				<Affix><MySider /></Affix>
 				<div className="">
 					<div className="">
 						<HeadButton />
@@ -31,7 +30,7 @@ function BasicPage() {
 					</div>
 				</div>
 				<div className="w-1/4">
-					<TopicCarousel />
+					<Affix><TopicCarousel /></Affix>
 				</div>
 			</div>
 		</div>
