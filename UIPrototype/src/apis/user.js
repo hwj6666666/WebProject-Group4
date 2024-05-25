@@ -42,4 +42,11 @@ const getFllowsAPI = (user_id) => {
 	});
 }
 
-export { allUserAPI, getUserAPI, getTopicsByUserIdAPI, getObjectsByUserIdAPI, getRemarksByUserIdAPI, getFllowsAPI }
+const searchUser= (keyword) => {
+	return request({
+		url: `/user/search/${keyword}`,
+		method: 'get',
+	});
+}
+
+export { allUserAPI, getUserAPI, getTopicsByUserIdAPI, searchUser,getObjectsByUserIdAPI, getRemarksByUserIdAPI, getFllowsAPI }

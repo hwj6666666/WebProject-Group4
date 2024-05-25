@@ -1,7 +1,6 @@
 package org.example.jiaoji.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.example.jiaoji.pojo.Objects;
 import org.example.jiaoji.pojo.Remark;
@@ -48,4 +47,7 @@ public interface UserMapper {
 
     @Update("insert into user(email, password) values(#{email}, #{password})")
     public void insert(String email, String password);
+
+    @Select("select * from user where username like #{keyword} or email like #{keyword}")
+    public List<User> search(String keyword);
 }

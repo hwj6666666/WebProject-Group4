@@ -3,7 +3,7 @@ package org.example.jiaoji.service;
 import java.util.List;
 
 import org.example.jiaoji.pojo.Remark;
-import org.example.jiaoji.pojo.RetType;
+
 import org.example.jiaoji.pojo.User;
 
 public interface RemarkService {

@@ -6,6 +6,7 @@ import org.example.jiaoji.pojo.Objects;
 import org.example.jiaoji.pojo.Remark;
 import org.example.jiaoji.pojo.RetType;
 import org.example.jiaoji.pojo.Topic;
+import org.example.jiaoji.pojo.top3Object;
 import org.example.jiaoji.service.ObjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -79,5 +80,14 @@ public class ObjectServiceImpl implements ObjectService {
       }
     }
     return hottestRemark;
+  }
+
+  public List<Objects> search(String keyword) {
+    keyword = "%" + keyword + "%";
+    return objectMapper.search(keyword);
+  }
+
+  public List<top3Object> SelectTop3(Integer topicId) {
+    return objectMapper.selectTop3(topicId);
   }
 }

@@ -24,9 +24,6 @@ export const ObjectPage = () => {
 
   return (
     <div className="min-h-screen bg-biligrey">
-      <div className="fixed w-full z-50">
-        <Header />
-      </div>
       <div className="h-16"></div>
       <div className="flex flex-col w-3/5 mt-20 ml-40">
         <div>
