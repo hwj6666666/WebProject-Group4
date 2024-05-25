@@ -68,10 +68,10 @@ export const Login = () => {
 	//   setLoginBox(false);
 	//   setRegBox(true);
 	// };
-	const user_id = 1;
+	// const user_id = 1;
 	return (
 
-		<Link to={{ pathname: `/user/${user_id}` }}>
+		<Link to={{ pathname: "/user" }}>
 			<div
 				className="cursor-pointer" //成功登录，显示头像，否则显示登录按钮
 			>
