@@ -14,7 +14,6 @@ import Card from "antd/es/card/Card";
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import Header from "../headerPage";
 
 export const RemarkPage = () => {
   const remarks = useSelector((state) => state.remark).remark;
@@ -137,9 +136,6 @@ export const RemarkPage = () => {
 
   return (
     <div className="min-h-screen bg-biligrey">
-      <div className="fixed w-full z-50">
-        <Header />
-      </div>
       <div className="h-16"></div>
       <div className="flex flex-row ml-28 mr-48">
         <div className="fixed">

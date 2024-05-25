@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 // import { MySider } from "@/components/user/userSider";
 // import Layout from "antd/es/layout/layout";
-import Header from "../headerPage";
 import UserDetail from "@/components/user/userDetail";
 import ShowDetail from "@/components/user/showDetail";
 
@@ -11,7 +10,6 @@ export const UserPage = () => {
 
 	return (
 		<div className="min-h-screen bg-biligrey">
-			<Header />
 			<div className="flex flex-col px-40 py-6">
 				<UserDetail />
 

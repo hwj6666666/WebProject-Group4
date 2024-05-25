@@ -7,7 +7,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 
-import org.example.jiaoji.pojo.RetType;
 import org.example.jiaoji.pojo.Topic;
 import org.example.jiaoji.service.TopicService;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -45,5 +44,13 @@ public class TopicController {
     @PostMapping("/topic")
     public Integer insert(@RequestBody Topic test) {
         return topicService.insertTopic(test);
+    }
+
+    @CrossOrigin
+    @GetMapping("/topic/search/{keyword}")
+    @ResponseBody
+    public ResponseEntity<List<Topic>> search(@PathVariable("keyword") String keyword) {
+        List<Topic> topic = topicService.search(keyword);
+        return ResponseEntity.ok(topic);
     }
 }

@@ -4,7 +4,7 @@ const userStore = createSlice({
 	name: "user",
 	initialState: {
 		user: {
-			userid: 6,
+			userid: 2,
 			username: 'jack',
 			password: '123456'
 		},

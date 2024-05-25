@@ -1,6 +1,5 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { AddTopicAPI, getOneTopic, mainTopicAPI } from "../../apis/topic";
-import { add } from "lodash";
 import _ from "lodash";
 
 const topicStore = createSlice({

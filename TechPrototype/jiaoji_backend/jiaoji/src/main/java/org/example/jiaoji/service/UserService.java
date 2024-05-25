@@ -23,4 +23,6 @@ public interface UserService {
     public RetType Register(String email, String password);
 
     public RetType Login(String email, String password);
+
+    public List<User> search(String keyword);
 }
