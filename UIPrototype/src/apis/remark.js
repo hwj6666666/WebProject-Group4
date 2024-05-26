@@ -19,17 +19,26 @@ const addRemarkAPI = (remark) => {
 }
 
 const changeLikeAPI = (change, id) => {
+	const uid = localStorage.getItem('id');
 	return request({
-		url: `/remarks/changeLike/${id}/${change}`,
+		url: `/remarks/changeLike/${id}/${change}/${uid}`,
+		method: 'get',
+	});
+}
+
+const getLikeAPI = (id) => {
+	const uid = localStorage.getItem('id');
+	return request({
+		url: `/remarks/getLike/${id}/${uid}`,
 		method: 'get',
 	});
 }
 
 const getUsersAPI = () => {
-    return request({
-        url: '/getAllUser',
-        method: 'get'
-    });
+	return request({
+		url: '/getAllUser',
+		method: 'get'
+	});
 }
 
-export { getRemarkAPI, addRemarkAPI, changeLikeAPI, getUsersAPI }
+export { getRemarkAPI, addRemarkAPI, changeLikeAPI, getUsersAPI, getLikeAPI }

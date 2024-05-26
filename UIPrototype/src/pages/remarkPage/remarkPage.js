@@ -138,7 +138,7 @@ export const RemarkPage = () => {
     <div className="min-h-screen bg-biligrey">
       <div className="h-16"></div>
       <div className="flex flex-row ml-28 mr-48">
-        <div className="fixed">
+        <div className="absolute h-screen overflow-auto">
           <ObjectProfile object={objects[0]} />
         </div>
         <div className="w-1/3"></div>

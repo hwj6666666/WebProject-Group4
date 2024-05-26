@@ -23,9 +23,9 @@ public class RemarkController {
     }
 
     @CrossOrigin
-    @GetMapping("/remarks/changeLike/{id}/{change}")
-    public void changeLike(@PathVariable("id") Integer id, @PathVariable("change") Integer change) {
-        remarkService.changeLike(id, change);
+    @GetMapping("/remarks/changeLike/{id}/{change}/{uid}")
+    public void changeLike(@PathVariable("id") Integer id, @PathVariable("change") Integer change, @PathVariable("uid") Integer uid) {
+        remarkService.changeLike(id, change, uid);
     }
 
     @CrossOrigin
@@ -44,5 +44,11 @@ public class RemarkController {
     @PostMapping("/remarks")
     public Integer insert(@RequestBody Remark remark) {
         return remarkService.addRemark(remark);
+    }
+
+    @CrossOrigin
+    @GetMapping("/remarks/getLike/{id}/{uid}")
+    public ResponseEntity<Boolean> getLike(@PathVariable("id") Integer id, @PathVariable("uid") Integer uid) {
+        return ResponseEntity.ok(remarkService.isLike(id,uid));
     }
 }

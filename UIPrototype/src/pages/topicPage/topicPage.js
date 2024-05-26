@@ -30,7 +30,7 @@ function BasicPage() {
 					</div>
 				</div>
 				<div className="w-1/4">
-					<Affix><TopicCarousel /></Affix>
+					<Affix offsetTop={100}><TopicCarousel /></Affix>
 				</div>
 			</div>
 		</div>

@@ -48,7 +48,6 @@ export const MakeRemark = ({ objId }) => {
         publishTime: dateString,
       };
       dispatch(addRemark(mark));
-      message.success("提交成功");
       setIsModalOpen(false);
     }
   };
