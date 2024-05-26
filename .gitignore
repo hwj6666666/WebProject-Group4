@@ -24,3 +24,5 @@ yarn-error.log*
 .vscode/limfxbasicinfo.json
 TechPrototype/jiaoji_backend/jiaoji/src/main/resources/application.properties
 TechPrototype/jiaoji_backend/jiaoji/src/main/resources/application.properties
+
+TechPrototype/.idea/

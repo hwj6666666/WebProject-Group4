@@ -1,37 +1,28 @@
 package org.example.jiaoji.service;
 
-import org.example.jiaoji.mapper.UserMapper;
-import org.example.jiaoji.pojo.RetType;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.example.jiaoji.pojo.*;
+import java.util.List;
 
+public interface UserService {
+    public List<User> SelectAll();
 
-@Service
-public class UserService {
-    @Autowired
-    private UserMapper userMapper;
+    public User SelectByUserId(Integer id);
 
-    public RetType Login(String username, String password){
-        Integer id= userMapper.selectIdByUsername(username);
-        RetType retType = new RetType();
-        if(id==null)
-        {
-            retType.setData(null);
-            retType.setMsg("用户名不存在");
-            retType.setOk(false);
-            return retType;
-        }
-        id= userMapper.selectIdByUsernameAndPassword(username, password);
-        if(id==null)
-        {
-            retType.setData(null);
-            retType.setMsg("密码错误");
-            retType.setOk(false);
-            return retType;
-        }   
-            retType.setData(id);
-            retType.setMsg("登录成功");
-            retType.setOk(true);
-            return retType;
-    }
+    public List<Topic> SelectTopicsById(Integer id);
+
+    public List<Objects> SelectObjectsById(Integer id);
+
+    public List<Remark> SelectRemarksById(Integer id);
+
+    public List<Topic> SelectFlllows(Integer id);
+
+    public double getAveScore(Integer id);
+
+    public String getHottestRemark(Integer id);
+
+    public RetType Register(String email, String password);
+
+    public RetType Login(String email, String password);
+
+    public List<User> search(String keyword);
 }

@@ -44,9 +44,10 @@ const Setting=()=>{
             }
     const navigate=useNavigate()
     const onConfirm=()=>{
-        localStorage.clear('isuser')
+        localStorage.clear('isLoggedIn')
+        localStorage.clear('id')
         dispatch(setLogin(false))
-        navigate('/')
+        navigate('/login')
     }
 
     const items = [

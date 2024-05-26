@@ -7,7 +7,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 
-import org.example.jiaoji.pojo.RetType;
 import org.example.jiaoji.pojo.Topic;
 import org.example.jiaoji.service.TopicService;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,10 +23,10 @@ public class TopicController {
     public ResponseEntity<List<Topic>> getTopic(@PathVariable("id") Integer id) {
         List<Topic> topic=null;
         if(id==0){
-        topic = topicService.SelectAll();}
+            topic = topicService.SelectAll();}
         else
         {
-          topic = topicService.SelectByClassId(id);
+            topic = topicService.SelectByClassId(id);
         }
         return ResponseEntity.ok(topic);
     }
@@ -40,10 +39,20 @@ public class TopicController {
         return ResponseEntity.ok(topic);
     }
 
-    
-    @CrossOrigin 
+  
+
+
+    @CrossOrigin
     @PostMapping("/topic")
-    public RetType insert(@RequestBody Topic test) {
+    public Integer insert(@RequestBody Topic test) {
         return topicService.insertTopic(test);
+    }
+
+    @CrossOrigin
+    @GetMapping("/topic/search/{keyword}")
+    @ResponseBody
+    public ResponseEntity<List<Topic>> search(@PathVariable("keyword") String keyword) {
+        List<Topic> topic = topicService.search(keyword);
+        return ResponseEntity.ok(topic);
     }
 }

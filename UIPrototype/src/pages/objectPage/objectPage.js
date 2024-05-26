@@ -1,31 +1,48 @@
-import React from "react";
+import { useEffect } from "react";
 import Header from "../headerPage";
-import { useSelector } from "react-redux";
 import HotTopic from "@/components/object/hotTopic";
-import Object from "@/components/object/object";
-import Object1 from "@/components/object/object1";
 import TopicProfile from "@/components/object/topicProfile";
-
+import Object from "@/components/object/object";
+import { fetchObject } from "@/store/modules/object";
+import { fetchTopic } from "@/store/modules/topic";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 
 export const ObjectPage = () => {
-	const topics = useSelector(state => state.topic).topic;
+  const dispatch = useDispatch();
+  const topics = useSelector((state) => state.topic).topic;
+  const object = useSelector((state) => state.object).object;
 
-	return (
-		<div className="min-h-screen bg-biligrey" >
-			<div className="fixed w-full z-50"><Header /></div>
-			<div className="h-16"></div>
-			<div className="flex flex-col w-3/5 mt-20 ml-40">
-				<div><TopicProfile topic={topics.find(r => r.id === 1)} /></div>
-			</div>
-			<div className="flex flex-row mt-20">
-				<div className="flex flex-col top-100 w-1/2 ml-40">
-					<div className="mb-10"><Object/></div>
-					<div className="mb-10"><Object1/></div>
-				</div>
-				<div className="fixed w-1/3 h-1/2 right-10" >
-					<HotTopic className="" />
-				</div>
-			</div>
-		</div>
-	);
-}
+  //此处能够成功获取到topicId，可直接使用
+  const { topicId } = useParams();
+  console.log(topicId);
+
+  useEffect(() => {
+    dispatch(fetchTopic("0"));
+    dispatch(fetchObject(topicId));
+  }, [dispatch]);
+
+  return (
+    <div className="min-h-screen bg-biligrey">
+      <div className="h-16"></div>
+      <div className="flex flex-col w-3/5 mt-20 ml-40">
+        <div>
+          <TopicProfile topic={topics.find((r) => r.id == topicId)} />
+        </div>
+      </div>
+      <div className="flex flex-row mt-20">
+        <div className="flex flex-col top-100 w-3/5 ml-40">
+          {object.map((object, index) => (
+            <div className="mb-10">
+              <Object key={index} object={object} />
+            </div>
+          ))}
+        </div>
+
+        <div className="fixed w-1/4 h-3/5 right-10 top-60">
+          <HotTopic className="" />
+        </div>
+      </div>
+    </div>
+  );
+};

@@ -1,15 +1,20 @@
 import React from "react";
 import logo from "@/assets/logo3.png";
 import { Helmet } from "react-helmet";
-import { Input } from "antd/es";
+import { Affix, Input } from "antd/es";
 import { Login } from "@/components/login";
-import { Link } from "react-router-dom";
+import { Link,useNavigate, useOutlet } from "react-router-dom";
 
 const { Search } = Input;
-const onSearch = (value, _e, info) => console.log(info?.source, value);
 
 const Header = () => {
-	return (
+	const navigate = useNavigate();	
+	const onSearch = (value, _e, info) =>{
+	navigate(`/search/topic/${value}`);
+	};
+	const children=useOutlet();
+	return (<>
+	<Affix>
 		<div className="shadow-lg min-w-[700px] flex justify-between items-center bg-white text-white h-20 rounded-2xl ">
 			<Helmet>
 				<link
@@ -44,7 +49,8 @@ const Header = () => {
 			<div className="mr-5">
 				<Login></Login>
 			</div>
-		</div>
+		</div></Affix>
+		{children}</>
 	);
 };
 
