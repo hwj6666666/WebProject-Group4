@@ -11,7 +11,7 @@ function SearchTopic() {
       searchTopic(keyword).then((res)=>{
       setTopic(res)
     })
-    }, []);
+    }, [topic,keyword]);
   return (
     <div>
         {topic.length>0?<div className="mt-10">

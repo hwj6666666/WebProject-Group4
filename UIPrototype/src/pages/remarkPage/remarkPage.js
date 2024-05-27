@@ -37,7 +37,7 @@ export const RemarkPage = () => {
       const remarkIds = data.map((item) => item.id);
       dispatch(fetchComment(remarkIds));
     });
-  }, []);
+  }, [dispatch, objectId]);
 
   useEffect(() => {
     dispatch(fetchOneObject(objectId));

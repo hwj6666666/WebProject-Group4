@@ -10,7 +10,6 @@ const  mainTopicAPI=(id)=>{
 }
 
 const AddTopicAPI=(topic)=>{
-  console.log(topic)
   return request({
     url: '/topic',
     method: 'post',

@@ -33,11 +33,9 @@ const fetchTopic = (id) => {
   };
 };
 const addTopic = (topic) => {
-  console.log(topic);
   return async (dispatch) => {
-    const generatedId = await AddTopicAPI(topic);
-    topic.id = generatedId;
-    dispatch(addMyTopic(topic));
+    const res= await AddTopicAPI(topic);
+    dispatch(addMyTopic(res));
   };
 };
 const fetchOneTopic = (id) => {

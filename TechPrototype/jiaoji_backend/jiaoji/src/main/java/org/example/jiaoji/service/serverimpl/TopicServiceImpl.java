@@ -14,7 +14,7 @@ public class TopicServiceImpl implements TopicService{
     @Autowired
     private TopicMapper topicMapper;
 
-    public Integer insertTopic(Topic data) {
+    public Topic insertTopic(Topic data) {
         RetType ret = new RetType();
 
         Integer id = topicMapper.selectIdByTitle(data.getTitle());
@@ -22,7 +22,7 @@ public class TopicServiceImpl implements TopicService{
             ret.setMsg("该话题已存在");
             ret.setOk(false);
             ret.setData(null);
-            return -1;
+            return null;
         }
         System.out.println(data);
         System.out.println("=======this is test=====");
@@ -36,10 +36,8 @@ public class TopicServiceImpl implements TopicService{
         topic.setPublicTime(java.time.LocalDateTime.now());
         topic.setBase64(data.getBase64());
         topicMapper.insert(topic);
-        ret.setMsg("上传成功");
-        ret.setOk(true);
-        ret.setData(null);
-        return topic.getId();
+
+        return topicMapper.selectByTitle(topic.getTitle());
     }
 
 
