@@ -10,6 +10,8 @@ export default function ShowDetail(props) {
 	const remarks = useSelector(state => state.user).remarksbyuser
 	const fllows = useSelector(state => state.user).fllows
 	// console.log(topics)
+	// console.log(objects)
+	// console.log(remarks)
 	switch (props.type) {
 		case 'O':
 			return (
@@ -60,10 +62,8 @@ export default function ShowDetail(props) {
 				<div className="bg-white">
 					{(topics.length !== 0)
 						? topics.map((topic, index) => (
-							<div style={{ marginBottom: "30px" }}>
-								<Topic key={topic.id} topic={topic} />
-								{/* ??? */}
-								{/* <Topic key={topic.id} topic={topic} /> */}
+							<div key={index} style={{ marginBottom: "30px" }}>
+								<Topic topic={topic} />
 							</div>
 						))
 						: <div className=" text-3xl mt-3 ml-4 text-gray-400 ">
