@@ -2,10 +2,7 @@ package org.example.jiaoji.mapper;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Options;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import org.example.jiaoji.pojo.Topic;
 
 @Mapper
@@ -31,5 +28,17 @@ public interface TopicMapper {
     
     @Select("select * from topic where title like #{keyword}")
     public List<Topic> search(String keyword);
+
+    @Update("update topic set views = #{views} where id = #{id}")
+    public int updateViews(Integer views, Integer id);
+
+    @Update("update topic set remark_num = #{remarkNum} where id = #{id}")
+    public int updateRemarkNum(Integer remarkNum, Integer id);
+
+    @Update("update topic set favor = #{favor} where id = #{id}")
+    public int updateFavor(Integer favor, Integer id);
+
+    @Update("update topic set object_num = #{objectNum} where id = #{id}")
+    public int updateObjectNum(Integer objectNum, Integer id);
 
 }

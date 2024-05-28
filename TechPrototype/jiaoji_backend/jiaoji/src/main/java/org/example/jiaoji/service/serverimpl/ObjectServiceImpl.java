@@ -2,6 +2,7 @@ package org.example.jiaoji.service.serverimpl;
 
 import java.util.List;
 import org.example.jiaoji.mapper.ObjectMapper;
+import org.example.jiaoji.mapper.TopicMapper;
 import org.example.jiaoji.pojo.Objects;
 import org.example.jiaoji.pojo.Remark;
 import org.example.jiaoji.pojo.RetType;
@@ -10,11 +11,15 @@ import org.example.jiaoji.pojo.top3Object;
 import org.example.jiaoji.service.ObjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class ObjectServiceImpl implements ObjectService {
   @Autowired private ObjectMapper objectMapper;
+  @Autowired
+  private TopicMapper topicMapper;
 
+  @Transactional
   public Integer InsertObject(Objects data) {
     RetType ret = new RetType();
 
@@ -35,7 +40,8 @@ public class ObjectServiceImpl implements ObjectService {
     object.setPicture(data.getPicture());
 
     object.setTopicId(data.getTopicId());
-
+    Topic topic = objectMapper.selectTopicById(object.getTopicId());
+    topicMapper.updateObjectNum(topic.getObjectNum()+1, topic.getId());
     objectMapper.insert(object);
     ret.setMsg("上传成功");
 
@@ -45,14 +51,19 @@ public class ObjectServiceImpl implements ObjectService {
   }
 
   public List<Objects> SelectAllInTopic(Integer id) {
-    return objectMapper.selectAllInTopic(id);
+      List<Objects> objects=objectMapper.selectAllInTopic(id);
+    for (Objects object : objects) {
+      Topic topic = objectMapper.selectTopicById(object.getTopicId());
+      topicMapper.updateViews(topic.getViews() + 1, topic.getId());
+    }
+    return objects;
   }
 
   public List<Objects> SelectById(Integer id) {
     return objectMapper.selectById(id);
   }
 
-  public List<Topic> SelectTopicById(Integer id) {
+  public Topic SelectTopicById(Integer id) {
     return objectMapper.selectTopicById(id);
   }
 

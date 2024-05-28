@@ -74,7 +74,7 @@ const Topic = ({ topic }) => {
 				</div>
 			</div>
 			<div style={{ position: "absolute", bottom: "20%", left: "82%", display: "flex", justifyContent: "center", flexDirection: "column", alignItems: "center" }}>
-				<p style={{ fontSize: "4em", color: "red" }}>{topic.hot}</p>
+				<p style={{ fontSize: "3em"}} className="text-red-500">{topic.hot}</p>
 				<div className="flex ">
 					<FaHotjar size={30} color="red"></FaHotjar>
 					<div className="text-red-500 ml-4 text-xl">热度</div>

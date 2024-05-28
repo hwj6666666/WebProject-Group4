@@ -17,4 +17,7 @@ public interface CommentMapper {
 
     @Insert("insert into comments(id,user_id,remark_id,content,publish_time) values (#{id},#{userId},#{remarkId},#{content},#{publishTime})")
     public void insert(Comment comment);
+
+    @Select("select * from remarks where id = #{remarkId}")
+    public Comment selectRemarkById(Integer remarkId);
 }
