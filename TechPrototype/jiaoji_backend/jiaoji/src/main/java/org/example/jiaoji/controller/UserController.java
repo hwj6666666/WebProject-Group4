@@ -86,6 +86,7 @@ public class UserController {
         }
         return ResponseEntity.ok(updatedUser);
     }
+
     @CrossOrigin
     @PutMapping("/psd/{id}")
     public ResponseEntity<User> updatePsd(@PathVariable("id") Integer id, @RequestBody User user) {
@@ -96,6 +97,7 @@ public class UserController {
         }
         return ResponseEntity.ok(updatedPsdUser);
     }
+
     @CrossOrigin
     @GetMapping("/object/{id}/nameAndTopic")
     @ResponseBody
@@ -106,6 +108,7 @@ public class UserController {
         }
         return ResponseEntity.ok(result);
     }
+
     @CrossOrigin
     @GetMapping("user/search/{keyword}")
     public List<User> getMethodName(@PathVariable("keyword") String keyword) {
