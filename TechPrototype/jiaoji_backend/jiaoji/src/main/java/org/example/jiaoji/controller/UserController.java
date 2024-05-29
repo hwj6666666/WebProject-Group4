@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -94,6 +95,16 @@ public class UserController {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(updatedPsdUser);
+    }
+    @CrossOrigin
+    @GetMapping("/object/{id}/nameAndTopic")
+    @ResponseBody
+    public ResponseEntity<Map<String, String>> getObjectNameAndTopicNameById(@PathVariable("id") Integer id) {
+        Map<String, String> result = userService.getObjectNameAndTopicNameById(id);
+        if (result == null || result.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(result);
     }
     @CrossOrigin
     @GetMapping("user/search/{keyword}")

@@ -57,7 +57,12 @@ export const updatePasswordAPI = (UidandPsd) => {
 		data: UidandPsd,
 	});
 }
-
+export const getOandTTitleAPI = (objectId) => {
+	return request({
+		url: `object/${objectId}/nameAndTopic`,
+		method: 'get',
+	});
+}
 export const searchUser = (keyword) => {
 	return request({
 		url: `/user/search/${keyword}`,

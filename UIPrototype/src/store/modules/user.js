@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getTopicsByUserIdAPI, getObjectsByUserIdAPI, getRemarksByUserIdAPI, getUserAPI, getFllowsAPI, updateUserAPI, updatePasswordAPI } from "@/apis/user";
+import { getTopicsByUserIdAPI, getObjectsByUserIdAPI, getRemarksByUserIdAPI, getUserAPI, getFllowsAPI, updateUserAPI, updatePasswordAPI, getOandTTitleAPI } from "@/apis/user";
 const userStore = createSlice({
 	name: "user",
 	initialState: {
@@ -94,6 +94,13 @@ export const updatePassword = (UidandPsd) => {
 	return async (dispatch) => {
 		const res = await updatePasswordAPI(UidandPsd);
 		// console.log(res)
+		dispatch(setUser(res));
+	}
+}
+export const getOandTTitle = (objectId) => {
+	return async (dispatch) => {
+		const res = await getOandTTitleAPI(objectId);
+		console.log(res)
 		dispatch(setUser(res));
 	}
 }

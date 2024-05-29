@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -46,6 +47,9 @@ public class UserServiceImpl implements UserService {
         user.setId(id);
         userMapper.updateUserPsd(user);
         return userMapper.selectByUserId(id);
+    }
+    public Map<String, String> getObjectNameAndTopicNameById(Integer objectId) {
+        return userMapper.selectObjectNameAndTopicNameById(objectId);
     }
     public RetType Register(String email, String password){
         Integer id= userMapper.selectIdByEmail(email);

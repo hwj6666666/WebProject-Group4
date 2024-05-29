@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { StarOutlined, StarFilled } from '@ant-design/icons';
 import { Card } from 'antd';
 import profile_photo from "@/assets/3000.png";
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { getOandTTitleAPI } from '@/apis/user';
 
 export default function RemarkUser({ remark }) {
 
@@ -14,6 +15,16 @@ export default function RemarkUser({ remark }) {
 		if (i < starNum) return <StarFilled key={i} className="text-yellow-400 mr-1" />;
 		return <StarOutlined key={i} className="text-yellow-400 mr-1" />;
 	})
+	const [OandT, setOandT] = useState({ objectName: '', topicName: '' });
+	useEffect(() => {
+		const fetchOandT = async () => {
+			const OandT = await getOandTTitleAPI(remark.objectId);
+			// console.log(OandT);
+			setOandT(OandT);
+		};
+		fetchOandT();
+	}, [remark])
+
 	return (
 		<Card
 			hoverable
@@ -28,8 +39,26 @@ export default function RemarkUser({ remark }) {
 					<div className="mt-2 text-sm font-bold">
 						{username}
 					</div>
-					<div className="w-16 h-10 flex justify-center items-center text-base ml-10 mt-2">
+					<div className="w-32 h-10 flex justify-center items-center text-base ml-10 mt-2">
 						{returnStarsOutlined(remark.score / 2)}
+					</div>
+					<div style={{ margin: "10px 0" }}>
+						<p className="text-sm text-gray-500" style={{ fontSize: "18px", color: "#333" }}>
+							在话题
+							<span className="text-sm text-gray-500" style={{ fontWeight: "bold", color: "#007BFF" }}>
+								{OandT.topicName}
+							</span>
+							下，
+						</p>
+					</div>
+					<div style={{ margin: "10px 0" }}>
+						<p className="text-sm text-gray-500" style={{ fontSize: "18px", color: "#333" }}>
+							对
+							<span className="text-sm text-gray-500" style={{ fontWeight: "bold", color: "#007BFF" }}>
+								{OandT.objectName}
+							</span>
+							的评论：
+						</p>
 					</div>
 				</div>
 			}

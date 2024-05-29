@@ -8,6 +8,7 @@ import org.example.jiaoji.pojo.Topic;
 import org.example.jiaoji.pojo.User;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Update;
 
@@ -35,6 +36,9 @@ public interface UserMapper {
     void update(User user);
     @Update("update user set password=#{password} where id=#{id}")
     void updateUserPsd(User user);
+    @Select("SELECT o.title as objectName, t.title as topicName FROM object o JOIN topic t ON o.topic_id = t.id WHERE o.id = #{objectId}")
+    Map<String, String> selectObjectNameAndTopicNameById(Integer objectId);
+
     @Select("select id from user where email = #{email}")
     public Integer selectIdByEmail(String email);
 

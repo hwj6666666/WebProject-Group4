@@ -2,6 +2,7 @@ package org.example.jiaoji.service;
 
 import org.example.jiaoji.pojo.*;
 import java.util.List;
+import java.util.Map;
 
 public interface UserService {
     public List<User> SelectAll();
@@ -17,7 +18,7 @@ public interface UserService {
     public List<Topic> SelectFlllows(Integer id);
     public User updateUser(Integer id, User user);
     public User updatePsd(Integer id, User user);
-
+    public Map<String, String> getObjectNameAndTopicNameById(Integer objectId);
     public RetType Register(String email, String password);
 
     public RetType Login(String email, String password);
