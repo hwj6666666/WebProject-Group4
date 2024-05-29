@@ -1,12 +1,11 @@
 import { Avatar, Space } from 'antd';
-import profile_photo from "@/assets/3000.png";
 
-export const UserAvatar = () => {
+export const UserAvatar = ({ avatar }) => {
 	return (
 		<Space direction="vertical" size={16}>
 			<Space wrap size={16}>
 				{/* <Avatar size={140} icon={<UserOutlined />} /> */}
-				<Avatar size={140} src={<img src={profile_photo} alt="avatar" />} />
+				<Avatar size={140} src={<img src={avatar} alt="avatar" />} />
 			</Space>
 		</Space>
 	)
