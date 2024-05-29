@@ -15,10 +15,8 @@ public interface UserService {
     public List<Remark> SelectRemarksById(Integer id);
 
     public List<Topic> SelectFlllows(Integer id);
-
-    public double getAveScore(Integer id);
-
-    public String getHottestRemark(Integer id);
+    public User updateUser(Integer id, User user);
+    public User updatePsd(Integer id, User user);
 
     public RetType Register(String email, String password);
 

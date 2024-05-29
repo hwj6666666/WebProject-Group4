@@ -28,11 +28,13 @@ public interface UserMapper {
     @Select("select * from remarks where remarks.user_id = #{id}")
     public List<Remark> selectRemarksByUserId(Integer id);
 
-    @Select("select *\n" +
-            "from topic\n" +
+    @Select("select * from topic\n" +
             "where topic.id in (select topic_id from fllow where fllow.user_id = #{id})")
     public List<Topic> selectFllows(Integer id);
-
+    @Update("update user set username=#{username}, note=#{note}, avatar=#{avatar} where id=#{id}")
+    void update(User user);
+    @Update("update user set password=#{password} where id=#{id}")
+    void updateUserPsd(User user);
     @Select("select id from user where email = #{email}")
     public Integer selectIdByEmail(String email);
 

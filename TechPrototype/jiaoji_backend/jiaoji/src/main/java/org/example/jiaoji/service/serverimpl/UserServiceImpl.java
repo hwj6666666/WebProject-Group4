@@ -37,30 +37,15 @@ public class UserServiceImpl implements UserService {
     public List<Topic> SelectFlllows(Integer id){
         return userMapper.selectFllows(id);
     }
-    public double getAveScore(Integer id) {
-        List<Remark> remarks = userMapper.selectAllRemarks(id);
-        if (remarks != null && remarks.size() == 0) {
-            return 0;
-        }
-        Integer length = remarks.size();
-        double scores = 0;
-        for (Remark remark : remarks) {
-            scores += remark.getScore();
-        }
-        return scores / length;
+    public User updateUser(Integer id, User user){
+        user.setId(id);
+        userMapper.update(user);
+        return userMapper.selectByUserId(id);
     }
-
-    public String getHottestRemark(Integer id) {
-        List<Remark> remarks = userMapper.selectAllRemarks(id);
-        Integer likes = 0;
-        String hottestRemark = "";
-        for (Remark remark : remarks) {
-            if (remark.getLike() > likes) {
-                likes = remark.getLike();
-                hottestRemark = remark.getContent();
-            }
-        }
-        return hottestRemark;
+    public User updatePsd(Integer id, User user){
+        user.setId(id);
+        userMapper.updateUserPsd(user);
+        return userMapper.selectByUserId(id);
     }
     public RetType Register(String email, String password){
         Integer id= userMapper.selectIdByEmail(email);

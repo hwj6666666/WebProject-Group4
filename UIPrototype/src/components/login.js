@@ -5,7 +5,11 @@ import avator from "../assets/3000.png";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { addUser } from "@/store/modules/user";
+
 export const Login = () => {
+
+	const user_id = localStorage.getItem("id");
+	// console.log(user_id);
 	// const [isModalOpen, setIsModalOpen] = useState(false); //控制Modal是否弹出
 	// const showModal = () => {
 	//   setIsModalOpen(true);
@@ -71,7 +75,7 @@ export const Login = () => {
 	// const user_id = 1;
 	return (
 
-		<Link to={{ pathname: "/user" }}>
+		<Link to={{ pathname: `/user/${user_id}` }}>
 			<div
 				className="cursor-pointer" //成功登录，显示头像，否则显示登录按钮
 			>
