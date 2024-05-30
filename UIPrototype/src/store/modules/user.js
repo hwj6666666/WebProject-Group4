@@ -1,13 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getTopicsByUserIdAPI, getObjectsByUserIdAPI, getRemarksByUserIdAPI, getUserAPI, getFllowsAPI } from "@/apis/user";
+import { getTopicsByUserIdAPI, getObjectsByUserIdAPI, getRemarksByUserIdAPI, getUserAPI, getFllowsAPI, updateUserAPI, updatePasswordAPI, getOandTTitleAPI } from "@/apis/user";
 const userStore = createSlice({
 	name: "user",
 	initialState: {
-		user: {
-			userid: 2,
-			username: 'jack',
-			password: '123456'
-		},
+		user: {},
 		topicsbyuser: [],
 		objectsbyuser: [],
 		remarksbyuser: [],
@@ -43,7 +39,7 @@ const userStore = createSlice({
 	},
 });
 
-const fetchUser = (user_id) => {
+export const fetchUser = (user_id) => {
 	return async (dispatch) => {
 		const res = await getUserAPI(user_id);
 		// console.log(res)
@@ -51,23 +47,25 @@ const fetchUser = (user_id) => {
 	}
 }
 
-const fetchTopicsByUserId = (user_id) => {
+export const fetchTopicsByUserId = (user_id) => {
 	return async (dispatch) => {
 		const res = await getTopicsByUserIdAPI(user_id);
+		// console.log('fetchTopicsByUserId')
 		// console.log(res)
 		dispatch(setTopics(res));
 	}
 }
 
-const fetchObjectsByUserId = (user_id) => {
+export const fetchObjectsByUserId = (user_id) => {
 	return async (dispatch) => {
 		const res = await getObjectsByUserIdAPI(user_id);
+		// console.log('fetchObjectsByUserId')
 		// console.log(res)
 		dispatch(setObjects(res));
 	}
 }
 
-const fetchRemarksByUserId = (user_id) => {
+export const fetchRemarksByUserId = (user_id) => {
 	return async (dispatch) => {
 		const res = await getRemarksByUserIdAPI(user_id);
 		// console.log(res)
@@ -75,7 +73,7 @@ const fetchRemarksByUserId = (user_id) => {
 	}
 }
 
-const fetchFllows = (user_id) => {
+export const fetchFllows = (user_id) => {
 	return async (dispatch) => {
 		const res = await getFllowsAPI(user_id);
 		// console.log(res)
@@ -83,10 +81,33 @@ const fetchFllows = (user_id) => {
 	}
 }
 
+export const updateUser = (newProfile) => {
+	// console.log(newProfile)
+	return async (dispatch) => {
+		const res = await updateUserAPI(newProfile);
+		// console.log(res)
+		dispatch(setUser(res));
+	}
+}
+export const updatePassword = (UidandPsd) => {
+	// console.log(UidandPsd)
+	return async (dispatch) => {
+		const res = await updatePasswordAPI(UidandPsd);
+		// console.log(res)
+		dispatch(setUser(res));
+	}
+}
+export const getOandTTitle = (objectId) => {
+	return async (dispatch) => {
+		const res = await getOandTTitleAPI(objectId);
+		console.log(res)
+		dispatch(setUser(res));
+	}
+}
 const { setUser, setTopics, setObjects, setRemarks, setFllows, setLoggedIn, setId, addUser } = userStore.actions;
 
 const userReducer = userStore.reducer;
 
-export { fetchUser, fetchTopicsByUserId, fetchRemarksByUserId, fetchObjectsByUserId, fetchFllows, setUser, addUser, setLoggedIn, setId };
+export { setUser, addUser, setLoggedIn, setId };
 
 export default userReducer;

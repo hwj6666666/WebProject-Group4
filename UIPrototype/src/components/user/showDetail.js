@@ -10,16 +10,18 @@ export default function ShowDetail(props) {
 	const remarks = useSelector(state => state.user).remarksbyuser
 	const fllows = useSelector(state => state.user).fllows
 	// console.log(topics)
+	// console.log('showdetail')
+	// console.log(objects)
+	// console.log(remarks)
 	switch (props.type) {
 		case 'O':
 			return (
 				<div className="bg-white">
 					{(objects.length !== 0)
-						? objects.map((object, index) => (
-							<div style={{ marginBottom: "30px" }}><Object
-								key={object.id}
-								object={object}
-							/>
+						? objects.map((object) => (
+							<div key={object.id} style={{ marginBottom: "30px" }}>
+								<Object object={object}
+								/>
 							</div>
 						))
 						: <div className=" text-3xl mt-3 ml-4 text-gray-400 ">
@@ -31,9 +33,15 @@ export default function ShowDetail(props) {
 			return (
 				<div>
 					{(remarks.length !== 0)
-						? remarks.map((remark, index) =>
-							<RemarkUser key={remark.id} remark={remark} />
-						) : <div className=" text-3xl mt-3 ml-4 text-gray-400 ">
+						? remarks.slice()
+							.sort((a, b) => {
+								let date1 = new Date(a.publishTime).getTime();
+								let date2 = new Date(b.publishTime).getTime();
+								return date2 - date1;
+							})
+							.map((remark) =>
+								<RemarkUser key={remark.id} remark={remark} />
+							) : <div className=" text-3xl mt-3 ml-4 text-gray-400 ">
 							你还没有发表过评论哦
 						</div>}
 				</div>
@@ -42,11 +50,10 @@ export default function ShowDetail(props) {
 			return (
 				<div className="bg-white">
 					{(fllows.length !== 0)
-						? fllows.map((fllowtopic, index) => (
-							<div style={{ marginBottom: "30px" }}><Topic
-								key={fllowtopic.id}
-								topic={fllowtopic}
-							/>
+						? fllows.map((fllowtopic) => (
+							<div key={fllowtopic.id} style={{ marginBottom: "30px" }}>
+								<Topic topic={fllowtopic}
+								/>
 							</div>
 						))
 						: <div className=" text-3xl mt-3 ml-4 text-gray-400 ">
@@ -59,13 +66,17 @@ export default function ShowDetail(props) {
 			return (
 				<div className="bg-white">
 					{(topics.length !== 0)
-						? topics.map((topic, index) => (
-							<div style={{ marginBottom: "30px" }}>
-								<Topic key={topic.id} topic={topic} />
-								{/* ??? */}
-								{/* <Topic key={topic.id} topic={topic} /> */}
-							</div>
-						))
+						? topics.slice()
+							.sort((a, b) => {
+								let date1 = new Date(a.publicTime).getTime();
+								let date2 = new Date(b.publicTime).getTime();
+								return date2 - date1;
+							})
+							.map((topic) => (
+								<div key={topic.id} style={{ marginBottom: "30px" }}>
+									<Topic topic={topic} />
+								</div>
+							))
 						: <div className=" text-3xl mt-3 ml-4 text-gray-400 ">
 							你还没有创建过话题哦
 						</div>}

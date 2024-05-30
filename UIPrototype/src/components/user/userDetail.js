@@ -1,25 +1,19 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { UserAvatar } from "@/components/user/userAvatar";
 import Setting from "@/components/user/dropmenu";
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchFllows, fetchObjectsByUserId, fetchRemarksByUserId, fetchTopicsByUserId, fetchUser } from '@/store/modules/user';
+import { useParams } from 'react-router-dom';
 
-export default function UserDetail() {
+export default function UserDetail({ curUser }) {
+
 	const user_id = localStorage.getItem('id');
-	const dispatch = useDispatch();
-	useEffect(() => {
-		dispatch(fetchUser(user_id));
-		dispatch(fetchObjectsByUserId(user_id));
-		dispatch(fetchRemarksByUserId(user_id));
-		dispatch(fetchTopicsByUserId(user_id));
-		dispatch(fetchFllows(user_id));
-	}, [dispatch])
-	const curUser = useSelector(state => state.user).user
+	const { userId } = useParams();
+	// console.log(user_id)
+	// console.log(userId)
 	return (
 		<div className="flex items-center h-40 min-w-[600px] px-20 bg-white rounded-sm">
 			{/* 头像 */}
 			<span className="mr-4">
-				<UserAvatar />
+				<UserAvatar avatar={curUser.avatar} />
 			</span>
 			<span className="mt-6">
 				<div className="flex flex-row items-end mb-4">
@@ -31,7 +25,7 @@ export default function UserDetail() {
 				</div>
 			</span>
 			<span className="ml-auto">
-				<Setting />
+				{(user_id === userId) ? <Setting /> : <></>}
 			</span>
 		</div>
 	)

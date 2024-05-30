@@ -8,6 +8,7 @@ import org.example.jiaoji.pojo.Topic;
 import org.example.jiaoji.pojo.User;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Update;
 
@@ -28,10 +29,15 @@ public interface UserMapper {
     @Select("select * from remarks where remarks.user_id = #{id}")
     public List<Remark> selectRemarksByUserId(Integer id);
 
-    @Select("select *\n" +
-            "from topic\n" +
+    @Select("select * from topic\n" +
             "where topic.id in (select topic_id from fllow where fllow.user_id = #{id})")
     public List<Topic> selectFllows(Integer id);
+    @Update("update user set username=#{username}, note=#{note}, avatar=#{avatar} where id=#{id}")
+    void update(User user);
+    @Update("update user set password=#{password} where id=#{id}")
+    void updateUserPsd(User user);
+    @Select("SELECT o.title as objectName, t.title as topicName FROM object o JOIN topic t ON o.topic_id = t.id WHERE o.id = #{objectId}")
+    Map<String, String> selectObjectNameAndTopicNameById(Integer objectId);
 
     @Select("select id from user where email = #{email}")
     public Integer selectIdByEmail(String email);

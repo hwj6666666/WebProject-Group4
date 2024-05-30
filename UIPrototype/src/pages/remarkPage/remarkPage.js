@@ -5,7 +5,7 @@ import { MakeRemark } from "@/components/remark/makeRemark";
 import ObjectProfile from "@/components/remark/objectProfile";
 import { RemarkButton } from "@/components/remark/remarkButton";
 import LikeButton from "@/components/remark/remarkLike";
-import { addComment, fetchComment } from "@/store/modules/comment";
+import { addComment, deleteComment, fetchComment } from "@/store/modules/comment";
 import { fetchOneObject } from "@/store/modules/object";
 import { changeRemark, deleteRemark } from "@/store/modules/remark";
 import { StarFilled, StarOutlined } from "@ant-design/icons";
@@ -14,52 +14,52 @@ import Card from "antd/es/card/Card";
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { deleteComment } from "@/store/modules/comment";
-import _ from "lodash";
 
 export const RemarkPage = () => {
-  const remarks = useSelector((state) => state.remark).remark;
-  const objects = useSelector((state) => state.object).object;
-  const comments = useSelector((state) => state.comment).comment;
 
-  const { objectId } = useParams();
+	const navigate = useNavigate();
+	const remarks = useSelector((state) => state.remark).remark;
+	const objects = useSelector((state) => state.object).object;
+	const comments = useSelector((state) => state.comment).comment;
 
-  const dispatch = useDispatch();
-  const [user, setUser] = useState(null);
+	const { objectId } = useParams();
 
-  const fetchData = async () => {
-    const userRes = await getUsersAPI();
-    setUser(userRes);
-    return await getRemarkAPI(objectId);
-  };
+	const dispatch = useDispatch();
+	const [user, setUser] = useState(null);
 
-  useEffect(() => {
-    fetchData().then((data) => {
-      dispatch(changeRemark(data));
-      const remarkIds = data.map((item) => item.id);
-      dispatch(fetchComment(remarkIds));
-    });
-  }, []);
+	const fetchData = async () => {
+		const userRes = await getUsersAPI();
+		setUser(userRes);
+		return await getRemarkAPI(objectId);
+	};
 
-  useEffect(() => {
-    dispatch(fetchOneObject(objectId));
-  }, [dispatch]);
+	useEffect(() => {
+		fetchData().then((data) => {
+			dispatch(changeRemark(data));
+			const remarkIds = data.map((item) => item.id);
+			dispatch(fetchComment(remarkIds));
+		});
+	}, []);
 
-  //comments生成
-  let [reply, setReply] = useState(false);
-  let [replyRemark, setReplyRemark] = useState(null);
-  let [replyPrefix, setReplyPrefix] = useState("");
-  let [replyId, setReplyId] = useState(""); //remark: r1, r2, ...  comment: c1, c2, ...
-  const ref = useRef();
-  useEffect(() => {
-    const refText = ref.current;
-    if (refText) {
-      setTimeout(() => {
-        refText.selectionStart = replyPrefix.length;
-        refText.selectionEnd = replyPrefix.length;
-      }, 0);
-    }
-  }, [replyPrefix]);
+	useEffect(() => {
+		dispatch(fetchOneObject(objectId));
+	}, [dispatch]);
+
+	//comments生成
+	let [reply, setReply] = useState(false);
+	let [replyRemark, setReplyRemark] = useState(null);
+	let [replyPrefix, setReplyPrefix] = useState("");
+	let [replyId, setReplyId] = useState(""); //remark: r1, r2, ...  comment: c1, c2, ...
+	const ref = useRef();
+	useEffect(() => {
+		const refText = ref.current;
+		if (refText) {
+			setTimeout(() => {
+				refText.selectionStart = replyPrefix.length;
+				refText.selectionEnd = replyPrefix.length;
+			}, 0);
+		}
+	}, [replyPrefix]);
 
   const handleReply = () => {
     let date = new Date();
@@ -91,61 +91,61 @@ export const RemarkPage = () => {
     message.success("删除成功！");
   }
 
-  //进行统计
-  let freq = remarks.reduce((total, item) => {
-    if (total[item.score]) total[item.score]++;
-    else total[item.score] = 1;
-    return total;
-  }, {});
-  freq[2] = freq[2] ?? 0;
-  freq[4] = freq[4] ?? 0;
-  freq[6] = freq[6] ?? 0;
-  freq[8] = freq[8] ?? 0;
-  freq[10] = freq[10] ?? 0;
+	//进行统计
+	let freq = remarks.reduce((total, item) => {
+		if (total[item.score]) total[item.score]++;
+		else total[item.score] = 1;
+		return total;
+	}, {});
+	freq[2] = freq[2] ?? 0;
+	freq[4] = freq[4] ?? 0;
+	freq[6] = freq[6] ?? 0;
+	freq[8] = freq[8] ?? 0;
+	freq[10] = freq[10] ?? 0;
 
-  //计算平均值
-  let average =
-    freq[2] * 2 + freq[4] * 4 + freq[6] * 6 + freq[8] * 8 + freq[10] * 10;
-  average /= remarks.length;
-  average = average.toFixed(1);
+	//计算平均值
+	let average =
+		freq[2] * 2 + freq[4] * 4 + freq[6] * 6 + freq[8] * 8 + freq[10] * 10;
+	average /= remarks.length;
+	average = average.toFixed(1);
 
-  //统计比例
-  let _1_pencentage = (freq[2] / remarks.length) * 100;
-  let _2_pencentage = (freq[4] / remarks.length) * 100;
-  let _3_pencentage = (freq[6] / remarks.length) * 100;
-  let _4_pencentage = (freq[8] / remarks.length) * 100;
-  let _5_pencentage = (freq[10] / remarks.length) * 100;
+	//统计比例
+	let _1_pencentage = (freq[2] / remarks.length) * 100;
+	let _2_pencentage = (freq[4] / remarks.length) * 100;
+	let _3_pencentage = (freq[6] / remarks.length) * 100;
+	let _4_pencentage = (freq[8] / remarks.length) * 100;
+	let _5_pencentage = (freq[10] / remarks.length) * 100;
 
-  _1_pencentage = _1_pencentage.toFixed(0);
-  _2_pencentage = _2_pencentage.toFixed(0);
-  _3_pencentage = _3_pencentage.toFixed(0);
-  _4_pencentage = _4_pencentage.toFixed(0);
-  _5_pencentage = _5_pencentage.toFixed(0);
+	_1_pencentage = _1_pencentage.toFixed(0);
+	_2_pencentage = _2_pencentage.toFixed(0);
+	_3_pencentage = _3_pencentage.toFixed(0);
+	_4_pencentage = _4_pencentage.toFixed(0);
+	_5_pencentage = _5_pencentage.toFixed(0);
 
-  if (isNaN(average)) {
-    average = "0.0";
-    _1_pencentage =
-      _2_pencentage =
-      _3_pencentage =
-      _4_pencentage =
-      _5_pencentage =
-      0;
-  }
+	if (isNaN(average)) {
+		average = "0.0";
+		_1_pencentage =
+			_2_pencentage =
+			_3_pencentage =
+			_4_pencentage =
+			_5_pencentage =
+			0;
+	}
 
-  //打印五角星
-  const returnStars = (starNum) =>
-    Array(starNum)
-      .fill()
-      .map((_, i) => <StarFilled key={i} className="text-yellow-400 mr-1" />);
+	//打印五角星
+	const returnStars = (starNum) =>
+		Array(starNum)
+			.fill()
+			.map((_, i) => <StarFilled key={i} className="text-yellow-400 mr-1" />);
 
-  const returnStarsOutlined = (starNum) =>
-    Array(5)
-      .fill()
-      .map((_, i) => {
-        if (i < starNum)
-          return <StarFilled key={i} className="text-yellow-400 mr-1" />;
-        return <StarOutlined key={i} className="text-yellow-400 mr-1" />;
-      });
+	const returnStarsOutlined = (starNum) =>
+		Array(5)
+			.fill()
+			.map((_, i) => {
+				if (i < starNum)
+					return <StarFilled key={i} className="text-yellow-400 mr-1" />;
+				return <StarOutlined key={i} className="text-yellow-400 mr-1" />;
+			});
 
   //是否已经评论过该对象
   const [isRemark, setIsRemark] = useState(false);

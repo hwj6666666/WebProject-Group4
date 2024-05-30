@@ -1,52 +1,71 @@
 import { request } from "../utils/request";
 
-const allUserAPI = () => {
+export const allUserAPI = () => {
 	return request({
 		url: '/user',
 		method: 'get',
 	});
 }
 
-const getUserAPI = (user_id) => {
+export const getUserAPI = (user_id) => {
 	return request({
 		url: `/user/${user_id}`,
 		method: 'get',
 	});
 }
 
-const getTopicsByUserIdAPI = (user_id) => {
+export const getTopicsByUserIdAPI = (user_id) => {
 	return request({
 		url: `/user/${user_id}/topics`,
 		method: 'get',
 	});
 }
 
-const getObjectsByUserIdAPI = (user_id) => {
+export const getObjectsByUserIdAPI = (user_id) => {
 	return request({
 		url: `/user/${user_id}/objects`,
 		method: 'get',
 	});
 }
 
-const getRemarksByUserIdAPI = (user_id) => {
+export const getRemarksByUserIdAPI = (user_id) => {
 	return request({
 		url: `/user/${user_id}/remarks`,
 		method: 'get',
 	});
 }
 
-const getFllowsAPI = (user_id) => {
+export const getFllowsAPI = (user_id) => {
 	return request({
 		url: `/user/${user_id}/fllows`,
 		method: 'get',
 	});
 }
 
-const searchUser= (keyword) => {
+export const updateUserAPI = (user) => {
+	return request({
+		url: `/user/${user.id}`,
+		method: 'put',
+		data: user,
+	});
+}
+
+export const updatePasswordAPI = (UidandPsd) => {
+	return request({
+		url: `/psd/${UidandPsd.id}`,
+		method: 'put',
+		data: UidandPsd,
+	});
+}
+export const getOandTTitleAPI = (objectId) => {
+	return request({
+		url: `object/${objectId}/nameAndTopic`,
+		method: 'get',
+	});
+}
+export const searchUser = (keyword) => {
 	return request({
 		url: `/user/search/${keyword}`,
 		method: 'get',
 	});
 }
-
-export { allUserAPI, getUserAPI, getTopicsByUserIdAPI, searchUser,getObjectsByUserIdAPI, getRemarksByUserIdAPI, getFllowsAPI }
