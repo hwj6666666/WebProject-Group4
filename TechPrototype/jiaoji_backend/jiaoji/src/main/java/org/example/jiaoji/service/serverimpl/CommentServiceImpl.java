@@ -15,21 +15,14 @@ public class CommentServiceImpl implements CommentService {
     private CommentMapper commentMapper;
 
     @Override
-    public RetType addComment(Comment data) {
+    public Integer addComment(Comment data) {
         RetType ret = new RetType();
-        Comment comment = new Comment();
-
-        comment.setId(data.getId());
-        comment.setContent(data.getContent());
-        comment.setUserId(data.getUserId());
-        comment.setPublishTime(data.getPublishTime());
-        comment.setRemarkId(data.getRemarkId());
-        commentMapper.insert(comment);
+        commentMapper.insert(data);
 
         ret.setMsg("上传成功");
         ret.setOk(true);
         ret.setData(null);
-        return ret;
+        return data.getId();
     }
 
     @Override
@@ -40,5 +33,10 @@ public class CommentServiceImpl implements CommentService {
     @Override
     public List<Comment> SelectById(Integer id) {
         return commentMapper.selectById(id);
+    }
+
+    @Override
+    public void deleteById(Integer id) {
+        commentMapper.deleteById(id);
     }
 }

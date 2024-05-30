@@ -7,13 +7,14 @@ import { RemarkButton } from "@/components/remark/remarkButton";
 import LikeButton from "@/components/remark/remarkLike";
 import { addComment, fetchComment } from "@/store/modules/comment";
 import { fetchOneObject } from "@/store/modules/object";
-import { changeRemark } from "@/store/modules/remark";
+import { changeRemark, deleteRemark } from "@/store/modules/remark";
 import { StarFilled, StarOutlined } from "@ant-design/icons";
 import { Button, Flex, Progress, message } from "antd";
 import Card from "antd/es/card/Card";
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { deleteComment } from "@/store/modules/comment";
 
 export const RemarkPage = () => {
   const remarks = useSelector((state) => state.remark).remark;
@@ -61,6 +62,7 @@ export const RemarkPage = () => {
 
   const handleReply = () => {
     let date = new Date();
+    date.setHours(date.getHours() + 8);
     let dateString = date.toISOString();
     const newComment = {
       userId: Number(localStorage.getItem("id")),
@@ -77,6 +79,16 @@ export const RemarkPage = () => {
     setReplyId("");
     message.success("提交成功！");
   };
+
+  const handleDeleteRemark = (remarkId) => {
+    dispatch(deleteRemark(remarkId));
+    message.success("删除成功！");
+  };
+
+  const handleDeleteComment = (commentId) => {
+    dispatch(deleteComment(commentId));
+    message.success("删除成功！");
+  }
 
   //进行统计
   let freq = remarks.reduce((total, item) => {
@@ -134,6 +146,12 @@ export const RemarkPage = () => {
         return <StarOutlined key={i} className="text-yellow-400 mr-1" />;
       });
 
+  //是否已经评论过该对象
+  const [isRemark, setIsRemark] = useState(false);
+  useEffect(() => {
+    setIsRemark(remarks.some((remark) => remark.userId == localStorage.getItem('id')));
+  }, [remarks]);
+
   return (
     <div className="min-h-screen bg-biligrey">
       <div className="h-16"></div>
@@ -186,7 +204,7 @@ export const RemarkPage = () => {
                   <Progress percent={_1_pencentage} className="ml-3" />
                 </div>
               </Flex>
-              <MakeRemark objId={objectId} />
+              <MakeRemark objId={objectId} isRemark={isRemark} remarks={remarks} />
             </div>
           </div>
           <div className="mt-2 ml-16 w-auto">
@@ -244,6 +262,8 @@ export const RemarkPage = () => {
                             >
                               回复
                             </button>
+                            {localStorage.getItem('id') == remark.userId && <button className="ml-4 text-sm hover:text-blue-500 text-gray-500"
+                              onClick={() => { handleDeleteRemark(remark.id) }}>删除</button>}
                           </div>
                           <div className="mt-5 space-y-8">
                             {comments
@@ -299,6 +319,8 @@ export const RemarkPage = () => {
                                     >
                                       回复
                                     </button>
+                                    {localStorage.getItem('id') == comment.userId && <button className="ml-4 text-sm hover:text-blue-500 text-gray-500"
+                                      onClick={() => { handleDeleteComment(comment.id) }}>删除</button>}
                                   </div>
                                 </div>
                               ))}

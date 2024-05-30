@@ -27,7 +27,13 @@ public class CommentController {
 
     @CrossOrigin
     @PostMapping("/comments")
-    public RetType insert(@RequestBody Comment comment) {
+    public Integer insert(@RequestBody Comment comment) {
         return commentService.addComment(comment);
+    }
+
+    @CrossOrigin
+    @GetMapping("/comments/delete/{id}")
+    public void delete(@PathVariable Integer id) {
+        commentService.deleteById(id);
     }
 }
