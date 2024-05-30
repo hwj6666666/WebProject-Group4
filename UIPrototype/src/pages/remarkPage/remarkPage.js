@@ -15,6 +15,7 @@ import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { deleteComment } from "@/store/modules/comment";
+import _ from "lodash";
 
 export const RemarkPage = () => {
   const remarks = useSelector((state) => state.remark).remark;
@@ -262,7 +263,7 @@ export const RemarkPage = () => {
                             >
                               回复
                             </button>
-                            {localStorage.getItem('id') == remark.userId && <button className="ml-4 text-sm hover:text-blue-500 text-gray-500"
+                            {(localStorage.getItem('id') == remark.userId || localStorage.getItem('isManager')) && <button className="ml-4 text-sm hover:text-red-500 text-gray-500"
                               onClick={() => { handleDeleteRemark(remark.id) }}>删除</button>}
                           </div>
                           <div className="mt-5 space-y-8">
@@ -319,7 +320,7 @@ export const RemarkPage = () => {
                                     >
                                       回复
                                     </button>
-                                    {localStorage.getItem('id') == comment.userId && <button className="ml-4 text-sm hover:text-blue-500 text-gray-500"
+                                    {(localStorage.getItem('id') == comment.userId || localStorage.getItem('isManager')) && <button className="ml-4 text-sm hover:text-red-500 text-gray-500"
                                       onClick={() => { handleDeleteComment(comment.id) }}>删除</button>}
                                   </div>
                                 </div>
