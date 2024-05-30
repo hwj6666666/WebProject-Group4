@@ -13,11 +13,10 @@ import { Button, Flex, Progress, message } from "antd";
 import Card from "antd/es/card/Card";
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 export const RemarkPage = () => {
 
-	const navigate = useNavigate();
 	const remarks = useSelector((state) => state.remark).remark;
 	const objects = useSelector((state) => state.object).object;
 	const comments = useSelector((state) => state.comment).comment;
