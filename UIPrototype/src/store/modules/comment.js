@@ -9,7 +9,7 @@ const commentStore = createSlice({
     },
     reducers: {
         addMyComment(state, action) {
-            state.comment.unshift(action.payload);
+            state.comment.push(action.payload);
             state.commentLen++;
         },
         changeComment(state, action) {

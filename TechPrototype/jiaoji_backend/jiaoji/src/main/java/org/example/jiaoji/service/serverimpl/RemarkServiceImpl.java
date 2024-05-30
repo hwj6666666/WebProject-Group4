@@ -17,16 +17,8 @@ public class RemarkServiceImpl implements RemarkService {
 
     @Override
     public Integer addRemark(Remark data) {
+        if (!remarkMapper.selectByUser(data.getUserId(), data.getObjectId()).isEmpty()) return -1;
         RetType ret = new RetType();
-//        Remark remark = new Remark();
-//        remark.setId(data.getId());
-//        remark.setContent(data.getContent());
-//        remark.setLike(data.getLike());
-//        remark.setUserId(data.getUserId());
-//        remark.setObjectId(data.getObjectId());
-//        remark.setPublishTime(data.getPublishTime());
-//        remark.setScore(data.getScore());
-//        remarkMapper.insert(remark);
         remarkMapper.insert(data);
 
         ret.setMsg("上传成功");
@@ -46,8 +38,12 @@ public class RemarkServiceImpl implements RemarkService {
     }
 
     @Override
-    public void changeLike(Integer id, Integer change) {
+    public void changeLike(Integer id, Integer change, Integer uid) {
         remarkMapper.update(id,change);
+        if (remarkMapper.getLikeByUid(uid,id).isEmpty()) {
+            remarkMapper.insertLikes(uid,id);
+        }
+        else remarkMapper.updateLikeByUid(uid,id);
     }
 
     @Override
@@ -58,5 +54,11 @@ public class RemarkServiceImpl implements RemarkService {
     @Override
     public List<User> getAllUser() {
         return remarkMapper.getAllUSer();
+    }
+
+    @Override
+    public Boolean isLike(Integer remarkId, Integer uid) {
+        if (remarkMapper.getLikeByUid(uid,remarkId).isEmpty()) {return false;}
+        else return remarkMapper.getLikeByUid(uid, remarkId).get(0).getLiked();
     }
 }

@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Button } from 'antd';
 import { HeartOutlined, HeartFilled } from '@ant-design/icons';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeLike } from '@/store/modules/remark';
+import { changeLike, fetchLike } from '@/store/modules/remark';
 
 const LikeButton = ({ remarkId }) => {
   const dispatch = useDispatch();
@@ -11,6 +11,11 @@ const LikeButton = ({ remarkId }) => {
   const toggleLike = () => {
     dispatch(changeLike(remark.id));
   };
+
+  useEffect(() => {
+    console.log('fetch like');
+    dispatch(fetchLike(remarkId));
+  }, [dispatch]);
 
   return (
     <Button onClick={toggleLike} className="like-button flex items-center text-gray-500">
