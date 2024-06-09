@@ -9,6 +9,14 @@ const  mainTopicAPI=(id)=>{
 });
 }
 
+const deleteTopicAPI=(id)=>{
+  
+  return request({
+    url: `/topic/${id}`,
+    method: 'delete',
+  });
+}
+
 const AddTopicAPI=(topic)=>{
   return request({
     url: '/topic',
@@ -44,4 +52,30 @@ const searchTopic=(keyword)=>{
   })
 }
 
-export {mainTopicAPI,UserTopicAPI,AddTopicAPI,getOneTopic,searchTopic}
+const setFollow=(topic_id,user_id)=>{
+  return request({
+  url: `topic/follow`,
+  method:'post',
+  params:{
+      topicId:topic_id,
+      userId:user_id
+  },
+  })
+}
+
+const findFollow=(topic_id,user_id)=>{
+  return request({
+  url: `topic/follow`,
+  method:'get',
+  params:{
+      topicId:topic_id,
+      userId:user_id
+  },
+  })
+}
+
+
+export {mainTopicAPI,UserTopicAPI,AddTopicAPI,getOneTopic,searchTopic,setFollow,findFollow,deleteTopicAPI}
+
+
+

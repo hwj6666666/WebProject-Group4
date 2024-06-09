@@ -9,6 +9,8 @@ import org.example.jiaoji.service.TopicService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import jakarta.transaction.Transactional;
+
 import java.time.temporal.ChronoUnit;
 import java.time.LocalDateTime;
 
@@ -92,6 +94,49 @@ public class TopicServiceImpl implements TopicService{
     public List<Topic> search(String keyword) {
         keyword="%"+keyword+"%";
         return topicMapper.search(keyword);
+    }
+
+
+    
+    @Override
+    @Transactional
+    public RetType setFollow(Integer topicId, Integer userId) {
+        RetType ret = new RetType();
+        Boolean follow = topicMapper.findFollow(topicId,userId);
+        if(follow){
+            topicMapper.deleteFollow(topicId,userId);
+            ret.setMsg("取消关注成功");
+            ret.setOk(true);
+            ret.setData(null);
+        }else{
+            topicMapper.insertFollow(topicId,userId);
+            ret.setMsg("关注成功");
+            ret.setOk(true);
+            ret.setData(null);
+        }
+        return ret;
+    }
+
+    @Override
+    public Boolean findFollow(Integer topicId, Integer userId) {
+        return topicMapper.findFollow(topicId,userId);
+    }
+    
+    @Override
+    public RetType deleteTopic(Integer topicId) {
+        RetType ret = new RetType();
+        topicMapper.deleteTopic(topicId);
+
+        if(topicMapper.selectById(topicId)==null){
+            ret.setMsg("删除成功");
+            ret.setOk(true);
+            ret.setData(null);
+        }else{
+            ret.setMsg("删除失败");
+            ret.setOk(false);
+            ret.setData(null);
+        }
+        return ret;
     }
     
 }
