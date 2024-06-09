@@ -1,7 +1,6 @@
 package org.example.jiaoji.service.serverimpl;
 
 import org.example.jiaoji.mapper.UserMapper;
-import org.example.jiaoji.mapper.ObjectMapper;
 import org.example.jiaoji.pojo.*;
 import org.example.jiaoji.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

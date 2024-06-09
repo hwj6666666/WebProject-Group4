@@ -19,4 +19,6 @@ public interface CommentMapper {
 
     @Delete("delete from comments where id = #{id}")
     public void deleteById(Integer id);
+    @Select("select * from remarks where id = #{remarkId}")
+    public Comment selectRemarkById(Integer remarkId);
 }

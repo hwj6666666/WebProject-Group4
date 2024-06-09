@@ -39,10 +39,12 @@ public class TopicController {
         return ResponseEntity.ok(topic);
     }
 
+  
+
 
     @CrossOrigin
     @PostMapping("/topic")
-    public Integer insert(@RequestBody Topic test) {
+    public Topic insert(@RequestBody Topic test) {
         return topicService.insertTopic(test);
     }
 

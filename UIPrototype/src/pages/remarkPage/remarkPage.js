@@ -31,19 +31,13 @@ export const RemarkPage = () => {
 		setUser(userRes);
 		return await getRemarkAPI(objectId);
 	};
-
-	useEffect(() => {
-		fetchData().then((data) => {
-			dispatch(changeRemark(data));
-			const remarkIds = data.map((item) => item.id);
-			dispatch(fetchComment(remarkIds));
-		});
-	}, []);
-
-	useEffect(() => {
-		dispatch(fetchOneObject(objectId));
-	}, [dispatch]);
-
+  useEffect(() => {
+    fetchData().then((data) => {
+      dispatch(changeRemark(data));
+      const remarkIds = data.map((item) => item.id);
+      dispatch(fetchComment(remarkIds));
+    });
+  }, [dispatch, objectId]);
 	//comments生成
 	let [reply, setReply] = useState(false);
 	let [replyRemark, setReplyRemark] = useState(null);

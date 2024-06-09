@@ -11,7 +11,7 @@ function SearchObject() {
       searchObject(keyword).then((res)=>{
       setObject(res)
     })
-    }, []);
+    }, [keyword]);
   return (
     <div>
         {object.length>0?<div className="mt-10">

@@ -20,7 +20,7 @@ public interface ObjectMapper {
     public Integer selectIdByTitle(String title, Integer topic_id);
 
     @Select("select * from topic where id = #{id}")
-    public List<Topic> selectTopicById(Integer id);
+    public Topic selectTopicById(Integer id);
 
     @Insert("insert into object(id,title,topic_id,user_id,picture,description) values(#{id},#{title},#{topicId},#{userId},#{picture},#{description})")
     @Options(useGeneratedKeys = true, keyProperty = "id")

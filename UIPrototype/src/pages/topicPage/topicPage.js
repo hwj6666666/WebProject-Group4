@@ -17,7 +17,6 @@ function BasicPage() {
 					<div className="">
 						<HeadButton />
 					</div>
-
 					<div
 						className="bg-white"
 						style={{ marginLeft: "30px", width: "800px" }}
@@ -30,7 +29,7 @@ function BasicPage() {
 					</div>
 				</div>
 				<div className="w-1/4">
-					<Affix><TopicCarousel /></Affix>
+					<Affix offsetTop={100}><TopicCarousel /></Affix>
 				</div>
 			</div>
 		</div>

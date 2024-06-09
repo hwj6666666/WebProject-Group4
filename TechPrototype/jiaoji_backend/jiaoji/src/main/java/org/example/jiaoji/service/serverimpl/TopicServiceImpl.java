@@ -9,12 +9,22 @@ import org.example.jiaoji.service.TopicService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.temporal.ChronoUnit;
+import java.time.LocalDateTime;
+
+
 @Service
 public class TopicServiceImpl implements TopicService{
+    public static final int viewsRate = 1;
+    public static final int remarkRate = 8;
+    public static final int favorRate = 15;
+    public static final int objectRate = 5;
+
+
     @Autowired
     private TopicMapper topicMapper;
 
-    public Integer insertTopic(Topic data) {
+    public Topic insertTopic(Topic data) {
         RetType ret = new RetType();
 
         Integer id = topicMapper.selectIdByTitle(data.getTitle());
@@ -22,7 +32,7 @@ public class TopicServiceImpl implements TopicService{
             ret.setMsg("该话题已存在");
             ret.setOk(false);
             ret.setData(null);
-            return -1;
+            return null;
         }
         System.out.println(data);
         System.out.println("=======this is test=====");
@@ -36,18 +46,40 @@ public class TopicServiceImpl implements TopicService{
         topic.setPublicTime(java.time.LocalDateTime.now());
         topic.setBase64(data.getBase64());
         topicMapper.insert(topic);
-        ret.setMsg("上传成功");
-        ret.setOk(true);
-        ret.setData(null);
-        return topic.getId();
+
+        return topicMapper.selectByTitle(topic.getTitle());
     }
 
 
     public List<Topic> SelectAll(){
-        return topicMapper.selectAll();
+        List<Topic> topics = topicMapper.selectAll();
+        for(Topic topic:topics){
+            int remarkNum = topic.getRemarkNum()*remarkRate;
+            int favor = topic.getFavor()*favorRate;
+            int views = topic.getViews()*viewsRate;
+            int objectNum =topic.getObjectNum()*objectRate;
+            LocalDateTime publicTime = topic.getPublicTime();
+            LocalDateTime now = LocalDateTime.now();
+            double hours = ChronoUnit.HOURS.between(publicTime, now)/24;
+            double hot= (remarkNum + favor + views + objectNum)/(Math.pow(hours+2,1.2));
+            topic.setHot((int)hot);
+        }
+        return topics;
     }
     public  List<Topic> SelectByClassId(Integer id){
-        return topicMapper.selectByClassId(id);
+        List<Topic> topics=topicMapper.selectByClassId(id);
+         for(Topic topic:topics){
+            int remarkNum = topic.getRemarkNum()*remarkRate;
+            int favor = topic.getFavor()*favorRate;
+            int views = topic.getViews()*viewsRate;
+            int objectNum =topic.getObjectNum()*objectRate;
+            LocalDateTime publicTime = topic.getPublicTime();
+            LocalDateTime now = LocalDateTime.now();
+            double hours = ChronoUnit.HOURS.between(publicTime, now)/24;
+            double hot= (remarkNum + favor + views + objectNum)/(Math.pow(hours+2,1.2));
+            topic.setHot((int)hot);
+        }
+        return topics;
     }
 
 
