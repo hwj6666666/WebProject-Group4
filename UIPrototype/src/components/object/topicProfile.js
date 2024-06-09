@@ -1,10 +1,16 @@
-import introductionPhoto from "@/assets/introduction.jpg";
+
 import { React } from "react";
 import UploadObject from "@/components/object/uploadObject";
-import { Spin } from "antd";
-import { useNavigate } from "react-router-dom";
+import { Spin, message } from "antd";
+import { useEffect, useState } from "react";
+import { Button } from "antd";
+import { StarFilled, StarOutlined } from "@ant-design/icons";
+import { findFollow, setFollow } from "@/apis/topic";
 
 const TopicProfile = ({ topic }) => {
+  const ids=localStorage.getItem('id')
+  const id=parseInt(ids)
+  const [followed,setFollowed]=useState(false)
   const truncateIntroduction = (introduction, maxLength) => {
     if (introduction.length <= maxLength) {
       return introduction;
@@ -12,7 +18,31 @@ const TopicProfile = ({ topic }) => {
       return introduction.substring(0, maxLength) + "············";
     }
   };
-  if (!topic) {
+  
+  const findFollowed=async()=>{
+    console.log(topic);
+    console.log(id);
+    const res=await findFollow(topic.id,id)
+    console.log(res);
+    setFollowed(res)
+  }
+
+useEffect(() => {
+  if(topic)
+    findFollowed();
+  }, [topic]);
+
+ const  handle=async()=>{
+    const res=await setFollow(topic.id,id)
+    if(res){
+      message.success(res.msg,0.5)
+      setFollowed(!followed)
+    }
+    
+  }
+
+  
+if (!topic) {
     return <Spin size="large" />;
   }
 
@@ -33,6 +63,12 @@ const TopicProfile = ({ topic }) => {
       </div>
       <div className="mt-10 absolute right-10">
         <UploadObject topicId={topic.id} />
+      </div>
+      <div className="absolute right-10 bottom-24">
+        <Button onClick={handle}>
+          {followed?<StarFilled className='relative text-yellow-500 mr-1 bottom-1'/>:<StarOutlined className='relative text-yellow-500 mr-1 bottom-1'/>  }
+          {followed?'已关注':'关注'}
+        </Button>
       </div>
     </div>
   );

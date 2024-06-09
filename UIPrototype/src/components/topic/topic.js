@@ -3,10 +3,13 @@ import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaHotjar } from "react-icons/fa";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { getTop3 } from "@/apis/object";
-import { Button } from "antd";
+import { Button,message } from "antd";
+import { deleteTopic } from "@/store/modules/topic";
 
 const Topic = ({ topic }) => {
+	const dispatch = useDispatch();
 	const navigate = useNavigate();
 	const id = topic.id;
 	const [top3, setTop3] = useState([]);
@@ -25,7 +28,9 @@ const Topic = ({ topic }) => {
 		e.stopPropagation();
 		navigate(`/object/${id}`);
 	}
-
+const handleDeleteTopic = (topicId) => {
+    dispatch(deleteTopic(topicId));
+  };
 	useEffect(() => {
 		const fetchData = async () => {
 			const res = await getTop3(id);
@@ -71,10 +76,14 @@ const Topic = ({ topic }) => {
 							{object.title}
 						</Button>
 					))}
-				</div>
+				
+			 </div>
 			</div>
 			<div style={{ position: "absolute", bottom: "20%", left: "82%", display: "flex", justifyContent: "center", flexDirection: "column", alignItems: "center" }}>
-				<p style={{ fontSize: "3em"}} className="text-red-500">{topic.hot}</p>
+				{(localStorage.getItem('id') == topic.userId || localStorage.getItem('isManager')) &&<Button
+                              onClick={(e) => { 
+								e.stopPropagation();
+								handleDeleteTopic(topic.id) }} danger>删除</Button>}<p style={{ fontSize: "3em"}} className="text-red-500">{topic.hot}</p>
 				<div className="flex ">
 					<FaHotjar size={30} color="red"></FaHotjar>
 					<div className="text-red-500 ml-4 text-xl">热度</div>

@@ -1,6 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { AddTopicAPI, getOneTopic, mainTopicAPI } from "../../apis/topic";
+import { deleteTopicAPI } from "../../apis/topic";
 import _ from "lodash";
+import { message } from "antd";
 
 const topicStore = createSlice({
   name: "topic",
@@ -46,10 +48,20 @@ const fetchOneTopic = (id) => {
   };
 };
 
-const { addMyTopic, changeTopic } = topicStore.actions;
+const deleteTopic=(id)=>{
+  return async (dispatch)=>{
+    const res=await deleteTopicAPI(id);
+    if(res.ok){
+    dispatch(deleteMyTopic(id));
+    message.success(res.msg);
+    }
+  }
+}
+
+const { addMyTopic, changeTopic,deleteMyTopic } = topicStore.actions;
 
 const topicReducer = topicStore.reducer;
 
-export { addTopic, addMyTopic, changeTopic, fetchTopic, fetchOneTopic };
+export { addTopic, addMyTopic, changeTopic, fetchTopic, fetchOneTopic ,deleteTopic};
 
 export default topicReducer;

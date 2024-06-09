@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 
+import org.example.jiaoji.pojo.RetType;
 import org.example.jiaoji.pojo.Topic;
 import org.example.jiaoji.service.TopicService;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -55,4 +56,28 @@ public class TopicController {
         List<Topic> topic = topicService.search(keyword);
         return ResponseEntity.ok(topic);
     }
+
+    @CrossOrigin
+    @PostMapping("/topic/follow")
+    @ResponseBody
+    public RetType follow(@RequestParam Integer userId, @RequestParam Integer topicId) {
+        return topicService.setFollow( topicId,userId);
+    }
+
+    @CrossOrigin
+    @GetMapping("/topic/follow")
+    @ResponseBody
+    public boolean unfollow(@RequestParam Integer userId, @RequestParam Integer topicId) {
+        return topicService.findFollow( topicId,userId);
+    }
+
+    @CrossOrigin
+    @DeleteMapping("/topic/{id}")
+    @ResponseBody
+    public RetType delete(@PathVariable("id") Integer id) {
+        return topicService.deleteTopic(id);
+    }
+
+
+
 }
