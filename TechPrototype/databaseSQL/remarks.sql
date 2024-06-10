@@ -29,11 +29,11 @@ INSERT INTO jiaoji.remarks (id, user_id, object_id, content, `like`, score, publ
 INSERT INTO jiaoji.remarks (id, user_id, object_id, content, `like`, score, publish_time) VALUES (17, 2, 9, '香，但是有点贵', 4, 6, '2023-11-17 00:00:00');
 INSERT INTO jiaoji.remarks (id, user_id, object_id, content, `like`, score, publish_time) VALUES (18, 3, 9, '羊肉串yyds', 9, 10, '2023-12-20 00:00:00');
 INSERT INTO jiaoji.remarks (id, user_id, object_id, content, `like`, score, publish_time) VALUES (19, 1, 10, '依托答辩，交大金课', 16000, 2, '2023-03-18 00:00:00');
-INSERT INTO jiaoji.remarks (id, user_id, object_id, content, `like`, score, publish_time) VALUES (20, 2, 10, '鼠鼠组队的时候脱单了捏', 0, 10, '2023-02-23 00:00:00');
+INSERT INTO jiaoji.remarks (id, user_id, object_id, content, `like`, score, publish_time) VALUES (20, 2, 10, '鼠鼠组队的时候脱单了捏', 2, 10, '2023-02-23 00:00:00');
 INSERT INTO jiaoji.remarks (id, user_id, object_id, content, `like`, score, publish_time) VALUES (21, 3, 11, '积累小组开发经验，讲解软件架构', 36, 10, '2023-01-17 00:00:00');
 INSERT INTO jiaoji.remarks (id, user_id, object_id, content, `like`, score, publish_time) VALUES (22, 1, 11, '还没上完web就来学这个，答辩', 49, 2, '2023-02-18 00:00:00');
-INSERT INTO jiaoji.remarks (id, user_id, object_id, content, `like`, score, publish_time) VALUES (23, 2, 12, '金课，下一个', 64, 2, '2023-07-01 00:00:00');
-INSERT INTO jiaoji.remarks (id, user_id, object_id, content, `like`, score, publish_time) VALUES (24, 3, 12, '做不来实验', 1, 6, '2023-04-01 00:00:00');
+INSERT INTO jiaoji.remarks (id, user_id, object_id, content, `like`, score, publish_time) VALUES (23, 2, 12, '金课，下一个', 67, 2, '2023-07-01 00:00:00');
+INSERT INTO jiaoji.remarks (id, user_id, object_id, content, `like`, score, publish_time) VALUES (24, 3, 12, '做不来实验', 3, 6, '2023-04-01 00:00:00');
 INSERT INTO jiaoji.remarks (id, user_id, object_id, content, `like`, score, publish_time) VALUES (25, 1, 13, '你交特色，可惜我学不会', 8, 6, '2023-03-17 00:00:00');
 INSERT INTO jiaoji.remarks (id, user_id, object_id, content, `like`, score, publish_time) VALUES (26, 2, 13, '学会了很多东西，挺好的课', 27, 10, '2023-10-23 00:00:00');
 INSERT INTO jiaoji.remarks (id, user_id, object_id, content, `like`, score, publish_time) VALUES (27, 3, 14, 'C++经典教材，伟大无需多言', 64, 8, '2023-04-17 00:00:00');
@@ -64,3 +64,4 @@ INSERT INTO jiaoji.remarks (id, user_id, object_id, content, `like`, score, publ
 INSERT INTO jiaoji.remarks (id, user_id, object_id, content, `like`, score, publish_time) VALUES (52, 1, 26, '有广告差评', 28, 4, '2023-03-23 00:00:00');
 INSERT INTO jiaoji.remarks (id, user_id, object_id, content, `like`, score, publish_time) VALUES (53, 2, 27, '还行吧，有利有弊', 7, 6, '2023-08-22 00:00:00');
 INSERT INTO jiaoji.remarks (id, user_id, object_id, content, `like`, score, publish_time) VALUES (54, 3, 27, '没用过，被外放折磨过', 3, 2, '2023-10-22 00:00:00');
+INSERT INTO jiaoji.remarks (id, user_id, object_id, content, `like`, score, publish_time) VALUES (94, 10, 25, '可以', 0, 8, '2024-06-10 00:02:21');

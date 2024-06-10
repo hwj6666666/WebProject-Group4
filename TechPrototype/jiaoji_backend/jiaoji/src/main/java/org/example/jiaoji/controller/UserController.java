@@ -91,9 +91,6 @@ public class UserController {
     public ResponseEntity<User> updatePsd(@PathVariable("id") Integer id, @RequestBody User user) {
         User updatedPsdUser = userService.updatePsd(id, user);
         updatedPsdUser.setPassword("");
-        if (updatedPsdUser == null) {
-            return ResponseEntity.notFound().build();
-        }
         return ResponseEntity.ok(updatedPsdUser);
     }
 

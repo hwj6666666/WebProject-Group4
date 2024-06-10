@@ -45,7 +45,7 @@ public class TopicController {
 
     @CrossOrigin
     @PostMapping("/topic")
-    public Topic insert(@RequestBody Topic test) {
+    public RetType insert(@RequestBody Topic test) {
         return topicService.insertTopic(test);
     }
 

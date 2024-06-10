@@ -37,7 +37,11 @@ const fetchTopic = (id) => {
 const addTopic = (topic) => {
   return async (dispatch) => {
     const res= await AddTopicAPI(topic);
-    dispatch(addMyTopic(res));
+    if(res.ok===false)
+    message.error(res.msg);
+    else{
+    dispatch(addMyTopic(res.data));
+    message.success(res.msg);}
   };
 };
 const fetchOneTopic = (id) => {
