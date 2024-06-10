@@ -33,3 +33,5 @@ build/
 .vscode/
 ./src/main/applications.properties
 ./src/**/applications.properties 
+./** /pom.xml
+./**/.env
