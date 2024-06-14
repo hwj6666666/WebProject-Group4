@@ -5,7 +5,7 @@ import { FaHotjar } from "react-icons/fa";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getTop3 } from "@/apis/object";
-import { Button,message } from "antd";
+import { Button, message } from "antd";
 import { deleteTopic } from "@/store/modules/topic";
 
 const Topic = ({ topic }) => {
@@ -28,9 +28,9 @@ const Topic = ({ topic }) => {
 		e.stopPropagation();
 		navigate(`/object/${id}`);
 	}
-const handleDeleteTopic = (topicId) => {
-    dispatch(deleteTopic(topicId));
-  };
+	const handleDeleteTopic = (topicId) => {
+		dispatch(deleteTopic(topicId));
+	};
 	useEffect(() => {
 		const fetchData = async () => {
 			const res = await getTop3(id);
@@ -39,46 +39,46 @@ const handleDeleteTopic = (topicId) => {
 		fetchData();
 	}, [id])
 
-  return (
-	
-    <div
-      className="flex flex-row bg-header rounded-lg drop-shadow-lg w-full cursor-pointer text-base"
-      onClick={() => navigate(`/topic/${id}`)}
-    ><div className="flex flex-col mb-2">
-      <div className="flex flex-row mb-2">
-        <img
-          className="w-24 h-24 ml-8 mr-5 mt-10 mb-3 rounded"
-          src={topic.base64}
-          alt="restaurantPhoto"
-        />
-        <div className="flex-grow">
-          <div className="flex flex-row items-end justify-between">
-            <div>
-              <h2 className="text-2xl mt-10 mr-10 font-bold">{topic.title}</h2>
-            </div>
-          </div>
-          <div className="flex flex-row items-start justify-between">
-            <div>
-              <p className="mt-3 mr-10 text-gray-600 w-96">
-                {truncateDescription(topic.introduction, 45)}
-              </p>
-			  
-            </div>
-			
-            <div className="flex text-4xl mr-8 mt-3 text-scorecolor ">
-            </div>
-          </div>
-        </div>
-      </div>
-		<div style={{width:"70%", marginBottom:"2%", display:"flex",justifyContent:"space-around"}}>
-				{top3.map((object, index) => (
-						<Button onClick={(e)=>handle(e,object.id)} 
+	return (
+
+		<div
+			className="flex flex-row bg-header rounded-lg drop-shadow-lg w-full cursor-pointer text-base"
+			onClick={() => navigate(`/topic/${id}`)}
+		><div className="flex flex-col mb-2">
+				<div className="flex flex-row mb-2">
+					<img
+						className="w-24 h-24 ml-8 mr-5 mt-10 mb-3 rounded"
+						src={topic.base64}
+						alt="restaurantPhoto"
+					/>
+					<div className="flex-grow">
+						<div className="flex flex-row items-end justify-between">
+							<div>
+								<h2 className="text-2xl mt-10 mr-10 font-bold">{topic.title}</h2>
+							</div>
+						</div>
+						<div className="flex flex-row items-start justify-between">
+							<div>
+								<p className="mt-3 mr-10 text-gray-600 w-96">
+									{truncateDescription(topic.introduction, 45)}
+								</p>
+
+							</div>
+
+							<div className="flex text-4xl mr-8 mt-3 text-scorecolor ">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div style={{ width: "70%", marginBottom: "2%", display: "flex", justifyContent: "space-around" }}>
+					{top3.map((object, index) => (
+						<Button key={object.id} onClick={(e) => handle(e, object.id)}
 						>
 							{object.title}
 						</Button>
 					))}
-				
-			 </div>
+
+				</div>
 			</div>
 			<div style={{ position: "absolute", bottom: "20%", left: "82%", display: "flex", justifyContent: "center", flexDirection: "column", alignItems: "center" }}>
 				{(localStorage.getItem('id') == topic.userId || localStorage.getItem('isManager')) &&<Button className="mb-4"

@@ -28,6 +28,7 @@ export default function RemarkUser({ remark }) {
 	return (
 		<Card
 			hoverable
+			onClick={() => navigate(`/object/${remark.objectId}`)}
 			title={
 				<div className="flex items-center bg-header text-base">
 					<img
