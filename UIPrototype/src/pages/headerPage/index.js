@@ -1,5 +1,6 @@
 import React from "react";
 import logo from "@/assets/logo.png";
+import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { Affix, Input, Cascader} from "antd/es";
 import { Login } from "@/components/login";
@@ -11,15 +12,15 @@ const { Search } = Input;
 const options = [
 	{
 	  value: 'light',
-	  label: 'light',
+	  label: '白天',
 	},
 	{
 	  value: 'dark',
-	  label: 'dark',
+	  label: '黑夜',
 	},
 	{
 		value: 'warm',
-		label: 'warm',
+		label: '护眼',
 	  },
   ];
 
@@ -28,10 +29,19 @@ const Header = () => {
 	const onSearch = (value, _e, info) =>{
 	navigate(`/search/topic/${value}`);
 	};
+	const [savedTheme, setTheme] = useState("");
 	const children=useOutlet();
 	const onChange = (value) => {
 		document.documentElement.className = `theme-${value}`;
+		localStorage.setItem('theme', value); // Save the selected theme to localStorage
+		setTheme(value);
 	  };
+	
+	  useEffect(() => {
+		const theme = localStorage.getItem('theme') || 'light';
+		setTheme(theme);
+		document.documentElement.className = `theme-${theme}`;
+	  }, []); // This runs only once after the component mounts
 
 
 	return (<>
@@ -86,7 +96,7 @@ const Header = () => {
 					marginLeft:100,
 					backgroundColor: 'var(--color-base)',
 				}}
-				defaultValue={['light']} 
+				value={[savedTheme]} 
 				size="large"
 				options={options} 
 				onChange={onChange} 

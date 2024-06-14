@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import  {addObjectAPI, getObjectAPI, getOneObjectAPI}  from "../../apis/object"
+import { message } from "antd";
+import  {addObjectAPI, getObjectAPI, getOneObjectAPI, deleteObjectAPI}  from "../../apis/object"
 
 const objectStore = createSlice({
     name: "object",
@@ -15,6 +16,10 @@ const objectStore = createSlice({
         changeObject(state, action) {
             state.object=action.payload;
             state.len=action.payload.length;
+          },
+        deleteMyObject: (state, action) => {
+            state.object = state.object.filter((item) => item.id !== action.payload);
+            state.len--;
           },
     },
 });
@@ -41,10 +46,20 @@ const addObject=(object)=>{
     }
 }
 
-const { addMyObject, changeObject } = objectStore.actions;
+const deleteObject=(id)=>{
+  return async (dispatch)=>{
+    const res=await deleteObjectAPI(id);
+    if(res.ok){
+    dispatch(deleteMyObject(id));
+    message.success(res.msg);
+    }
+  }
+}
+
+const { addMyObject, changeObject,deleteMyObject } = objectStore.actions;
 
 const ObjectReducer = objectStore.reducer;
 
-export { addMyObject, changeObject, fetchObject, addObject, fetchOneObject};
+export { addMyObject, changeObject, fetchObject, addObject, fetchOneObject, deleteObject};
 
 export default ObjectReducer;

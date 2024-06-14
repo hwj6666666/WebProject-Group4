@@ -90,6 +90,6 @@ const { addMyRemark, changeRemark, changeLike, changePos, setOrderByTime, setLik
 
 const remarkReducer = remarkStore.reducer;
 
-export { addMyRemark, changeRemark, changeLike, changePos, setOrderByTime, setLike, addRemark, changeLikeBack, fetchLike, deleteRemark };
+export { addMyRemark, changeRemark, changeLike, changePos, setOrderByTime, setLike, deleteMyRemark, addRemark, changeLikeBack, fetchLike, deleteRemark };
 
 export default remarkReducer;

@@ -34,8 +34,8 @@ public class UserServiceImpl implements UserService {
         return userMapper.selectRemarksByUserId(id);
     }
 
-    public List<Topic> SelectFlllows(Integer id){
-        return userMapper.selectFllows(id);
+    public List<Topic> SelectFollows(Integer id){
+        return userMapper.selectFollows(id);
     }
     public User updateUser(Integer id, User user){
         user.setId(id);
@@ -50,7 +50,7 @@ public class UserServiceImpl implements UserService {
     public Map<String, String> getObjectNameAndTopicNameById(Integer objectId) {
         return userMapper.selectObjectNameAndTopicNameById(objectId);
     }
-    public RetType Register(String email, String password){
+    public RetType Register(String email, String password,String avatar){
         Integer id= userMapper.selectIdByEmail(email);
         RetType retType = new RetType();
         if(id!=null)
@@ -63,7 +63,7 @@ public class UserServiceImpl implements UserService {
             return retType;
         }
 
-        userMapper.insert(email, password);
+        userMapper.insert(email, password,avatar);
         id= userMapper.selectIdByEmail(email);
         retType.setData(id);
         retType.setMsg("注册成功");

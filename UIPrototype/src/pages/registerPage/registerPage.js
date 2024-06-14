@@ -79,7 +79,6 @@ function RegisterPage() {
     } else {
       // 创建用户数据
 
-      message.success("Register successfully");
       const userData = {
         email: email,
         password: password,
@@ -97,6 +96,7 @@ function RegisterPage() {
         .then((data) => {
           if (data.ok) {
             message.success(data.msg);
+            message.success("Register successfully");
           } else message.error(data.msg);
         })
         .catch((error) => {

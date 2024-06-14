@@ -2,6 +2,7 @@ package org.example.jiaoji.service.serverimpl;
 
 import java.util.List;
 import org.example.jiaoji.mapper.ObjectMapper;
+import org.example.jiaoji.mapper.RemarkMapper;
 import org.example.jiaoji.mapper.TopicMapper;
 import org.example.jiaoji.pojo.Objects;
 import org.example.jiaoji.pojo.Remark;
@@ -18,6 +19,8 @@ public class ObjectServiceImpl implements ObjectService {
   @Autowired private ObjectMapper objectMapper;
   @Autowired
   private TopicMapper topicMapper;
+  @Autowired
+  private RemarkMapper remarkMapper;
 
   @Transactional
   public Integer InsertObject(Objects data) {
@@ -101,4 +104,22 @@ public class ObjectServiceImpl implements ObjectService {
   public List<top3Object> SelectTop3(Integer topicId) {
     return objectMapper.selectTop3(topicId);
   }
+
+  public RetType deleteObject(Integer objectId) {
+    RetType ret = new RetType();
+    remarkMapper.deleteByObjectId(objectId);
+    objectMapper.delete(objectId);
+
+    if(topicMapper.selectById(objectId)==null){
+      ret.setMsg("删除成功");
+      ret.setOk(true);
+      ret.setData(null);
+    }else{
+      ret.setMsg("删除失败");
+      ret.setOk(false);
+      ret.setData(null);
+    }
+    return ret;
+  }
+
 }

@@ -68,11 +68,11 @@ public class UserController {
     }
 
     @CrossOrigin
-    @GetMapping("/user/{id}/fllows")
+    @GetMapping("/user/{id}/follows")
     @ResponseBody
-    public ResponseEntity<List<Topic>> getFllows(@PathVariable("id") Integer id) {
-        List<Topic> fllow = userService.SelectFlllows(id);
-        return ResponseEntity.ok(fllow);
+    public ResponseEntity<List<Topic>> getFollows(@PathVariable("id") Integer id) {
+        List<Topic> follow = userService.SelectFollows(id);
+        return ResponseEntity.ok(follow);
     }
 
     @CrossOrigin
@@ -95,7 +95,7 @@ public class UserController {
     }
 
     @CrossOrigin
-    @GetMapping("/object/{id}/nameAndTopic")
+    @GetMapping("/user/object/{id}/nameAndTopic")
     @ResponseBody
     public ResponseEntity<Map<String, String>> getObjectNameAndTopicNameById(@PathVariable("id") Integer id) {
         Map<String, String> result = userService.getObjectNameAndTopicNameById(id);
