@@ -54,7 +54,7 @@ export const MakeRemark = ({ objId, isRemark, remarks }) => {
         console.log(uid);
         console.log(objId);
         const rmkId = remarks.find(rmk => rmk.userId == uid && rmk.objectId == objId)?.id;
-        if (rmkId) await dispatch(deleteRemark(rmkId));
+        if (rmkId) { await dispatch(deleteRemark(rmkId)); }
       }
       dispatch(addRemark(mark));
       setIsModalOpen(false);
