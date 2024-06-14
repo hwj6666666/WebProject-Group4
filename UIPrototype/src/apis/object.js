@@ -39,4 +39,11 @@ const getTop3=(TopicId)=>{
   })
 }
 
-export {getObjectAPI,getTop3, addObjectAPI, getOneObjectAPI, searchObject}
+const deleteObjectAPI=(id)=>{
+    return request({
+      url: `/object/${id}`,
+      method: 'delete',
+    });
+  }
+
+export {getObjectAPI,getTop3, addObjectAPI, getOneObjectAPI, searchObject, deleteObjectAPI}

@@ -1,6 +1,7 @@
 package org.example.jiaoji.controller;
 
 import org.example.jiaoji.pojo.Objects;
+import org.example.jiaoji.pojo.RetType;
 import org.example.jiaoji.pojo.top3Object;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -61,5 +62,12 @@ public class ObjectController {
     @ResponseBody
     public List<top3Object> getObjectsByTopicId(@PathVariable("topicId") Integer topicId) {
         return objectService.SelectTop3(topicId);
+    }
+
+    @CrossOrigin
+    @DeleteMapping("/object/{id}")
+    @ResponseBody
+    public RetType delete(@PathVariable("id") Integer id) {
+        return objectService.deleteObject(id);
     }
 }
