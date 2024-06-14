@@ -19,3 +19,24 @@ code {
 .reply {
   width: 600px;
 }
+
+.theme-light {
+  --color-base: #F4F5F7;
+  --color-text-base: #000;
+  --color-header-base: theme('colors.white');
+  --color-placeholder: rgba(0, 0, 0, 0.25);
+}
+
+.theme-dark {
+  --color-base: #222222;
+  --color-text-base: #fff;
+  --color-header-base: #121212;
+  --color-placeholder: rgba(255, 255, 255, 0.25);
+}
+
+.theme-warm {
+  --color-base: #faf7e9;
+  --color-text-base: #000;
+  --color-header-base: #fcfaf2;
+  --color-placeholder: rgba(0, 0, 0, 0.25);
+}

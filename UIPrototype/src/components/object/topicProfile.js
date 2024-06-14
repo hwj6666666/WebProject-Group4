@@ -46,8 +46,9 @@ if (!topic) {
     return <Spin size="large" />;
   }
 
+
   return (
-    <div className="flex flex-col bg-white rounded-lg drop-shadow-lg h-60">
+    <div className="flex flex-col bg-header rounded-lg drop-shadow-lg h-60 text-base">
       <div className="flex flex-row">
         <img
           class="w-40 h-40 ml-8 mr-5 mt-10 mb-5 rounded"
@@ -62,6 +63,8 @@ if (!topic) {
         </div>
       </div>
       <div className="mt-10 absolute right-10">
+        {/* {isfollowed && <StarFilled onClick={() => {handleFollow()}}/>}
+        {!isfollowed && <StarOutlined onClick={() => {handleFollow()}}/>} */}
         <UploadObject topicId={topic.id} />
       </div>
       <div className="absolute right-10 bottom-24">

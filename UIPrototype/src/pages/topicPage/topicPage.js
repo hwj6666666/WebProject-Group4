@@ -8,18 +8,18 @@ import Notice from "@/components/topic/notice";
 
 function BasicPage() {
 	const { topic } = useSelector((state) => state.topic);
-	console.log(topic)
 	//点击分类显示相应内容
 	return (
-		<div className="min-h-screen bg-biligrey">
+		<div className="min-h-screen bg-base">
 			<div className="min--h-screen flex justify-center ">
-				<Affix><MySider /></Affix>
+				<Affix><MySider 
+				/></Affix>
 				<div className="">
 					<div className="">
 						<HeadButton />
 					</div>
 					<div
-						className="bg-white"
+						className="bg-base"
 						style={{ marginLeft: "30px", width: "800px" }}
 					>
 						{topic.map((topic, index) => (

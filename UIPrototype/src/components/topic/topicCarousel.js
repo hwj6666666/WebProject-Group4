@@ -2,21 +2,22 @@ import React from "react";
 import { Carousel } from "antd";
 const contentStyle = {
   height: "160px",
-  color: "fff",
+  color: 'var(--color-text-base)',
   lineHeight: "160px",
   textAlign: "center",
-  background: "white",
+  background: 'var(--color-header-base)',
+  fontcolor: 'var(--color-text-base)',
 };
 const TopicCarousel = () => (
-  <Carousel autoplay className="ml-5 mt-24 w-72">
-    <div>
-      <a href="http://localhost:3000/topic/1"><h3 style={contentStyle}>交大哪个餐饮大楼你去得最多？</h3></a>
+  <Carousel autoplay className="ml-10 mt-60 ">
+    <div className="bg-base">
+      <h3 style={contentStyle}>交大哪个餐饮大楼你去得最多？</h3>
     </div>
-    <div>
-      <a href="http://localhost:3000/topic/2"><h3 style={contentStyle}>你最喜欢哪一座交大建筑？</h3></a>
+    <div className="bg-base">
+      <h3 style={contentStyle}>你最喜欢哪一座交大建筑？</h3>
     </div>
-    <div>
-      <a href="http://localhost:3000/topic/3"><h3 style={contentStyle}>你最喜欢哪道菜肴</h3></a>
+    <div className="bg-base">
+      <h3 style={contentStyle}>你最喜欢哪家快餐店</h3>
     </div>
   </Carousel>
 );

@@ -30,7 +30,7 @@ export const MySider = () => {
 	return (
 		<Sider className="ml-20 mt-20 mr-20">
 			<Menu
-				className="bg-white"
+				className="bg-header text-base"
 				mode="vertical"
 				defaultSelectedKeys={["0"]}
 				selectedKeys={[selectedKey]}
@@ -41,7 +41,7 @@ export const MySider = () => {
 					<Menu.Item
 						key={item.key}
 						style={
-							item.key === selectedKey ? { backgroundColor: "#F4F5F7" } : {}
+							item.key === selectedKey ? { backgroundColor: 'var(--color-base)' } : {}
 						}
 					>
 						{item.name}
