@@ -1,5 +1,6 @@
 package org.example.jiaoji.service.serverimpl;
 
+import org.example.jiaoji.mapper.CommentMapper;
 import org.example.jiaoji.mapper.RemarkMapper;
 import org.example.jiaoji.pojo.Remark;
 import org.example.jiaoji.pojo.User;
@@ -21,6 +22,8 @@ public class RemarkServiceImpl implements RemarkService {
     private ObjectMapper objectsMapper;
     @Autowired
     private TopicMapper topicMapper;
+    @Autowired
+    private CommentMapper commentMapper;
 
     @Override
     public Integer addRemark(Remark data) {
@@ -58,6 +61,7 @@ public class RemarkServiceImpl implements RemarkService {
     @Override
     public void deleteRemark(Integer id) {
         remarkMapper.delete(id);
+        commentMapper.deleteByRemarkId(id);
     }
 
     @Override

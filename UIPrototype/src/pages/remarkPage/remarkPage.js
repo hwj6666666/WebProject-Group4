@@ -36,6 +36,7 @@ export const RemarkPage = () => {
       dispatch(changeRemark(data));
       const remarkIds = data.map((item) => item.id);
       dispatch(fetchComment(remarkIds));
+      dispatch(fetchOneObject(objectId));
     });
   }, [dispatch, objectId]);
 	//comments生成

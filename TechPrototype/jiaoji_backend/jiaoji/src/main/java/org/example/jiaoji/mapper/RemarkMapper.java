@@ -43,4 +43,7 @@ public interface RemarkMapper {
 
     @Select("select * from object where id = #{objectId}")
     public Objects selectObjectById(Integer objectId);
+
+    @Delete("delete from remarks where object_id=#{obj_id}")
+    public void deleteByObjectId(Integer obj_id);
 }
