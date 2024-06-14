@@ -81,13 +81,12 @@ const handleDeleteTopic = (topicId) => {
 			 </div>
 			</div>
 			<div style={{ position: "absolute", bottom: "20%", left: "82%", display: "flex", justifyContent: "center", flexDirection: "column", alignItems: "center" }}>
-				{(localStorage.getItem('id') == topic.userId || localStorage.getItem('isManager')) &&<Button
+				{(localStorage.getItem('id') == topic.userId || localStorage.getItem('isManager')) &&<Button className="mb-4"
                               onClick={(e) => { 
 								e.stopPropagation();
-								handleDeleteTopic(topic.id) }} danger>删除</Button>}
-								<p style={{ fontSize: "3em"}} className="text-red-500">{topic.hot}</p>
-				<div className="flex ">
-					<FaHotjar size={30} color="red"></FaHotjar>
+								handleDeleteTopic(topic.id) }} danger>删除</Button>}<p style={{ fontSize: "3em"}} className="text-red-500">{topic.hot}</p>
+				<div className="flex mt-4">
+					<FaHotjar size={30 } color="red"></FaHotjar>
 					<div className="text-red-500 ml-4 text-xl">热度</div>
 				</div>
 			</div>
