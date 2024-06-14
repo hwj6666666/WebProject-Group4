@@ -31,7 +31,7 @@ public interface UserMapper {
 
     @Select("select * from topic\n" +
             "where topic.id in (select topic_id from follow where follow.user_id = #{id})")
-    public List<Topic> selectFllows(Integer id);
+    public List<Topic> selectFollows(Integer id);
     @Update("update user set username=#{username}, note=#{note}, avatar=#{avatar} where id=#{id}")
     void update(User user);
     @Update("update user set password=#{password} where id=#{id}")

@@ -41,13 +41,13 @@ public interface TopicMapper {
     @Update("update topic set object_num = #{objectNum} where id = #{id}")
     public int updateObjectNum(Integer objectNum, Integer id);
 
-    @Insert("insert into fllow(topic_id,user_id) values(#{topicId},#{userId})")
+    @Insert("insert into follow(topic_id,user_id) values(#{topicId},#{userId})")
     public int insertFollow(Integer topicId, Integer userId);
 
-    @Delete("delete from fllow where topic_id = #{topicId} and user_id = #{userId}")
+    @Delete("delete from follow where topic_id = #{topicId} and user_id = #{userId}")
     public int deleteFollow(Integer topicId, Integer userId);
 
-    @Select("select count(*) from fllow where topic_id = #{topicId} and user_id = #{userId}")
+    @Select("select count(*) from follow where topic_id = #{topicId} and user_id = #{userId}")
     public Boolean findFollow(Integer topicId, Integer userId);
 
     @Delete("delete from topic where id = #{topicId}")

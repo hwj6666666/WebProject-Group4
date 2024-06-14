@@ -15,7 +15,7 @@ public interface UserService {
 
     public List<Remark> SelectRemarksById(Integer id);
 
-    public List<Topic> SelectFlllows(Integer id);
+    public List<Topic> SelectFollows(Integer id);
     public User updateUser(Integer id, User user);
     public User updatePsd(Integer id, User user);
     public Map<String, String> getObjectNameAndTopicNameById(Integer objectId);
