@@ -10,6 +10,7 @@ import org.example.jiaoji.pojo.RetType;
 import org.example.jiaoji.pojo.Topic;
 import org.example.jiaoji.pojo.top3Object;
 import org.example.jiaoji.service.ObjectService;
+import org.example.jiaoji.service.RemarkService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,7 +21,9 @@ public class ObjectServiceImpl implements ObjectService {
   @Autowired
   private TopicMapper topicMapper;
   @Autowired
-  private RemarkMapper remarkMapper;
+  private RemarkService remarkService;
+    @Autowired
+    private RemarkMapper remarkMapper;
 
   @Transactional
   public Integer InsertObject(Objects data) {
@@ -107,7 +110,10 @@ public class ObjectServiceImpl implements ObjectService {
 
   public RetType deleteObject(Integer objectId) {
     RetType ret = new RetType();
-    remarkMapper.deleteByObjectId(objectId);
+    List<Remark> toDelete=remarkService.SelectByObject(objectId);
+    for (Remark remark : toDelete) {
+      remarkService.deleteRemark(remark.getObjectId());
+    }
     objectMapper.delete(objectId);
 
     if(topicMapper.selectById(objectId)==null){

@@ -2,9 +2,12 @@ package org.example.jiaoji.service.serverimpl;
 
 import java.util.List;
 
+import org.example.jiaoji.mapper.ObjectMapper;
 import org.example.jiaoji.mapper.TopicMapper;
+import org.example.jiaoji.pojo.Objects;
 import org.example.jiaoji.pojo.RetType;
 import org.example.jiaoji.pojo.Topic;
+import org.example.jiaoji.service.ObjectService;
 import org.example.jiaoji.service.TopicService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,6 +29,10 @@ public class TopicServiceImpl implements TopicService{
 
     @Autowired
     private TopicMapper topicMapper;
+    @Autowired
+    private ObjectMapper objectMapper;
+    @Autowired
+    private ObjectService objectService;
 
     public RetType insertTopic(Topic data) {
         RetType ret = new RetType();
@@ -128,6 +135,11 @@ public class TopicServiceImpl implements TopicService{
     @Override
     public RetType deleteTopic(Integer topicId) {
         RetType ret = new RetType();
+        List<Objects> toDelete=objectMapper.selectAllInTopic(topicId);
+        for(Objects objects:toDelete){
+            objectService.deleteObject(objects.getId());
+        }
+
         topicMapper.deleteTopic(topicId);
 
         if(topicMapper.selectById(topicId)==null){
