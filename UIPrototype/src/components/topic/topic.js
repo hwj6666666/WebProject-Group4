@@ -108,10 +108,10 @@ const Topic = ({ topic }) => {
             删除
           </Button>
         )}
-        <p style={{ fontSize: "3em" }} className="text-red-500">
+        <p style={{ fontSize: "3em" }} className="text-red-500 mt-4">
           {topic.hot}
         </p>
-        <div className="flex ">
+        <div className="flex mt-4">
           <FaHotjar size={30} color="red"></FaHotjar>
           <div className="text-red-500 ml-4 text-xl">热度</div>
         </div>

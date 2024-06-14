@@ -12,7 +12,7 @@ function BasicPage() {
 	return (
 		<div className="min-h-screen bg-base">
 			<div className="min--h-screen flex justify-center ">
-				<Affix><MySider 
+				<Affix offsetTop={100}><MySider 
 				/></Affix>
 				<div className="">
 					<div className="">
