@@ -20,8 +20,6 @@ const TopicProfile = ({ topic }) => {
   };
   
   const findFollowed=async()=>{
-    console.log(topic);
-    console.log(id);
     const res=await findFollow(topic.id,id)
     console.log(res);
     setFollowed(res)

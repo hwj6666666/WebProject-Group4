@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Header from "../headerPage";
 import HotTopic from "@/components/object/hotTopic";
 import TopicProfile from "@/components/object/topicProfile";
@@ -20,7 +20,7 @@ export const ObjectPage = () => {
 	useEffect(() => {
 		dispatch(fetchTopic("0"));
 		dispatch(fetchObject(topicId));
-	}, [dispatch]);
+	}, [dispatch, topicId]);
 
   return (
     <div className="min-h-screen bg-base">
@@ -38,7 +38,6 @@ export const ObjectPage = () => {
             </div>
           ))}
         </div>
-
 				<div className="fixed w-1/4 h-3/5 right-10 top-60">
 					<HotTopic className="" />
 				</div>

@@ -258,7 +258,7 @@ export const RemarkPage = () => {
                             >
                               回复
                             </button>
-                            {(localStorage.getItem('id') == remark.userId || localStorage.getItem('isManager')) && <button className="ml-4 text-sm hover:text-red-500 text-gray-500"
+                            {(localStorage.getItem('id') == remark.userId || localStorage.getItem('isManager')==="true") && <button className="ml-4 text-sm hover:text-red-500 text-gray-500"
                               onClick={() => { handleDeleteRemark(remark.id) }}>删除</button>}
                           </div>
                           <div className="mt-5 space-y-8">
@@ -316,7 +316,7 @@ export const RemarkPage = () => {
                                     >
                                       回复
                                     </button>
-                                    {(localStorage.getItem('id') == comment.userId || localStorage.getItem('isManager')) && <button className="ml-4 text-sm hover:text-red-500 text-gray-500"
+                                    {(localStorage.getItem('id') == comment.userId || localStorage.getItem('isManager')==="true") && <button className="ml-4 text-sm hover:text-red-500 text-gray-500"
                                       onClick={() => { handleDeleteComment(comment.id) }}>删除</button>}
                                   </div>
                                 </div>
