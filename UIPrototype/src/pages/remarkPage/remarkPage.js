@@ -17,20 +17,20 @@ import { useNavigate, useParams } from "react-router-dom";
 
 export const RemarkPage = () => {
 
-	const remarks = useSelector((state) => state.remark).remark;
-	const objects = useSelector((state) => state.object).object;
-	const comments = useSelector((state) => state.comment).comment;
+  const remarks = useSelector((state) => state.remark).remark;
+  const objects = useSelector((state) => state.object).object;
+  const comments = useSelector((state) => state.comment).comment;
 
-	const { objectId } = useParams();
+  const { objectId } = useParams();
 
-	const dispatch = useDispatch();
-	const [user, setUser] = useState(null);
+  const dispatch = useDispatch();
+  const [user, setUser] = useState(null);
 
-	const fetchData = async () => {
-		const userRes = await getUsersAPI();
-		setUser(userRes);
-		return await getRemarkAPI(objectId);
-	};
+  const fetchData = async () => {
+    const userRes = await getUsersAPI();
+    setUser(userRes);
+    return await getRemarkAPI(objectId);
+  };
   useEffect(() => {
     fetchData().then((data) => {
       dispatch(changeRemark(data));
@@ -39,21 +39,21 @@ export const RemarkPage = () => {
       dispatch(fetchOneObject(objectId));
     });
   }, [dispatch, objectId]);
-	//comments生成
-	let [reply, setReply] = useState(false);
-	let [replyRemark, setReplyRemark] = useState(null);
-	let [replyPrefix, setReplyPrefix] = useState("");
-	let [replyId, setReplyId] = useState(""); //remark: r1, r2, ...  comment: c1, c2, ...
-	const ref = useRef();
-	useEffect(() => {
-		const refText = ref.current;
-		if (refText) {
-			setTimeout(() => {
-				refText.selectionStart = replyPrefix.length;
-				refText.selectionEnd = replyPrefix.length;
-			}, 0);
-		}
-	}, [replyPrefix]);
+  //comments生成
+  let [reply, setReply] = useState(false);
+  let [replyRemark, setReplyRemark] = useState(null);
+  let [replyPrefix, setReplyPrefix] = useState("");
+  let [replyId, setReplyId] = useState(""); //remark: r1, r2, ...  comment: c1, c2, ...
+  const ref = useRef();
+  useEffect(() => {
+    const refText = ref.current;
+    if (refText) {
+      setTimeout(() => {
+        refText.selectionStart = replyPrefix.length;
+        refText.selectionEnd = replyPrefix.length;
+      }, 0);
+    }
+  }, [replyPrefix]);
 
   const handleReply = () => {
     let date = new Date();
@@ -85,61 +85,61 @@ export const RemarkPage = () => {
     message.success("删除成功！");
   }
 
-	//进行统计
-	let freq = remarks.reduce((total, item) => {
-		if (total[item.score]) total[item.score]++;
-		else total[item.score] = 1;
-		return total;
-	}, {});
-	freq[2] = freq[2] ?? 0;
-	freq[4] = freq[4] ?? 0;
-	freq[6] = freq[6] ?? 0;
-	freq[8] = freq[8] ?? 0;
-	freq[10] = freq[10] ?? 0;
+  //进行统计
+  let freq = remarks.reduce((total, item) => {
+    if (total[item.score]) total[item.score]++;
+    else total[item.score] = 1;
+    return total;
+  }, {});
+  freq[2] = freq[2] ?? 0;
+  freq[4] = freq[4] ?? 0;
+  freq[6] = freq[6] ?? 0;
+  freq[8] = freq[8] ?? 0;
+  freq[10] = freq[10] ?? 0;
 
-	//计算平均值
-	let average =
-		freq[2] * 2 + freq[4] * 4 + freq[6] * 6 + freq[8] * 8 + freq[10] * 10;
-	average /= remarks.length;
-	average = average.toFixed(1);
+  //计算平均值
+  let average =
+    freq[2] * 2 + freq[4] * 4 + freq[6] * 6 + freq[8] * 8 + freq[10] * 10;
+  average /= remarks.length;
+  average = average.toFixed(1);
 
-	//统计比例
-	let _1_pencentage = (freq[2] / remarks.length) * 100;
-	let _2_pencentage = (freq[4] / remarks.length) * 100;
-	let _3_pencentage = (freq[6] / remarks.length) * 100;
-	let _4_pencentage = (freq[8] / remarks.length) * 100;
-	let _5_pencentage = (freq[10] / remarks.length) * 100;
+  //统计比例
+  let _1_pencentage = (freq[2] / remarks.length) * 100;
+  let _2_pencentage = (freq[4] / remarks.length) * 100;
+  let _3_pencentage = (freq[6] / remarks.length) * 100;
+  let _4_pencentage = (freq[8] / remarks.length) * 100;
+  let _5_pencentage = (freq[10] / remarks.length) * 100;
 
-	_1_pencentage = _1_pencentage.toFixed(0);
-	_2_pencentage = _2_pencentage.toFixed(0);
-	_3_pencentage = _3_pencentage.toFixed(0);
-	_4_pencentage = _4_pencentage.toFixed(0);
-	_5_pencentage = _5_pencentage.toFixed(0);
+  _1_pencentage = _1_pencentage.toFixed(0);
+  _2_pencentage = _2_pencentage.toFixed(0);
+  _3_pencentage = _3_pencentage.toFixed(0);
+  _4_pencentage = _4_pencentage.toFixed(0);
+  _5_pencentage = _5_pencentage.toFixed(0);
 
-	if (isNaN(average)) {
-		average = "0.0";
-		_1_pencentage =
-			_2_pencentage =
-			_3_pencentage =
-			_4_pencentage =
-			_5_pencentage =
-			0;
-	}
+  if (isNaN(average)) {
+    average = "0.0";
+    _1_pencentage =
+      _2_pencentage =
+      _3_pencentage =
+      _4_pencentage =
+      _5_pencentage =
+      0;
+  }
 
-	//打印五角星
-	const returnStars = (starNum) =>
-		Array(starNum)
-			.fill()
-			.map((_, i) => <StarFilled key={i} className="text-yellow-400 mr-1" />);
+  //打印五角星
+  const returnStars = (starNum) =>
+    Array(starNum)
+      .fill()
+      .map((_, i) => <StarFilled key={i} className="text-yellow-400 mr-1" />);
 
-	const returnStarsOutlined = (starNum) =>
-		Array(5)
-			.fill()
-			.map((_, i) => {
-				if (i < starNum)
-					return <StarFilled key={i} className="text-yellow-400 mr-1" />;
-				return <StarOutlined key={i} className="text-yellow-400 mr-1" />;
-			});
+  const returnStarsOutlined = (starNum) =>
+    Array(5)
+      .fill()
+      .map((_, i) => {
+        if (i < starNum)
+          return <StarFilled key={i} className="text-yellow-400 mr-1" />;
+        return <StarOutlined key={i} className="text-yellow-400 mr-1" />;
+      });
 
   //是否已经评论过该对象
   const [isRemark, setIsRemark] = useState(false);
@@ -213,7 +213,8 @@ export const RemarkPage = () => {
                       title={
                         <div className="flex items-center">
                           <img
-                            src={profile_photo}
+                            src={user && user.find((user) => user.id == remark.userId)
+                              ?.avatar}
                             alt="图片描述"
                             className="w-10 h-10 mt-3 mr-4"
                           />
@@ -257,7 +258,7 @@ export const RemarkPage = () => {
                             >
                               回复
                             </button>
-                            {(localStorage.getItem('id') == remark.userId || localStorage.getItem('isManager')) && <button className="ml-4 text-sm hover:text-red-500 text-gray-500"
+                            {(localStorage.getItem('id') == remark.userId || localStorage.getItem('isManager')==="true") && <button className="ml-4 text-sm hover:text-red-500 text-gray-500"
                               onClick={() => { handleDeleteRemark(remark.id) }}>删除</button>}
                           </div>
                           <div className="mt-5 space-y-8">
@@ -269,7 +270,8 @@ export const RemarkPage = () => {
                                 <div className="space-y-2">
                                   <div className="flex flex-row items-center">
                                     <img
-                                      src={profile_photo}
+                                      src={user && user.find((user) => user.id == comment.userId)
+                                        ?.avatar}
                                       alt="图片描述"
                                       className="w-10 h-10 mr-4"
                                     />
@@ -314,7 +316,7 @@ export const RemarkPage = () => {
                                     >
                                       回复
                                     </button>
-                                    {(localStorage.getItem('id') == comment.userId || localStorage.getItem('isManager')) && <button className="ml-4 text-sm hover:text-red-500 text-gray-500"
+                                    {(localStorage.getItem('id') == comment.userId || localStorage.getItem('isManager')==="true") && <button className="ml-4 text-sm hover:text-red-500 text-gray-500"
                                       onClick={() => { handleDeleteComment(comment.id) }}>删除</button>}
                                   </div>
                                 </div>
@@ -323,7 +325,8 @@ export const RemarkPage = () => {
                               <div className="space-y-2">
                                 <div className="flex flex-row items-center">
                                   <img
-                                    src={profile_photo}
+                                    src={user && user.find((user) => user.id == localStorage.getItem("id"))
+                                      ?.avatar}
                                     alt="图片描述"
                                     className="w-10 h-10 mr-4"
                                   />

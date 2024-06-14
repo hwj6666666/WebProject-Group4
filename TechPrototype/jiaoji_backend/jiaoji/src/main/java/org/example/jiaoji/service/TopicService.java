@@ -22,4 +22,6 @@ public interface TopicService {
     public Boolean findFollow(Integer topicId, Integer userId);
 
     public RetType deleteTopic(Integer topicId);
+
+    public List<Topic> hotTopic();
 }
