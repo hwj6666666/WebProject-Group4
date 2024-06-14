@@ -1,6 +1,7 @@
 package org.example.jiaoji.service;
 
 import org.example.jiaoji.pojo.Objects;
+import org.example.jiaoji.pojo.RetType;
 import org.example.jiaoji.pojo.Topic;
 import org.example.jiaoji.pojo.top3Object;
 
@@ -23,4 +24,6 @@ public interface ObjectService {
     public String getHottestRemark(Integer id);
 
     public List<top3Object> SelectTop3(Integer topicId);
+
+    public RetType deleteObject(Integer objectId);
 }
