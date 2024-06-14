@@ -9,7 +9,8 @@ const contentStyle = {
   fontcolor: 'var(--color-text-base)',
 };
 const TopicCarousel = () => (
-  <Carousel autoplay className="ml-10 mt-60 ">
+  <div style={{borderRadius:"10px"}}>
+  <Carousel autoplay className="ml-10 mt-24  ">
     <div className="bg-base">
       <h3 style={contentStyle}>交大哪个餐饮大楼你去得最多？</h3>
     </div>
@@ -19,6 +20,6 @@ const TopicCarousel = () => (
     <div className="bg-base">
       <h3 style={contentStyle}>你最喜欢哪家快餐店</h3>
     </div>
-  </Carousel>
+  </Carousel></div>
 );
 export default TopicCarousel;

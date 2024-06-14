@@ -84,7 +84,8 @@ const handleDeleteTopic = (topicId) => {
 				{(localStorage.getItem('id') == topic.userId || localStorage.getItem('isManager')) &&<Button
                               onClick={(e) => { 
 								e.stopPropagation();
-								handleDeleteTopic(topic.id) }} danger>删除</Button>}<p style={{ fontSize: "3em"}} className="text-red-500">{topic.hot}</p>
+								handleDeleteTopic(topic.id) }} danger>删除</Button>}
+								<p style={{ fontSize: "3em"}} className="text-red-500">{topic.hot}</p>
 				<div className="flex ">
 					<FaHotjar size={30} color="red"></FaHotjar>
 					<div className="text-red-500 ml-4 text-xl">热度</div>
