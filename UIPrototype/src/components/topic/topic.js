@@ -72,7 +72,7 @@ const Topic = ({ topic }) => {
 				</div>
 				<div style={{ width: "70%", marginBottom: "2%", display: "flex", justifyContent: "space-around" }}>
 					{top3.map((object, index) => (
-						<Button onClick={(e) => handle(e, object.id)}
+						<Button key={object.id} onClick={(e) => handle(e, object.id)}
 						>
 							{object.title}
 						</Button>
