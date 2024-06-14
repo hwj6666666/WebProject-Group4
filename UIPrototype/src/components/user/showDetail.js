@@ -61,7 +61,7 @@ export default function ShowDetail(props) {
 				<div className="bg-header text-base">
 					{(topics.length !== 0)
 						? topics.map((topic, index) => (
-							<div style={{ marginBottom: "30px" }}>
+							<div key={topic.id} style={{ marginBottom: "30px" }}>
 								<Topic key={topic.id} topic={topic} />
 								{/* ??? */}
 								{/* <Topic key={topic.id} topic={topic} /> */}

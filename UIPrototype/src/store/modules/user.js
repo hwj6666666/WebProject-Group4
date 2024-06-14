@@ -3,6 +3,7 @@ import { getTopicsByUserIdAPI, getObjectsByUserIdAPI, getRemarksByUserIdAPI, get
 const userStore = createSlice({
 	name: "user",
 	initialState: {
+		headerAvatar: '',
 		user: {},
 		topicsbyuser: [],
 		objectsbyuser: [],
@@ -27,6 +28,9 @@ const userStore = createSlice({
 		setUser(state, action) {
 			state.user = action.payload
 		},
+		setHeaderAvatar(state, action) {
+			state.headerAvatar = action.payload.avatar
+		},
 		addUser(state, action) {
 			state.user.push(action.payload)
 		},
@@ -43,6 +47,13 @@ export const fetchUser = (user_id) => {
 	return async (dispatch) => {
 		const res = await getUserAPI(user_id);
 		dispatch(setUser(res));
+	}
+}
+
+export const fetchHeaderAvatar = (user_id) => {
+	return async (dispatch) => {
+		const res = await getUserAPI(user_id);
+		dispatch(setHeaderAvatar(res));
 	}
 }
 
@@ -103,7 +114,7 @@ export const getOandTTitle = (objectId) => {
 		dispatch(setUser(res));
 	}
 }
-const { setUser, setTopics, setObjects, setRemarks, setFllows, setLoggedIn, setId, addUser } = userStore.actions;
+const { setUser, setTopics, setObjects, setRemarks, setFllows, setHeaderAvatar, setLoggedIn, setId, addUser } = userStore.actions;
 
 const userReducer = userStore.reducer;
 
