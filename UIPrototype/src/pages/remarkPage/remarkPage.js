@@ -147,7 +147,7 @@ export const RemarkPage = () => {
   }, [remarks]);
 
   return (
-    <div className="min-h-screen bg-biligrey">
+    <div className="min-h-screen bg-base">
       <div className="h-16"></div>
       <div className="flex flex-row ml-28 mr-48">
         <div className="absolute h-screen overflow-auto">
@@ -158,7 +158,7 @@ export const RemarkPage = () => {
           <h1 className="text-center text-4xl mb-8 font-bold">
             {objects[0] && objects[0].title}
           </h1>
-          <div className="flex flex-row bg-white rounded-lg drop-shadow-lg ml-16 pl-8 py-4 my-4">
+          <div className="flex flex-row bg-header text-base rounded-lg drop-shadow-lg ml-16 pl-8 py-4 my-4">
             <div className="flex flex-col">
               <div className="flex items-center justify-center">
                 <img src={scorePhoto} height={75} width={150} alt="nothing" />
@@ -226,7 +226,7 @@ export const RemarkPage = () => {
                           </div>
                         </div>
                       }
-                      className="mb-4 rounded-lg"
+                      className="mb-4 rounded-lg bg-header"
                     >
                       <div className="flex justify-between">
                         <div className="flex flex-col ml-14">

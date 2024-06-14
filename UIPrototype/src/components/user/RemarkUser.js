@@ -29,8 +29,7 @@ export default function RemarkUser({ remark }) {
 		<Card
 			hoverable
 			title={
-				<div className="flex items-center"
-					onClick={() => navigate(`/user/${remark.userId}`)}>
+				<div className="flex items-center bg-header text-base">
 					<img
 						src={profile_photo}
 						alt="图片描述"
@@ -62,10 +61,9 @@ export default function RemarkUser({ remark }) {
 					</div>
 				</div>
 			}
-			className="mb-4 rounded-lg"
-			onClick={() => navigate(`/object/${remark.objectId}`)}
+			className="mb-4 rounded-lg bg-header text-base"
 		>
-			<div className="flex justify-between">
+			<div className="flex justify-between bg-header text-base">
 				<div className="flex flex-col ml-14">
 					<p className="text-base">{remark.content}</p>
 					<div className="flex flex-row mt-4 items-center">

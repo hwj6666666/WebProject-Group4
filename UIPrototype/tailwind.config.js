@@ -1,3 +1,5 @@
+const { head } = require('lodash');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -13,6 +15,13 @@ module.exports = {
         scorecolor: "#049198",
         bgcolor: "#FFF8E8",
         fontcolor: "#fc3e0e",
+      },
+      backgroundColor: {
+        base: 'var(--color-base)',
+        header: 'var(--color-header-base)',
+      },
+      textColor: {
+        base: 'var(--color-text-base)',
       },
     },
   },
