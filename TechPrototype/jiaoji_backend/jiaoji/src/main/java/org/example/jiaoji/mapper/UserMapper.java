@@ -51,8 +51,11 @@ public interface UserMapper {
     @Update("update user set password = #{password} where id = #{id}")
     public void resetPassword(Integer id, String password);
 
-    @Update("insert into user(email, password) values(#{email}, #{password})")
-    public void insert(String email, String password);
+//    @Update("insert into user(email, password) values(#{email}, #{password})")
+//    public void insert(String email, String password);
+//
+    @Update("insert into user(email, password,avatar) values(#{email}, #{password},#{avatar})")
+    public void insert(String email, String password, String avatar);
 
     @Select("select * from user where username like #{keyword} or email like #{keyword}")
     public List<User> search(String keyword);

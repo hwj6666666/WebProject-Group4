@@ -1,14 +1,13 @@
 package org.example.jiaoji.controller;
 
-import org.example.jiaoji.pojo.User;
 import org.example.jiaoji.pojo.RetType;
+import org.example.jiaoji.pojo.User;
 import org.example.jiaoji.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin
@@ -24,7 +23,7 @@ public class LoginController {
 
     @PostMapping("/user/register")
     public RetType register(@RequestBody User user) {
-        return userService.Register(user.getEmail(), user.getPassword());
+        return userService.Register(user.getEmail(), user.getPassword(),user.getAvatar());
     }
     
 }
