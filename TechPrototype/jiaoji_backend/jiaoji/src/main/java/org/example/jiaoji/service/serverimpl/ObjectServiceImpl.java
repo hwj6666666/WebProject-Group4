@@ -112,7 +112,7 @@ public class ObjectServiceImpl implements ObjectService {
     RetType ret = new RetType();
     List<Remark> toDelete=remarkService.SelectByObject(objectId);
     for (Remark remark : toDelete) {
-      remarkService.deleteRemark(remark.getObjectId());
+      remarkService.deleteRemark(remark.getId());
     }
     objectMapper.delete(objectId);
 
