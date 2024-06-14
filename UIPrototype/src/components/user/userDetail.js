@@ -10,7 +10,7 @@ export default function UserDetail({ curUser }) {
 	// console.log(user_id)
 	// console.log(userId)
 	return (
-		<div className="flex items-center h-40 min-w-[600px] px-20 bg-white rounded-sm">
+		<div className="flex items-center h-40 min-w-[600px] px-20 bg-header rounded-sm">
 			{/* 头像 */}
 			<span className="mr-4">
 				<UserAvatar avatar={curUser.avatar} />

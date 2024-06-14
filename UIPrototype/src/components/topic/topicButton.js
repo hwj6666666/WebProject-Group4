@@ -91,9 +91,10 @@ export const HeadButton = () => {
         margin: "40px",
       }}
     >
-      <div className="bg-white rounded-lg">
+      <div className="bg-header rounded-lg">
         <Button
           type="text"
+          classNames="bg-header text-base"
           style={focus && { color: "#1E90FF" }}
           onClick={() => {
             setNew();
@@ -104,6 +105,7 @@ export const HeadButton = () => {
         <Divider type="vertical" style={{ backgroundColor: "gray" }}></Divider>
         <Button
           type="text"
+          classNames="bg-header text-base"
           style={!focus && { color: "#1E90FF" }}
           onClick={() => {
             setHot();
@@ -113,7 +115,7 @@ export const HeadButton = () => {
         </Button>
       </div>
       <Button
-        style={{ backgroundColor: "white", color: "black" }}
+        className="bg-header"
         onClick={handleTopic}
       >
         上传话题

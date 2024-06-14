@@ -37,7 +37,7 @@ const addObject=(object)=>{
     return async(dispatch)=>{
       const generatedId = await addObjectAPI(object);
       object.id = generatedId;
-      dispatch(addMyObject(object));
+      if(object.id != -1)dispatch(addMyObject(object));
     }
 }
 

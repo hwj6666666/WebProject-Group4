@@ -17,7 +17,7 @@ export const MySider = () => {
 			className="drop-shadow-md"
 		>
 			<Menu
-				className="bg-white"
+				className="bg-header"
 				mode="vertical"
 				defaultSelectedKeys={["1"]} //设置默认选中第一个菜单栏
 				style={{ borderRadius: "14px", textAlign: "center" }}

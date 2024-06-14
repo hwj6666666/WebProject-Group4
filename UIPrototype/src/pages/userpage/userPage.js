@@ -26,17 +26,32 @@ export const UserPage = () => {
 	const [showtype, setShowtype] = useState('T')
 
 	return (
+<<<<<<< Updated upstream
 		<div className="min-h-screen bg-biligrey">
 			<div className="flex flex-col px-40 py-6">
 				{(Object.keys(curUser).length === 0) ?
 					<div>
 						<div className="text-3xl mt-3 ml-4 text-gray-400 ">
 							用户不存在
+=======
+		<div className="min-h-screen bg-base">
+			<div className="flex flex-col px-40 py-6 text-base">
+				<UserDetail />
+
+				<div className=" w-auto min-w-[600px] min-h-[300px] mt-[12px] flex rounded-sm overflow-hidden">
+					<div className=" flex-[3] w-auto h-auto bg-header mr-[12px] rounded-sm text-base">
+						<div className=" w-full h-10 bg-header flex border-b-2 drop-shadow-sm ">
+							<button onClick={() => setShowtype('T')} className=" flex-1 hover:border-b-2  border-blue-300 hover:text-sky-500 ">话题</button>
+							<button onClick={() => setShowtype('O')} className=" flex-1 hover:border-b-2 border-blue-300 hover:text-sky-500 ">对象</button>
+							<button onClick={() => setShowtype('R')} className=" flex-1 hover:border-b-2 border-blue-300 hover:text-sky-500 ">评论</button>
+							<button onClick={() => setShowtype('F')} className=" flex-1 hover:border-b-2 border-blue-300 hover:text-sky-500 ">关注</button>
+>>>>>>> Stashed changes
 						</div>
 					</div> :
 					<>
 						<UserDetail curUser={curUser} />
 
+<<<<<<< Updated upstream
 						<div className=" w-auto min-w-[600px] min-h-[300px] mt-[12px] flex rounded-sm overflow-hidden ">
 							<div className=" flex-[3] w-auto h-auto bg-white mr-[12px] rounded-sm ">
 								<div className=" w-full h-10 bg-white flex border-b-2 drop-shadow-sm ">
@@ -47,6 +62,11 @@ export const UserPage = () => {
 								</div>
 								<ShowDetail type={showtype} />
 							</div>
+=======
+					<div className=" flex-1 w-auto h-auto bg-header rounded-sm text-base">
+						正在施工
+					</div>
+>>>>>>> Stashed changes
 
 							<div className=" flex-1 w-auto h-auto bg-white rounded-sm ">
 								正在施工

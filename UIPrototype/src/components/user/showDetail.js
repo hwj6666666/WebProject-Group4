@@ -16,7 +16,7 @@ export default function ShowDetail(props) {
 	switch (props.type) {
 		case 'O':
 			return (
-				<div className="bg-white">
+				<div className="bg-header text-base">
 					{(objects.length !== 0)
 						? objects.map((object) => (
 							<div key={object.id} style={{ marginBottom: "30px" }}>
@@ -24,31 +24,25 @@ export default function ShowDetail(props) {
 								/>
 							</div>
 						))
-						: <div className=" text-3xl mt-3 ml-4 text-gray-400 ">
+						: <div className=" text-3xl mt-3 ml-4 text-gray-400 bg-header">
 							你还没有创建过对象哦
 						</div>}
 				</div>
 			)
 		case 'R':
 			return (
-				<div>
+				<div className="bg-header text-base">
 					{(remarks.length !== 0)
-						? remarks.slice()
-							.sort((a, b) => {
-								let date1 = new Date(a.publishTime).getTime();
-								let date2 = new Date(b.publishTime).getTime();
-								return date2 - date1;
-							})
-							.map((remark) =>
-								<RemarkUser key={remark.id} remark={remark} />
-							) : <div className=" text-3xl mt-3 ml-4 text-gray-400 ">
+						? remarks.map((remark, index) =>
+							<RemarkUser key={remark.id} remark={remark} />
+						) : <div className=" text-3xl mt-3 ml-4 text-gray-400 bg-header">
 							你还没有发表过评论哦
 						</div>}
 				</div>
 			)
 		case 'F':
 			return (
-				<div className="bg-white">
+				<div className="bg-header text-base">
 					{(fllows.length !== 0)
 						? fllows.map((fllowtopic) => (
 							<div key={fllowtopic.id} style={{ marginBottom: "30px" }}>
@@ -56,7 +50,7 @@ export default function ShowDetail(props) {
 								/>
 							</div>
 						))
-						: <div className=" text-3xl mt-3 ml-4 text-gray-400 ">
+						: <div className=" text-3xl mt-3 ml-4 text-gray-400 bg-header">
 							你还没有关注过话题哦
 						</div>}
 				</div>
@@ -64,20 +58,16 @@ export default function ShowDetail(props) {
 		case 'T':
 		default:
 			return (
-				<div className="bg-white">
+				<div className="bg-header text-base">
 					{(topics.length !== 0)
-						? topics.slice()
-							.sort((a, b) => {
-								let date1 = new Date(a.publicTime).getTime();
-								let date2 = new Date(b.publicTime).getTime();
-								return date2 - date1;
-							})
-							.map((topic) => (
-								<div key={topic.id} style={{ marginBottom: "30px" }}>
-									<Topic topic={topic} />
-								</div>
-							))
-						: <div className=" text-3xl mt-3 ml-4 text-gray-400 ">
+						? topics.map((topic, index) => (
+							<div style={{ marginBottom: "30px" }}>
+								<Topic key={topic.id} topic={topic} />
+								{/* ??? */}
+								{/* <Topic key={topic.id} topic={topic} /> */}
+							</div>
+						))
+						: <div className=" text-3xl mt-3 ml-4 text-gray-400 bg-header">
 							你还没有创建过话题哦
 						</div>}
 				</div>
