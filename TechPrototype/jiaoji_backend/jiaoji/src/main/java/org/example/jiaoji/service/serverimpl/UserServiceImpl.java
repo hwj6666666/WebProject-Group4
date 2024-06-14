@@ -18,6 +18,7 @@ public class UserServiceImpl implements UserService {
         return userMapper.selectAll();
     }
 
+   
     public User SelectByUserId(Integer id) {
         return userMapper.selectByUserId(id);
     }
@@ -89,6 +90,14 @@ public class UserServiceImpl implements UserService {
             retType.setOk(false);
             return retType;
         }
+        User user=userMapper.selectByUserId(id);
+        if(user.getState()==2)
+        {
+            retType.setData(null);
+            retType.setMsg("用户已被封禁");
+            retType.setOk(false);
+            return retType;
+        }
         retType.setData(id);
         retType.setMsg("登录成功");
         retType.setOk(true);
@@ -98,5 +107,31 @@ public class UserServiceImpl implements UserService {
     public List<User> search(String keyword){
         keyword="%"+keyword+"%";
         return userMapper.search(keyword);
+    }
+
+    public RetType banUser(Integer id){
+        RetType retType = new RetType();
+        User user = userMapper.selectByUserId(id);
+        if(user.getId()==1)
+        {
+            retType.setOk(false);
+            retType.setMsg("超级管理员不可封禁");
+            return retType;
+        }
+        else if(user.getState()==2)
+        {
+            userMapper.updateSuper(id,0);
+            retType.setOk(true);
+            retType.setMsg("解封成功");
+            retType.setData(0);
+            return retType;
+        }
+        else{
+            userMapper.updateSuper(id,2);
+            retType.setOk(true);
+            retType.setMsg("封禁成功");
+            retType.setData(2);
+            return retType;
+        }
     }
 }
