@@ -30,7 +30,7 @@ public interface UserMapper {
     public List<Remark> selectRemarksByUserId(Integer id);
 
     @Select("select * from topic\n" +
-            "where topic.id in (select topic_id from fllow where fllow.user_id = #{id})")
+            "where topic.id in (select topic_id from follow where follow.user_id = #{id})")
     public List<Topic> selectFllows(Integer id);
     @Update("update user set username=#{username}, note=#{note}, avatar=#{avatar} where id=#{id}")
     void update(User user);
