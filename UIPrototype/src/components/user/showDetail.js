@@ -33,7 +33,7 @@ export default function ShowDetail(props) {
 			return (
 				<div className="bg-header text-base">
 					{(remarks.length !== 0)
-						? remarks.map((remark, index) =>
+						? remarks.map((remark) =>
 							<RemarkUser key={remark.id} remark={remark} />
 						) : <div className=" text-3xl mt-3 ml-4 text-gray-400 bg-header">
 							你还没有发表过评论哦

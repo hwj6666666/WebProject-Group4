@@ -17,32 +17,31 @@ const UserCard = ({user}) => {
         if(user.state!=1){
         const ret=await banUser(user.id)
         if(ret.ok){
-            message.success(ret.msg)
+            message.success(ret.msg,0.5)
             setStatus(ret.data)
         }
         else
             message.error(ret.msg)
     }
     else 
-        message.error("无法封禁管理员")
+        message.error("无法封禁管理员",0.5)
     }
     if(tmpnote.length>20){
         tmpnote=tmpnote.substring(0,20)+"..."
     }
-	return (<><div Onclick={()=>navigate(`/user/${user.id}`)
-         }>  
-        <div style={{display:"flex"}}>
+	return (<div onClick={()=>navigate(`/user/${user.id}`)}
+         >  
+        <div style={{display:"flex",cursor:"pointer"}} >
           <div>
          <Avatar src={avatar!=="path"? avatar : avat} size={128} />
 		    </div>
             <div>
             <h1 className="ml-10 text-2xl"><span className="mr-5">{username}</span>{"等级："+level} 
-            {localStorage.getItem("isManager") === "true" && (status==0?<Button danger onClick={(e)=>{handleclick(e)}}>封禁</Button>:<Button onClick={handleclick}>解封</Button>)}
+            {localStorage.getItem("isManager") === "true" &&status!=1&& (status==0?<Button danger onClick={(e)=>{handleclick(e)}}>封禁</Button>:<Button onClick={handleclick}>解封</Button>)}
            </h1>
             <p className="ml-10 text-xl text-black">{tmpnote}</p>
             </div>
         </div></div>
-        </>
 	);
 };
 

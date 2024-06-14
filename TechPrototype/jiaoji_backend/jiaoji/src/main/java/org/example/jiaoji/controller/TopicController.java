@@ -82,10 +82,7 @@ public class TopicController {
     @GetMapping("/topic/hot")
     @ResponseBody
     public List<Topic> hotTopic() {
-        List<Topic> topic = topicService.hotTopic();
-        System.out.println(topic);
-        return topic;
-//        return topicService.hotTopic();
+        return topicService.hotTopic();
     }
 
 }

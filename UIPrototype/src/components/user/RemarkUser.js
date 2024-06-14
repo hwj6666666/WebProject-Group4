@@ -10,7 +10,7 @@ export default function RemarkUser({ remark }) {
 
 	const navigate = useNavigate();
 	// console.log(remark)
-	const { username } = useSelector(state => state.user).user
+	const { username, avatar } = useSelector(state => state.user).user
 	const returnStarsOutlined = (starNum) => Array(5).fill().map((_, i) => {
 		if (i < starNum) return <StarFilled key={i} className="text-yellow-400 mr-1" />;
 		return <StarOutlined key={i} className="text-yellow-400 mr-1" />;
@@ -32,7 +32,7 @@ export default function RemarkUser({ remark }) {
 			title={
 				<div className="flex items-center bg-header text-base">
 					<img
-						src={profile_photo}
+						src={avatar}
 						alt="图片描述"
 						className="w-10 h-10 mt-3 mr-4"
 					/>
