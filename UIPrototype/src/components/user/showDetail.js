@@ -9,6 +9,17 @@ export default function ShowDetail(props) {
 	const objects = useSelector(state => state.user).objectsbyuser
 	const remarks = useSelector(state => state.user).remarksbyuser
 	const fllows = useSelector(state => state.user).fllows
+
+	// const Topics = useSelector(state => state.user).topicsbyuser
+	// const Objects = useSelector(state => state.user).objectsbyuser
+	// const Remarks = useSelector(state => state.user).remarksbyuser
+	// const Follows = useSelector(state => state.user).fllows
+
+	// const [topics, setTopics] = useState(Topics)
+	// const [objects, setObjects] = useState(Objects)
+	// const [remarks, setRemarks] = useState(Remarks)
+	// const [fllows, setFllows] = useState(Follows)
+
 	// console.log(topics)
 	// console.log('showdetail')
 	// console.log(objects)
