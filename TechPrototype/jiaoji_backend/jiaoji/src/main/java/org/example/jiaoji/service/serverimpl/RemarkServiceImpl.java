@@ -60,8 +60,8 @@ public class RemarkServiceImpl implements RemarkService {
 
     @Override
     public void deleteRemark(Integer id) {
-        remarkMapper.delete(id);
         commentMapper.deleteByRemarkId(id);
+        remarkMapper.delete(id);
     }
 
     @Override

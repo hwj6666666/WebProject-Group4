@@ -34,8 +34,8 @@ public class UserServiceImpl implements UserService {
         return userMapper.selectRemarksByUserId(id);
     }
 
-    public List<Topic> SelectFlllows(Integer id){
-        return userMapper.selectFllows(id);
+    public List<Topic> SelectFollows(Integer id){
+        return userMapper.selectFollows(id);
     }
     public User updateUser(Integer id, User user){
         user.setId(id);

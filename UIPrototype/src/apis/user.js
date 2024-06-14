@@ -37,7 +37,7 @@ export const getRemarksByUserIdAPI = (user_id) => {
 
 export const getFllowsAPI = (user_id) => {
 	return request({
-		url: `/user/${user_id}/fllows`,
+		url: `/user/${user_id}/follows`,
 		method: 'get',
 	});
 }
@@ -59,7 +59,7 @@ export const updatePasswordAPI = (UidandPsd) => {
 }
 export const getOandTTitleAPI = (objectId) => {
 	return request({
-		url: `object/${objectId}/nameAndTopic`,
+		url: `/user/object/${objectId}/nameAndTopic`,
 		method: 'get',
 	});
 }
