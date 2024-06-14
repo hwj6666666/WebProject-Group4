@@ -7,6 +7,8 @@ import java.util.Map;
 public interface UserService {
     public List<User> SelectAll();
 
+    public RetType banUser(Integer id);
+
     public User SelectByUserId(Integer id);
 
     public List<Topic> SelectTopicsById(Integer id);

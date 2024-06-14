@@ -2,6 +2,7 @@ package org.example.jiaoji.controller;
 
 import org.example.jiaoji.pojo.Objects;
 import org.example.jiaoji.pojo.Remark;
+import org.example.jiaoji.pojo.RetType;
 import org.example.jiaoji.pojo.Topic;
 import org.example.jiaoji.pojo.User;
 import org.example.jiaoji.service.ObjectService;
@@ -109,6 +110,12 @@ public class UserController {
     @GetMapping("user/search/{keyword}")
     public List<User> getMethodName(@PathVariable("keyword") String keyword) {
         return userService.search(keyword);
+    }
+
+    @CrossOrigin
+    @GetMapping("user/ban/{id}")
+    public RetType ban(@PathVariable("id") Integer id) {
+        return userService.banUser(id);
     }
 
 }

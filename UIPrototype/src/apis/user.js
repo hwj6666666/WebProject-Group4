@@ -69,3 +69,11 @@ export const searchUser = (keyword) => {
 		method: 'get',
 	});
 }
+
+export const banUser = (user_id) => {
+	console.log(user_id)
+	return request({
+		url: `/user/ban/${user_id}`,
+		method: 'get',
+	});
+}

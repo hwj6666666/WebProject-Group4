@@ -59,4 +59,8 @@ public interface UserMapper {
 
     @Select("select * from user where username like #{keyword} or email like #{keyword}")
     public List<User> search(String keyword);
+
+    @Update("update user set state = #{sup} where id = #{id}")
+    public void updateSuper(Integer id, Integer sup);
+
 }

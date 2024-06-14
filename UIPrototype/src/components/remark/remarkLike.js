@@ -15,7 +15,7 @@ const LikeButton = ({ remarkId }) => {
   useEffect(() => {
     console.log('fetch like');
     dispatch(fetchLike(remarkId));
-  }, [dispatch]);
+  }, [dispatch,remark]);
 
   return (
     <Button onClick={toggleLike} className="like-button flex items-center text-gray-500">
