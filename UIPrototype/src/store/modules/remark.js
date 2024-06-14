@@ -68,7 +68,7 @@ const addRemark = (remark) => {
 }
 
 const deleteRemark = (id) => async (dispatch) => {
-	await deleteRemarkAPI(id);
+	deleteRemarkAPI(id);
 	dispatch(deleteMyRemark(id));
 }
 
