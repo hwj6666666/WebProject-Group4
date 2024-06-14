@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 
 
 @Service
-public class TopicServiceImpl implements TopicService{
+public class TopicServiceImpl implements TopicService {
     public static final int viewsRate = 1;
     public static final int remarkRate = 8;
     public static final int favorRate = 15;
@@ -38,7 +38,7 @@ public class TopicServiceImpl implements TopicService{
         RetType ret = new RetType();
 
         Integer id = topicMapper.selectIdByTitle(data.getTitle());
-        if(id !=null) {
+        if (id != null) {
             ret.setMsg("该话题已存在");
             ret.setOk(false);
             ret.setData(null);
@@ -56,40 +56,41 @@ public class TopicServiceImpl implements TopicService{
         topic.setPublicTime(java.time.LocalDateTime.now());
         topic.setBase64(data.getBase64());
         topicMapper.insert(topic);
-                ret.setMsg("上传成功");
-                ret.setOk(true);
-                ret.setData(topicMapper.selectByTitle(topic.getTitle()));
+        ret.setMsg("上传成功");
+        ret.setOk(true);
+        ret.setData(topicMapper.selectByTitle(topic.getTitle()));
         return ret;
     }
 
 
-    public List<Topic> SelectAll(){
+    public List<Topic> SelectAll() {
         List<Topic> topics = topicMapper.selectAll();
-        for(Topic topic:topics){
-            int remarkNum = topic.getRemarkNum()*remarkRate;
-            int favor = topic.getFavor()*favorRate;
-            int views = topic.getViews()*viewsRate;
-            int objectNum =topic.getObjectNum()*objectRate;
+        for (Topic topic : topics) {
+            int remarkNum = topic.getRemarkNum() * remarkRate;
+            int favor = topic.getFavor() * favorRate;
+            int views = topic.getViews() * viewsRate;
+            int objectNum = topic.getObjectNum() * objectRate;
             LocalDateTime publicTime = topic.getPublicTime();
             LocalDateTime now = LocalDateTime.now();
-            double hours = ChronoUnit.HOURS.between(publicTime, now)/24;
-            double hot= (remarkNum + favor + views + objectNum)/(Math.pow(hours+2,1.2));
-            topic.setHot((int)hot);
+            double hours = ChronoUnit.HOURS.between(publicTime, now) / 24;
+            double hot = (remarkNum + favor + views + objectNum) / (Math.pow(hours + 2, 1.2));
+            topic.setHot((int) hot);
         }
         return topics;
     }
-    public  List<Topic> SelectByClassId(Integer id){
-        List<Topic> topics=topicMapper.selectByClassId(id);
-         for(Topic topic:topics){
-            int remarkNum = topic.getRemarkNum()*remarkRate;
-            int favor = topic.getFavor()*favorRate;
-            int views = topic.getViews()*viewsRate;
-            int objectNum =topic.getObjectNum()*objectRate;
+
+    public List<Topic> SelectByClassId(Integer id) {
+        List<Topic> topics = topicMapper.selectByClassId(id);
+        for (Topic topic : topics) {
+            int remarkNum = topic.getRemarkNum() * remarkRate;
+            int favor = topic.getFavor() * favorRate;
+            int views = topic.getViews() * viewsRate;
+            int objectNum = topic.getObjectNum() * objectRate;
             LocalDateTime publicTime = topic.getPublicTime();
             LocalDateTime now = LocalDateTime.now();
-            double hours = ChronoUnit.HOURS.between(publicTime, now)/24;
-            double hot= (remarkNum + favor + views + objectNum)/(Math.pow(hours+2,1.2));
-            topic.setHot((int)hot);
+            double hours = ChronoUnit.HOURS.between(publicTime, now) / 24;
+            double hot = (remarkNum + favor + views + objectNum) / (Math.pow(hours + 2, 1.2));
+            topic.setHot((int) hot);
         }
         return topics;
     }
@@ -102,24 +103,23 @@ public class TopicServiceImpl implements TopicService{
 
     @Override
     public List<Topic> search(String keyword) {
-        keyword="%"+keyword+"%";
+        keyword = "%" + keyword + "%";
         return topicMapper.search(keyword);
     }
 
 
-    
     @Override
     @Transactional
     public RetType setFollow(Integer topicId, Integer userId) {
         RetType ret = new RetType();
-        Boolean follow = topicMapper.findFollow(topicId,userId);
-        if(follow){
-            topicMapper.deleteFollow(topicId,userId);
+        Boolean follow = topicMapper.findFollow(topicId, userId);
+        if (follow) {
+            topicMapper.deleteFollow(topicId, userId);
             ret.setMsg("取消关注成功");
             ret.setOk(true);
             ret.setData(null);
-        }else{
-            topicMapper.insertFollow(topicId,userId);
+        } else {
+            topicMapper.insertFollow(topicId, userId);
             ret.setMsg("关注成功");
             ret.setOk(true);
             ret.setData(null);
@@ -129,24 +129,24 @@ public class TopicServiceImpl implements TopicService{
 
     @Override
     public Boolean findFollow(Integer topicId, Integer userId) {
-        return topicMapper.findFollow(topicId,userId);
+        return topicMapper.findFollow(topicId, userId);
     }
-    
+
     @Override
     public RetType deleteTopic(Integer topicId) {
         RetType ret = new RetType();
-        List<Objects> toDelete=objectMapper.selectAllInTopic(topicId);
-        for(Objects objects:toDelete){
+        List<Objects> toDelete = objectMapper.selectAllInTopic(topicId);
+        for (Objects objects : toDelete) {
             objectService.deleteObject(objects.getId());
         }
 
         topicMapper.deleteTopic(topicId);
 
-        if(topicMapper.selectById(topicId)==null){
+        if (topicMapper.selectById(topicId) == null) {
             ret.setMsg("删除成功");
             ret.setOk(true);
             ret.setData(null);
-        }else{
+        } else {
             ret.setMsg("删除失败");
             ret.setOk(false);
             ret.setData(null);
@@ -154,18 +154,18 @@ public class TopicServiceImpl implements TopicService{
         return ret;
     }
 
-    public List<Topic> hotTopic(){
+    public List<Topic> hotTopic() {
         List<Topic> topics = topicMapper.selectAll();
-        for(Topic topic:topics){
-            int remarkNum = topic.getRemarkNum()*remarkRate;
-            int favor = topic.getFavor()*favorRate;
-            int views = topic.getViews()*viewsRate;
-            int objectNum =topic.getObjectNum()*objectRate;
+        for (Topic topic : topics) {
+            int remarkNum = topic.getRemarkNum() * remarkRate;
+            int favor = topic.getFavor() * favorRate;
+            int views = topic.getViews() * viewsRate;
+            int objectNum = topic.getObjectNum() * objectRate;
             LocalDateTime publicTime = topic.getPublicTime();
             LocalDateTime now = LocalDateTime.now();
-            double hours = ChronoUnit.HOURS.between(publicTime, now)/24;
-            double hot= (remarkNum + favor + views + objectNum)/(Math.pow(hours+2,1.2));
-            topic.setHot((int)hot);
+            double hours = ChronoUnit.HOURS.between(publicTime, now) / 24;
+            double hot = (remarkNum + favor + views + objectNum) / (Math.pow(hours + 2, 1.2));
+            topic.setHot((int) hot);
         }
 
         List<Topic> topThreeHotTopics = topics.stream()
