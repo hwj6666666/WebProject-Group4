@@ -86,7 +86,7 @@ const Object = ({ object }) => {
 						"{truncateComment(object.hottestRemark, 25)}"
 					</p>
 				</div>
-				{(localStorage.getItem('id') == object.userId || localStorage.getItem('isManager')) && <Button
+				{(localStorage.getItem('id') == object.userId || localStorage.getItem('isManager')==="true") && <Button
 						className="ml-auto mr-8"
 						onClick={(e) => {
 							e.stopPropagation();

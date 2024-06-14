@@ -22,6 +22,8 @@ function LoginPage() {
     const email = e.target.email.value;
     const password = e.target.password.value;
 
+    // if(email="manager@jiaoji.com"&&password=="manager"){
+
     fetch("http://localhost:8080/user/login", {
       method: "POST",
       headers: {
@@ -38,13 +40,13 @@ function LoginPage() {
           dispatch(setId(data.data));
           localStorage.setItem("isLoggedIn", true);
           localStorage.setItem("id", data.data);
-          localStorage.setItem("isManager", true);
+          if (data.data === 1) localStorage.setItem("isManager", true);
+          else localStorage.setItem("isManager", false);
         } else {
           message.error(data.msg);
         }
       })
-      .catch((error) => {
-      });
+      .catch((error) => {});
   };
 
   return (
