@@ -1,5 +1,8 @@
 import React from "react";
 import { Carousel } from "antd";
+import struct from "../../assets/交大建筑.png";
+import relax from "../../assets/休闲.png";
+import food from "../../assets/外卖.png";
 const contentStyle = {
   height: "160px",
   color: 'var(--color-text-base)',
@@ -12,13 +15,13 @@ const TopicCarousel = () => (
   <div style={{borderRadius:"10px"}}>
   <Carousel autoplay className="ml-10 mt-24  ">
     <div className="bg-base">
-      <h3 style={contentStyle}>交大哪个餐饮大楼你去得最多？</h3>
+      <a href="./topic/2"><img src={struct}/></a>
     </div>
     <div className="bg-base">
-      <h3 style={contentStyle}>你最喜欢哪一座交大建筑？</h3>
+    <a href="./topic/8"><img src={food}/></a>
     </div>
     <div className="bg-base">
-      <h3 style={contentStyle}>你最喜欢哪家快餐店</h3>
+      <a href="./topic/6"><img src={relax}/></a>
     </div>
   </Carousel></div>
 );
