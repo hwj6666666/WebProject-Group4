@@ -1,5 +1,6 @@
-import {React, useEffect, useState} from "react";
-import logo from "@/assets/logo3.png";
+import React from "react";
+import logo from "@/assets/logo.png";
+import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { Affix, Input, Cascader} from "antd/es";
 import { Login } from "@/components/login";
@@ -64,7 +65,7 @@ const Header = () => {
 			</Helmet>
 			<Link to={{ pathname: "/" }}>
 				<div className="flex items-center cursor-pointer bg-header">
-					<img src={logo} alt="logo" className="h-20 rounded-2xl" />
+					<img src={logo} alt="logo" className="h-20 size-48" />
 					{/* <span className="text-black ml-4 text-4xl">交∩集</span> */}
 				</div>
 			</Link>

@@ -39,7 +39,8 @@ root.render(
 			colorText: 'var(--color-text-base)',
 		},
 		Card:{
-			extraColor:'var(--color-text-base)'
+			extraColor:'var(--color-text-base)',
+			colorTextHeading: 'var(--color-text-base)',
 		},
     }}}>
 	<Provider store={store}>
