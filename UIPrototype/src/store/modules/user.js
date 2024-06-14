@@ -100,6 +100,7 @@ export const updateUser = (newProfile) => {
 		const res = await updateUserAPI(newProfile);
 		// console.log(res)
 		dispatch(setUser(res));
+		dispatch(setHeaderAvatar(res));
 	}
 }
 export const updatePassword = (UidandPsd) => {
