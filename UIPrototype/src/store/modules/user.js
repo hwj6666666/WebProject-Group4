@@ -16,6 +16,9 @@ const userStore = createSlice({
 		setTopics(state, action) {
 			state.topicsbyuser = action.payload
 		},
+		deleteTopicInUser(state, action) {
+			state.topicsbyuser = state.topicsbyuser.filter((topic) => topic.id !== action.payload)
+		},
 		setObjects(state, action) {
 			state.objectsbyuser = action.payload
 		},
@@ -114,10 +117,10 @@ export const getOandTTitle = (objectId) => {
 		dispatch(setUser(res));
 	}
 }
-const { setUser, setTopics, setObjects, setRemarks, setFllows, setHeaderAvatar, setLoggedIn, setId, addUser } = userStore.actions;
+const { setUser, setTopics, deleteTopicInUser, setObjects, setRemarks, setFllows, setHeaderAvatar, setLoggedIn, setId, addUser } = userStore.actions;
 
 const userReducer = userStore.reducer;
 
-export { setUser, addUser, setLoggedIn, setId };
+export { setUser, addUser, deleteTopicInUser, setLoggedIn, setId };
 
 export default userReducer;

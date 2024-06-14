@@ -12,7 +12,7 @@ function BasicPage() {
 	return (
 		<div className="min-h-screen bg-base">
 			<div className="min--h-screen flex justify-center ">
-				<Affix offsetTop={100}><MySider 
+				<Affix offsetTop={100}><MySider
 				/></Affix>
 				<div className="">
 					<div className="">
@@ -23,7 +23,7 @@ function BasicPage() {
 						style={{ marginLeft: "30px", width: "800px" }}
 					>
 						{topic.map((topic, index) => (
-							<div style={{ marginBottom: "30px" }}>
+							<div key={topic.id} style={{ marginBottom: "30px" }}>
 								<Topic key={index} topic={topic} />
 							</div>
 						))}
@@ -33,7 +33,7 @@ function BasicPage() {
 					<Affix offsetTop={100}><TopicCarousel /><Notice /></Affix>
 				</div>
 				<div>
-					
+
 				</div>
 			</div>
 		</div>
