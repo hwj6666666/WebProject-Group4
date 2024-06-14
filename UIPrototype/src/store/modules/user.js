@@ -42,7 +42,6 @@ const userStore = createSlice({
 export const fetchUser = (user_id) => {
 	return async (dispatch) => {
 		const res = await getUserAPI(user_id);
-		// console.log(res)
 		dispatch(setUser(res));
 	}
 }

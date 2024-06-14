@@ -11,7 +11,7 @@ function SearchTopic() {
       searchUser(keyword).then((res)=>{
       setUser(res)
     })
-    }, []);
+    }, [keyword]);
   return (
     <div>
         {user.length>0?<div >

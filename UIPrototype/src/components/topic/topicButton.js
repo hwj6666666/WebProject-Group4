@@ -66,7 +66,6 @@ export const HeadButton = () => {
     else if (!imageUrl) message.error("请上传图片!");
     else if (!introduce) message.error("请输入简介!");
     else {
-      message.success("提交成功");
       const mytopic = {
         title: topic,
         introduction: introduce,

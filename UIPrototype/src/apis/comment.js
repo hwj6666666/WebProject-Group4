@@ -22,4 +22,11 @@ const addCommentAPI = (comment) => {
     });
 }
 
-export { getCommentAPI, addCommentAPI }
+const deleteCommentAPI = (commentId) => {
+    return request({
+        url: `/comments/delete/${commentId}`,
+        method: 'get'
+    });
+}
+
+export { getCommentAPI, addCommentAPI, deleteCommentAPI }

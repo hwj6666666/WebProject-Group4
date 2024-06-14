@@ -2,10 +2,7 @@ package org.example.jiaoji.mapper;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Options;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import org.example.jiaoji.pojo.Topic;
 
 @Mapper
@@ -22,11 +19,37 @@ public interface TopicMapper {
     @Select("select id from topic where title = #{title}")
     public Integer selectIdByTitle(String title);
 
+    @Select("select * from topic where title = #{keyword}")
+    public Topic selectByTitle(String keyword);
+
     @Insert("insert into topic(class_id,user_id,title,picture,introduction,hot,public_time,base64) values(#{classId},#{userId},#{title},#{picture},#{introduction},#{hot},#{publicTime},#{base64})")
     @Options(useGeneratedKeys = true, keyProperty = "id")
-    public void insert(Topic topic);
+    public int insert(Topic topic);
     
     @Select("select * from topic where title like #{keyword}")
     public List<Topic> search(String keyword);
 
+    @Update("update topic set views = #{views} where id = #{id}")
+    public int updateViews(Integer views, Integer id);
+
+    @Update("update topic set remark_num = #{remarkNum} where id = #{id}")
+    public int updateRemarkNum(Integer remarkNum, Integer id);
+
+    @Update("update topic set favor = #{favor} where id = #{id}")
+    public int updateFavor(Integer favor, Integer id);
+
+    @Update("update topic set object_num = #{objectNum} where id = #{id}")
+    public int updateObjectNum(Integer objectNum, Integer id);
+
+    @Insert("insert into fllow(topic_id,user_id) values(#{topicId},#{userId})")
+    public int insertFollow(Integer topicId, Integer userId);
+
+    @Delete("delete from fllow where topic_id = #{topicId} and user_id = #{userId}")
+    public int deleteFollow(Integer topicId, Integer userId);
+
+    @Select("select count(*) from fllow where topic_id = #{topicId} and user_id = #{userId}")
+    public Boolean findFollow(Integer topicId, Integer userId);
+
+    @Delete("delete from topic where id = #{topicId}")
+    public void deleteTopic(Integer topicId);
 }

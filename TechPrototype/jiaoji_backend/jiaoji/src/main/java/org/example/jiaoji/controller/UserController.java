@@ -14,7 +14,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
 @RestController
@@ -92,9 +91,6 @@ public class UserController {
     public ResponseEntity<User> updatePsd(@PathVariable("id") Integer id, @RequestBody User user) {
         User updatedPsdUser = userService.updatePsd(id, user);
         updatedPsdUser.setPassword("");
-        if (updatedPsdUser == null) {
-            return ResponseEntity.notFound().build();
-        }
         return ResponseEntity.ok(updatedPsdUser);
     }
 

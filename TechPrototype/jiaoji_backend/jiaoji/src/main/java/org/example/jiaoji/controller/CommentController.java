@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.example.jiaoji.pojo.Comment;
-import org.example.jiaoji.pojo.RetType;
 import org.example.jiaoji.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -27,7 +26,13 @@ public class CommentController {
 
     @CrossOrigin
     @PostMapping("/comments")
-    public RetType insert(@RequestBody Comment comment) {
+    public Integer insert(@RequestBody Comment comment) {
         return commentService.addComment(comment);
+    }
+
+    @CrossOrigin
+    @GetMapping("/comments/delete/{id}")
+    public void delete(@PathVariable Integer id) {
+        commentService.deleteById(id);
     }
 }

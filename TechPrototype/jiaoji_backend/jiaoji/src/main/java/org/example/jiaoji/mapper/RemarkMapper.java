@@ -4,6 +4,7 @@ import org.apache.ibatis.annotations.*;
 import org.example.jiaoji.pojo.Remark;
 import org.example.jiaoji.pojo.RemarkLike;
 import org.example.jiaoji.pojo.User;
+import org.example.jiaoji.pojo.Objects;
 
 import java.util.List;
 
@@ -39,4 +40,7 @@ public interface RemarkMapper {
 
     @Insert("insert into rmk_likes(uid,rmk_id) values (#{uid},#{remarkId})")
     public void insertLikes(Integer uid, Integer remarkId);
+
+    @Select("select * from object where id = #{objectId}")
+    public Objects selectObjectById(Integer objectId);
 }

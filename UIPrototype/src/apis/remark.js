@@ -41,4 +41,11 @@ const getUsersAPI = () => {
 	});
 }
 
-export { getRemarkAPI, addRemarkAPI, changeLikeAPI, getUsersAPI, getLikeAPI }
+const deleteRemarkAPI = (id) => {
+	return request({
+		url: `/remarks/delete/${id}`,
+		method: 'get',
+	});
+}
+
+export { getRemarkAPI, addRemarkAPI, changeLikeAPI, getUsersAPI, getLikeAPI, deleteRemarkAPI }

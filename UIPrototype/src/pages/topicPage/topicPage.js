@@ -4,6 +4,7 @@ import { MySider } from "@/components/topic/topicSider";
 import { useSelector } from "react-redux";
 import TopicCarousel from "@/components/topic/topicCarousel";
 import { Affix } from "antd";
+import Notice from "@/components/topic/notice";
 
 function BasicPage() {
 	const { topic } = useSelector((state) => state.topic);
@@ -17,7 +18,6 @@ function BasicPage() {
 					<div className="">
 						<HeadButton />
 					</div>
-
 					<div
 						className="bg-white"
 						style={{ marginLeft: "30px", width: "800px" }}
@@ -30,7 +30,10 @@ function BasicPage() {
 					</div>
 				</div>
 				<div className="w-1/4">
-					<Affix><TopicCarousel /></Affix>
+					<Affix offsetTop={100}><TopicCarousel /><Notice /></Affix>
+				</div>
+				<div>
+					
 				</div>
 			</div>
 		</div>

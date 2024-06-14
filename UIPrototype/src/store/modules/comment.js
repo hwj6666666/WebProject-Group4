@@ -1,4 +1,4 @@
-import { addCommentAPI, getCommentAPI } from "@/apis/comment";
+import { addCommentAPI, deleteCommentAPI, getCommentAPI } from "@/apis/comment";
 import { createSlice } from "@reduxjs/toolkit";
 
 const commentStore = createSlice({
@@ -16,13 +16,18 @@ const commentStore = createSlice({
             state.comment = action.payload;
             state.commentLen = action.payload.length;
         },
+        deleteMyComment(state, action) {
+            state.comment = state.comment.filter(c => c.id !== action.payload);
+            state.commentLen--;
+        }
     }
 });
 
 const addComment = (comment) => {
     return async (dispatch) => {
+        const generatedId = await addCommentAPI(comment);
+        comment.id = generatedId;
         dispatch(addMyComment(comment));
-        addCommentAPI(comment);
     }
 }
 
@@ -34,10 +39,17 @@ const fetchComment = (remarkIds) => {
     }
 }
 
-const { addMyComment, changeComment } = commentStore.actions;
+const deleteComment = (commentId) => {
+    return async (dispatch) => {
+        deleteCommentAPI(commentId);
+        dispatch(deleteMyComment(commentId));
+    }
+}
+
+const { addMyComment, changeComment, deleteMyComment } = commentStore.actions;
 
 const commentReducer = commentStore.reducer;
 
-export { addMyComment, changeComment, addComment, fetchComment }
+export { addMyComment, changeComment, deleteMyComment, addComment, fetchComment, deleteComment }
 
 export default commentReducer

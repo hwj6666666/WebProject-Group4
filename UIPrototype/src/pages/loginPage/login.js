@@ -38,7 +38,7 @@ function LoginPage() {
           dispatch(setId(data.data));
           localStorage.setItem("isLoggedIn", true);
           localStorage.setItem("id", data.data);
-
+          localStorage.setItem("isManager", true);
         } else {
           message.error(data.msg);
         }

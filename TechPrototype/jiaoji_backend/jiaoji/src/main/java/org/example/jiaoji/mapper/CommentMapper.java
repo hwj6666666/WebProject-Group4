@@ -1,8 +1,6 @@
 package org.example.jiaoji.mapper;
 
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import org.example.jiaoji.pojo.Comment;
 
 import java.util.List;
@@ -16,5 +14,11 @@ public interface CommentMapper {
     public List<Comment> selectById(Integer id);
 
     @Insert("insert into comments(id,user_id,remark_id,content,publish_time) values (#{id},#{userId},#{remarkId},#{content},#{publishTime})")
+    @Options(useGeneratedKeys = true, keyProperty = "id")
     public void insert(Comment comment);
+
+    @Delete("delete from comments where id = #{id}")
+    public void deleteById(Integer id);
+    @Select("select * from remarks where id = #{remarkId}")
+    public Comment selectRemarkById(Integer remarkId);
 }

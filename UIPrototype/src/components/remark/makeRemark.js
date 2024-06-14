@@ -1,11 +1,11 @@
 import { getUsersAPI } from "@/apis/remark";
-import { addRemark } from "@/store/modules/remark";
+import { addRemark, deleteRemark } from "@/store/modules/remark";
 import { Button, Form, Input, Modal, message, Rate } from "antd/es";
 import { Content } from "antd/es/layout/layout";
 import React, { useEffect, useRef, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
-export const MakeRemark = ({ objId }) => {
+export const MakeRemark = ({ objId, isRemark, remarks }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const showModal = () => {
     setIsModalOpen(true);
@@ -38,6 +38,7 @@ export const MakeRemark = ({ objId }) => {
     if (!score) message.error("请给出评价分数");
     else {
       let date = new Date();
+      date.setHours(date.getHours() + 8);
       let dateString = date.toISOString();
       const mark = {
         userId: localStorage.getItem("id"),
@@ -47,6 +48,14 @@ export const MakeRemark = ({ objId }) => {
         score: score * 2,
         publishTime: dateString,
       };
+      if (isRemark) {
+        const uid = localStorage.getItem("id");
+        console.log(remarks);
+        console.log(uid);
+        console.log(objId);
+        const rmkId = remarks.find(rmk => rmk.userId == uid && rmk.objectId == objId)?.id;
+        if (rmkId) await dispatch(deleteRemark(rmkId));
+      }
       dispatch(addRemark(mark));
       setIsModalOpen(false);
     }
@@ -62,7 +71,7 @@ export const MakeRemark = ({ objId }) => {
         }}
         onClick={judge}
       >
-        立即评分
+        {isRemark ? '修改评分' : '立即评分'}
       </Button>
       <Modal
         title="评分"

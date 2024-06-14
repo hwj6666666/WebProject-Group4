@@ -1,4 +1,4 @@
-import { addRemarkAPI, changeLikeAPI } from "@/apis/remark";
+import { addRemarkAPI, changeLikeAPI, deleteRemarkAPI } from "@/apis/remark";
 import { createSlice } from "@reduxjs/toolkit";
 import { getLikeAPI } from "@/apis/remark";
 import { message } from "antd";
@@ -45,6 +45,10 @@ const remarkStore = createSlice({
 			let this_remark = state.remark.find(r => r.id === action.payload.id);
 			this_remark.liked = action.payload.liked;
 		},
+		deleteMyRemark(state, action) {
+			state.remark = state.remark.filter(r => r.id !== action.payload);
+			state.remarkLen--;
+		}
 	},
 });
 
@@ -63,6 +67,11 @@ const addRemark = (remark) => {
 	}
 }
 
+const deleteRemark = (id) => async (dispatch) => {
+	await deleteRemarkAPI(id);
+	dispatch(deleteMyRemark(id));
+}
+
 const changeLikeBack = (change, id) => {
 	console.log(id + " change likes " + change);
 	changeLikeAPI(change, id);
@@ -77,10 +86,10 @@ const fetchLike = (id) => {
 	}
 }
 
-const { addMyRemark, changeRemark, changeLike, changePos, setOrderByTime, setLike } = remarkStore.actions;
+const { addMyRemark, changeRemark, changeLike, changePos, setOrderByTime, setLike, deleteMyRemark } = remarkStore.actions;
 
 const remarkReducer = remarkStore.reducer;
 
-export { addMyRemark, changeRemark, changeLike, changePos, setOrderByTime, setLike, addRemark, changeLikeBack, fetchLike };
+export { addMyRemark, changeRemark, changeLike, changePos, setOrderByTime, setLike, addRemark, changeLikeBack, fetchLike, deleteRemark };
 
 export default remarkReducer;
