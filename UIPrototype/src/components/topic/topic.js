@@ -6,7 +6,6 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getTop3 } from "@/apis/object";
 import { Button, message } from "antd";
-import { Button, message } from "antd";
 import { deleteTopic } from "@/store/modules/topic";
 
 const Topic = ({ topic }) => {
@@ -80,7 +79,7 @@ const Topic = ({ topic }) => {
           }}
         >
           {top3.map((object, index) => (
-            <Button onClick={(e) => handle(e, object.id)}>
+            <Button key={object.id} onClick={(e) => handle(e, object.id)}>
               {object.title}
             </Button>
           ))}
