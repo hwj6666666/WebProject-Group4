@@ -27,6 +27,7 @@ const options = [
 const Header = () => {
 	const navigate = useNavigate();	
 	const onSearch = (value, _e, info) =>{
+		if(value==="") return;
 	navigate(`/search/topic/${value}`);
 	};
 	const [savedTheme, setTheme] = useState("");
@@ -44,7 +45,7 @@ const Header = () => {
 	  }, []); // This runs only once after the component mounts
 
 
-	return (<>
+	return (<><div className="bg-base">
 	<Affix>
 		<div className="shadow-lg min-w-[700px] flex justify-between items-center bg-header text-base h-20 rounded-2xl ">
 			<Helmet>
@@ -106,7 +107,7 @@ const Header = () => {
 				<Login></Login>
 			</div>
 		</div></Affix>
-		{children}</>
+		{children}</div></>
 	);
 };
 

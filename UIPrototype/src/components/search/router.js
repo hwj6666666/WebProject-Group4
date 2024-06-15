@@ -33,13 +33,10 @@ const SearchRouter = () => {
     setCurrent(second);
     }, [second]);
   return (
-    <>
-      <div>
+      <div className="bg-base">
       <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} 
-      className="mt-10 pl-20 text-3xl" style={{color:"blue"}}></Menu>
+      className="mt-10 pl-20 text-3xl bg-base" style={{color:"blue"}}></Menu>
       {children}</div>
-      
-    </>
   );
 };
 
