@@ -22,12 +22,14 @@ const userStore = createSlice({
 				(remark) => !objectsToDelete.some((obj) => obj.id === remark.objectId)
 			);
 			state.objectsbyuser = state.objectsbyuser.filter((obj) => {
-				// console.log('action.payload', action.payload)
-				// console.log("obj.topicId", obj.topicId)
 				return obj.topicId !== action.payload
 			});
 			state.topicsbyuser = state.topicsbyuser.filter((topic) => topic.id !== action.payload)
 			state.fllows = state.fllows.filter((topic) => topic.id !== action.payload)
+		},
+		deleteObjectInUser(state, action) {
+			state.remarksbyuser = state.remarksbyuser.filter((remark) => remark.objectId !== action.payload);
+			state.objectsbyuser = state.objectsbyuser.filter((obj) => obj.id !== action.payload)
 		},
 		setObjects(state, action) {
 			state.objectsbyuser = action.payload
@@ -128,10 +130,10 @@ export const getOandTTitle = (objectId) => {
 		dispatch(setUser(res));
 	}
 }
-const { setUser, setTopics, deleteTopicInUser, setObjects, setRemarks, setFllows, setHeaderAvatar, setLoggedIn, setId, addUser } = userStore.actions;
+const { setUser, setTopics, deleteTopicInUser, deleteObjectInUser, setObjects, setRemarks, setFllows, setHeaderAvatar, setLoggedIn, setId, addUser } = userStore.actions;
 
 const userReducer = userStore.reducer;
 
-export { setUser, setTopics, addUser, deleteTopicInUser, setLoggedIn, setId };
+export { setUser, setTopics, addUser, deleteTopicInUser, deleteObjectInUser, setLoggedIn, setId };
 
 export default userReducer;
