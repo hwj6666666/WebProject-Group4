@@ -53,6 +53,8 @@ const deleteObject = (id) => {
 			dispatch(deleteMyObject(id));
 			dispatch(deleteObjectInUser(id));
 			message.success(res.msg);
+		} else {
+			message.error(res.msg);
 		}
 	}
 }
