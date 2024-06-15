@@ -44,13 +44,14 @@ export const UserPage = () => {
 									<button onClick={() => setShowtype('O')} className=" flex-1 hover:border-b-2 border-blue-300 hover:text-sky-500 ">对象</button>
 									<button onClick={() => setShowtype('R')} className=" flex-1 hover:border-b-2 border-blue-300 hover:text-sky-500 ">评论</button>
 									<button onClick={() => setShowtype('F')} className=" flex-1 hover:border-b-2 border-blue-300 hover:text-sky-500 ">关注</button>
+									<div className=" flex-[3] w-auto h-auto bg-header rounded-sm " />
 								</div>
 								<ShowDetail type={showtype} />
 							</div>
 
-							<div className=" flex-1 w-auto h-auto bg-header rounded-sm ">
+							{/* <div className=" flex-1 w-auto h-auto bg-header rounded-sm ">
 								正在施工
-							</div>
+							</div> */}
 
 						</div>
 					</>}
