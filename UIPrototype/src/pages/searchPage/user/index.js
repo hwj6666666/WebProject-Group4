@@ -13,7 +13,7 @@ function SearchTopic() {
     })
     }, [keyword]);
   return (
-    <div>
+    <div >
         {user.length>0?<div >
           <Row className="ml-12" >
             {user.map((user) => (
