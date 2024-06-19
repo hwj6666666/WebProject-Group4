@@ -9,8 +9,9 @@ export default function ShowDetail(props) {
 	const objects = useSelector(state => state.user).objectsbyuser
 	const remarks = useSelector(state => state.user).remarksbyuser
 	const fllows = useSelector(state => state.user).fllows
-	// console.log(topics)
+
 	// console.log('showdetail')
+	// console.log(topics)
 	// console.log(objects)
 	// console.log(remarks)
 	switch (props.type) {

@@ -16,15 +16,26 @@ export default function RemarkUser({ remark }) {
 		return <StarOutlined key={i} className="text-yellow-400 mr-1" />;
 	})
 	const [OandT, setOandT] = useState({ objectName: '', topicName: '' });
+	const [notFound, setNotFound] = useState(false); // 添加一个状态来表示是否404错误
 	useEffect(() => {
 		const fetchOandT = async () => {
-			const OandT = await getOandTTitleAPI(remark.objectId);
-			// console.log(OandT);
-			setOandT(OandT);
+			try {
+				const OandT = await getOandTTitleAPI(remark.objectId);
+				// console.log(OandT);
+				setOandT(OandT);
+			} catch (error) {
+				// 检查错误是否为404
+				if (error.response && error.response.status === 404) {
+					// console.log('未找到资源');
+					setNotFound(true);
+				} else {
+					// console.error('发生错误', error);
+				}
+			}
 		};
 		fetchOandT();
-	}, [remark])
-
+	}, [remark]);
+	if (notFound) return null; // 如果notFound为true，不渲染任何内容
 	return (
 		<Card
 			hoverable
