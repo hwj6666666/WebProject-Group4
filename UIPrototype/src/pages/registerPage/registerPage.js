@@ -96,7 +96,7 @@ function RegisterPage() {
         .then((data) => {
           if (data.ok) {
             message.success(data.msg);
-            message.success("Register successfully");
+            // message.success("Register successfully");
           } else message.error(data.msg);
         })
         .catch((error) => {
