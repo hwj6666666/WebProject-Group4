@@ -14,6 +14,7 @@ import Card from "antd/es/card/Card";
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
+import _ from 'lodash'
 
 export const RemarkPage = () => {
 
@@ -34,6 +35,7 @@ export const RemarkPage = () => {
 	};
 	useEffect(() => {
 		fetchData().then((data) => {
+			data = _.orderBy(data, ['publishTime'], ['desc']);
 			dispatch(changeRemark(data));
 			const remarkIds = data.map((item) => item.id);
 			dispatch(fetchComment(remarkIds));
