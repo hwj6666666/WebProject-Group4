@@ -12,6 +12,3 @@ create table rmk_likes
         foreign key (uid) references user (id)
 );
 
-INSERT INTO jiaoji.rmk_likes (id, uid, rmk_id, liked) VALUES (1, 10, 3, false);
-INSERT INTO jiaoji.rmk_likes (id, uid, rmk_id, liked) VALUES (2, 10, 4, false);
-INSERT INTO jiaoji.rmk_likes (id, uid, rmk_id, liked) VALUES (3, 10, 49, false);

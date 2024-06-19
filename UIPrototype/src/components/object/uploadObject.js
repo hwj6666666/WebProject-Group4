@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import UploadBotton from "../UploadButton";
 import { addObject } from "@/store/modules/object";
 
-const user_id = localStorage.getItem("id");
+// const userId = localStorage.getItem("id");
 // console.log('user_id' + user_id);
 const UploadObject = ({ topicId }) => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
@@ -42,6 +42,7 @@ const UploadObject = ({ topicId }) => {
 		else if (!introduce) message.error("请输入简介!");
 		else {
 			message.success("提交成功");
+			const user_id = localStorage.getItem("id");
 			const myobject = {
 				title: title,
 				description: introduce,
@@ -83,7 +84,7 @@ const UploadObject = ({ topicId }) => {
 				>
 					<>
 						{" "}
-						<Form.Item name="title" label="上传话题" required>
+						<Form.Item name="title" label="上传对象" required>
 							<Input placeholder="上传您想讨论的话题" />
 						</Form.Item>
 						<Form.Item name="picture" required>

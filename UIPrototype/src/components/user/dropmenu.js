@@ -23,7 +23,7 @@ const Setting = () => {
 		else if (form.password !== form.confirm)
 			message.error('两次输入的新密码不一致', 1)
 		else if (form.oldpassword !== curUser.password) {
-			console.log(curUser.password)
+			// console.log(curUser.password)
 			message.error('旧密码错误', 0.8)
 		}
 		else {
