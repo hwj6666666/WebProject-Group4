@@ -1,6 +1,6 @@
 import { message } from "antd";
+import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
-
 function RegisterPage() {
   const [isButtonDisabled, setButtonDisabled] = useState(false);
   const [countdown, setCountdown] = useState(60);
@@ -16,7 +16,7 @@ function RegisterPage() {
     // 检查邮箱地址是否有效
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      message.error("Invalid email address");
+      message.error("无效地址");
       return;
     }
 
@@ -120,13 +120,16 @@ function RegisterPage() {
   }, [isButtonDisabled, countdown]);
 
   return (
-    <div className="flex items-center justify-center min-h-screen">
+    <div
+      className="flex items-center justify-center min-h-screen"
+      style={{ backgroundImage: "url('background.jpg')" }}
+    >
       <div className="bg-white p-8 rounded shadow-md w-80">
         <form onSubmit={handleRegister}>
           <input
             type="email"
             name="email"
-            placeholder="Email"
+            placeholder="邮箱"
             className="input-item block w-full p-2 border border-gray-300 rounded mt-4"
           />
           <button
@@ -139,25 +142,29 @@ function RegisterPage() {
           >
             {isButtonDisabled
               ? `Resend in ${countdown} seconds`
-              : "Send Verification Code"}
+              : "发送验证码"}
           </button>
           <input
             type="text"
             name="verificationCode"
-            placeholder="Verification Code"
+            placeholder="验证码"
             className="input-item block w-full p-2 border border-gray-300 rounded mt-4"
           />
           <input
             type="password"
             name="password"
-            placeholder="Password"
+            placeholder="密码"
             className="input-item block w-full p-2 border border-gray-300 rounded mt-4"
           />
           <input
             className="btn1 block w-full bg-blue-500 text-white p-2 rounded mt-4"
             type="submit"
-            value="Register"
+            value="注册"
           />
+          <div className="msg">
+            已有账号？
+            <Link to="/login">前往登录</Link>
+          </div>
         </form>
       </div>
     </div>

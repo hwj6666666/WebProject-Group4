@@ -54,7 +54,7 @@ function LoginPage() {
     >
       {contextHolder}
       <form className="loginform" onSubmit={handleSubmit}>
-        <div className="header">Login</div>
+        <div className="header">登录</div>
         <div className="form-wrapper">
           <input
             type="text"
@@ -70,14 +70,14 @@ function LoginPage() {
           />
           <div className="reg">
             <input type="checkbox" id="brand" value="" />
-            <label for="brand"> Remember me</label>
-            <Link to="/register">Forgot password</Link>
+            <label for="brand">记住我</label>
+            <Link to="/register">忘记密码</Link>
           </div>
-          <input className="btn1" type="submit" value="login"></input>
+          <input className="btn1" type="submit" value="登录"></input>
         </div>
         <div className="msg">
-          Don't have account?
-          <Link to="/register">Sign up</Link>
+          还没有账号？
+          <Link to="/register">前往注册</Link>
         </div>
       </form>
     </div>
