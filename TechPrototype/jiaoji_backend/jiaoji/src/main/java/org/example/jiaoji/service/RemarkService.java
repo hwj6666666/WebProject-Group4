@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.example.jiaoji.pojo.Remark;
 
+import org.example.jiaoji.pojo.RetType;
 import org.example.jiaoji.pojo.User;
 
 public interface RemarkService {
@@ -14,9 +15,9 @@ public interface RemarkService {
 
     public List<Remark> SelectById(Integer id);
 
-    public void changeLike(Integer id, Integer change, Integer uid);
+    public RetType changeLike(Integer id, Integer change, Integer uid);
 
-    public void deleteRemark(Integer id);
+    public RetType deleteRemark(Integer id);
 
     public List<User> getAllUser();
 

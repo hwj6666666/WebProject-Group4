@@ -52,12 +52,19 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
-    public List<Comment> SelectById(Integer id) {
-        return commentMapper.selectById(id);
-    }
-
-    @Override
-    public void deleteById(Integer id) {
+    public RetType deleteById(Integer id) {
+        RetType ret = new RetType();
         commentMapper.deleteById(id);
+
+        if (commentMapper.selectById(id).isEmpty()) {
+            ret.setMsg("删除成功");
+            ret.setOk(true);
+            ret.setData(null);
+        } else {
+            ret.setMsg("删除失败");
+            ret.setOk(false);
+            ret.setData(null);
+        }
+        return ret;
     }
 }

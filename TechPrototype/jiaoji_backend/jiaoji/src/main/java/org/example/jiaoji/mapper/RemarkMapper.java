@@ -29,9 +29,6 @@ public interface RemarkMapper {
     @Delete("delete from remarks where id=#{id}")
     public void delete(Integer id);
 
-    @Select("select * from user")
-    public List<User> getAllUSer();
-
     @Select("select * from rmk_likes where uid = #{uid} and rmk_id = #{remarkId}")
     public List<RemarkLike> getLikeByUid(Integer uid, Integer remarkId);
 
@@ -40,10 +37,4 @@ public interface RemarkMapper {
 
     @Insert("insert into rmk_likes(uid,rmk_id) values (#{uid},#{remarkId})")
     public void insertLikes(Integer uid, Integer remarkId);
-
-    @Select("select * from object where id = #{objectId}")
-    public Objects selectObjectById(Integer objectId);
-
-    @Delete("delete from remarks where object_id=#{obj_id}")
-    public void deleteByObjectId(Integer obj_id);
 }
