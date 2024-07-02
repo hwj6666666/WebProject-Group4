@@ -16,15 +16,15 @@ import java.util.Map;
 
 import org.springframework.web.bind.annotation.GetMapping;
 
-
 @RestController
+@CrossOrigin
 public class UserController {
     @Autowired
     private UserService userService;
+
     @Autowired
     private ObjectService objectService;
 
-    @CrossOrigin
     @GetMapping("/user")
     @ResponseBody
     public ResponseEntity<List<User>> getAllUser() {
@@ -32,7 +32,6 @@ public class UserController {
         return ResponseEntity.ok(users);
     }
 
-    @CrossOrigin
     @GetMapping("/user/{id}")
     @ResponseBody
     public ResponseEntity<User> getUserById(@PathVariable("id") Integer id) {
@@ -40,7 +39,6 @@ public class UserController {
         return ResponseEntity.ok(user);
     }
 
-    @CrossOrigin
     @GetMapping("/user/{id}/topics")
     @ResponseBody
     public ResponseEntity<List<Topic>> getTopicsById(@PathVariable("id") Integer id) {
@@ -48,7 +46,6 @@ public class UserController {
         return ResponseEntity.ok(topics);
     }
 
-    @CrossOrigin
     @GetMapping("/user/{id}/objects")
     @ResponseBody
     public ResponseEntity<List<Objects>> getObjectsById(@PathVariable("id") Integer id) {
@@ -60,7 +57,6 @@ public class UserController {
         return ResponseEntity.ok(objects);
     }
 
-    @CrossOrigin
     @GetMapping("/user/{id}/remarks")
     @ResponseBody
     public ResponseEntity<List<Remark>> getRemarksById(@PathVariable("id") Integer id) {
@@ -68,7 +64,6 @@ public class UserController {
         return ResponseEntity.ok(remark);
     }
 
-    @CrossOrigin
     @GetMapping("/user/{id}/follows")
     @ResponseBody
     public ResponseEntity<List<Topic>> getFollows(@PathVariable("id") Integer id) {
@@ -76,7 +71,6 @@ public class UserController {
         return ResponseEntity.ok(follow);
     }
 
-    @CrossOrigin
     @PutMapping("/user/{id}")
     public ResponseEntity<User> updateUser(@PathVariable("id") Integer id, @RequestBody User user) {
         User updatedUser = userService.updateUser(id, user);
@@ -87,7 +81,6 @@ public class UserController {
         return ResponseEntity.ok(updatedUser);
     }
 
-    @CrossOrigin
     @PutMapping("/psd/{id}")
     public ResponseEntity<User> updatePsd(@PathVariable("id") Integer id, @RequestBody User user) {
         User updatedPsdUser = userService.updatePsd(id, user);
@@ -95,7 +88,6 @@ public class UserController {
         return ResponseEntity.ok(updatedPsdUser);
     }
 
-    @CrossOrigin
     @GetMapping("/user/object/{id}/nameAndTopic")
     @ResponseBody
     public ResponseEntity<Map<String, String>> getObjectNameAndTopicNameById(@PathVariable("id") Integer id) {
@@ -106,13 +98,11 @@ public class UserController {
         return ResponseEntity.ok(result);
     }
 
-    @CrossOrigin
     @GetMapping("user/search/{keyword}")
     public List<User> getMethodName(@PathVariable("keyword") String keyword) {
         return userService.search(keyword);
     }
 
-    @CrossOrigin
     @GetMapping("user/ban/{id}")
     public RetType ban(@PathVariable("id") Integer id) {
         return userService.banUser(id);

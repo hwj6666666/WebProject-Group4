@@ -37,5 +37,5 @@ public class ClassController {
     public List<Integer> getMethodName4(@RequestParam Integer userId) {
         return classService.selectFavor(userId);
     }
-    
+
 }

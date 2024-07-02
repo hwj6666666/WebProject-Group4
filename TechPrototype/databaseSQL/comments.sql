@@ -5,7 +5,10 @@ create table comments
     user_id      int          not null,
     remark_id    int          not null,
     content      varchar(100) null,
-    publish_time datetime     null
+    publish_time datetime     null,
+    constraint comments_remarks_id_fk
+        foreign key (remark_id) references remarks (id)
+            on update cascade on delete cascade
 );
 
 INSERT INTO jiaoji.comments (id, user_id, remark_id, content, publish_time) VALUES (1, 3, 1, '感觉配不上5星', '2023-08-20 00:00:00');
@@ -35,3 +38,9 @@ INSERT INTO jiaoji.comments (id, user_id, remark_id, content, publish_time) VALU
 INSERT INTO jiaoji.comments (id, user_id, remark_id, content, publish_time) VALUES (25, 3, 50, '上市是这样的，先是叔叔现在是阿姨捏', '2024-01-18 00:00:00');
 INSERT INTO jiaoji.comments (id, user_id, remark_id, content, publish_time) VALUES (26, 2, 52, '看B站看的', '2024-02-10 00:00:00');
 INSERT INTO jiaoji.comments (id, user_id, remark_id, content, publish_time) VALUES (27, 1, 54, '我也', '2024-01-29 00:00:00');
+INSERT INTO jiaoji.comments (id, user_id, remark_id, content, publish_time) VALUES (28, 10, 32, '回复 @Ros : 哈哈哈哈
+', '2024-05-21 04:57:51');
+INSERT INTO jiaoji.comments (id, user_id, remark_id, content, publish_time) VALUES (29, 10, 22, '回复 @Jer : ....', '2024-05-25 01:47:53');
+INSERT INTO jiaoji.comments (id, user_id, remark_id, content, publish_time) VALUES (30, 10, 35, '回复 @Tom : 太对了', '2024-05-27 08:27:00');
+INSERT INTO jiaoji.comments (id, user_id, remark_id, content, publish_time) VALUES (31, 10, 35, '回复 @交小集 : 你说的太对了', '2024-05-27 08:27:25');
+INSERT INTO jiaoji.comments (id, user_id, remark_id, content, publish_time) VALUES (35, 10, 49, '哈哈哈哈哈', '2024-06-10 00:12:32');
