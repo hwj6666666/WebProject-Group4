@@ -1,5 +1,6 @@
 package org.example.jiaoji;
 
+import org.example.jiaoji.websocket.netty.NettyWebSocketStarter;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -12,5 +13,6 @@ public class JiaojiApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(JiaojiApplication.class, args);
+        NettyWebSocketStarter.run();
     }
 }
