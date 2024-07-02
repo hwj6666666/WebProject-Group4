@@ -60,4 +60,7 @@ public interface UserMapper {
     @Update("update user set state = #{sup} where id = #{id}")
     public void updateSuper(Integer id, Integer sup);
 
+    @Select("select avatar from user where id = #{id}")
+    public String getAvater(Integer id);
+
 }

@@ -26,4 +26,8 @@ public interface UserService {
     public RetType Login(String email, String password);
 
     public List<User> search(String keyword);
+
+    public String getAvater(Integer id);
+
+    public String getUserName(Integer id);
 }
